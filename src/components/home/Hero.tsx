@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
+import Image from "next/image";
+
 export function Hero() {
     const parallaxRef = useRef<HTMLDivElement>(null);
 
@@ -47,10 +49,14 @@ export function Hero() {
                     ref={parallaxRef}
                     className="absolute inset-0 w-full h-[120%] -top-[10%]"
                 >
-                    <img
+                    <Image
                         src="/images/cnc_hero_image.jpg"
                         alt="Charcoal N Chill Lounge Interior"
-                        className="w-full h-full object-cover filter brightness-[0.4]"
+                        fill
+                        priority
+                        className="object-cover filter brightness-[0.4]"
+                        sizes="100vw"
+                        quality={85}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-dark-primary/40 to-dark-primary/90" />
                 </div>

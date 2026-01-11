@@ -44,7 +44,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />

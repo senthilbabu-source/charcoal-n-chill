@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { Features } from "@/components/home/Features";
 import { ProductShowcase } from "@/components/home/ProductShowcase";
+import { ReviewCarousel } from "@/components/home/ReviewCarousel";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { MapPin, Phone, Mail, Star } from "lucide-react";
 
@@ -71,22 +72,7 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <div className="p-8 bg-glass-bg rounded-2xl border border-glass-border space-y-4 relative overflow-hidden group hover:border-gold-primary/30 transition-colors duration-500">
-                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                      <Star size={100} className="text-gold-primary fill-gold-primary" />
-                    </div>
-                    <div className="flex items-center gap-1 text-gold-primary relative z-10">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-current" />
-                      ))}
-                      <span className="ml-2 text-white font-bold">4.8/5</span>
-                    </div>
-                    <p className="text-gray-300 italic relative z-10">&quot;The best hookah lounge in North Atlanta. The food is authentic and the vibe is unmatched. Highly recommend the Butter Chicken and their signature mint hookah!&quot;</p>
-                    <div className="flex items-center gap-3 relative z-10 pt-2">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-dark to-gold-light flex items-center justify-center text-dark-primary font-bold text-xs">SC</div>
-                      <p className="text-gold-primary text-sm font-bold">— Satisfied Customer</p>
-                    </div>
-                  </div>
+                  <ReviewCarousel />
                 </div>
               </ScrollReveal>
 

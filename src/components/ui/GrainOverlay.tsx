@@ -12,8 +12,8 @@ export function GrainOverlay() {
     if (!mounted) return null;
 
     return (
-        <div className="pointer-events-none fixed inset-0 z-[9999] opacity-[0.03] mix-blend-overlay" style={{ pointerEvents: 'none' }}>
-            <div className="absolute inset-0 bg-repeat w-full h-full animate-grain bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+        <div className="pointer-events-none fixed inset-0 z-[9999] opacity-[0.03] mix-blend-overlay backface-hidden transform-gpu translate-z-0" style={{ pointerEvents: 'none' }}>
+            <div className="absolute inset-0 bg-repeat w-full h-full animate-grain bg-[url('/noise.svg')]"></div>
         </div>
     );
 }

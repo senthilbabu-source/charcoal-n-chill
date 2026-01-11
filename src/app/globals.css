@@ -122,6 +122,13 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+/* Force hardware acceleration for fixed elements to prevent jitter */
+.fixed {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 /* Scrollbar */
