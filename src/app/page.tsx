@@ -40,13 +40,8 @@ export default function Home() {
           </div>
 
           <div className="container relative z-10 px-4 md:px-6 text-center space-y-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-white uppercase tracking-tighter leading-none mb-4 animate-float">
-              <span className="neon-text-gold">Charcoal</span> <br />
-              <span className="text-gold neon-text-gold">&</span> Chill
-            </h1>
-            <p className="max-w-2xl mx-auto text-xl text-gray-200 font-medium">
-              50+ Premium Hookah Flavors | Authentic Indian Cuisine | Live Entertainment
-            </p>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-white uppercase tracking-tighter leading-none mb-4 animate-float">Alpharetta's Premier Hookah Lounge & Indian Grill</h1>
+            <p className="max-w-2xl mx-auto text-xl text-gray-200 font-medium">Experience the perfect blend of 50+ premium hookah flavors, authentic Indian cuisine, and electrifying live entertainment in a luxury VIP setting.</p>
             <HeroCTAs />
           </div>
 
