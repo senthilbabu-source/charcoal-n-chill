@@ -1,0 +1,17 @@
+{
+    "name": "Charcoal N Chill",
+    "short_name": "CNC",
+    "description": "Premium Hookah Lounge & Indian Restaurant in Alpharetta, GA",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "48x48 72x72 96x96 144x144 192x192",
+            "type": "image/x-icon"
+        }
+    ],
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/"
+}

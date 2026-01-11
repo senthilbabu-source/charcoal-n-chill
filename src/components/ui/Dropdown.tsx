@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { cn } from "@/lib/utils";
+
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
+
 
 type DropdownProps = {
     label: string;

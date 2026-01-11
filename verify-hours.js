@@ -8,12 +8,7 @@ const pages = [
     { url: 'http://localhost:3000/contact', name: 'Contact' },
 ];
 
-const expectedHours = {
-    sunday: { day: 'Sunday', hours: '5:00 PM - 1:00 AM' },
-    tuesday: { day: 'Tu - Th', hours: '5:00 PM - 1:00 AM' },
-    friday: { day: 'Fr - Sa', hours: '5:00 PM - 2:00 AM' },
-    monday: { day: 'Monday', hours: 'Closed' },
-};
+
 
 async function checkHours(url, pageName) {
     try {

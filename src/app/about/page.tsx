@@ -4,7 +4,6 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { CheckCircle2 } from "lucide-react";
 
 export const metadata = constructMetadata({
     title: "About Us | Atlanta's Premier Hookah Lounge & Social Hub",
@@ -48,7 +47,9 @@ export default function AboutPage() {
                                 src="/images/lounge-atmosphere.jpg"
                                 alt="Charcoal N Chill Atmosphere"
                                 className="w-full h-full object-cover"
-                            />
+                                width="800"
+                                height="600"
+                                loading="lazy" />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                         </div>
                     </div>

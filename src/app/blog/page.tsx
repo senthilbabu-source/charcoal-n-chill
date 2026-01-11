@@ -2,10 +2,10 @@ import { constructMetadata } from "@/lib/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
-import { Button } from "@/components/ui/Button";
+
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import Link from "next/link";
+
 import { Calendar, User, ArrowRight } from "lucide-react";
 
 export const metadata = constructMetadata({
@@ -62,7 +62,7 @@ export default function BlogPage() {
                         {posts.map((post, i) => (
                             <article key={i} className="group flex flex-col space-y-6">
                                 <div className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-white/5">
-                                    <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                    <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="800" height="600" loading="lazy" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                 </div>
 

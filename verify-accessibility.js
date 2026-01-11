@@ -16,7 +16,7 @@ async function verifyAccessibility(url, name) {
         const html = await response.text();
 
         const checks = {
-            skipLink: html.includes('skip to content') || html.includes('Skip to content'),
+            skipLink: /skip to content/i.test(html),
             lang: html.includes('<html lang='),
             altText: !html.match(/<img[^>]+(?!alt=)/gi) || html.split('<img').length === html.split('alt=').length,
             ariaLabels: html.includes('aria-label') || html.includes('aria-labelledby'),

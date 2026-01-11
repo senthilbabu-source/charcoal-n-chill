@@ -283,11 +283,11 @@ export default function MenuPage() {
                             <h3 className="text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-4">
                                 House <span className="text-gold text-glow">Curated</span> Picks
                             </h3>
-                            <p className="text-gray-400 text-lg max-w-2xl mx-auto">Exclusive signature blends you won't find anywhere else</p>
+                            <p className="text-gray-400 text-lg max-w-2xl mx-auto">Exclusive signature blends you won&apos;t find anywhere else</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {[
-                                { name: "Breeze Titanic", desc: "A refreshing oceanic blend of icy mint and tropical waves, with hints of cucumber and melon that transport you to a Mediterranean coastline" },
+                                { name: "Breeze Titanic", desc: "A refreshing oceanic blend of icy mint and tropical waves, with hints of cucumber and melon that transport you to a coastal coastline" },
                                 { name: "CNC Special", desc: "Our signature house blend combining exotic spices, sweet vanilla cream, and a whisper of cardamom - the essence of luxury in every puff" },
                                 { name: "Mint Mocha", desc: "Decadent dark chocolate meets cool peppermint in this sophisticated blend, finished with espresso undertones for the ultimate indulgence" },
                                 { name: "Queen of Chaotic", desc: "A bold fusion of wild berries, passion fruit, and dragon fruit with an unexpected twist of rose petals - beautifully unpredictable" },

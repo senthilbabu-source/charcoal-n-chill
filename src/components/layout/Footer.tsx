@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
     return (
@@ -10,7 +10,7 @@ export function Footer() {
                     <div className="space-y-8">
                         <Link href="/" className="inline-block group">
                             <div className="absolute inset-0 bg-gold/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                            <img src="/logo.png" alt="Charcoal N Chill" className="h-16 md:h-20 relative z-10" />
+                            <img src="/logo.png" alt="Charcoal N Chill - Premium Hookah & Indian Restaurant" className="h-16 md:h-20 w-auto object-contain relative z-10" loading="lazy" />
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm">
                             Atlanta&apos;s premier destination for high-end hookah and authentic flavor. Experience the luxury of Charcoal N Chill.
@@ -97,7 +97,17 @@ export function Footer() {
                     <p className="text-gray-500 text-xs tracking-widest uppercase">
                         &copy; {new Date().getFullYear()} Charcoal N Chill. All Rights Reserved.
                     </p>
-                    <div className="flex gap-10">
+                    <div className="flex gap-10 items-center">
+                        {/* Sitemap Link */}
+                        <Link href="/sitemap.xml" className="text-xs text-gray-500 hover:text-gold uppercase tracking-widest transition-colors font-bold">
+                            Sitemap
+                        </Link>
+                        {/* Review QR Code Placeholder */}
+                        <div className="flex items-center gap-2">
+                            <span className="text-xs text-gray-500 uppercase">Review:</span>
+                            <div className="w-6 h-6 bg-gray-300 rounded" title="QR code placeholder" />
+                        </div>
+                        {/* Existing policy links */}
                         {["Privacy Policy", "Terms of Service", "Cookies"].map((item) => (
                             <Link key={item} href="#" className="text-xs text-gray-500 hover:text-gold uppercase tracking-widest transition-colors font-bold">
                                 {item}

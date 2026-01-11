@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Script from "next/script";
 
 export function Analytics() {
@@ -40,7 +41,8 @@ export function Analytics() {
 }
 
 // Helper to track custom events
-export const trackEvent = (eventName: string, params?: Record<string, any>) => {
+// Helper to track custom events
+export const trackEvent = (eventName: string, params?: Record<string, string | number | boolean>) => {
     if (typeof window !== "undefined" && (window as any).gtag) {
         (window as any).gtag("event", eventName, params);
     }

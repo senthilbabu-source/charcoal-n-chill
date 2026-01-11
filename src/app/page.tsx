@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import Link from "next/link";
-import { ArrowRight, Flame, Utensils, Music, Users } from "lucide-react";
+import { Flame, Utensils, Music, Users } from "lucide-react";
 import { HeroCTAs } from "@/components/home/HeroCTAs";
 
 export const metadata = constructMetadata({
@@ -35,12 +35,15 @@ export default function Home() {
               src="/images/cnc_hero_image.jpg"
               className="w-full h-full object-cover scale-105"
               alt="Lounge background"
+              width="1920"
+              height="1080"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
           </div>
 
           <div className="container relative z-10 px-4 md:px-6 text-center space-y-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-white uppercase tracking-tighter leading-none mb-4 animate-float">Alpharetta's Premier Hookah Lounge & Indian Grill</h1>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-heading font-black text-white uppercase tracking-tighter leading-none mb-4 animate-float">Alpharetta&apos;s Premier Hookah Lounge & Indian Grill</h1>
             <p className="max-w-2xl mx-auto text-xl text-gray-200 font-medium">Experience the perfect blend of 50+ premium hookah flavors, authentic Indian cuisine, and electrifying live entertainment in a luxury VIP setting.</p>
             <HeroCTAs />
           </div>
@@ -97,6 +100,8 @@ export default function Home() {
             ))}
           </div>
         </Section>
+
+
         {/* Featured Menu Preview */}
         <Section id="menu-preview">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
@@ -135,6 +140,9 @@ export default function Home() {
                   src={item.image}
                   alt={item.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  width="400"
+                  height="300"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 space-y-2">
@@ -156,6 +164,7 @@ export default function Home() {
               <div className="space-y-4">
                 <h2 className="text-3xl md:text-5xl font-heading font-bold text-white">Visit Us in Alpharetta</h2>
                 <p className="text-gray-400">Located in the heart of Alpharetta, GA. Join us for an unforgettable evening of premium hookah, fine dining, and live entertainment.</p>
+                <p className="text-gray-600 mt-4">Conveniently located near Avalon Mall on Jones Bridge Road, Charcoal N Chill is just 3 minutes from Alpharetta&apos;s premier shopping and entertainment district. Easy access, ample free parking, and the perfect post-shopping destination for premium hookah and authentic Indian cuisine.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-8">

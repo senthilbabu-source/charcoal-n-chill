@@ -63,18 +63,18 @@ export default function PrivateEventsPage() {
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-4 pt-8">
                                 <div className="aspect-square rounded-2xl overflow-hidden border border-white/10">
-                                    <img src="/images/vip-section.jpg" className="w-full h-full object-cover" />
+                                    <img src="/images/vip-section.jpg" className="w-full h-full object-cover" width="800" height="600" loading="lazy" alt="VIP Section with Versace seating" />
                                 </div>
                                 <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
-                                    <img src="/images/hookah-prep.jpg" className="w-full h-full object-cover" />
+                                    <img src="/images/hookah-prep.jpg" className="w-full h-full object-cover" width="800" height="600" loading="lazy" alt="Premium Hookah Preparation" />
                                 </div>
                             </div>
                             <div className="space-y-4">
                                 <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
-                                    <img src="/images/hero-bg.jpg" className="w-full h-full object-cover" />
+                                    <img src="/images/hero-bg.jpg" className="w-full h-full object-cover" alt="Private Events Hero Background" width="800" height="600" loading="lazy" />
                                 </div>
                                 <div className="aspect-square rounded-2xl overflow-hidden border border-white/10">
-                                    <img src="/images/event-gathering.jpg" className="w-full h-full object-cover" />
+                                    <img src="/images/event-gathering.jpg" className="w-full h-full object-cover" alt="Private Events Gathering" width="800" height="600" loading="lazy" />
                                 </div>
                             </div>
                         </div>

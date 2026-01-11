@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, AlertCircle, Search, Globe, Zap, Shield, RefreshCw, Code2, Layout, Smartphone, LogOut } from "lucide-react";
+import { CheckCircle2, Search, Globe, Zap, Shield, RefreshCw, Code2, Smartphone, LogOut } from "lucide-react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import AdminAuthCheck from "@/components/admin/AdminAuthCheck";
@@ -50,6 +50,7 @@ function SeoDashboardContent() {
     };
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setScore(100);
         setLastScan(new Date().toLocaleTimeString());
     }, []);

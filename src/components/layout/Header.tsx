@@ -7,7 +7,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { Dropdown } from "@/components/ui/Dropdown";
+
 
 const navLeft = [
     { name: "Home", href: "/" },
@@ -39,6 +39,7 @@ export function Header() {
     }, []);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsOpen(false);
     }, [pathname]);
 
@@ -78,8 +79,9 @@ export function Header() {
                             alt="Charcoal N Chill - Premium Hookah & Indian Restaurant"
                             className={cn(
                                 "transition-all duration-500 relative z-10",
-                                scrolled ? "h-14 md:h-16" : "h-20 md:h-24"
+                                scrolled ? "h-14 md:h-16 w-auto flex-shrink-0" : "h-20 md:h-24 w-auto flex-shrink-0"
                             )}
+                            loading="lazy"
                         />
                     </Link>
                     {/* Right Nav (Desktop) */}
@@ -118,7 +120,7 @@ export function Header() {
                         className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col p-8 md:hidden overflow-y-auto"
                     >
                         <div className="flex justify-center mb-12">
-                            <img src="/logo.png" alt="Charcoal N Chill" className="h-20" />
+                            <img src="/logo.png" alt="Charcoal N Chill - Premium Hookah & Indian Restaurant" className="h-20 w-auto object-contain" loading="lazy" />
                         </div>
                         <nav className="flex flex-col gap-6 items-center">
                             {allNavItems.map((item) => (

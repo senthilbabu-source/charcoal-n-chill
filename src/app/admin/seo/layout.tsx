@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ChevronLeft, LayoutDashboard, BarChart, ShieldCheck } from "lucide-react";
 
+
+
 export default function AdminLayout({
     children,
 }: {
@@ -10,7 +12,10 @@ export default function AdminLayout({
         <div className="min-h-screen bg-[#050505] text-white font-sans">
             <aside className="fixed left-0 top-0 bottom-0 w-64 bg-[#0a0a0a] border-r border-white/5 p-6 space-y-10 z-50 hidden lg:block">
                 <Link href="/" className="flex items-center gap-3">
-                    <img src="/logo.png" className="h-10" alt="Logo" />
+
+
+                    {/* Logo */}
+                    <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain flex-shrink-0" loading="lazy" />
                     <span className="font-heading font-bold uppercase tracking-widest text-xs hidden xl:block">Admin Panel</span>
                 </Link>
 

@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { trackEvent } from "@/components/layout/Analytics";
+
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import { Calendar, Music, UserCheck, Star } from "lucide-react";
@@ -128,7 +128,9 @@ export default function EventsPage() {
                                             src={event.image}
                                             alt={event.name}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                        />
+                                            width="800"
+                                            height="600"
+                                            loading="lazy" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                                     </div>
                                 </div>
