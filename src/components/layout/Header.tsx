@@ -48,7 +48,7 @@ export function Header() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 scrolled
-                    ? "glass-bg py-4 shadow-lg"
+                    ? "bg-black/90 backdrop-blur-md py-4 shadow-lg border-b border-white/5"
                     : "bg-transparent py-8"
             )}
             role="banner"
@@ -112,6 +112,7 @@ export function Header() {
                 <button
                     className="md:hidden text-white hover:text-gold-primary transition-colors relative z-20"
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label={isOpen ? "Close menu" : "Open menu"}
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
@@ -125,18 +126,15 @@ export function Header() {
                         initial={{ opacity: 0, x: "100%" }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
-                        className="fixed inset-0 z-40 bg-dark-primary/95 backdrop-blur-xl flex flex-col p-8 md:hidden overflow-y-auto"
+                        className="fixed inset-0 z-[60] bg-dark-primary/98 backdrop-blur-xl flex flex-col justify-center p-8 md:hidden overflow-y-auto"
                     >
-                        <div className="flex justify-center mb-12">
-                            <img src="/logo.png" alt="Charcoal N Chill - Premium Hookah & Indian Restaurant" className="h-20 w-auto object-contain" loading="lazy" />
-                        </div>
-                        <nav className="flex flex-col gap-6 items-center">
+                        <nav className="flex flex-col gap-4 items-center">
                             {allNavItems.map((item) => (
                                 <Link
                                     key={item.name}
                                     href={item.href}
                                     className={cn(
-                                        "text-2xl font-heading font-medium transition-colors hover:text-gold-primary",
+                                        "text-2xl font-heading font-bold uppercase tracking-widest transition-colors hover:text-gold-primary",
                                         pathname === item.href ? "text-gold-primary" : "text-white/80"
                                     )}
                                     onClick={() => setIsOpen(false)}
@@ -151,8 +149,9 @@ export function Header() {
                             </div>
                         </nav>
                         <button
-                            className="absolute top-8 right-8 text-white hover:text-gold-primary transition-colors"
+                            className="absolute top-6 right-6 text-white hover:text-gold-primary transition-colors p-2"
                             onClick={() => setIsOpen(false)}
+                            aria-label="Close menu"
                         >
                             <X size={32} />
                         </button>

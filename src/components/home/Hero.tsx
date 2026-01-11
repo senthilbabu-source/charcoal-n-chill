@@ -109,7 +109,7 @@ export function Hero() {
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                     <Link href="/contact#reserve">
-                        <MagneticButton className="px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-light text-dark-primary rounded-xl hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] flex items-center gap-2">
+                        <MagneticButton className="px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-light !text-dark-primary hover:!text-dark-primary rounded-xl hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] flex items-center gap-2 transition-all">
                             <span>Book Your Table</span>
                             <ArrowRight size={20} />
                         </MagneticButton>
@@ -125,18 +125,19 @@ export function Hero() {
                     </MagneticButton>
                 </div>
 
-                {/* Scroll Indicator */}
-                <button
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-white/50 hover:text-white bg-transparent border-none"
-                    onClick={scrollToMenu}
-                    aria-label="Scroll to Menu"
-                >
-                    <div className="w-[30px] h-[50px] border-2 border-current rounded-full flex justify-center p-2">
-                        <div className="w-1 h-2 bg-current rounded-full animate-scroll-wheel" />
-                    </div>
-                    <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
-                </button>
             </div>
+
+            {/* Scroll Indicator */}
+            <button
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-white/50 hover:text-white bg-transparent border-none"
+                onClick={scrollToMenu}
+                aria-label="Scroll to Menu"
+            >
+                <div className="w-[30px] h-[50px] border-2 border-current rounded-full flex justify-center p-2">
+                    <div className="w-1 h-2 bg-current rounded-full animate-scroll-wheel" />
+                </div>
+                <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+            </button>
 
             {/* Floating Stats Bar */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl glass-bg border-b-0 rounded-t-3xl p-6 hidden md:flex justify-around items-center animate-slide-up" style={{ animationDelay: '0.8s' }}>

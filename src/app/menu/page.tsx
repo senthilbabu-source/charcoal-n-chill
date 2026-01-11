@@ -8,24 +8,55 @@ import { Flame, Utensils, GlassWater, Wind } from "lucide-react";
 import Image from "next/image";
 
 export const metadata = constructMetadata({
-    title: "Menu | Authentic Indian Food, Premium Hookah & Craft Cocktails",
-    description: "Explore our menu of 50+ premium hookah flavors, authentic Indian entrees, and craft cocktails. From Chicken 65 to Butter Chicken. View full menu & prices.",
+    title: "Menu | Indo-American Fusion, Wings, Curries & Hookah",
+    description: "Explore our fusion menu featuring crispy Wings, Truffle Fries, and authentic Butter Chicken. 50+ premium hookah flavors and craft cocktails. Open late.",
     path: "/menu",
-    keywords: ["Indian food menu Alpharetta", "hookah flavors list", "best curries Alpharetta", "cocktail lounge menu"]
+    keywords: ["Indo-American fusion menu", "wings and hookah", "best curry Alpharetta", "cocktail bar menu", "late night eats"]
 });
 
 const menuSchema = {
     "@context": "https://schema.org",
     "@type": "Menu",
     "name": "Charcoal N Chill Menu",
-    "description": "Authentic Indian cuisine, 50+ hookah flavors, craft cocktails",
+    "description": "Authentic Indian cuisine, American Classics, 50+ hookah flavors, craft cocktails",
     "hasMenuSection": [
         {
             "@type": "MenuSection",
             "name": "Appetizers",
+            "hasMenuItem": menuItems.appetizers.map(item => ({
+                "@type": "MenuItem",
+                "name": item.name,
+                "description": item.desc,
+                "offers": { "@type": "Offer", "price": item.price.replace('$', ''), "priceCurrency": "USD" }
+            }))
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Main Entrees",
+            "hasMenuItem": menuItems.entrees.map(item => ({
+                "@type": "MenuItem",
+                "name": item.name,
+                "description": item.desc,
+                "offers": { "@type": "Offer", "price": item.price.replace('$', ''), "priceCurrency": "USD" }
+            }))
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Desserts",
+            "hasMenuItem": menuItems.desserts.map(item => ({
+                "@type": "MenuItem",
+                "name": item.name,
+                "description": item.desc,
+                "offers": { "@type": "Offer", "price": item.price.replace('$', ''), "priceCurrency": "USD" }
+            }))
+        },
+        {
+            "@type": "MenuSection",
+            "name": "Hookah Flavors",
+            "description": "50+ Premium Flavors including Al Fakher, Starbuzz, and House Blends",
             "hasMenuItem": [
-                { "@type": "MenuItem", "name": "Chicken 65", "description": "South Indian spicy fried chicken", "offers": { "@type": "Offer", "price": "11.00", "priceCurrency": "USD" } },
-                { "@type": "MenuItem", "name": "Paneer 65", "description": "Spicy deep-fried cottage cheese cubes", "offers": { "@type": "Offer", "price": "10.00", "priceCurrency": "USD" } }
+                { "@type": "MenuItem", "name": "Standard Hookah", "description": "Choose from classic fruit and mint flavors", "offers": { "@type": "Offer", "price": "25.00", "priceCurrency": "USD" } },
+                { "@type": "MenuItem", "name": "VIP Hookah", "description": "House Curated Picks and Premium Blends", "offers": { "@type": "Offer", "price": "40.00", "priceCurrency": "USD" } }
             ]
         }
     ]
@@ -95,7 +126,7 @@ export default function MenuPage() {
                             Our <span className="text-gold text-glow">Menu</span>
                         </h1>
                         <p className="max-w-2xl mx-auto text-xl text-gray-400">
-                            Discover a fusion of authentic Indian flavors, premium hookah, and artisan cocktails.
+                            Discover a bold fusion of authentic Indian flavors, American classics, and artisan cocktails.
                         </p>
                     </div>
                 </section>

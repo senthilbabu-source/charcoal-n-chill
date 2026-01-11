@@ -17,10 +17,10 @@ const ProductShowcase = dynamic(() => import("@/components/home/ProductShowcase"
 const ReviewCarousel = dynamic(() => import("@/components/home/ReviewCarousel").then(mod => mod.ReviewCarousel));
 
 export const metadata = constructMetadata({
-  title: "Charcoal N Chill | #1 Hookah Lounge & Indian Restaurant in Alpharetta",
-  description: "Alpharetta's #1 hookah lounge & authentic Indian restaurant near Avalon. 50+ premium flavors, live entertainment, VIP seating. Open til 2 AM. Book now!",
+  title: "Charcoal N Chill | #1 Hookah & Indo-American Fusion in Alpharetta",
+  description: "Alpharetta's top spot for premium hookah, wings, and curry. The best of Indian flavor meets American favorites. Open late for VIP dining and live entertainment.",
   path: "/",
-  keywords: ["best hookah lounge Alpharetta", "Indian dining near me", "VIP lounge Atlanta", "late night kitchen Alpharetta"]
+  keywords: ["hookah lounge Alpharetta", "Indo-American fusion", "best wings Alpharetta", "Indian food near me", "late night food Alpharetta"]
 });
 
 export default function Home() {

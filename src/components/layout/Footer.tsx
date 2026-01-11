@@ -23,7 +23,7 @@ export function Footer() {
                             />
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm">
-                            Atlanta&apos;s premier destination for high-end hookah and authentic flavor. Experience the luxury of Charcoal N Chill.
+                            Atlanta&apos;s premier destination for high-end hookah and a unique fusion of Indian zest and American favorites. Experience the luxury of Charcoal N Chill.
                         </p>
                         <div className="flex gap-4">
                             <a href="https://www.instagram.com/charcoal_n_chill/" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
