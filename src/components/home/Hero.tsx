@@ -52,7 +52,7 @@ export function Hero() {
                     className="absolute inset-0 w-full h-[120%] -top-[10%] will-change-transform"
                 >
                     <Image
-                        src="/images/cnc_hero_image.jpg"
+                        src="/images/final-cnc-hero.jpg"
                         alt="Charcoal N Chill Lounge Interior"
                         fill
                         priority
