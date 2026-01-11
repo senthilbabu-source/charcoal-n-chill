@@ -14,6 +14,45 @@ export const metadata = constructMetadata({
     keywords: ["Indo-American fusion menu", "wings and hookah", "best curry Alpharetta", "cocktail bar menu", "late night eats"]
 });
 
+const menuItems = {
+    appetizers: [
+        { name: "Chicken Tenders", price: "$8", desc: "Crispy golden tenders with choice of dipping sauce" },
+        { name: "Veg Spring Rolls", price: "$7", desc: "Fresh vegetables wrapped and fried to perfection" },
+        { name: "Chill Chips & Dips", price: "$6", desc: "House-made chips with trio of signature dips" },
+        { name: "Cauliflower Bites", price: "$8", desc: "Crispy battered cauliflower florets" },
+        { name: "Truffle Cloud Fries", price: "$9", desc: "Hand-cut fries with truffle oil and parmesan" },
+        { name: "Egg Pepper Roast", price: "$8", desc: "Spiced hard-boiled eggs in pepper masala" },
+        { name: "Omelette", price: "$7", desc: "Fluffy omelette with fresh herbs and spices" },
+        { name: "Crispy Corn", price: "$8", desc: "Sweet corn kernels tossed in Indo-Chinese spices" },
+        { name: "Pappad Masala", price: "$6", desc: "Crispy lentil crackers with onion and tomato topping" },
+        { name: "Peanut Masala", price: "$6", desc: "Roasted peanuts in spicy masala" },
+        { name: "Wings", price: "$10", desc: "Jumbo wings in Buffalo, Lemon Pepper, BBQ, Honey Chilli, or Honey Mustard" },
+        { name: "Paneer Chilli", price: "$10", desc: "Indo-Chinese cottage cheese with bell peppers and onions" },
+        { name: "Paneer 65", price: "$10", desc: "Spicy deep-fried cottage cheese cubes" },
+        { name: "Chicken Pepper", price: "$11", desc: "Tender chicken in black pepper sauce" },
+        { name: "Chicken Chili", price: "$11", desc: "Indo-Chinese chicken with peppers and sauce" },
+        { name: "Chicken 65", price: "$11", desc: "South Indian spicy fried chicken" },
+        { name: "Shrimp Pepper", price: "$13", desc: "Jumbo shrimp in peppercorn sauce" },
+        { name: "Shrimp Chili", price: "$13", desc: "Spicy Indo-Chinese style shrimp" },
+        { name: "Shrimp 65", price: "$13", desc: "Crispy fried shrimp South Indian style" },
+    ],
+    entrees: [
+        { name: "Veg Fried Rice", price: "$11", desc: "Wok-tossed rice with seasonal vegetables" },
+        { name: "Egg Fried Rice", price: "$12", desc: "Classic fried rice with scrambled eggs" },
+        { name: "Chicken Fried Rice", price: "$13", desc: "Tender chicken with aromatic fried rice" },
+        { name: "Shrimp Fried Rice", price: "$15", desc: "Jumbo shrimp with vegetables and rice" },
+        { name: "Maggi", price: "$8", desc: "Indian-style instant noodles with spices" },
+        { name: "Paneer Butter Masala", price: "$14", desc: "Cottage cheese in creamy tomato sauce, served with naan" },
+        { name: "Butter Chicken Masala", price: "$16", desc: "Tender chicken in rich butter sauce, served with naan" },
+        { name: "Naan", price: "$3", desc: "Fresh-baked Indian flatbread" },
+    ],
+    desserts: [
+        { name: "Tiramisu Temptation", price: "$8", desc: "Classic Italian dessert with coffee-soaked layers" },
+        { name: "Tres Lechesss Cake", price: "$7", desc: "Latin American three-milk sponge cake" },
+        { name: "Gulab Jamun", price: "$6", desc: "Traditional Indian milk dumplings in rose syrup" },
+    ],
+};
+
 const menuSchema = {
     "@context": "https://schema.org",
     "@type": "Menu",
@@ -60,45 +99,6 @@ const menuSchema = {
             ]
         }
     ]
-};
-
-const menuItems = {
-    appetizers: [
-        { name: "Chicken Tenders", price: "$8", desc: "Crispy golden tenders with choice of dipping sauce" },
-        { name: "Veg Spring Rolls", price: "$7", desc: "Fresh vegetables wrapped and fried to perfection" },
-        { name: "Chill Chips & Dips", price: "$6", desc: "House-made chips with trio of signature dips" },
-        { name: "Cauliflower Bites", price: "$8", desc: "Crispy battered cauliflower florets" },
-        { name: "Truffle Cloud Fries", price: "$9", desc: "Hand-cut fries with truffle oil and parmesan" },
-        { name: "Egg Pepper Roast", price: "$8", desc: "Spiced hard-boiled eggs in pepper masala" },
-        { name: "Omelette", price: "$7", desc: "Fluffy omelette with fresh herbs and spices" },
-        { name: "Crispy Corn", price: "$8", desc: "Sweet corn kernels tossed in Indo-Chinese spices" },
-        { name: "Pappad Masala", price: "$6", desc: "Crispy lentil crackers with onion and tomato topping" },
-        { name: "Peanut Masala", price: "$6", desc: "Roasted peanuts in spicy masala" },
-        { name: "Wings", price: "$10", desc: "Jumbo wings in Buffalo, Lemon Pepper, BBQ, Honey Chilli, or Honey Mustard" },
-        { name: "Paneer Chilli", price: "$10", desc: "Indo-Chinese cottage cheese with bell peppers and onions" },
-        { name: "Paneer 65", price: "$10", desc: "Spicy deep-fried cottage cheese cubes" },
-        { name: "Chicken Pepper", price: "$11", desc: "Tender chicken in black pepper sauce" },
-        { name: "Chicken Chili", price: "$11", desc: "Indo-Chinese chicken with peppers and sauce" },
-        { name: "Chicken 65", price: "$11", desc: "South Indian spicy fried chicken" },
-        { name: "Shrimp Pepper", price: "$13", desc: "Jumbo shrimp in peppercorn sauce" },
-        { name: "Shrimp Chili", price: "$13", desc: "Spicy Indo-Chinese style shrimp" },
-        { name: "Shrimp 65", price: "$13", desc: "Crispy fried shrimp South Indian style" },
-    ],
-    entrees: [
-        { name: "Veg Fried Rice", price: "$11", desc: "Wok-tossed rice with seasonal vegetables" },
-        { name: "Egg Fried Rice", price: "$12", desc: "Classic fried rice with scrambled eggs" },
-        { name: "Chicken Fried Rice", price: "$13", desc: "Tender chicken with aromatic fried rice" },
-        { name: "Shrimp Fried Rice", price: "$15", desc: "Jumbo shrimp with vegetables and rice" },
-        { name: "Maggi", price: "$8", desc: "Indian-style instant noodles with spices" },
-        { name: "Paneer Butter Masala", price: "$14", desc: "Cottage cheese in creamy tomato sauce, served with naan" },
-        { name: "Butter Chicken Masala", price: "$16", desc: "Tender chicken in rich butter sauce, served with naan" },
-        { name: "Naan", price: "$3", desc: "Fresh-baked Indian flatbread" },
-    ],
-    desserts: [
-        { name: "Tiramisu Temptation", price: "$8", desc: "Classic Italian dessert with coffee-soaked layers" },
-        { name: "Tres Lechesss Cake", price: "$7", desc: "Latin American three-milk sponge cake" },
-        { name: "Gulab Jamun", price: "$6", desc: "Traditional Indian milk dumplings in rose syrup" },
-    ],
 };
 
 const categoryImages = {
