@@ -11,7 +11,7 @@ import { Calendar, Music, UserCheck, Star } from "lucide-react";
 
 export const metadata = constructMetadata({
     title: "Events & Entertainment | Belly Dancing, Afrobeats & Bollywood",
-    description: "Join us for the best nightlife in Alpharetta. Weekly belly dancing shows, DJ nights (Afrobeats, Latino, Bollywood), and premium lounge entertainment.",
+    description: "Weekly live entertainment at Charcoal N Chill Alpharetta! Professional belly dancing, Afrobeats nights, Latino nights, Bollywood parties. Check calendar.",
     path: "/events",
     keywords: ["belly dancing Alpharetta", "Afrobeats night Atlanta", "Bollywood night Alpharetta", "best nightlife GA"]
 });

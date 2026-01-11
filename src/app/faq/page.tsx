@@ -8,7 +8,7 @@ import { HelpCircle, ChevronDown } from "lucide-react";
 
 export const metadata = constructMetadata({
     title: "Frequently Asked Questions | Charcoal N Chill Hookah & Dining",
-    description: "Everything you need to know about Charcoal N Chill: parking, age requirements, hookah options, and more. Your complete guide to our Alpharetta lounge.",
+    description: "Frequently asked questions about Charcoal N Chill hookah lounge in Alpharetta. Reservations, hookah flavors, menu, hours, parking, age requirements & more.",
     path: "/faq",
     keywords: ["hookah lounge FAQ", "age requirement hookah bar", "parking Charcoal N Chill", "hookah lounge rules"]
 });

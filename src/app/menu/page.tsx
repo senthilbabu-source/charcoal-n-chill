@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export const metadata = constructMetadata({
     title: "Menu | Authentic Indian Food, Premium Hookah & Craft Cocktails",
-    description: "Explore the Charcoal N Chill menu in Alpharetta: authentic Indian curries, 50+ premium hookah flavors, and artisan cocktails. Perfect for late-night dining.",
+    description: "Explore our menu of 50+ premium hookah flavors, authentic Indian entrees, and craft cocktails. From Chicken 65 to Butter Chicken. View full menu & prices.",
     path: "/menu",
     keywords: ["Indian food menu Alpharetta", "hookah flavors list", "best curries Alpharetta", "cocktail lounge menu"]
 });

@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata = constructMetadata({
     title: "About Us | Atlanta's Premier Hookah Lounge & Social Hub",
-    description: "Discover the story of Charcoal N Chill, Alpharetta's finest destination for premium hookah, authentic Indian food, and luxury lounge vibes.",
+    description: "Learn about Charcoal N Chill, Alpharetta's premier hookah lounge since 2015. Luxury Versace seating, authentic Indian cuisine by Chef Ajay, live entertainment.",
     path: "/about",
     keywords: ["about Charcoal N Chill", "best lounge Alpharetta", "Indian restaurant founders", "hookah lounge story"]
 });

@@ -13,12 +13,23 @@ export default function AdminLogin() {
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
-        if (email === "charcoalnchill@gmail.com" && password === "JustCh1!!@2025") {
+        console.log("Login attempt:", { email, password }); // Debug log
+
+        const cleanEmail = email.trim().toLowerCase();
+        const cleanPassword = password.trim();
+
+        if (cleanEmail === "charcoalnchill@gmail.com" && cleanPassword === "Charcoal2026!") {
+            console.log("Credentials valid, resolving...");
             sessionStorage.setItem("admin_authenticated", "true");
-            sessionStorage.setItem("admin_email", email);
-            router.push("/admin/seo");
+            sessionStorage.setItem("admin_email", cleanEmail);
+
+            // Small delay to ensure storage persistence before navigation
+            setTimeout(() => {
+                router.push("/admin/seo");
+            }, 100);
         } else {
-            setError("Invalid credentials");
+            console.error("Invalid credentials");
+            setError("Invalid credentials. Please double check spacing.");
         }
     };
 

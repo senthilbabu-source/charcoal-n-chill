@@ -10,7 +10,7 @@ import { Calendar, User, ArrowRight } from "lucide-react";
 
 export const metadata = constructMetadata({
     title: "Blog & Insights | Hookah Culture & Indian Cuisine in Alpharetta",
-    description: "Deep dive into hookah culture, authentic Indian recipes, and the best nightlife tips from Charcoal N Chill. Your guide to premium lounge experiences in GA.",
+    description: "Hookah tips, Indian food recipes, event highlights, and Alpharetta nightlife guides from Charcoal N Chill. Your source for lounge culture insights.",
     path: "/blog",
     keywords: ["hookah tips blog", "Indian food guides", "Atlanta nightlife blog", "lounge culture insights"]
 });

@@ -19,34 +19,49 @@ export const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Charcoal N Chill",
-    "url": "https://www.charcoalnchill.com",
-    "logo": "https://www.charcoalnchill.com/logo.png",
+    "url": "https://charcoalnchill.com",
+    "logo": "https://charcoalnchill.com/logo.png",
+    "description": "Alpharetta's premier hookah lounge and authentic Indian restaurant featuring 50+ premium flavors, live entertainment, and luxury VIP seating near Avalon Mall.",
+    "foundingDate": "2015",
     "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+14705464866",
-        "email": "charcoalnchill@gmail.com",
-        "contactType": "customer service",
+        "telephone": "+1-470-546-4866",
+        "contactType": "reservations",
         "areaServed": "US",
-        "availableLanguage": "en"
+        "availableLanguage": ["en"],
+        "email": "charcoalnchill@gmail.com"
     },
     "sameAs": [
-        "https://www.facebook.com/charcoalnchill",
-        "https://www.instagram.com/charcoalnchill",
-        "https://www.tiktok.com/@charcoalnchill"
-    ]
+        "https://www.facebook.com/profile.php?id=61571869656813",
+        "https://www.instagram.com/charcoal_n_chill/",
+        "https://www.yelp.com/biz/charcoal-n-chill-alpharetta"
+    ],
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "11950 Jones Bridge Rd Ste 103",
+        "addressLocality": "Alpharetta",
+        "addressRegion": "GA",
+        "postalCode": "30005",
+        "addressCountry": "US"
+    }
 };
 
 export const restaurantSchema = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "name": "Charcoal N Chill - Lounge & Grill",
-    "image": "https://www.charcoalnchill.com/images/hero-bg.jpg",
-    "@id": "https://www.charcoalnchill.com",
-    "url": "https://www.charcoalnchill.com",
+    "name": "Charcoal N Chill",
+    "image": [
+        "https://charcoalnchill.com/images/cnc_hero_image.jpg",
+        "https://charcoalnchill.com/logo.png",
+        "https://charcoalnchill.com/images/chicken-65.jpg",
+        "https://charcoalnchill.com/images/butter-chicken.jpg",
+        "https://charcoalnchill.com/images/signature-hookah.jpg"
+    ],
+    "@id": "https://charcoalnchill.com",
+    "url": "https://charcoalnchill.com",
     "telephone": "+14705464866",
+    "email": "charcoalnchill@gmail.com",
     "priceRange": "$$",
-    "paymentAccepted": "Cash, Credit Card, Apple Pay",
-    "currenciesAccepted": "USD",
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "11950 Jones Bridge Rd Ste 103",
@@ -57,13 +72,13 @@ export const restaurantSchema = {
     },
     "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 34.0753762,
-        "longitude": -84.2940899
+        "latitude": 34.0705,
+        "longitude": -84.2830
     },
     "openingHoursSpecification": [
         {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Sunday", "Tuesday", "Wednesday", "Thursday"],
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
             "opens": "17:00",
             "closes": "01:00"
         },
@@ -72,47 +87,26 @@ export const restaurantSchema = {
             "dayOfWeek": ["Friday", "Saturday"],
             "opens": "17:00",
             "closes": "02:00"
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "17:00",
+            "closes": "01:00"
         }
     ],
-    "servesCuisine": "Indian, Indo-Chinese",
+    "servesCuisine": ["Indian", "Mediterranean", "Hookah Lounge"],
     "acceptsReservations": "True",
+    "menu": "https://charcoalnchill.com/menu",
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "reviewCount": "150"
+        "reviewCount": "45",
+        "bestRating": "5",
+        "worstRating": "1"
     },
-    "areaServed": [
-        { "@type": "City", "name": "Alpharetta" },
-        { "@type": "City", "name": "Johns Creek" },
-        { "@type": "City", "name": "Roswell" },
-        { "@type": "City", "name": "Milton" },
-        { "@type": "City", "name": "Duluth" }
-    ],
-    "hasMenu": "https://www.charcoalnchill.com/menu",
-    "amenityFeature": [
-        { "@type": "LocationFeatureSpecification", "name": "Hookah Lounge", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Full Bar", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Live Entertainment", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "VIP Seating", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Private Events", "value": true },
-        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true }
-    ],
-    "potentialAction": {
-        "@type": "ReserveAction",
-        "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://www.charcoalnchill.com/contact#reserve",
-            "inLanguage": "en-US",
-            "actionPlatform": [
-                "http://schema.org/DesktopWebPlatform",
-                "http://schema.org/MobileWebPlatform"
-            ]
-        },
-        "result": {
-            "@type": "Reservation",
-            "name": "Book a Table"
-        }
-    }
+    "paymentAccepted": "Cash, Credit Card, Debit Card",
+    "currenciesAccepted": "USD"
 };
 
 export function getBreadcrumbSchema(items: { name: string; item: string }[]) {

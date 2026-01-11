@@ -10,7 +10,7 @@ import { HeroCTAs } from "@/components/home/HeroCTAs";
 
 export const metadata = constructMetadata({
   title: "Charcoal N Chill | #1 Hookah Lounge & Indian Restaurant in Alpharetta",
-  description: "Experience Atlanta's premier hookah lounge in Alpharetta. 50+ premium flavors, authentic Indian cuisine, craft cocktails, and live belly dancing. Book your VIP table now!",
+  description: "Alpharetta's #1 hookah lounge & authentic Indian restaurant near Avalon. 50+ premium flavors, live entertainment, VIP seating. Open til 2 AM. Book now!",
   path: "/",
   keywords: ["best hookah lounge Alpharetta", "Indian dining near me", "VIP lounge Atlanta", "late night kitchen Alpharetta"]
 });
@@ -178,6 +178,14 @@ export default function Home() {
                 </div>
               </div>
 
+              <div className="near-avalon my-6 p-4 bg-gold/10 border-l-4 border-gold rounded-r-lg">
+                <p className="location-highlight text-base leading-relaxed text-gray-300 m-0">
+                  Conveniently located near Avalon Mall on Jones Bridge Road, Charcoal N Chill
+                  is just 3 minutes from Alpharetta&apos;s premier shopping and entertainment district.
+                  Easy access, ample free parking, and the perfect post-shopping destination for
+                  premium hookah and authentic Indian cuisine.
+                </p>
+              </div>
               <div className="p-8 bg-charcoal rounded-2xl border border-white/5 space-y-4">
                 <div className="flex items-center gap-1 text-gold">
                   {[...Array(5)].map((_, i) => (

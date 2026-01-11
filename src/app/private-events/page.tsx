@@ -9,7 +9,7 @@ import { CheckCircle2, Star, Users, GlassWater, Clock, Camera, Flame } from "luc
 
 export const metadata = constructMetadata({
     title: "Private Events & Party Venue | VIP Birthday & Corporate Packages",
-    description: "Host your dream event at Charcoal N Chill. Premium party venue for birthdays, corporate events, and bachelor parties in Alpharetta. Capacity up to 60 guests.",
+    description: "Book your private event at Charcoal N Chill. Luxury VIP spaces for up to 60 guests. Perfect for birthdays, corporate events, celebrations. Reserve today!",
     path: "/private-events",
     keywords: ["private party venue Alpharetta", "birthday party ideas Atlanta", "corporate event lounge", "exclusive venue hire GA"]
 });
