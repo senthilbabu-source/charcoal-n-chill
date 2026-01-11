@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { JsonLd, organizationSchema } from "@/components/layout/JsonLd";
+import { JsonLd, organizationSchema, restaurantSchema } from "@/components/layout/JsonLd";
 import { Analytics } from "@/components/layout/Analytics";
 
 const raleway = Raleway({
@@ -14,9 +14,9 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   title: {
     template: "%s | Charcoal N Chill",
-    default: "Charcoal N Chill | Premium Hookah Lounge & Indian Restaurant",
+    default: "Charcoal N Chill | Premium Hookah Lounge & Indian Restaurant in Alpharetta, GA",
   },
-  description: "Experience Atlanta's finest hookah lounge in Alpharetta. 50+ premium flavors, authentic Indian cuisine, craft cocktails, live belly dancing. Open late.",
+  description: "Experience Alpharetta's premier hookah lounge and Indian restaurant. 50+ premium flavors, authentic Indian cuisine, craft cocktails, live belly dancing, and VIP service. Open late.",
 };
 
 export default function RootLayout({
