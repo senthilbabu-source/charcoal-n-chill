@@ -32,7 +32,7 @@ export default function Home() {
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden tropical-bg" id="hero">
           <div className="absolute inset-0 z-0">
             <img
-              src="/images/hero-bg.jpg"
+              src="/images/cnc_hero_image.jpg"
               className="w-full h-full object-cover scale-105"
               alt="Lounge background"
             />
