@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { TextReveal } from "@/components/ui/TextReveal";
+import { MagneticButton } from "@/components/ui/MagneticButton";
 
 export function Hero() {
     const parallaxRef = useRef<HTMLDivElement>(null);
@@ -71,36 +73,43 @@ export function Hero() {
             <div className="relative z-10 container mx-auto px-4 text-center mt-20">
                 <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-bg mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                     <span className="text-gold-primary animate-[pulse-glow_2s_ease-in-out_infinite]">✨</span>
-                    <span className="text-sm font-medium uppercase tracking-widest text-gold-primary">Alpharetta&apos;s Premier Destination</span>
+                    <TextReveal text="Alpharetta's Premier Destination" className="text-sm font-medium uppercase tracking-widest text-gold-primary" delay={0.1} />
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tight">
-                    <span className="block text-xl md:text-2xl font-medium text-gold-light uppercase tracking-[0.3em] mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>Experience The</span>
-                    <span className="block gradient-text animate-fade-in-up" style={{ animationDelay: '0.3s' }}>Vibe & Flavor</span>
-                    <span className="block text-2xl md:text-3xl font-light text-white/90 mt-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>Hookah Lounge & Indian Grill</span>
-                </h1>
+                <div className="mb-6">
+                    <span className="block text-xl md:text-2xl font-medium text-gold-light uppercase tracking-[0.3em] mb-4">
+                        <TextReveal text="Experience The" delay={0.2} />
+                    </span>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight mb-4">
+                        <span className="block gradient-text">
+                            <TextReveal text="Vibe & Flavor" delay={0.4} />
+                        </span>
+                    </h1>
+                    <span className="block text-2xl md:text-3xl font-light text-white/90 mt-4">
+                        <TextReveal text="Hookah Lounge & Indian Grill" delay={0.6} />
+                    </span>
+                </div>
 
-                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
                     Immerse yourself in luxury with 50+ premium hookah flavors, authentic Indian cuisine,
                     and electrifying live entertainment. The perfect night out starts here.
                 </p>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                    <Link href="/contact#reserve" className="group relative px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-light text-dark-primary font-bold text-lg rounded-xl overflow-hidden hover:-translate-y-1 transition-transform duration-300 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)]">
-                        <span className="relative z-10 flex items-center gap-2">
-                            Book Your Table
-                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </span>
-                        <div className="absolute inset-0 bg-white/20 skew-x-[-20deg] -translate-x-[150%] group-hover:animate-[shimmer_1s_infinite]" />
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '1s' }}>
+                    <Link href="/contact#reserve">
+                        <MagneticButton className="px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-light text-dark-primary rounded-xl hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] flex items-center gap-2">
+                            <span>Book Your Table</span>
+                            <ArrowRight size={20} />
+                        </MagneticButton>
                     </Link>
 
-                    <button
+                    <MagneticButton
                         onClick={scrollToMenu}
-                        className="group flex items-center gap-2 px-8 py-4 glass-bg hover:bg-white/10 text-white font-semibold text-lg rounded-xl transition-all duration-300 hover:-translate-y-1"
+                        className="px-8 py-4 glass-bg hover:bg-white/10 text-white rounded-xl flex items-center gap-2"
                     >
-                        Explore Menu
-                        <ArrowDown size={20} className="group-hover:translate-y-1 transition-transform" />
-                    </button>
+                        <span>Explore Menu</span>
+                        <ArrowDown size={20} />
+                    </MagneticButton>
                 </div>
 
                 {/* Scroll Indicator */}

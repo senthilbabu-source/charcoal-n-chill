@@ -3,9 +3,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CheckCircle2, Star, Users, GlassWater, Clock, Camera, Flame } from "lucide-react";
+import { EventInquiryForm } from "@/components/home/EventInquiryForm";
 
 export const metadata = constructMetadata({
     title: "Private Events & Party Venue | VIP Birthday & Corporate Packages",
@@ -141,50 +143,7 @@ export default function PrivateEventsPage() {
                 </Section>
 
                 <Section id="inquiry" className="bg-charcoal">
-                    <div className="max-w-4xl mx-auto p-8 md:p-12 bg-black rounded-3xl border border-white/5">
-                        <div className="text-center mb-12 space-y-2">
-                            <h2 className="text-3xl font-heading font-bold text-white">Event Inquiry</h2>
-                            <p className="text-gray-400">Tell us about your event and our coordinator will reach out within 24 hours.</p>
-                        </div>
-                        <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-300">Full Name</label>
-                                <input type="text" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="John Doe" />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-300">Email Address</label>
-                                <input type="email" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="john@example.com" />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-300">Phone Number</label>
-                                <input type="tel" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="(470) 546-4866" />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-300">Event Type</label>
-                                <select className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors">
-                                    <option>Birthday Party</option>
-                                    <option>Corporate Event</option>
-                                    <option>Bachelor/Bachelorette</option>
-                                    <option>Other celebration</option>
-                                </select>
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-300">Preferred Date</label>
-                                <input type="date" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" />
-                            </div>
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-300">Estimated Guest Count</label>
-                                <input type="number" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="20" />
-                            </div>
-                            <div className="md:col-span-2 space-y-2">
-                                <label className="text-sm font-medium text-gray-300">Special Requests / Message</label>
-                                <textarea rows={4} className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="Tell us more about your vision..." />
-                            </div>
-                            <div className="md:col-span-2">
-                                <Button className="w-full py-6 text-lg">Send Inquiry</Button>
-                            </div>
-                        </form>
-                    </div>
+                    <EventInquiryForm />
                 </Section>
             </main>
             <Footer />

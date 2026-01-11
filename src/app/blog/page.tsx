@@ -21,21 +21,21 @@ const posts = [
         excerpt: "New to hookah? Learn about different flavor profiles, from fruity favorites to traditional mints, and how to find the perfect mix for your palate.",
         date: "Jan 5, 2026",
         author: "Admin",
-        image: "https://images.unsplash.com/photo-1542332213-9b5a5a3fab35?q=80&w=2070&auto=format&fit=crop"
+        image: "/images/hookah-le-blog.jpg"
     },
     {
         title: "Top 5 Indian Dishes to Try at Charcoal N Chill",
         excerpt: "Explore the authentic flavors of our kitchen. From the spicy kick of Chicken 65 to the creamy comfort of Butter Chicken Masala.",
         date: "Dec 28, 2025",
         author: "Chef Raj",
-        image: "https://images.unsplash.com/photo-1626777552726-4a6b547b4e5c?q=80&w=1925&auto=format&fit=crop"
+        image: "/images/crispy-corn-cnc.jpg"
     },
     {
         title: "How to Host the Perfect Private Event in Alpharetta",
         excerpt: "Planning a celebration? We share professional tips on coordinating guest lists, choosing the right menu, and creating a VIP atmosphere.",
         date: "Dec 15, 2025",
         author: "Events Team",
-        image: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=2070&auto=format&fit=crop"
+        image: "/images/private-party-cnc.jpeg"
     }
 ];
 

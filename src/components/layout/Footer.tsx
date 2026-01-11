@@ -3,15 +3,15 @@ import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
     return (
-        <footer className="relative z-10 bg-dark-primary border-t border-white/5 pt-24 pb-12 overflow-hidden" role="contentinfo">
+        <footer className="relative z-[100] bg-dark-primary border-t border-white/5 pt-24 pb-12 overflow-hidden" role="contentinfo">
             {/* Ambient Glow */}
             <div className="absolute top-0 left-0 right-0 h-[200px] bg-[radial-gradient(ellipse_at_top,_var(--gold-glow)_0%,_transparent_70%)] pointer-events-none" />
 
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="container mx-auto px-4 md:px-6 relative text-left">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
                     {/* Brand Section */}
                     <div className="space-y-8">
-                        <Link href="/" className="inline-block group">
+                        <Link href="/" className="inline-block group relative">
                             <div className="absolute inset-0 bg-gold-primary/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <img src="/logo.png" alt="Charcoal N Chill - Premium Hookah & Indian Restaurant" className="h-16 md:h-20 w-auto object-contain relative z-10" loading="lazy" />
                         </Link>
@@ -19,12 +19,12 @@ export function Footer() {
                             Atlanta&apos;s premier destination for high-end hookah and authentic flavor. Experience the luxury of Charcoal N Chill.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="https://instagram.com/charcoalnchill" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/charcoal_n_chill/" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
                                 <Instagram size={20} />
-                            </Link>
-                            <Link href="https://facebook.com/charcoalnchill" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+                            </a>
+                            <a href="https://www.facebook.com/profile.php?id=61571869656813" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
                                 <Facebook size={20} />
-                            </Link>
+                            </a>
                         </div>
                     </div>
 
@@ -32,14 +32,23 @@ export function Footer() {
                     <div className="space-y-4">
                         <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Quick Links</h4>
                         <ul className="space-y-2">
-                            {["Home", "Menu", "About", "Events", "Private Events", "FAQ", "Blog", "Contact"].map((item) => (
-                                <li key={item}>
+                            {[
+                                { name: "Home", href: "/" },
+                                { name: "Menu", href: "/menu" },
+                                { name: "About", href: "/about" },
+                                { name: "Events", href: "/events" },
+                                { name: "Private Events", href: "/private-events" },
+                                { name: "FAQ", href: "/faq" },
+                                { name: "Blog", href: "/blog" },
+                                { name: "Contact", href: "/contact" }
+                            ].map((item) => (
+                                <li key={item.name}>
                                     <Link
-                                        href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                                        href={item.href}
                                         className="text-gray-400 hover:text-gold-primary hover:pl-2 transition-all duration-300 text-sm flex items-center gap-2 group"
                                     >
                                         <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-gold-primary">→</span>
-                                        {item}
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
@@ -106,17 +115,13 @@ export function Footer() {
                         <Link href="/sitemap.xml" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
                             Sitemap
                         </Link>
-                        {/* Review QR Code Placeholder */}
-                        <div className="flex items-center gap-2 group cursor-pointer">
-                            <span className="text-xs text-gray-500 group-hover:text-gold-primary transition-colors uppercase">Review:</span>
-                            <div className="w-6 h-6 bg-gray-300 rounded group-hover:bg-gold-primary transition-colors" title="QR code placeholder" />
-                        </div>
                         {/* Existing policy links */}
-                        {["Privacy Policy", "Terms of Service", "Cookies"].map((item) => (
-                            <Link key={item} href="#" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
-                                {item}
-                            </Link>
-                        ))}
+                        <Link href="/privacy-policy" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
+                            Privacy Policy
+                        </Link>
+                        <Link href="/terms-of-service" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
+                            Terms of Service
+                        </Link>
                     </div>
                 </div>
             </div>

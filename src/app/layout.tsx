@@ -5,6 +5,9 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { JsonLd, organizationSchema, restaurantSchema } from "@/components/layout/JsonLd";
 import { Analytics } from "@/components/layout/Analytics";
+import SmoothScroll from "@/components/layout/SmoothScroll";
+import { GrainOverlay } from "@/components/ui/GrainOverlay";
+import { ToastProvider } from "@/components/ui/Toast";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -55,20 +58,24 @@ export default function RootLayout({
         )}
         suppressHydrationWarning
       >
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-gold text-black px-6 py-3 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl transition-all outline-none focus:ring-2 focus:ring-brand-red"
-        >
-          Skip to Content
-        </a>
-        {/* Organization schema */}
-        <JsonLd data={organizationSchema} id="org-schema" />
-        {/* Restaurant schema */}
-        <JsonLd data={restaurantSchema} id="restaurant-schema" />
-        <Analytics />
-        <div id="main-content" tabIndex={-1} className="outline-none">
-          {children}
-        </div>
+        <ToastProvider>
+          <GrainOverlay />
+          <SmoothScroll />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-gold text-black px-6 py-3 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl transition-all outline-none focus:ring-2 focus:ring-brand-red"
+          >
+            Skip to Content
+          </a>
+          {/* Organization schema */}
+          <JsonLd data={organizationSchema} id="org-schema" />
+          {/* Restaurant schema */}
+          <JsonLd data={restaurantSchema} id="restaurant-schema" />
+          <Analytics />
+          <div id="main-content" tabIndex={-1} className="outline-none">
+            {children}
+          </div>
+        </ToastProvider>
       </body>
     </html>
   );

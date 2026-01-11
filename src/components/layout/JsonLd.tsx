@@ -55,7 +55,11 @@ export const restaurantSchema = {
         "https://charcoalnchill.com/logo.png",
         "https://charcoalnchill.com/images/chicken-65.jpg",
         "https://charcoalnchill.com/images/butter-chicken.jpg",
-        "https://charcoalnchill.com/images/signature-hookah.jpg"
+        "https://charcoalnchill.com/images/hookah-cnc.jpg",
+        "https://charcoalnchill.com/images/cocktails.jpg",
+        "https://charcoalnchill.com/images/hookah-le-blog.jpg",
+        "https://charcoalnchill.com/images/crispy-corn-cnc.jpg",
+        "https://charcoalnchill.com/images/private-party-cnc.jpeg"
     ],
     "@id": "https://charcoalnchill.com",
     "url": "https://charcoalnchill.com",

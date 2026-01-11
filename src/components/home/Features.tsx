@@ -4,6 +4,9 @@ import { useMemo } from "react";
 import { Utensils, Music, Wine, Clock } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
+import { TextReveal } from "@/components/ui/TextReveal";
+import { TiltCard } from "@/components/ui/TiltCard";
+
 const features = [
     {
         icon: Wine,
@@ -41,7 +44,10 @@ export function Features() {
                 <div className="text-center mb-20">
                     <ScrollReveal animation="fade-up">
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                            Why Choose <span className="gradient-text">Charcoal N Chill?</span>
+                            <span className="block mb-2">Why Choose</span>
+                            <span className="gradient-text">
+                                <TextReveal text="Charcoal N Chill?" mode="char" delay={0.2} />
+                            </span>
                         </h2>
                         <div className="w-24 h-1 bg-gradient-to-r from-gold-dark to-gold-light mx-auto rounded-full" />
                     </ScrollReveal>
@@ -50,27 +56,29 @@ export function Features() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, index) => (
                         <ScrollReveal key={index} animation="fade-up" delay={feature.delay}>
-                            <div className="group relative h-full bg-glass-bg border border-glass-border p-8 rounded-3xl transition-all duration-500 hover:-translate-y-2 hover:border-gold-primary/50 overflow-hidden">
-                                {/* Hover Glow */}
-                                <div className="absolute inset-0 bg-gold-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                <div className="absolute -right-10 -top-10 w-32 h-32 bg-gold-primary/20 blur-[50px] group-hover:bg-gold-primary/30 transition-all duration-500" />
+                            <TiltCard className="h-full">
+                                <div className="group relative h-full bg-glass-bg border border-glass-border p-8 rounded-3xl overflow-hidden hover:border-gold-primary/50 transition-colors duration-500">
+                                    {/* Hover Glow */}
+                                    <div className="absolute inset-0 bg-gold-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute -right-10 -top-10 w-32 h-32 bg-gold-primary/20 blur-[50px] group-hover:bg-gold-primary/30 transition-all duration-500" />
 
-                                <div className="relative z-10">
-                                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-dark to-gold-light p-0.5 mb-6 group-hover:scale-110 transition-transform duration-500">
-                                        <div className="w-full h-full bg-dark-secondary rounded-2xl flex items-center justify-center">
-                                            <feature.icon className="text-gold-primary group-hover:text-white transition-colors duration-300" size={28} />
+                                    <div className="relative z-10">
+                                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-gold-dark to-gold-light p-0.5 mb-6 group-hover:scale-110 transition-transform duration-500">
+                                            <div className="w-full h-full bg-dark-secondary rounded-2xl flex items-center justify-center">
+                                                <feature.icon className="text-gold-primary group-hover:text-white transition-colors duration-300" size={28} />
+                                            </div>
                                         </div>
+
+                                        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-gold-primary transition-colors duration-300">
+                                            {feature.title}
+                                        </h3>
+
+                                        <p className="text-gray-400 leading-relaxed font-light text-sm">
+                                            {feature.description}
+                                        </p>
                                     </div>
-
-                                    <h3 className="text-xl font-bold text-white mb-4 group-hover:text-gold-primary transition-colors duration-300">
-                                        {feature.title}
-                                    </h3>
-
-                                    <p className="text-gray-400 leading-relaxed font-light text-sm">
-                                        {feature.description}
-                                    </p>
                                 </div>
-                            </div>
+                            </TiltCard>
                         </ScrollReveal>
                     ))}
                 </div>

@@ -24,4 +24,20 @@
     <loc>https://charcoalnchill.com/private-events</loc>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://charcoalnchill.com/contact</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://charcoalnchill.com/faq</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://charcoalnchill.com/privacy-policy</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://charcoalnchill.com/terms-of-service</loc>
+    <priority>0.5</priority>
+  </url>
 </urlset>
