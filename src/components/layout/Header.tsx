@@ -113,6 +113,8 @@ export function Header() {
                     className="md:hidden text-white hover:text-gold-primary transition-colors relative z-20"
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label={isOpen ? "Close menu" : "Open menu"}
+                    aria-expanded={isOpen}
+                    aria-controls="mobile-menu"
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
@@ -127,6 +129,7 @@ export function Header() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
                         className="fixed inset-0 z-[60] bg-dark-primary/98 backdrop-blur-xl flex flex-col justify-center p-8 md:hidden overflow-y-auto"
+                        id="mobile-menu"
                     >
                         <nav className="flex flex-col gap-4 items-center">
                             {allNavItems.map((item) => (

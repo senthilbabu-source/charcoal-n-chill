@@ -129,7 +129,7 @@ export function Hero() {
 
             {/* Scroll Indicator */}
             <button
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-white/50 hover:text-white bg-transparent border-none"
+                className="absolute bottom-2 md:bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 animate-bounce opacity-80 md:opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-white/70 hover:text-white bg-transparent border-none"
                 onClick={scrollToMenu}
                 aria-label="Scroll to Menu"
             >

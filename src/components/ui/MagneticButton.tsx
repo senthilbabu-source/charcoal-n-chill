@@ -13,6 +13,7 @@ export function MagneticButton({
     children,
     className,
     strength = 0.5,
+    "aria-label": ariaLabel,
     ...props
 }: MagneticButtonProps) {
     const ref = useRef<HTMLButtonElement>(null);
@@ -49,6 +50,7 @@ export function MagneticButton({
                 "relative rounded-full font-bold uppercase tracking-widest transition-colors",
                 className
             )}
+            aria-label={ariaLabel}
             {...props as any}
         >
             {children}
