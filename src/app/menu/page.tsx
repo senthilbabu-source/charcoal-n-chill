@@ -74,8 +74,8 @@ const categoryImages = {
     appetizers: "/images/chicken-65.jpg",
     entrees: "/images/butter-chicken.jpg",
     desserts: "/images/lounge-atmosphere.jpg",
-    drinks: "/images/craft-cocktails.jpg",
-    hookah: "/images/signature-hookah.jpg"
+    drinks: "/images/cocktails.jpg",
+    hookah: "/images/hookah-cnc.jpg"
 };
 
 export default function MenuPage() {
@@ -221,7 +221,7 @@ export default function MenuPage() {
                         <div className="group p-8 bg-charcoal rounded-3xl border border-white/5 hover:border-gold/20 transition-all">
                             <h4 className="text-gold font-black mb-4 uppercase text-sm tracking-[0.2em]">Cocktails</h4>
                             <p className="text-gray-300 font-medium mb-4 leading-relaxed">Smoke Runner, Chocolate Lava Delight, Peach Bourbon Smash, Lemon Drop Martini, Espresso Martini, Whiskey Sour, Long Island, Moscow Mule, House Margarita, Bulleit Old Fashion</p>
-                            <span className="text-gold font-black text-lg">$11-$14</span>
+                            <span className="text-gold font-black text-lg">$16</span>
                         </div>
                         <div className="group p-8 bg-charcoal rounded-3xl border border-brand-red/20 hover:border-brand-red/40 transition-all">
                             <h4 className="text-brand-red font-black mb-4 uppercase text-sm tracking-[0.2em]">Premium Selection</h4>

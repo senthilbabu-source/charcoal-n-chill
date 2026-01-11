@@ -48,7 +48,7 @@ export function Header() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
                 scrolled
-                    ? "bg-[#031322]/95 backdrop-blur-md border-b border-white/5 py-4"
+                    ? "glass-bg py-4 shadow-lg"
                     : "bg-transparent py-8"
             )}
             role="banner"
@@ -62,23 +62,27 @@ export function Header() {
                                 key={item.name}
                                 href={item.href}
                                 className={cn(
-                                    "text-xs font-bold uppercase tracking-[0.2em] transition-all hover:text-gold whitespace-nowrap",
-                                    pathname === item.href ? "text-gold" : "text-white/90"
+                                    "text-xs font-bold uppercase tracking-[0.2em] transition-all hover:text-gold-primary whitespace-nowrap relative group",
+                                    pathname === item.href ? "text-gold-primary" : "text-white/90"
                                 )}
                             >
                                 {item.name}
+                                <span className={cn(
+                                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-dark to-gold-light transition-all duration-300 group-hover:w-full",
+                                    pathname === item.href && "w-full"
+                                )} />
                             </Link>
                         ))}
                         <div className="w-24" aria-hidden="true"></div>
                     </nav>
                     {/* Centered Logo */}
                     <Link href="/" className="relative z-10 flex-shrink-0 group mx-auto">
-                        <div className="absolute inset-0 bg-gold/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 bg-gold-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <img
                             src="/logo.png"
                             alt="Charcoal N Chill - Premium Hookah & Indian Restaurant"
                             className={cn(
-                                "transition-all duration-500 relative z-10",
+                                "transition-all duration-500 relative z-10 filter drop-shadow-2xl",
                                 scrolled ? "h-14 md:h-16 w-auto flex-shrink-0" : "h-20 md:h-24 w-auto flex-shrink-0"
                             )}
                             loading="lazy"
@@ -91,18 +95,22 @@ export function Header() {
                                 key={item.name}
                                 href={item.href}
                                 className={cn(
-                                    "text-xs font-bold uppercase tracking-[0.2em] transition-all hover:text-gold whitespace-nowrap",
-                                    pathname === item.href ? "text-gold" : "text-white/90"
+                                    "text-xs font-bold uppercase tracking-[0.2em] transition-all hover:text-gold-primary whitespace-nowrap relative group",
+                                    pathname === item.href ? "text-gold-primary" : "text-white/90"
                                 )}
                             >
                                 {item.name}
+                                <span className={cn(
+                                    "absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gold-dark to-gold-light transition-all duration-300 group-hover:w-full",
+                                    pathname === item.href && "w-full"
+                                )} />
                             </Link>
                         ))}
 
                     </nav>
                 </div>
                 <button
-                    className="md:hidden text-white hover:text-gold transition-colors relative z-20"
+                    className="md:hidden text-white hover:text-gold-primary transition-colors relative z-20"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -117,7 +125,7 @@ export function Header() {
                         initial={{ opacity: 0, x: "100%" }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: "100%" }}
-                        className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col p-8 md:hidden overflow-y-auto"
+                        className="fixed inset-0 z-40 bg-dark-primary/95 backdrop-blur-xl flex flex-col p-8 md:hidden overflow-y-auto"
                     >
                         <div className="flex justify-center mb-12">
                             <img src="/logo.png" alt="Charcoal N Chill - Premium Hookah & Indian Restaurant" className="h-20 w-auto object-contain" loading="lazy" />
@@ -128,21 +136,22 @@ export function Header() {
                                     key={item.name}
                                     href={item.href}
                                     className={cn(
-                                        "text-2xl font-heading font-medium transition-colors hover:text-gold",
-                                        pathname === item.href ? "text-gold" : "text-white/80"
+                                        "text-2xl font-heading font-medium transition-colors hover:text-gold-primary",
+                                        pathname === item.href ? "text-gold-primary" : "text-white/80"
                                     )}
+                                    onClick={() => setIsOpen(false)}
                                 >
                                     {item.name}
                                 </Link>
                             ))}
                             <div className="mt-8 pt-8 border-t border-white/10 w-full text-center">
-                                <Button className="w-full text-lg py-6" asChild>
-                                    <Link href="/contact#reserve">Reserve Table</Link>
+                                <Button className="w-full text-lg py-6 bg-gradient-to-r from-gold-dark to-gold-light text-dark-primary hover:shadow-glow font-bold" asChild>
+                                    <Link href="/contact#reserve" onClick={() => setIsOpen(false)}>Reserve Table</Link>
                                 </Button>
                             </div>
                         </nav>
                         <button
-                            className="absolute top-8 right-8 text-white"
+                            className="absolute top-8 right-8 text-white hover:text-gold-primary transition-colors"
                             onClick={() => setIsOpen(false)}
                         >
                             <X size={32} />

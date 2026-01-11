@@ -1,90 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors - From Logo */
-  --brand-red: #E31E24;
-  --brand-red-dark: #B01519;
-  --brand-red-light: #FF3339;
-  --charcoal: #1A1A1A;
-  --deep-black: #000000;
-  --gold: #D4AF37;
-  --white: #FFFFFF;
+  /* Brand Colors - New Luxury Palette */
+  --gold-primary: #D4AF37;
+  --gold-light: #E5C158;
+  --gold-dark: #B8941F;
+  --gold-glow: rgba(212, 175, 55, 0.3);
 
-  /* Semantic Colors */
-  --background: var(--deep-black);
-  --foreground: var(--white);
-  --primary: var(--brand-red);
-  --secondary: var(--gold);
-  --muted: #2A2A2A;
-  --card: #1A1A1A;
+  /* Dark Tones */
+  --dark-primary: #0A0A0A;
+  --dark-secondary: #1A1A1A;
+  --dark-tertiary: #2A2A2A;
+
+  /* Accent Colors */
+  --brand-red: #C41E3A;
+  /* Indian spice red */
+  --accent-orange: #FF6B35;
+  /* Warm hookah glow */
+  --accent-purple: #6B2E5F;
+  /* Rich purple */
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+  --gradient-dark: linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%);
+  --gradient-overlay: linear-gradient(180deg, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0.3) 100%);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(20px);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 0 16px 64px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.4);
+
+  /* Semantic Mappings */
+  --background: var(--dark-primary);
+  --foreground: #FFFFFF;
+  --primary: var(--gold-primary);
+  --secondary: var(--dark-secondary);
+  --muted: var(--dark-tertiary);
+  --card: var(--dark-secondary);
+
+  /* Animation Timings */
+  --timing-fast: 0.2s;
+  --timing-base: 0.3s;
+  --timing-slow: 0.5s;
+  --timing-slower: 0.8s;
+
+  /* Easings */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
-  --color-charcoal: var(--charcoal);
-  --color-gold: var(--gold);
+  --color-gold: var(--gold-primary);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
   --color-brand-red: var(--brand-red);
-  --color-brand-red-dark: var(--brand-red-dark);
-  --color-brand-red-light: var(--brand-red-light);
-  --color-muted: var(--muted);
-  --color-card: var(--card);
 
   --font-sans: var(--font-raleway);
   --font-heading: var(--font-raleway);
 }
 
-/* Glow Effects */
-.gold-glow {
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+/* Base Styles */
+body {
+  background: var(--dark-primary);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-.red-glow {
-  box-shadow: 0 0 40px rgba(227, 30, 36, 0.25);
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-dark) 0%, var(--gold-light) 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Utility Classes */
+.glass-bg {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
 }
 
 .text-glow {
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
-.text-glow-red {
-  text-shadow: 0 0 10px rgba(227, 30, 36, 0.5);
+.gold-glow {
+  box-shadow: var(--shadow-glow);
 }
 
-.neon-text-gold {
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+.gradient-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.neon-text-red {
-  text-shadow: 0 0 10px rgba(227, 30, 36, 0.5), 0 0 20px rgba(227, 30, 36, 0.3);
-}
-
-.brand-gradient {
-  background: linear-gradient(135deg, #E31E24 0%, #D4AF37 100%);
-}
-
-.luxury-pattern {
-  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-3.3 0-6 2.7-6 6v10.3c-2.3-1.6-4.7-3.2-7.1-4.7-1.4-1.1-3.4-1.1-4.8 0s-1.4 3.4 0 4.8c2.4 1.5 4.8 3.1 7.1 4.7-2.6 1.4-5.2 2.8-7.8 4.2-1.6.8-2.6 2.5-2.6 4.3 0 1.8 1 3.5 2.6 4.3 2.6 1.4 5.2 2.8 7.8 4.2-2.3 1.6-4.7 3.2-7.1 4.7-1.4 1.1-1.4 3.4 0 4.8s3.4 1.1 4.8 0c2.4-1.5 4.8-3.1 7.1-4.7V54c0 3.3 2.7 6 6 6s6-2.7 6-6V43.7c2.3 1.6 4.7 3.2 7.1 4.7 1.4 1.1 3.4 1.1 4.8 0s1.4-3.4 0-4.8c-2.4-1.5-4.8-3.1-7.1-4.7 2.6-1.4 5.2-2.8 7.8-4.2 1.6-.8 2.6-2.5 2.6-4.3 0-1.8-1-3.5-2.6-4.3-2.6-1.4-5.2-2.8-7.8-4.2 2.3-1.6 4.7-3.2 7.1-4.7 1.4-1.1 1.4-3.4 0-4.8s-3.4-1.1-4.8 0c-2.4 1.5-4.8 3.1-7.1 4.7V11c0-3.3-2.7-6-6-6z' fill='%23E31E24' fill-opacity='0.03'/%3E%3C/svg%3E");
-}
-
-/* Performance-Optimized Animations */
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes fadeIn {
+/* Animations */
+@keyframes fade-in-up {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
 
   to {
@@ -93,63 +129,86 @@
   }
 }
 
-@keyframes slideInLeft {
+@keyframes slide-up {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-50%) translateY(100%);
   }
 
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
 
-@keyframes slideInRight {
-  from {
+@keyframes smoke-rise {
+  0% {
+    transform: translateY(0) scale(1);
     opacity: 0;
-    transform: translateX(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulseGlow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(227, 30, 36, 0.2);
   }
 
   50% {
-    box-shadow: 0 0 40px rgba(227, 30, 36, 0.4);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
   }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px) translateX(var(--particle-x, 50px));
+    opacity: 0;
+  }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 200%;
+  }
 }
 
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s ease-out forwards;
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
 }
 
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
+/* Animation Utilities */
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s var(--ease-smooth) both;
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 3s ease-in-out infinite;
+.animate-slide-up {
+  animation: slide-up 1s var(--ease-smooth) both;
 }
 
-/* Respect user preferences for reduced motion */
+/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
 
   *,
@@ -158,14 +217,6 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .animate-float,
-  .animate-fade-in,
-  .animate-slide-in-left,
-  .animate-slide-in-right,
-  .animate-pulse-glow {
-    animation: none !important;
   }
 }
 
@@ -248,34 +299,4 @@ a {
 
 a:focus {
   @apply outline-none ring-2 ring-brand-red;
-}
-
-
-.dropdown-trigger {
-  @apply flex items-center gap-2 px-4 py-2 bg-black/60 rounded-md text-white hover:bg-black/80 transition-colors;
-}
-
-.dropdown-panel {
-  @apply absolute right-0 mt-2 w-48 bg-black/90 backdrop-blur-sm rounded-md shadow-lg border border-white/10 opacity-0 scale-95 transform transition-opacity transition-transform duration-200;
-}
-
-.dropdown[data-open="true"] .dropdown-panel {
-  @apply opacity-100 scale-100;
-}
-
-.dropdown-item {
-  @apply block px-4 py-2 text-sm text-white hover:bg-brand-red/20 focus:bg-brand-red/20 focus:outline-none;
-}
-
-/* Breadcrumb Styles */
-.breadcrumb {
-  @apply flex items-center text-sm text-white/70;
-}
-
-.breadcrumb a {
-  @apply hover:text-white transition-colors;
-}
-
-.breadcrumb .sep {
-  @apply mx-2 text-white/40;
 }

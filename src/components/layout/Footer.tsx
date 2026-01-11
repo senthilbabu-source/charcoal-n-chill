@@ -3,23 +3,26 @@ import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
     return (
-        <footer className="relative z-10 bg-[#031322] border-t border-white/5 pt-24 pb-12" role="contentinfo">
-            <div className="container mx-auto px-4 md:px-6">
+        <footer className="relative z-10 bg-dark-primary border-t border-white/5 pt-24 pb-12 overflow-hidden" role="contentinfo">
+            {/* Ambient Glow */}
+            <div className="absolute top-0 left-0 right-0 h-[200px] bg-[radial-gradient(ellipse_at_top,_var(--gold-glow)_0%,_transparent_70%)] pointer-events-none" />
+
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
                     {/* Brand Section */}
                     <div className="space-y-8">
                         <Link href="/" className="inline-block group">
-                            <div className="absolute inset-0 bg-gold/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="absolute inset-0 bg-gold-primary/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <img src="/logo.png" alt="Charcoal N Chill - Premium Hookah & Indian Restaurant" className="h-16 md:h-20 w-auto object-contain relative z-10" loading="lazy" />
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm">
                             Atlanta&apos;s premier destination for high-end hookah and authentic flavor. Experience the luxury of Charcoal N Chill.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="https://instagram.com/charcoalnchill" className="text-gray-400 hover:text-gold transition-colors" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://instagram.com/charcoalnchill" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
                                 <Instagram size={20} />
                             </Link>
-                            <Link href="https://facebook.com/charcoalnchill" className="text-gray-400 hover:text-gold transition-colors" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+                            <Link href="https://facebook.com/charcoalnchill" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
                                 <Facebook size={20} />
                             </Link>
                         </div>
@@ -27,14 +30,15 @@ export function Footer() {
 
                     {/* Quick Links */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+                        <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Quick Links</h4>
                         <ul className="space-y-2">
                             {["Home", "Menu", "About", "Events", "Private Events", "FAQ", "Blog", "Contact"].map((item) => (
                                 <li key={item}>
                                     <Link
                                         href={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-                                        className="text-gray-400 hover:text-gold transition-colors text-sm"
+                                        className="text-gray-400 hover:text-gold-primary hover:pl-2 transition-all duration-300 text-sm flex items-center gap-2 group"
                                     >
+                                        <span className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-gold-primary">→</span>
                                         {item}
                                     </Link>
                                 </li>
@@ -44,23 +48,23 @@ export function Footer() {
 
                     {/* Contact Info */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-white">Contact Us</h4>
+                        <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Contact Us</h4>
                         <ul className="space-y-3 text-sm text-gray-400">
-                            <li className="flex items-start gap-3">
-                                <MapPin size={18} className="text-gold shrink-0 mt-0.5" />
+                            <li className="flex items-start gap-3 group">
+                                <MapPin size={18} className="text-gold-primary shrink-0 mt-0.5 group-hover:text-gold-light transition-colors" />
                                 <span>
                                     11950 Jones Bridge Rd Ste 103<br />
                                     Alpharetta, GA 30005
                                 </span>
                             </li>
-                            <li className="flex items-center gap-3">
-                                <Phone size={18} className="text-gold shrink-0" />
+                            <li className="flex items-center gap-3 group">
+                                <Phone size={18} className="text-gold-primary shrink-0 group-hover:text-gold-light transition-colors" />
                                 <a href="tel:4705464866" className="hover:text-white transition-colors">
                                     (470) 546-4866
                                 </a>
                             </li>
-                            <li className="flex items-center gap-3">
-                                <Mail size={18} className="text-gold shrink-0" />
+                            <li className="flex items-center gap-3 group">
+                                <Mail size={18} className="text-gold-primary shrink-0 group-hover:text-gold-light transition-colors" />
                                 <a href="mailto:charcoalnchill@gmail.com" className="hover:text-white transition-colors">
                                     charcoalnchill@gmail.com
                                 </a>
@@ -70,23 +74,23 @@ export function Footer() {
 
                     {/* Hours */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-white">Hours</h4>
+                        <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Hours</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
-                            <li className="flex justify-between">
+                            <li className="flex justify-between border-b border-white/5 pb-2">
                                 <span>Tu - Th</span>
                                 <span>5:00 PM - 1:00 AM</span>
                             </li>
-                            <li className="flex justify-between text-white">
+                            <li className="flex justify-between text-white font-medium border-b border-white/5 pb-2">
                                 <span>Fr - Sa</span>
                                 <span>5:00 PM - 2:00 AM</span>
                             </li>
-                            <li className="flex justify-between">
+                            <li className="flex justify-between border-b border-white/5 pb-2">
                                 <span>Sunday</span>
                                 <span>5:00 PM - 1:00 AM</span>
                             </li>
                             <li className="flex justify-between">
                                 <span>Monday</span>
-                                <span>Closed</span>
+                                <span className="text-brand-red">Closed</span>
                             </li>
                         </ul>
                     </div>
@@ -99,17 +103,17 @@ export function Footer() {
                     </p>
                     <div className="flex gap-10 items-center">
                         {/* Sitemap Link */}
-                        <Link href="/sitemap.xml" className="text-xs text-gray-500 hover:text-gold uppercase tracking-widest transition-colors font-bold">
+                        <Link href="/sitemap.xml" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
                             Sitemap
                         </Link>
                         {/* Review QR Code Placeholder */}
-                        <div className="flex items-center gap-2">
-                            <span className="text-xs text-gray-500 uppercase">Review:</span>
-                            <div className="w-6 h-6 bg-gray-300 rounded" title="QR code placeholder" />
+                        <div className="flex items-center gap-2 group cursor-pointer">
+                            <span className="text-xs text-gray-500 group-hover:text-gold-primary transition-colors uppercase">Review:</span>
+                            <div className="w-6 h-6 bg-gray-300 rounded group-hover:bg-gold-primary transition-colors" title="QR code placeholder" />
                         </div>
                         {/* Existing policy links */}
                         {["Privacy Policy", "Terms of Service", "Cookies"].map((item) => (
-                            <Link key={item} href="#" className="text-xs text-gray-500 hover:text-gold uppercase tracking-widest transition-colors font-bold">
+                            <Link key={item} href="#" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
                                 {item}
                             </Link>
                         ))}
