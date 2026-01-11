@@ -106,7 +106,7 @@ export function Footer() {
                             </li>
                             <li className="flex justify-between">
                                 <span>Monday</span>
-                                <span className="text-brand-red">Closed</span>
+                                <span className="text-red-500 font-bold">Closed</span>
                             </li>
                         </ul>
                     </div >
@@ -114,7 +114,7 @@ export function Footer() {
 
                 {/* Footer Bottom */}
                 < div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6" >
-                    <p className="text-gray-500 text-xs tracking-widest uppercase">
+                    <p className="text-gray-400 text-xs tracking-widest uppercase">
                         &copy; {new Date().getFullYear()} Charcoal N Chill. All Rights Reserved.
                     </p>
                     <div className="flex gap-10 items-center">

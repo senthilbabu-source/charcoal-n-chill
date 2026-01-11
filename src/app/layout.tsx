@@ -60,6 +60,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ToastProvider>
+          <div id="scroll-sentinel" className="absolute top-0 h-px w-full pointer-events-none" />
           <AgeVerificationModal />
           <GrainOverlay />
           <SmoothScroll />

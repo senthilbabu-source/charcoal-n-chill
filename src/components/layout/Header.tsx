@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -31,11 +32,18 @@ export function Header() {
     const pathname = usePathname();
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        const sentinel = document.getElementById("scroll-sentinel");
+        if (!sentinel) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setScrolled(!entry.isIntersecting);
+            },
+            { rootMargin: "-20px 0px 0px 0px" }
+        );
+
+        observer.observe(sentinel);
+        return () => observer.disconnect();
     }, []);
 
     useEffect(() => {
@@ -78,15 +86,19 @@ export function Header() {
                     {/* Centered Logo */}
                     <Link href="/" className="relative z-10 flex-shrink-0 group mx-auto">
                         <div className="absolute inset-0 bg-gold-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <img
-                            src="/logo.png"
-                            alt="Charcoal N Chill - Premium Hookah & Indian Restaurant"
-                            className={cn(
-                                "transition-all duration-500 relative z-10 filter drop-shadow-2xl",
-                                scrolled ? "h-14 md:h-16 w-auto flex-shrink-0" : "h-20 md:h-24 w-auto flex-shrink-0"
-                            )}
-                            loading="lazy"
-                        />
+                        <div className={cn(
+                            "relative z-10 transition-all duration-500 filter drop-shadow-2xl",
+                            scrolled ? "h-14 md:h-16 w-auto" : "h-20 md:h-24 w-auto"
+                        )}>
+                            <Image
+                                src="/logo.png"
+                                alt="Charcoal N Chill - Premium Hookah & Indian Restaurant"
+                                width={800}
+                                height={212}
+                                className="h-full w-auto object-contain"
+                                priority
+                            />
+                        </div>
                     </Link>
                     {/* Right Nav (Desktop) */}
                     <nav className="hidden md:flex flex-1 items-center gap-8 lg:gap-12 justify-end">

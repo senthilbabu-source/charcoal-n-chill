@@ -56,7 +56,7 @@ export function AgeVerificationModal() {
                                 <h2 className="text-3xl font-bold text-white mb-2 uppercase tracking-tight">
                                     Age Verification
                                 </h2>
-                                <p className="text-gray-400 font-medium tracking-widest text-xs uppercase mb-8">
+                                <p className="text-gray-300 font-bold tracking-widest text-xs uppercase mb-8">
                                     Strictly 21+ Establishment
                                 </p>
 
@@ -74,7 +74,7 @@ export function AgeVerificationModal() {
 
                                     <button
                                         onClick={handleReject}
-                                        className="w-full py-4 text-gray-500 hover:text-white transition-colors text-sm font-medium flex items-center justify-center gap-2 group"
+                                        className="w-full py-4 text-gray-400 hover:text-white transition-colors text-sm font-medium flex items-center justify-center gap-2 group"
                                     >
                                         <Ban size={16} className="group-hover:text-red-500 transition-colors" />
                                         <span>Exit Site</span>

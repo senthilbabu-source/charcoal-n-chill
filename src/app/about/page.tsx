@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import Image from "next/image";
 
 export const metadata = constructMetadata({
     title: "About Us | Atlanta's Premier Hookah Lounge & Social Hub",
@@ -43,13 +44,13 @@ export default function AboutPage() {
                             </p>
                         </div>
                         <div className="relative aspect-square md:aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                            <img
+                            <Image
                                 src="/images/lounge-atmosphere.jpg"
                                 alt="Charcoal N Chill Atmosphere"
                                 className="w-full h-full object-cover"
-                                width="800"
-                                height="600"
-                                loading="lazy" />
+                                width={800}
+                                height={600}
+                                priority />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                         </div>
                     </div>

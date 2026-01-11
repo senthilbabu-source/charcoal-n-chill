@@ -7,6 +7,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Music, UserCheck, Star } from "lucide-react";
 
 export const metadata = constructMetadata({
@@ -124,13 +125,14 @@ export default function EventsPage() {
                                 <div className="w-full lg:w-1/2 relative group">
                                     <div className="absolute inset-0 bg-gold/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                                     <div className="relative aspect-video lg:aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                                        <img
+                                        <Image
                                             src={event.image}
                                             alt={event.name}
                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                            width="800"
-                                            height="600"
-                                            loading="lazy" />
+                                            width={800}
+                                            height={600}
+                                            priority={i === 0}
+                                        />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                                     </div>
                                 </div>

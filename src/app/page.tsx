@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import { constructMetadata } from "@/lib/metadata";
-import { JsonLd, restaurantSchema } from "@/components/layout/JsonLd";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
@@ -26,7 +26,6 @@ export const metadata = constructMetadata({
 export default function Home() {
   return (
     <>
-      <JsonLd data={restaurantSchema} />
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "ImageObject",

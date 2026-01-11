@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft, LayoutDashboard, BarChart, ShieldCheck } from "lucide-react";
 
 
@@ -15,7 +16,15 @@ export default function AdminLayout({
 
 
                     {/* Logo */}
-                    <img src="/logo.png" alt="Logo" className="h-10 w-auto object-contain flex-shrink-0" loading="lazy" />
+                    <div className="relative h-10 w-32 flex-shrink-0">
+                        <Image
+                            src="/logo.png"
+                            alt="Logo"
+                            fill
+                            className="object-contain"
+                            sizes="128px"
+                        />
+                    </div>
                     <span className="font-heading font-bold uppercase tracking-widest text-xs hidden xl:block">Admin Panel</span>
                 </Link>
 
