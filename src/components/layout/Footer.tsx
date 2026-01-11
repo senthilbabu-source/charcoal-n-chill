@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
@@ -13,7 +14,13 @@ export function Footer() {
                     <div className="space-y-8">
                         <Link href="/" className="inline-block group relative">
                             <div className="absolute inset-0 bg-gold-primary/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <img src="/logo.png" alt="Charcoal N Chill - Premium Hookah & Indian Restaurant" className="h-16 md:h-20 w-auto object-contain relative z-10" loading="lazy" />
+                            <Image
+                                src="/logo.png"
+                                alt="Charcoal N Chill - Premium Hookah & Indian Restaurant"
+                                width={120}
+                                height={80}
+                                className="h-16 md:h-20 w-auto object-contain relative z-10"
+                            />
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm">
                             Atlanta&apos;s premier destination for high-end hookah and authentic flavor. Experience the luxury of Charcoal N Chill.
@@ -26,10 +33,10 @@ export function Footer() {
                                 <Facebook size={20} />
                             </a>
                         </div>
-                    </div>
+                    </div >
 
                     {/* Quick Links */}
-                    <div className="space-y-4">
+                    < div className="space-y-4" >
                         <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Quick Links</h4>
                         <ul className="space-y-2">
                             {[
@@ -53,10 +60,10 @@ export function Footer() {
                                 </li>
                             ))}
                         </ul>
-                    </div>
+                    </div >
 
                     {/* Contact Info */}
-                    <div className="space-y-4">
+                    < div className="space-y-4" >
                         <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Contact Us</h4>
                         <ul className="space-y-3 text-sm text-gray-400">
                             <li className="flex items-start gap-3 group">
@@ -79,10 +86,10 @@ export function Footer() {
                                 </a>
                             </li>
                         </ul>
-                    </div>
+                    </div >
 
                     {/* Hours */}
-                    <div className="space-y-4">
+                    < div className="space-y-4" >
                         <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Hours</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                             <li className="flex justify-between border-b border-white/5 pb-2">
@@ -102,11 +109,11 @@ export function Footer() {
                                 <span className="text-brand-red">Closed</span>
                             </li>
                         </ul>
-                    </div>
-                </div>
+                    </div >
+                </div >
 
                 {/* Footer Bottom */}
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                < div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6" >
                     <p className="text-gray-500 text-xs tracking-widest uppercase">
                         &copy; {new Date().getFullYear()} Charcoal N Chill. All Rights Reserved.
                     </p>
@@ -123,8 +130,8 @@ export function Footer() {
                             Terms of Service
                         </Link>
                     </div>
-                </div>
-            </div>
-        </footer>
+                </div >
+            </div >
+        </footer >
     );
 }

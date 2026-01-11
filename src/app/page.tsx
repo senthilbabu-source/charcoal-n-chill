@@ -30,7 +30,7 @@ export default function Home() {
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "ImageObject",
-        "contentUrl": "https://www.charcoalnchill.com/images/hero-bg.jpg",
+        "contentUrl": "https://www.charcoalnchill.com/images/final-cnc-hero.jpg",
         "description": "Premium Hookah Lounge and Indian Restaurant Ambiance in Alpharetta",
         "name": "Charcoal N Chill Main Lounge"
       }} id="image-hero" />

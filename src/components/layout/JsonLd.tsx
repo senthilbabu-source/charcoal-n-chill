@@ -51,7 +51,7 @@ export const restaurantSchema = {
     "@type": "Restaurant",
     "name": "Charcoal N Chill",
     "image": [
-        "https://charcoalnchill.com/images/cnc_hero_image.jpg",
+        "https://charcoalnchill.com/images/final-cnc-hero.jpg",
         "https://charcoalnchill.com/logo.png",
         "https://charcoalnchill.com/images/chicken-65.jpg",
         "https://charcoalnchill.com/images/butter-chicken.jpg",

@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Eye } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import { TextReveal } from "@/components/ui/TextReveal";
 
 const showcaseItems = [
     {
@@ -47,8 +49,6 @@ const showcaseItems = [
     }
 ];
 
-import { TextReveal } from "@/components/ui/TextReveal";
-
 export function ProductShowcase() {
     return (
         <section className="relative py-24 bg-dark-primary" id="menu-preview">
@@ -85,10 +85,12 @@ export function ProductShowcase() {
                             <Link href="/menu" className="block w-full h-full">
                                 {/* Image */}
                                 <div className="absolute inset-0 w-full h-full overflow-hidden">
-                                    <img
+                                    <Image
                                         src={item.image}
                                         alt={item.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-1"
+                                        fill
+                                        className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-110 group-hover:rotate-1"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-90 transition-opacity duration-300" />
                                 </div>
