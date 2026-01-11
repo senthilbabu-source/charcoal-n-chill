@@ -112,14 +112,14 @@ export function Footer() {
                     </p>
                     <div className="flex gap-10 items-center">
                         {/* Sitemap Link */}
-                        <Link href="/sitemap.xml" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
+                        <Link href="/sitemap.xml" className="text-xs text-gray-400 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
                             Sitemap
                         </Link>
                         {/* Existing policy links */}
-                        <Link href="/privacy-policy" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
+                        <Link href="/privacy-policy" className="text-xs text-gray-400 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
                             Privacy Policy
                         </Link>
-                        <Link href="/terms-of-service" className="text-xs text-gray-500 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
+                        <Link href="/terms-of-service" className="text-xs text-gray-400 hover:text-gold-primary uppercase tracking-widest transition-colors font-bold">
                             Terms of Service
                         </Link>
                     </div>

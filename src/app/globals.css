@@ -123,12 +123,20 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
   overscroll-behavior: none;
+  text-rendering: optimizeLegibility;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Force hardware acceleration for fixed elements to prevent jitter */
 .fixed {
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+}
+
+/* Optimization for large sections below the fold */
+.content-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
 }
 
 /* Scrollbar */
