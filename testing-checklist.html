@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email & Hours Testing Checklist</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #fff;
+        }
+        h1 {
+            color: #D4AF37;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #14B8A6;
+            margin-top: 30px;
+        }
+        .checklist {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: #0a0a0a;
+            border-radius: 4px;
+        }
+        .check-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+        }
+        .expected {
+            background: #1a3a1a;
+            padding: 15px;
+            border-left: 4px solid #14B8A6;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .link-button {
+            display: inline-block;
+            background: #D4AF37;
+            color: #0a0a0a;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+        }
+        .link-button:hover {
+            background: #f0c040;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.pass {
+            background: #14B8A6;
+            color: #0a0a0a;
+        }
+        .status.fail {
+            background: #ef4444;
+            color: #fff;
+        }
+        code {
+            background: #2a2a2a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #D4AF37;
+        }
+    </style>
+</head>
+<body>
+    <h1>✅ Email & Business Hours Testing Checklist</h1>
+    
+    <div class="expected">
+        <strong>Expected Changes:</strong><br>
+        📧 Email: <code>charcoalnchill@gmail.com</code><br>
+        🕐 Sunday: <code>5:00 PM - 1:00 AM</code><br>
+        🕐 Monday: <code>Closed</code>
+    </div>
+
+    <h2>Quick Links</h2>
+    <a href="http://localhost:3000" target="_blank" class="link-button">🏠 Home Page</a>
+    <a href="http://localhost:3000/contact" target="_blank" class="link-button">📞 Contact Page</a>
+    <a href="http://localhost:3000/menu" target="_blank" class="link-button">🍽️ Menu Page</a>
+    <a href="http://localhost:3000/about" target="_blank" class="link-button">ℹ️ About Page</a>
+
+    <h2>1. Home Page Footer</h2>
+    <div class="checklist">
+        <div class="check-item">
+            <input type="checkbox" id="home-email">
+            <label for="home-email">Email shows <code>charcoalnchill@gmail.com</code></label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="home-sunday">
+            <label for="home-sunday">Sunday shows <code>5:00 PM - 1:00 AM</code></label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="home-monday">
+            <label for="home-monday">Monday shows <code>Closed</code></label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="home-tue">
+            <label for="home-tue">Tu - Th shows <code>5:00 PM - 1:00 AM</code></label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="home-fri">
+            <label for="home-fri">Fr - Sa shows <code>5:00 PM - 2:00 AM</code></label>
+        </div>
+    </div>
+
+    <h2>2. Contact Page</h2>
+    <div class="checklist">
+        <div class="check-item">
+            <input type="checkbox" id="contact-email">
+            <label for="contact-email">Email shows <code>charcoalnchill@gmail.com</code></label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="contact-mailto">
+            <label for="contact-mailto">Email link opens <code>mailto:charcoalnchill@gmail.com</code></label>
+        </div>
+    </div>
+
+    <h2>3. Menu Page Footer</h2>
+    <div class="checklist">
+        <div class="check-item">
+            <input type="checkbox" id="menu-email">
+            <label for="menu-email">Email shows <code>charcoalnchill@gmail.com</code></label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="menu-hours">
+            <label for="menu-hours">Sunday hours are correct</label>
+        </div>
+    </div>
+
+    <h2>4. JSON-LD Schema Verification</h2>
+    <div class="checklist">
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Open Home page</li>
+            <li>Right-click → View Page Source (or Cmd+Option+U on Mac)</li>
+            <li>Search for (Cmd+F): <code>charcoalnchill@gmail.com</code></li>
+            <li>Search for: <code>"Sunday"</code> in openingHoursSpecification</li>
+        </ol>
+        <div class="check-item">
+            <input type="checkbox" id="schema-email">
+            <label for="schema-email">Email found in JSON-LD schema</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="schema-sunday">
+            <label for="schema-sunday">Sunday found in openingHoursSpecification</label>
+        </div>
+    </div>
+
+    <h2>5. Mailto Link Test</h2>
+    <div class="checklist">
+        <p><strong>Instructions:</strong> Click the email link in the footer or contact page. It should open your default email client with:</p>
+        <div class="expected">
+            To: <code>charcoalnchill@gmail.com</code>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="mailto-works">
+            <label for="mailto-works">Mailto link works correctly</label>
+        </div>
+    </div>
+
+    <h2>6. Visual Inspection</h2>
+    <div class="checklist">
+        <div class="check-item">
+            <input type="checkbox" id="visual-footer">
+            <label for="visual-footer">Footer looks good on all pages</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="visual-contact">
+            <label for="visual-contact">Contact page information is clear</label>
+        </div>
+        <div class="check-item">
+            <input type="checkbox" id="visual-mobile">
+            <label for="visual-mobile">Test on mobile view (resize browser)</label>
+        </div>
+    </div>
+
+    <h2>✅ Automated Verification</h2>
+    <div class="checklist">
+        <p><strong>Run these commands in terminal:</strong></p>
+        <pre style="background: #2a2a2a; padding: 15px; border-radius: 4px; overflow-x: auto;">
+cd /Users/senthilbabu/Downloads/new_cnc
+
+# Verify NAP consistency
+node verify-nap.js
+
+# Verify business hours
+node verify-hours.js
+
+# Verify SEO
+node verify-seo.js
+        </pre>
+    </div>
+
+    <script>
+        // Save checkbox state to localStorage
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            const savedState = localStorage.getItem(checkbox.id);
+            if (savedState === 'true') {
+                checkbox.checked = true;
+            }
+            
+            checkbox.addEventListener('change', () => {
+                localStorage.setItem(checkbox.id, checkbox.checked);
+                updateProgress();
+            });
+        });
+
+        function updateProgress() {
+            const total = document.querySelectorAll('input[type="checkbox"]').length;
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const percentage = Math.round((checked / total) * 100);
+            
+            document.title = `Testing Progress: ${percentage}% (${checked}/${total})`;
+        }
+
+        updateProgress();
+    </script>
+</body>
+</html>
