@@ -1,13 +1,20 @@
+import dynamic from "next/dynamic";
 import { constructMetadata } from "@/lib/metadata";
 import { JsonLd, restaurantSchema } from "@/components/layout/JsonLd";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
-import { Features } from "@/components/home/Features";
-import { ProductShowcase } from "@/components/home/ProductShowcase";
-import { ReviewCarousel } from "@/components/home/ReviewCarousel";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { MapPin, Phone, Mail, Star } from "lucide-react";
+
+// Lazy load below-the-fold components
+const Features = dynamic(() => import("@/components/home/Features").then(mod => mod.Features), {
+  loading: () => <div className="min-h-[50vh] bg-dark-primary" />,
+});
+const ProductShowcase = dynamic(() => import("@/components/home/ProductShowcase").then(mod => mod.ProductShowcase), {
+  loading: () => <div className="min-h-[50vh] bg-dark-primary" />,
+});
+const ReviewCarousel = dynamic(() => import("@/components/home/ReviewCarousel").then(mod => mod.ReviewCarousel));
 
 export const metadata = constructMetadata({
   title: "Charcoal N Chill | #1 Hookah Lounge & Indian Restaurant in Alpharetta",
@@ -34,7 +41,7 @@ export default function Home() {
         <ProductShowcase />
 
         {/* Social Proof & Location */}
-        <section className="relative py-24 bg-dark-secondary overflow-hidden">
+        <section className="relative py-24 bg-dark-secondary overflow-hidden content-section">
           {/* Background Gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50 pointer-events-none" />
 
@@ -77,7 +84,7 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal animation="fade-left" delay={0.2}>
-                <div className="h-[500px] rounded-3xl overflow-hidden border border-white/10 relative group">
+                <div className="h-[500px] rounded-3xl overflow-hidden border border-white/10 relative group bg-dark-tertiary">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3304.907531938293!2d-84.20671332334975!3d34.071884573149525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f59f9b40880aed%3A0x7520302548fe7a5!2sCharcoal%20N%20Chill!5e0!3m2!1sen!2sus!4v1768075947383!5m2!1sen!2sus"
                     width="100%"
@@ -86,6 +93,7 @@ export default function Home() {
                     allowFullScreen={true}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
+                    title="Charcoal N Chill Location Map"
                     className="grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out scale-100 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 border-4 border-gold-primary/20 rounded-3xl pointer-events-none" />

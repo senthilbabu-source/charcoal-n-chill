@@ -64,7 +64,8 @@ export function Hero() {
                 </div>
 
                 {/* Animated Smoke/Ambiance Effect - Keeping CSS only, it is efficient enough */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+                {/* Animated Smoke/Ambiance Effect - Hidden on mobile for performance */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block" aria-hidden="true">
                     <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[100px] animate-[smoke-rise_8s_ease-in-out_infinite]" />
                     <div className="absolute bottom-0 left-[50%] w-[400px] h-[400px] bg-brand-red/10 rounded-full blur-[80px] animate-[smoke-rise_8s_ease-in-out_infinite_2s]" />
                     <div className="absolute bottom-0 right-[10%] w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-[120px] animate-[smoke-rise_8s_ease-in-out_infinite_4s]" />
