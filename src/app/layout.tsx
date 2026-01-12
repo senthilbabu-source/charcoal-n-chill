@@ -19,10 +19,10 @@ const raleway = Raleway({
 export const metadata: Metadata = {
   metadataBase: new URL("https://charcoalnchill.com"),
   title: "Charcoal N Chill | Premium Hookah & Indo-American Fusion Grill in Alpharetta",
-  description: "Alpharetta's #1 destination for premium hookah, authentic Indian curries, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
+  description: "Alpharetta's #1 destination for premium hookah, authentic Indo-American cuisine, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
   openGraph: {
     title: "Charcoal N Chill | Premium Hookah & Indo-American Fusion Grill",
-    description: "Alpharetta's #1 destination for premium hookah, authentic Indian curries, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
+    description: "Alpharetta's #1 destination for premium hookah, authentic Indo-American cuisine, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
     url: "https://charcoalnchill.com",
     siteName: "Charcoal N Chill",
     images: [{ url: "https://charcoalnchill.com/images/final-cnc-hero.jpg", width: 1200, height: 630, alt: "Charcoal N Chill Lounge Interior" }],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Charcoal N Chill | Premium Hookah & Indo-American Fusion Grill",
-    description: "Alpharetta's #1 destination for premium hookah, authentic Indian curries, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
+    description: "Alpharetta's #1 destination for premium hookah, authentic Indo-American cuisine, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
     images: ["https://charcoalnchill.com/images/final-cnc-hero.jpg"],
   },
   robots: {

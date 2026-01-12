@@ -1,50 +1,35 @@
 import { constructMetadata } from "@/lib/metadata";
+export const dynamic = 'force-dynamic';
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
-
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowRight, Clock } from "lucide-react";
+import { blogPosts, categories } from "@/data/blog";
+import Link from "next/link";
+import { Suspense } from "react";
+import { BlogFilter } from "@/components/blog/BlogFilter";
 
 export const metadata = constructMetadata({
-    title: "Blog & Insights | Hookah Culture & Indian Cuisine in Alpharetta",
-    description: "Hookah tips, Indian food recipes, event highlights, and Alpharetta nightlife guides from Charcoal N Chill. Your source for lounge culture insights.",
-    path: "/blog",
-    keywords: ["hookah tips blog", "Indian food guides", "Atlanta nightlife blog", "lounge culture insights"]
+    title: "Blog & News | Charcoal N Chill",
+    description: "Latest updates, hookah guides, and nightlife news from Charcoal N Chill.",
+    path: "/blog"
 });
 
-const posts = [
-    {
-        title: "The Ultimate Guide to Hookah Flavors: Finding Your Perfect Blend",
-        excerpt: "New to hookah? Learn about different flavor profiles, from fruity favorites to traditional mints, and how to find the perfect mix for your palate.",
-        date: "Jan 5, 2026",
-        author: "Admin",
-        image: "/images/hookah-le-blog.jpg"
-    },
-    {
-        title: "Top 5 Indian Dishes to Try at Charcoal N Chill",
-        excerpt: "Explore the authentic flavors of our kitchen. From the spicy kick of Chicken 65 to the creamy comfort of Butter Chicken Masala.",
-        date: "Dec 28, 2025",
-        author: "Chef Raj",
-        image: "/images/crispy-corn-cnc.jpg"
-    },
-    {
-        title: "How to Host the Perfect Private Event in Alpharetta",
-        excerpt: "Planning a celebration? We share professional tips on coordinating guest lists, choosing the right menu, and creating a VIP atmosphere.",
-        date: "Dec 15, 2025",
-        author: "Events Team",
-        image: "/images/private-party-cnc.jpeg"
-    }
-];
+export default async function BlogPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
+    const { category } = await searchParams;
+    const activeCategory = category || "All";
 
-export default function BlogPage() {
+    const filteredPosts = activeCategory === "All"
+        ? blogPosts
+        : blogPosts.filter(post => post.category === activeCategory);
+
     return (
         <>
             <JsonLd data={getBreadcrumbSchema([{ name: "Blog", item: "/blog" }])} id="breadcrumb-blog" />
             <Header />
-            <main className="pt-20">
+            <main className="pt-40">
                 <Breadcrumbs items={[{ label: "Blog", href: "/blog" }]} />
                 <section className="bg-charcoal py-20 border-b border-white/5 mx-auto">
                     <div className="container px-4 md:px-6 text-center space-y-4">
@@ -52,29 +37,51 @@ export default function BlogPage() {
                             Blog & <span className="text-gold">News</span>
                         </h1>
                         <p className="max-w-2xl mx-auto text-gray-400 text-lg">
-                            Insights into hookah culture, authentic Indian cuisine, and nightlife trends.
+                            Insights into Indo-American Cuisine, Hookah Culture, Craft Cocktails & Nightlife Trends
                         </p>
                     </div>
                 </section>
 
                 <Section>
+                    {/* Category Filter - Client Component for Interactivity */}
+                    <Suspense fallback={<div className="h-12 w-full animate-pulse bg-white/5 rounded-full mb-12" />}>
+                        <BlogFilter categories={categories} activeCategory={activeCategory} />
+                    </Suspense>
+
+                    {/* Blog Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                        {posts.map((post, i) => (
-                            <article key={i} className="group flex flex-col space-y-6">
-                                <div className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-white/5">
-                                    <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" width="800" height="600" loading="lazy" />
+                        {filteredPosts.map((post) => (
+                            <article
+                                key={post.id}
+                                className="group flex flex-col space-y-6"
+                            >
+                                <Link href={`/blog/${post.slug}`} className="block relative aspect-[16/10] rounded-3xl overflow-hidden border border-white/5">
+                                    <div className="absolute top-4 left-4 z-10 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 text-xs font-bold text-gold uppercase tracking-widest">
+                                        {post.category}
+                                    </div>
+                                    <img
+                                        src={post.image}
+                                        alt={post.title}
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        width="800"
+                                        height="600"
+                                        loading="lazy"
+                                    />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                                </div>
+                                </Link>
 
                                 <div className="space-y-4 flex-grow">
                                     <div className="flex items-center gap-6 text-xs text-gold font-bold uppercase tracking-widest">
                                         <span className="flex items-center gap-1"><Calendar size={14} /> {post.date}</span>
+                                        <span className="flex items-center gap-1"><Clock size={14} /> {post.readTime}</span>
                                         <span className="flex items-center gap-1"><User size={14} /> {post.author}</span>
                                     </div>
 
-                                    <h2 className="text-2xl font-heading font-bold text-white group-hover:text-gold transition-colors line-clamp-2">
-                                        {post.title}
-                                    </h2>
+                                    <Link href={`/blog/${post.slug}`}>
+                                        <h2 className="text-2xl font-heading font-bold text-white group-hover:text-gold transition-colors line-clamp-2">
+                                            {post.title}
+                                        </h2>
+                                    </Link>
 
                                     <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
                                         {post.excerpt}
@@ -82,13 +89,19 @@ export default function BlogPage() {
                                 </div>
 
                                 <div className="pt-4 border-t border-white/5">
-                                    <button className="flex items-center gap-2 text-gold font-bold text-sm hover:translate-x-2 transition-transform">
+                                    <Link href={`/blog/${post.slug}`} className="flex items-center gap-2 text-gold font-bold text-sm hover:translate-x-2 transition-transform">
                                         Read More <ArrowRight size={16} />
-                                    </button>
+                                    </Link>
                                 </div>
                             </article>
                         ))}
                     </div>
+
+                    {filteredPosts.length === 0 && (
+                        <div className="text-center py-20">
+                            <p className="text-gray-500 text-lg">No posts found in this category yet.</p>
+                        </div>
+                    )}
                 </Section>
             </main>
             <Footer />

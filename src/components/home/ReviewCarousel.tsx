@@ -18,7 +18,7 @@ const reviews = [
         rating: 5
     },
     {
-        text: "Charcoal N Chill is a gem in Alpharetta. The fusion of Indian cuisine and hookah is unique. The Lamb Chops are a must-try!",
+        text: "Charcoal N Chill is a gem in Alpharetta. The fusion of Indo-American cuisine and hookah is unique. The Lamb Chops are a must-try!",
         author: "Foodie Lover",
         initials: "FL",
         rating: 5
@@ -61,7 +61,7 @@ export function ReviewCarousel() {
                     {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-5 h-5 fill-current" />
                     ))}
-                    <span className="ml-2 text-white font-bold">4.8/5</span>
+                    <span className="ml-2 text-white font-bold">4.7/5</span>
                 </div>
 
                 {/* Animated Review Content */}

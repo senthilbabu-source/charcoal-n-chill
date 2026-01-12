@@ -21,7 +21,7 @@ export const organizationSchema = {
     "name": "Charcoal N Chill",
     "url": "https://charcoalnchill.com",
     "logo": "https://charcoalnchill.com/logo.png",
-    "description": "Alpharetta's premier hookah lounge and authentic Indian restaurant featuring 50+ premium flavors, live entertainment, and luxury VIP seating near Avalon Mall.",
+    "description": "Alpharetta's premier hookah lounge and authentic Indo-American restaurant featuring 50+ premium flavors, live entertainment, and luxury VIP seating near Avalon Mall.",
     "foundingDate": "2015",
     "contactPoint": {
         "@type": "ContactPoint",
@@ -99,7 +99,7 @@ export const restaurantSchema = {
             "closes": "01:00"
         }
     ],
-    "servesCuisine": ["Indian", "American", "Indo-American Fusion", "Hookah Lounge"],
+    "servesCuisine": ["Indo-American", "American", "Fusion", "Hookah Lounge"],
     "acceptsReservations": "True",
     "menu": "https://charcoalnchill.com/menu",
     "aggregateRating": {
@@ -138,5 +138,28 @@ export function getFaqSchema(faqs: { q: string; a: string }[]) {
                 "text": faq.a
             }
         }))
+    };
+}
+
+export function getArticleSchema(post: { id: string; title: string; image: string; date: string; author: string; excerpt: string }) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "image": [post.image],
+        "datePublished": post.date,
+        "author": {
+            "@type": "Person",
+            "name": post.author
+        },
+        "description": post.excerpt,
+        "publisher": {
+            "@type": "Organization",
+            "name": "Charcoal N Chill",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://charcoalnchill.com/logo.png"
+            }
+        }
     };
 }

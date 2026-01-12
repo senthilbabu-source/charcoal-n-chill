@@ -82,7 +82,7 @@ export function Hero() {
 
 
             {/* Hero Content */}
-            <div className="relative z-10 container mx-auto px-4 text-center mt-20">
+            <div className="relative z-10 container mx-auto px-4 text-center mt-0 md:-mt-12">
                 <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-bg mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                     <span className="text-gold-primary animate-pulse">✨</span>
                     <span className="text-sm font-medium uppercase tracking-widest text-gold-primary">Alpharetta's Premier Destination</span>
@@ -98,18 +98,18 @@ export function Hero() {
                         </span>
                     </h1>
                     <span className="block text-2xl md:text-3xl font-light text-white/90 mt-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                        Hookah Lounge & Indian Grill
+                        Hookah Lounge & Indo-American Grill
                     </span>
                 </div>
 
                 <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-                    Immerse yourself in luxury with 50+ premium hookah flavors, authentic Indian cuisine,
+                    Immerse yourself in luxury with 50+ premium hookah flavors, authentic Indo-American cuisine,
                     and electrifying live entertainment. The perfect night out starts here.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                     <Link href="/contact#reserve">
-                        <MagneticButton className="px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-light !text-dark-primary hover:!text-dark-primary rounded-xl hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.6)] flex items-center gap-2 transition-all">
+                        <MagneticButton className="px-8 py-4 bg-gradient-to-r from-gold-dark to-gold-light !text-dark-primary hover:!text-white hover:from-dark-secondary hover:to-dark-primary rounded-xl hover:-translate-y-1 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(196,30,58,0.6)] flex items-center gap-2 transition-all">
                             <span>Book Your Table</span>
                             <ArrowRight size={20} />
                         </MagneticButton>
@@ -129,7 +129,7 @@ export function Hero() {
 
             {/* Scroll Indicator */}
             <button
-                className="absolute bottom-2 md:bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 animate-bounce opacity-80 md:opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-white/70 hover:text-white bg-transparent border-none"
+                className="absolute bottom-32 md:bottom-40 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-2 animate-bounce opacity-80 md:opacity-60 hover:opacity-100 transition-opacity cursor-pointer text-white/70 hover:text-white bg-transparent border-none"
                 onClick={scrollToMenu}
                 aria-label="Scroll to Menu"
             >
@@ -140,20 +140,30 @@ export function Hero() {
             </button>
 
             {/* Floating Stats Bar */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl glass-bg border-b-0 rounded-t-3xl p-6 hidden md:flex justify-around items-center animate-slide-up" style={{ animationDelay: '0.8s' }}>
+            <div className="absolute bottom-0 inset-x-0 mx-auto w-[95%] max-w-7xl glass-bg border-b-0 rounded-t-3xl p-6 hidden md:flex justify-center gap-8 lg:gap-12 items-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
+                <div className="text-center group cursor-default">
+                    <div className="text-3xl font-black text-gold-primary mb-1 group-hover:scale-110 transition-transform duration-300">Fusion</div>
+                    <div className="text-xs uppercase tracking-widest text-gray-400">Indo-American Eats</div>
+                </div>
+                <div className="w-px h-12 bg-white/10" />
                 <div className="text-center group cursor-default">
                     <div className="text-3xl font-black text-gold-primary mb-1 group-hover:scale-110 transition-transform duration-300">50+</div>
                     <div className="text-xs uppercase tracking-widest text-gray-400">Premium Flavors</div>
                 </div>
                 <div className="w-px h-12 bg-white/10" />
                 <div className="text-center group cursor-default">
-                    <div className="text-3xl font-black text-gold-primary mb-1 group-hover:scale-110 transition-transform duration-300">4.8★</div>
+                    <div className="text-3xl font-black text-gold-primary mb-1 group-hover:scale-110 transition-transform duration-300">4.7★</div>
                     <div className="text-xs uppercase tracking-widest text-gray-400">Google Rating</div>
                 </div>
                 <div className="w-px h-12 bg-white/10" />
                 <div className="text-center group cursor-default">
                     <div className="text-3xl font-black text-gold-primary mb-1 group-hover:scale-110 transition-transform duration-300">2 AM</div>
                     <div className="text-xs uppercase tracking-widest text-gray-400">Open Late Wknds</div>
+                </div>
+                <div className="w-px h-12 bg-white/10" />
+                <div className="text-center group cursor-default">
+                    <div className="text-3xl font-black text-gold-primary mb-1 group-hover:scale-110 transition-transform duration-300">Live</div>
+                    <div className="text-xs uppercase tracking-widest text-gray-400">Belly Dance Wknds</div>
                 </div>
             </div>
         </section>

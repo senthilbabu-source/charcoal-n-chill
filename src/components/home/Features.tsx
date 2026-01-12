@@ -16,7 +16,7 @@ const features = [
     },
     {
         icon: Utensils,
-        title: "Authentic Indian Cuisine",
+        title: "Authentic Indo-American Cuisine",
         description: "Savor the rich spices of Chef Ajay's signature Butter Chicken and street-style appetizers.",
         delay: 0.2
     },

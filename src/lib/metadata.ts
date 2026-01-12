@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-export const BASE_URL = "https://www.charcoalnchill.com";
+export const BASE_URL = "https://charcoalnchill.com";
 
 interface MetadataProps {
     title: string;
@@ -24,7 +24,7 @@ export function constructMetadata({
         description,
         keywords: [
             "hookah lounge Alpharetta",
-            "Indian restaurant Alpharetta",
+            "Indo-American restaurant Alpharetta",
             "hookah bar near me",
             "late night hookah",
             "VIP lounge",

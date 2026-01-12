@@ -66,7 +66,7 @@ export default function FAQPage() {
             <JsonLd data={faqSchema} />
             <JsonLd data={getBreadcrumbSchema([{ name: "FAQ", item: "/faq" }])} id="breadcrumb-faq" />
             <Header />
-            <main className="pt-20">
+            <main className="pt-40">
                 <Breadcrumbs items={[{ label: "FAQ", href: "/faq" }]} />
                 <section className="bg-charcoal py-20 border-b border-white/5 mx-auto">
                     <div className="container px-4 md:px-6 text-center space-y-4">

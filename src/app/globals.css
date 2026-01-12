@@ -1,10 +1,11 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
-  /* Brand Colors - New Luxury Palette */
+  /* Brand Colors */
   --gold-primary: #D4AF37;
-  --gold-light: #E5C158;
-  --gold-dark: #B8941F;
+  --gold-light: #F4C430;
+  --gold-dark: #AA8C2C;
   --gold-glow: rgba(212, 175, 55, 0.3);
 
   /* Dark Tones */
@@ -21,7 +22,8 @@
   /* Rich purple */
 
   /* Gradients */
-  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #E5C158 100%);
+  --gradient-gold: linear-gradient(135deg, #C41E3A 0%, #E63E56 100%);
+  --gradient-dark: linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%);
   --gradient-dark: linear-gradient(180deg, #0A0A0A 0%, #1A1A1A 100%);
   --gradient-overlay: linear-gradient(180deg, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0.3) 100%);
 
@@ -133,6 +135,8 @@ body {
   -webkit-transform: translateZ(0);
 }
 
+
+
 /* Optimization for large sections below the fold */
 .content-section {
   content-visibility: auto;
@@ -158,6 +162,7 @@ body {
 }
 
 /* Utility Classes */
+/* Glassmorphism Utilities */
 .glass-bg {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);

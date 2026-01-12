@@ -21,7 +21,7 @@ export default function PrivateEventsPage() {
         <>
             <JsonLd data={getBreadcrumbSchema([{ name: "Private Events", item: "/private-events" }])} id="breadcrumb-private" />
             <Header />
-            <main className="pt-20">
+            <main className="pt-40">
                 <Breadcrumbs items={[{ label: "Private Events", href: "/private-events" }]} />
                 <section className="bg-[#031322] py-24 md:py-32 border-b border-white/5 mx-auto">
                     <div className="container px-4 md:px-6 text-center space-y-6">

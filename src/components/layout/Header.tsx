@@ -92,7 +92,7 @@ export function Header() {
                         )}>
                             <Image
                                 src="/logo.png"
-                                alt="Charcoal N Chill - Premium Hookah & Indian Restaurant"
+                                alt="Charcoal N Chill - Premium Hookah & Indo-American Lounge"
                                 width={800}
                                 height={212}
                                 className="h-full w-auto object-contain"
@@ -134,42 +134,56 @@ export function Header() {
 
 
             {/* Mobile Menu */}
+            {/* Mobile Menu Backdrop */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, x: "100%" }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: "100%" }}
-                        className="fixed inset-0 z-[60] bg-dark-primary/98 backdrop-blur-xl flex flex-col justify-center p-8 md:hidden overflow-y-auto"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+                        onClick={() => setIsOpen(false)}
+                        aria-hidden="true"
+                    />
+                )}
+            </AnimatePresence>
+
+            {/* Mobile Menu Dropdown */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 right-0 z-50 bg-charcoal border-b border-white/10 shadow-2xl md:hidden overflow-hidden"
                         id="mobile-menu"
                     >
-                        <nav className="flex flex-col gap-4 items-center">
-                            {allNavItems.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    className={cn(
-                                        "text-2xl font-heading font-bold uppercase tracking-widest transition-colors hover:text-gold-primary",
-                                        pathname === item.href ? "text-gold-primary" : "text-white/80"
-                                    )}
-                                    onClick={() => setIsOpen(false)}
-                                >
-                                    {item.name}
-                                </Link>
-                            ))}
-                            <div className="mt-8 pt-8 border-t border-white/10 w-full text-center">
-                                <Button className="w-full text-lg py-6 bg-gradient-to-r from-gold-dark to-gold-light text-dark-primary hover:shadow-glow font-bold" asChild>
-                                    <Link href="/contact#reserve" onClick={() => setIsOpen(false)}>Reserve Table</Link>
+                        <div className="container mx-auto px-4 py-6">
+                            <nav className="grid grid-cols-2 gap-4">
+                                {allNavItems.map((item) => (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        className={cn(
+                                            "flex items-center justify-center py-3 px-4 rounded-xl bg-white/5 border border-white/5 text-sm font-bold uppercase tracking-wider transition-all hover:bg-white/10 hover:border-gold/30 hover:text-gold",
+                                            pathname === item.href ? "bg-white/10 border-gold/50 text-gold" : "text-white/80"
+                                        )}
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </nav>
+
+                            <div className="mt-6 pt-6 border-t border-white/10">
+                                <Button className="w-full py-6 text-base font-bold bg-gold text-charcoal hover:bg-gold-light" asChild>
+                                    <Link href="/contact#reserve" onClick={() => setIsOpen(false)}>
+                                        Reserve A Table
+                                    </Link>
                                 </Button>
                             </div>
-                        </nav>
-                        <button
-                            className="absolute top-6 right-6 text-white hover:text-gold-primary transition-colors p-2"
-                            onClick={() => setIsOpen(false)}
-                            aria-label="Close menu"
-                        >
-                            <X size={32} />
-                        </button>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>

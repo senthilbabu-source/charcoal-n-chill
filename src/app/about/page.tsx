@@ -8,9 +8,9 @@ import Image from "next/image";
 
 export const metadata = constructMetadata({
     title: "About Us | Atlanta's Premier Hookah Lounge & Social Hub",
-    description: "Learn about Charcoal N Chill, Alpharetta's premier hookah lounge since 2015. Luxury Versace seating, authentic Indian cuisine by Chef Ajay, live entertainment.",
+    description: "Learn about Charcoal N Chill, Alpharetta's premier hookah lounge since 2015. Luxury Versace seating, authentic Indo-American cuisine by Chef Ajay, live entertainment.",
     path: "/about",
-    keywords: ["about Charcoal N Chill", "best lounge Alpharetta", "Indian restaurant founders", "hookah lounge story"]
+    keywords: ["about Charcoal N Chill", "best lounge Alpharetta", "Indo-American restaurant founders", "hookah lounge story"]
 });
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
         <>
             <JsonLd data={getBreadcrumbSchema([{ name: "About", item: "/about" }])} id="breadcrumb-about" />
             <Header />
-            <main className="pt-20">
+            <main className="pt-40">
                 <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
                 <section className="relative py-32 md:py-48 overflow-hidden border-b border-white/5 bg-[#031322]">
                     <div className="container px-4 md:px-6 relative z-10 text-center space-y-8">
@@ -37,7 +37,7 @@ export default function AboutPage() {
                             <h2 className="text-4xl md:text-6xl font-heading font-black text-white uppercase tracking-tight">Our Story</h2>
                             <div className="w-16 h-[1px] bg-gold" />
                             <p className="text-gray-400 text-lg leading-relaxed">
-                                Located in the heart of Alpharetta, we&apos;ve created a one-of-a-kind experience that brings together the finest hookah culture, authentic Indian flavors, and vibrant nightlife.
+                                Located in the heart of Alpharetta, we&apos;ve created a one-of-a-kind experience that brings together the finest hookah culture, authentic Indo-American flavors, and vibrant nightlife.
                             </p>
                             <p className="text-gray-400 text-lg leading-relaxed">
                                 Our vision was simple: create a space where friends gather, cultures blend, and memories are made. Whether you&apos;re celebrating a special occasion, enjoying an evening with friends, or hosting a private event, Charcoal N Chill delivers an unforgettable experience.
@@ -69,7 +69,7 @@ export default function AboutPage() {
                                 desc: "Carefully curated selection from traditional to exotic blends."
                             },
                             {
-                                title: "Authentic Indian Kitchen",
+                                title: "Authentic Indo-American Kitchen",
                                 desc: "Recipes passed down through generations, prepared by experienced chefs."
                             },
                             {

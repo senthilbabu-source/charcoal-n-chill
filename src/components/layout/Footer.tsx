@@ -16,14 +16,14 @@ export function Footer() {
                             <div className="absolute inset-0 bg-gold-primary/10 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                             <Image
                                 src="/logo.png"
-                                alt="Charcoal N Chill - Premium Hookah & Indian Restaurant"
+                                alt="Charcoal N Chill - Premium Hookah & Indo-American Lounge"
                                 width={120}
                                 height={80}
                                 className="h-16 md:h-20 w-auto object-contain relative z-10"
                             />
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm">
-                            Atlanta&apos;s premier destination for high-end hookah and a unique fusion of Indian zest and American favorites. Experience the luxury of Charcoal N Chill.
+                            Atlanta&apos;s premier destination for high-end hookah and a unique fusion of Indo-American zest and local favorites. Experience the luxury of Charcoal N Chill.
                         </p>
                         <div className="flex gap-4">
                             <a href="https://www.instagram.com/charcoal_n_chill/" className="w-10 h-10 flex items-center justify-center rounded-full bg-glass-bg border border-glass-border text-gray-400 hover:bg-gold-primary hover:text-dark-primary hover:-translate-y-1 transition-all duration-300" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">

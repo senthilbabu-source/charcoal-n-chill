@@ -21,7 +21,7 @@ export default function ContactPage() {
         <>
             <JsonLd data={getBreadcrumbSchema([{ name: "Contact", item: "/contact" }])} id="breadcrumb-contact" />
             <Header />
-            <main className="pt-20">
+            <main className="pt-40">
                 <Breadcrumbs items={[{ label: "Contact", href: "/contact" }]} />
                 <section className="bg-charcoal py-20 border-b border-white/5 mx-auto">
                     <div className="container px-4 md:px-6 text-center space-y-4">

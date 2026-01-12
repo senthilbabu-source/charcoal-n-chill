@@ -18,9 +18,9 @@ const ReviewCarousel = dynamic(() => import("@/components/home/ReviewCarousel").
 
 export const metadata = constructMetadata({
   title: "Charcoal N Chill | #1 Hookah & Indo-American Fusion in Alpharetta",
-  description: "Alpharetta's top spot for premium hookah, wings, and curry. The best of Indian flavor meets American favorites. Open late for VIP dining and live entertainment.",
+  description: "Alpharetta's top spot for premium hookah, wings, and curry. The best of Indo-American flavor meets local favorites. Open late for VIP dining and live entertainment.",
   path: "/",
-  keywords: ["hookah lounge Alpharetta", "Indo-American fusion", "best wings Alpharetta", "Indian food near me", "late night food Alpharetta"]
+  keywords: ["hookah lounge Alpharetta", "Indo-American fusion", "best wings Alpharetta", "Indo-American food near me", "late night food Alpharetta"]
 });
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "ImageObject",
         "contentUrl": "https://www.charcoalnchill.com/images/final-cnc-hero.jpg",
-        "description": "Premium Hookah Lounge and Indian Restaurant Ambiance in Alpharetta",
+        "description": "Premium Hookah Lounge and Indo-American Restaurant Ambiance in Alpharetta",
         "name": "Charcoal N Chill Main Lounge"
       }} id="image-hero" />
       <Header />
@@ -73,7 +73,7 @@ export default function Home() {
                   <div className="near-avalon my-6 p-6 bg-gradient-to-r from-gold-primary/10 to-transparent border-l-4 border-gold-primary rounded-r-xl">
                     <p className="location-highlight text-base leading-relaxed text-gray-300 m-0 italic">
                       "Conveniently located near Avalon Mall on Jones Bridge Road, Charcoal N Chill
-                      is just 3 minutes from Alpharetta&apos;s premier shopping and entertainment district.
+                      is just 5.1 miles from Alpharetta&apos;s premier shopping and entertainment district.
                       Easy access, ample free parking, and the perfect post-shopping destination."
                     </p>
                   </div>

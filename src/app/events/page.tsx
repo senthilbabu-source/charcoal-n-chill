@@ -46,7 +46,7 @@ const events = [
         day: "First Sat. of Month",
         name: "Bollywood Night",
         time: "10:00 PM - 2:00 AM",
-        desc: "Bollywood DJ, Indian cocktails, and hookah specials with themed decorations.",
+        desc: "Bollywood DJ, Indo-American cocktails, and hookah specials with themed decorations.",
         icon: <Calendar className="w-6 h-6 text-gold" />,
         image: "/images/bollywood-night.jpg"
     }
@@ -86,7 +86,7 @@ export default function EventsPage() {
             ))}
             <JsonLd data={getBreadcrumbSchema([{ name: "Events", item: "/events" }])} id="breadcrumb-events" />
             <Header />
-            <main className="pt-20">
+            <main className="pt-40">
                 <Breadcrumbs items={[{ label: "Events", href: "/events" }]} />
                 <section className="bg-charcoal py-20 border-b border-white/5 mx-auto">
                     <div className="container px-4 md:px-6 text-center space-y-4">

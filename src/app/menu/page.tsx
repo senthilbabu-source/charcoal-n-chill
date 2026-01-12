@@ -31,25 +31,25 @@ const menuItems = {
         { name: "Paneer 65", price: "$10", desc: "Spicy deep-fried cottage cheese cubes" },
         { name: "Chicken Pepper", price: "$11", desc: "Tender chicken in black pepper sauce" },
         { name: "Chicken Chili", price: "$11", desc: "Indo-Chinese chicken with peppers and sauce" },
-        { name: "Chicken 65", price: "$11", desc: "South Indian spicy fried chicken" },
+        { name: "Chicken 65", price: "$11", desc: "Indo-Chinese spicy fried chicken" },
         { name: "Shrimp Pepper", price: "$13", desc: "Jumbo shrimp in peppercorn sauce" },
         { name: "Shrimp Chili", price: "$13", desc: "Spicy Indo-Chinese style shrimp" },
-        { name: "Shrimp 65", price: "$13", desc: "Crispy fried shrimp South Indian style" },
+        { name: "Shrimp 65", price: "$13", desc: "Crispy fried shrimp Indo-Chinese style" },
     ],
     entrees: [
         { name: "Veg Fried Rice", price: "$11", desc: "Wok-tossed rice with seasonal vegetables" },
         { name: "Egg Fried Rice", price: "$12", desc: "Classic fried rice with scrambled eggs" },
         { name: "Chicken Fried Rice", price: "$13", desc: "Tender chicken with aromatic fried rice" },
         { name: "Shrimp Fried Rice", price: "$15", desc: "Jumbo shrimp with vegetables and rice" },
-        { name: "Maggi", price: "$8", desc: "Indian-style instant noodles with spices" },
+        { name: "Maggi", price: "$8", desc: "Indo-American style instant noodles with spices" },
         { name: "Paneer Butter Masala", price: "$14", desc: "Cottage cheese in creamy tomato sauce, served with naan" },
         { name: "Butter Chicken Masala", price: "$16", desc: "Tender chicken in rich butter sauce, served with naan" },
-        { name: "Naan", price: "$3", desc: "Fresh-baked Indian flatbread" },
+        { name: "Naan", price: "$3", desc: "Fresh-baked Tandoori flatbread" },
     ],
     desserts: [
         { name: "Tiramisu Temptation", price: "$8", desc: "Classic Italian dessert with coffee-soaked layers" },
         { name: "Tres Lechesss Cake", price: "$7", desc: "Latin American three-milk sponge cake" },
-        { name: "Gulab Jamun", price: "$6", desc: "Traditional Indian milk dumplings in rose syrup" },
+        { name: "Gulab Jamun", price: "$6", desc: "Traditional milk dumplings in rose syrup" },
     ],
 };
 
@@ -57,7 +57,7 @@ const menuSchema = {
     "@context": "https://schema.org",
     "@type": "Menu",
     "name": "Charcoal N Chill Menu",
-    "description": "Authentic Indian cuisine, American Classics, 50+ hookah flavors, craft cocktails",
+    "description": "Authentic Indo-American cuisine, American Classics, 50+ hookah flavors, craft cocktails",
     "hasMenuSection": [
         {
             "@type": "MenuSection",
@@ -115,7 +115,7 @@ export default function MenuPage() {
             <JsonLd data={menuSchema} />
             <JsonLd data={getBreadcrumbSchema([{ name: "Menu", item: "/menu" }])} id="breadcrumb-menu" />
             <Header />
-            <main className="pt-20">
+            <main className="pt-40">
                 <Breadcrumbs items={[{ label: "Menu", href: "/menu" }]} />
 
                 {/* Hero Section */}
@@ -126,7 +126,7 @@ export default function MenuPage() {
                             Our <span className="text-gold text-glow">Menu</span>
                         </h1>
                         <p className="max-w-2xl mx-auto text-xl text-gray-400">
-                            Discover a bold fusion of authentic Indian flavors, American classics, and artisan cocktails.
+                            Discover a bold fusion of authentic Indo-American flavors, American classics, and artisan cocktails.
                         </p>
                     </div>
                 </section>
@@ -151,7 +151,7 @@ export default function MenuPage() {
                     <div className="relative w-full h-[400px] mb-20 rounded-[3rem] overflow-hidden group">
                         <Image
                             src={categoryImages.appetizers}
-                            alt="Authentic Indian Appetizers"
+                            alt="Authentic Indo-American Appetizers"
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
@@ -179,7 +179,7 @@ export default function MenuPage() {
                     <div className="relative w-full h-[400px] mb-20 rounded-[3rem] overflow-hidden group">
                         <Image
                             src={categoryImages.entrees}
-                            alt="Signature Indian Entrees"
+                            alt="Signature Indo-American Entrees"
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-700"
                         />
