@@ -30,7 +30,7 @@ export const weeklyRituals: EventItem[] = [
         time: "10:00 PM (2 Hours)",
         desc: "Mesmerizing live performances by professional belly dancers. The ultimate dinner and a show experience.",
         icon: UserCheck,
-        image: "/images/belly-dancing.jpg",
+        image: "/images/belly-dance-cnc.jpg",
         highlight: "Main Event",
         color: "from-purple-900/40"
     },
