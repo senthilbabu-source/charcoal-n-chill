@@ -80,7 +80,7 @@ export function ProductShowcase() {
                             key={item.id}
                             animation="zoom-in"
                             delay={index * 0.1}
-                            className={`${item.colSpan} ${item.rowSpan} group relative rounded-3xl overflow-hidden cursor-pointer bg-dark-secondary border border-white/5 hover:border-gold-primary/30 transition-colors duration-500`}
+                            className={`${item.colSpan} ${item.rowSpan} h-[300px] md:h-full group relative rounded-3xl overflow-hidden cursor-pointer bg-dark-secondary border border-white/5 hover:border-gold-primary/30 transition-colors duration-500`}
                         >
                             <Link href="/menu" className="block w-full h-full">
                                 {/* Image */}

@@ -13,14 +13,12 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLeft = [
     { name: "Home", href: "/" },
     { name: "Menu", href: "/menu" },
-    { name: "About", href: "/about" },
     { name: "Events", href: "/events" },
 ];
 
 const navRight = [
-    { name: "Private Events", href: "/private-events" },
-    { name: "FAQ", href: "/faq" },
-    { name: "Blog", href: "/blog" },
+    { name: "Parties", href: "/private-events" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
 ];
 
@@ -156,7 +154,7 @@ export function Header() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 right-0 z-50 bg-charcoal border-b border-white/10 shadow-2xl md:hidden overflow-hidden"
+                        className="absolute top-full left-0 right-0 z-50 bg-black border-b border-white/10 shadow-2xl md:hidden overflow-hidden"
                         id="mobile-menu"
                     >
                         <div className="container mx-auto px-4 py-6">

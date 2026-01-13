@@ -5,7 +5,7 @@ import { Loader2, ArrowRight } from "lucide-react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: "primary" | "secondary" | "outline" | "ghost" | "link";
-    size?: "sm" | "md" | "lg" | "icon";
+    size?: "sm" | "md" | "lg" | "xl" | "icon";
     isLoading?: boolean;
     asChild?: boolean;
     withArrow?: boolean;
@@ -31,6 +31,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
                         "h-10 px-6": size === "sm",
                         "h-12 px-8": size === "md",
                         "h-14 px-10 text-base": size === "lg",
+                        "h-16 px-12 text-lg": size === "xl",
                         "h-12 w-12": size === "icon",
                     },
                     className

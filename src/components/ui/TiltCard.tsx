@@ -7,9 +7,10 @@ import { cn } from "@/lib/utils";
 interface TiltCardProps {
     children: React.ReactNode;
     className?: string;
+    rotationFactor?: number;
 }
 
-export function TiltCard({ children, className }: TiltCardProps) {
+export function TiltCard({ children, className, rotationFactor = 10 }: TiltCardProps) {
     const ref = useRef<HTMLDivElement>(null);
 
     const x = useMotionValue(0);
@@ -35,8 +36,8 @@ export function TiltCard({ children, className }: TiltCardProps) {
         y.set(0);
     }
 
-    const rotateX = useTransform(mouseY, [-0.5, 0.5], [10, -10]);
-    const rotateY = useTransform(mouseX, [-0.5, 0.5], [-10, 10]);
+    const rotateX = useTransform(mouseY, [-0.5, 0.5], [rotationFactor, -rotationFactor]);
+    const rotateY = useTransform(mouseX, [-0.5, 0.5], [-rotationFactor, rotationFactor]);
     const brightness = useTransform(mouseY, [-0.5, 0.5], [1.1, 0.9]);
 
     return (

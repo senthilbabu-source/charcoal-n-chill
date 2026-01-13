@@ -53,12 +53,13 @@ export function Hero() {
                 >
                     <Image
                         src="/images/final-cnc-hero.jpg"
-                        alt="Charcoal N Chill Lounge Interior"
+                        alt="Charcoal N Chill Lounge Interior - Premium Hookah & Dining"
                         fill
-                        priority
+                        priority={true}
+                        fetchPriority="high"
                         className="object-cover filter brightness-[0.4]"
-                        sizes="100vw"
-                        quality={85}
+                        sizes="(max-width: 768px) 100vw, 100vw"
+                        quality={90}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-dark-primary/40 to-dark-primary/90" />
                 </div>
@@ -103,7 +104,7 @@ export function Hero() {
                 </div>
 
                 <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-                    Immerse yourself in luxury with 50+ premium hookah flavors, authentic Indo-American cuisine,
+                    Immerse yourself in luxury with 50+ premium hookah flavors, Indo-American Eats,
                     and electrifying live entertainment. The perfect night out starts here.
                 </p>
 

@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HelpCircle, ChevronDown } from "lucide-react";
+import { PageHero } from "@/components/ui/PageHero";
 
 export const metadata = constructMetadata({
     title: "Frequently Asked Questions | Charcoal N Chill Hookah & Dining",
@@ -68,16 +69,11 @@ export default function FAQPage() {
             <Header />
             <main className="pt-40">
                 <Breadcrumbs items={[{ label: "FAQ", href: "/faq" }]} />
-                <section className="bg-charcoal py-20 border-b border-white/5 mx-auto">
-                    <div className="container px-4 md:px-6 text-center space-y-4">
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold text-white tracking-tight">
-                            Common <span className="text-gold">Questions</span>
-                        </h1>
-                        <p className="max-w-2xl mx-auto text-gray-400 text-lg">
-                            Everything you need to know about your visit to Charcoal N Chill.
-                        </p>
-                    </div>
-                </section>
+
+                <PageHero
+                    title={<>Common <span className="text-gold text-glow">Questions</span></>}
+                    description="Everything you need to know about your visit to Charcoal N Chill."
+                />
 
                 <Section>
                     <div className="max-w-4xl mx-auto space-y-16">

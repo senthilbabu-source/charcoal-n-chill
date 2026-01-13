@@ -21,7 +21,7 @@ export const organizationSchema = {
     "name": "Charcoal N Chill",
     "url": "https://charcoalnchill.com",
     "logo": "https://charcoalnchill.com/logo.png",
-    "description": "Alpharetta's premier hookah lounge and authentic Indo-American restaurant featuring 50+ premium flavors, live entertainment, and luxury VIP seating near Avalon Mall.",
+    "description": "Alpharetta's premier hookah lounge and Indo-American Eats featuring 50+ premium flavors, live entertainment, and luxury VIP seating near Avalon Mall.",
     "foundingDate": "2015",
     "contactPoint": {
         "@type": "ContactPoint",

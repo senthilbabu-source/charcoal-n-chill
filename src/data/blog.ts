@@ -16,7 +16,7 @@ export interface BlogPost {
     title: string;
     excerpt: string;
     content: string;
-    category: BlogCategory;
+    category: BlogCategory | BlogCategory[];
     date: string;
     readTime: string;
     author: string;
@@ -36,6 +36,267 @@ export const categories: BlogCategory[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+    // Late Night Guide
+    {
+        id: "19",
+        title: "Late Night at Charcoal N Chill: A Survival Guide to 1 AM Cravings",
+        excerpt: "It's 12:47 AM. You've been vibing for hours. Your friend just said 'I'm hungry.' Here's exactly what to order based on the vibe.",
+        content: `
+            <p>It's 12:47 AM. You've been vibing for hours. Your friend just said "I'm hungry" and everyone agreed immediately. Here's exactly what to order.</p>
+            <p>Let me paint you a picture.</p>
+            <p>It's Thursday night. You and your crew showed up around 9 PM with a plan—"just one hookah, maybe a drink, we'll be out by 11."</p>
+            <p>It is now 1:17 AM.</p>
+            <p>Nobody knows how this happened. Time doesn't work the same way in a hookah lounge. One minute you're settling into the couch, the next minute someone's telling a story about their ex, then suddenly you're three hookahs deep and someone's showing everyone their high school yearbook photos on their phone and you're dying laughing.</p>
+            <p>And then it happens.</p>
+            <p>Someone—it's always someone—breaks the spell. They look up from their phone, make eye contact with literally no one, and say those four magic words:</p>
+            <p>"I'm so hungry."</p>
+            <p>And just like that, the floodgates open. Everyone's suddenly starving. Someone mentions wings. Someone else is thinking about fries. That one person who's been quietly demolishing the complimentary chips speaks up for the first time in an hour: "We should get everything."</p>
+            <p>And you know what? They're right.</p>
+            <p>But here's the thing: what you order at 9 PM is very different from what you order at 1 AM. The rules change. Your taste buds change. The entire vibe changes. And if you order wrong, you'll regret it (or at least, you'll regret it tomorrow when you see the bill and realize you ordered $200 worth of food for four people).</p>
+            <p>So let me break down the ultimate late-night ordering strategy, by stage of the night, so you can make informed decisions when your brain is running on hookah smoke and good vibes.</p>
+
+            <h3>Stage 1: The Arrival (9-10 PM) - "We're Just Here to Chill"</h3>
+            <p>You just walked in. You're fresh. Alert. You've got your wits about you. Maybe you already ate dinner, maybe you didn't, but either way, you're not hungry hungry yet. You're just... here.</p>
+            <p><strong>What You're Thinking:</strong><br>
+            "Let's just get something small to share. We're not staying long."</p>
+            <p><strong>What You Should Actually Order:</strong></p>
+            <ul>
+                <li><strong>Cauliflower Bites or Chicken 65:</strong> This is the perfect "we're just snacking" order. They're shareable, they're not too heavy, and they pair well with your first hookah of the night. You can pick at them casually while you're getting settled and figuring out the vibe.</li>
+                <li><strong>Wings (Pick Two Flavors):</strong> If you want something a little more substantial but still in the "appetizer" zone, wings are the move. Get two flavors—something safe (BBQ or Lemon Pepper) and something with a kick (Buffalo or Honey Chilli). Someone at the table will be a hero, someone will be a coward, and everyone will have opinions.</li>
+                <li><strong>Chili Chips & Dips:</strong> Low commitment. High reward. You can graze on these for an hour and they won't fill you up. Perfect for the "we're just here to chill" phase.</li>
+            </ul>
+            <p><strong>What NOT to Order:</strong><br>
+            Butter Chicken Masala with Naan. That's a meal meal. You're not ready for that yet. Save it for later (trust me, you'll be back for it around midnight).</p>
+            <p><strong>The Vibe:</strong><br>
+            Everyone's still sitting up straight. Conversations are coherent. Someone's taking pictures for Instagram. The night is young and full of possibility.</p>
+
+            <h3>Stage 2: The Settled-In Phase (10:30 PM - 12 AM) - "Okay We're Staying A While"</h3>
+            <p>An hour has passed. Maybe two. The initial "we're just stopping by" energy has fully evaporated. Someone ordered a second hookah. Someone else ordered drinks. You're deep into a conversation about whether aliens are real or if your friend's coworker is secretly into them (the coworker, not the aliens. Probably).</p>
+            <p>And then someone says it: "Should we get actual food?"</p>
+            <p>Yes. Yes, you should.</p>
+            <p><strong>What You Should Order:</strong></p>
+            <ul>
+                <li><strong>Butter Chicken Masala with Garlic Naan:</strong> This is when you commit. This is when you stop pretending you're "not that hungry" and accept that you're here for the long haul. Butter Chicken is rich, comforting, and perfect for sharing. The garlic naan is non-negotiable. You will fight over the last piece. It's tradition.</li>
+                <li><strong>Chicken Fried Rice or Egg Fried Rice:</strong> If your group is bigger or you want something that pairs with everything else, fried rice is clutch. It's filling without being too heavy, and everyone can dig in without committing to a specific flavor profile.</li>
+                <li><strong>Paneer Chilli or Chicken Chili:</strong> This is for the table. This is the dish that everyone picks at between bites of their main food. It's savory, it's got a little kick, and it keeps the energy up.</li>
+                <li><strong>More Wings (Because You Finished The First Order):</strong> Listen, I'm not judging. Wings disappear fast in a group setting. If you demolished the first round, just order more. Get the flavors you didn't try the first time. Live your truth.</li>
+            </ul>
+            <p><strong>What NOT to Order:</strong><br>
+            Dessert. It's too early for dessert. You haven't earned dessert yet. Dessert is for the final act.</p>
+            <p><strong>The Vibe:</strong><br>
+            Shoes are off. Someone's lying sideways on the couch. The group chat is popping off because someone posted a video and now five other people want to come through. You've officially transitioned from "hanging out" to "having a night."</p>
+
+            <h3>Stage 3: The Deep Late-Night Zone (12 AM - 2 AM) - "Everything Is Amazing"</h3>
+            <p>It is now past midnight.</p>
+            <p>Time has lost all meaning. You've been here for hours. You've laughed so hard you cried at least twice. Someone tried to teach the table a TikTok dance. You've switched hookah flavors three times. The Versace couch has become a part of your body.</p>
+            <p>And then, without warning, someone looks up from their phone, eyes slightly glazed, and says the magic words:</p>
+            <p>"I'm hungry again."</p>
+            <p>This is it. This is the moment. This is when the late-night menu magic happens.</p>
+            <p><strong>What You Should Order (And Why It Hits Different At 1 AM):</strong></p>
+            <ul>
+                <li><strong>Chicken Tenders + Every Sauce:</strong> At 10 PM, chicken tenders are basic. At 1 AM? They're a revelation. Crispy, hot, dippable, and they require zero brain power to eat. Get all the sauces. Try combinations. Ranch + hot sauce? Life-changing. BBQ + honey mustard? Why not. You're a scientist now.</li>
+                <li><strong>Paneer 65 or Shrimp 65:</strong> If you already ate Chicken 65 earlier, this is your second wind. The crispy, spicy, tangy vibe hits COMPLETELY different when you're deep into the night. Your taste buds are awake. You're alive. You're experiencing flavors on a new level.</li>
+                <li><strong>Gulab Jamun:</strong> THIS IS THE MOVE. At 9 PM, you might skip dessert. At 1 AM, warm, syrupy, rose-water-soaked balls of fried dough feel like they were designed specifically for this exact moment. Order two. You'll understand when they arrive.</li>
+                <li><strong>Tres Leches Cake:</strong> Alternatively, if you want something cool and creamy and sweet, Tres Leches is your friend. It's light enough that you won't feel like you're going to explode, but indulgent enough to satisfy the "I need something sweet RIGHT NOW" craving.</li>
+                <li><strong>Another Round of Wings (Yes, Again):</strong> I don't make the rules. Late night wings just hit different. Get the Honey Chilli this time. Get weird with it.</li>
+                <li><strong>Maggi (If You Know, You Know):</strong> If you're in the mood for something warm, comforting, and vaguely nostalgic, Maggi is the answer. It's not fancy. It's not complicated. It's just right.</li>
+            </ul>
+            <p><strong>What NOT to Order:</strong><br>
+            Nothing. There are no rules at 1 AM. Order whatever your heart desires. You've earned it.</p>
+            <p><strong>The Vibe:</strong><br>
+            Everyone's sprawled out. Half the table is scrolling TikTok in silence. Someone's taking a video of the food for Snapchat. You're not leaving anytime soon and you've made peace with that. This is your home now.</p>
+
+            <h3>The Group Dynamics: A Survival Guide</h3>
+            <p>Let's be real—late-night food ordering is a group decision, and every group has the same characters:</p>
+            <ul>
+                <li><strong>The Decisive One:</strong> This person already knows what they want. They've been thinking about it for 20 minutes. They will order for the table if nobody else steps up. God bless them.</li>
+                <li><strong>The "I'm Not Hungry" Person (Liar):</strong> This person claims they don't want anything. They will eat half of everything that arrives. Call them out preemptively and order extra.</li>
+                <li><strong>The Adventurous Eater:</strong> "Let's get the Egg Pepper Roast." "What's Paneer Chilli?" "Can we try the Shrimp 65?" This person is valuable. Let them cook.</li>
+                <li><strong>The One Who Wants Everything:</strong> They look at the menu and say "why don't we just get one of everything?" and honestly, they might be onto something.</li>
+                <li><strong>The Budget-Conscious Friend:</strong> "Wait, how much is this going to be per person?" At 1 AM. Iconic. Respect the commitment to financial responsibility even in the depths of the late-night munchies.</li>
+            </ul>
+
+            <h3>The Ultimate Late-Night Orders, By Situation</h3>
+            <p><strong>If You're Solo:</strong><br>
+            Chicken 65, Garlic Naan, and Gulab Jamun. Perfection. Balanced. You've got spicy, you've got bread, you've got sweet. You're set.</p>
+            <p><strong>If It's Just You And One Other Person:</strong><br>
+            Wings (two flavors), Butter Chicken, Naan, and split a dessert. You can share everything, try a bunch of flavors, and not overdo it.</p>
+            <p><strong>If You're A Group of 4-6:</strong><br>
+            Two appetizers (Chicken 65 + Cauliflower Bites), two mains (Butter Chicken + Fried Rice), wings, naan, and two desserts. You'll have variety, everyone gets to try everything, and there will be leftovers for someone to take home.</p>
+            <p><strong>If Someone In The Group Says "Let's Go Crazy":</strong><br>
+            Order one of everything in the appetizer section. See what happens. Report back. (We support this behavior.)</p>
+
+            <h3>Things That Hit Different After Midnight: A Scientific Analysis</h3>
+            <ul>
+                <li><strong>Fries/Chips:</strong> 10 PM = meh. 1 AM = why are these the best fries I've ever had in my life?</li>
+                <li><strong>Anything Fried:</strong> Tastes 40% better after midnight. This is science.</li>
+                <li><strong>Sweet + Savory Combos:</strong> Your brain wants complexity. Honey Chilli wings? Life-changing.</li>
+                <li><strong>Warm Desserts:</strong> Room temperature desserts are fine. Warm desserts at 1 AM feel like a hug from the universe.</li>
+                <li><strong>Things You Can Eat With Your Hands:</strong> Coordination is decreasing. Finger foods are your friend.</li>
+            </ul>
+
+            <h3>The Late-Night Ordering Rules (From Someone Who's Been There)</h3>
+            <p><strong>1. Order More Than You Think You Need</strong><br>
+            You're hungrier than you realize. And even if you're not, someone at the table is lying about how hungry they are.</p>
+            <p><strong>2. Get At Least One "Safe" Thing And One "Adventure" Thing</strong><br>
+            Someone will want chicken tenders. Someone will want to try the Paneer 65. Get both. Make everyone happy.</p>
+            <p><strong>3. Shareable > Individual</strong><br>
+            Late night is about community. Order things you can all pick at. The only exception is dessert—get your own, you've earned it.</p>
+            <p><strong>4. When In Doubt, Add Wings</strong><br>
+            This has never been bad advice.</p>
+            <p><strong>5. Don't Skip Dessert</strong><br>
+            I know you think you're full. You're not. Get the Gulab Jamun. You'll thank me.</p>
+            <p><strong>6. Hydrate (But Also, Don't Think About Tomorrow)</strong><br>
+            Tomorrow is a problem for Future You. Present You deserves warm, syrupy desserts and crispy fried things.</p>
+
+            <h3>The 1 AM Manifesto</h3>
+            <p>Look, here's the thing about late-night food at Charcoal N Chill:</p>
+            <p>It's not just about being hungry. It's about the vibe. It's about the fact that you've been laughing with your friends for four hours and time doesn't exist and everything is funny and the food genuinely tastes better because you're having the best time.</p>
+            <p>Could you get food somewhere else? Sure. There's a drive-thru down the street.</p>
+            <p>But would it hit the same as eating Butter Chicken on a Versace couch at 1 AM while your friend tries to explain cryptocurrency and someone else is filming a TikTok and the hookah is still going and you're all just... here?</p>
+            <p>No. No it would not.</p>
+            <p>So when someone says "I'm hungry" at 12:47 AM, don't fight it. Lean in. Order the Chicken 65. Get the wings. Add some Gulab Jamun for good measure.</p>
+            <p>Because late-night food at Charcoal N Chill isn't just food.</p>
+            <p>It's part of the experience. And the experience? It's everything.</p>
+
+            <h3>Ready For Your Late-Night Session?</h3>
+            <p><a href="/contact#reserve">BOOK YOUR TABLE</a> | <a href="/menu">VIEW FULL MENU</a> | <a href="/contact">SEE OUR HOURS</a></p>
+            <p><em>P.S. If you've ever said "we're not staying long" and then looked up and it was 2 AM, you know exactly what I'm talking about. See you tonight. 🌙🔥</em></p>
+        `,
+        category: ["Food", "Hookah"],
+        date: "Jan 15, 2026",
+        readTime: "7 min read",
+        author: "Master Chef",
+        image: "/images/late-night-at-cnc.jpg",
+        slug: "late-night-survival-guide-cravings"
+    },
+
+    // Hookah + Food Pairing
+    {
+        id: "18",
+        title: "The Ultimate Hookah + Food Pairing Guide (Yes, This Actually Matters)",
+        excerpt: "You wouldn't pair red wine with fish, right? So why are you smoking Blue Mist while eating Gulab Jamun? Let's fix that.",
+        content: `
+            <p>Alright, confession time.</p>
+            <p>For years, nobody thought about pairing hookah with food. You'd order whatever flavor sounded good, grab some appetizers, and call it a night. And you know what? That worked fine.</p>
+            <p>But "fine" isn't what we're going for here.</p>
+            <p>See, here's the thing most people don't realize: the flavors you're smoking completely change how your food tastes. Just like wine pairing or beer pairing, hookah pairing is real. It's not some made-up concept we invented to sound fancy (okay, maybe a little fancy). It's actual taste science.</p>
+            <p>Think about it. You're inhaling flavor. It's coating your palate, interacting with your taste buds, lingering in your mouth between bites. If you're smoking something minty and cooling, and then you bite into something spicy and hot, you get this incredible contrast that makes both experiences better. If you're smoking something sweet and fruity while eating something rich and savory, the flavors layer in a way that's honestly kind of magical.</p>
+            <p>But if you pair wrong? You end up with flavors fighting each other. Or worse—one completely overpowering the other so you can't taste anything properly.</p>
+            <p>I've watched people smoke super sweet flavors while eating our richest desserts and wonder why everything tastes like a sugar bomb. I've seen folks order mint hookah with delicate dishes and completely numb their palate. It's a tragedy, honestly.</p>
+            <p>So let's fix this. Let's talk about how to pair your hookah with your food like an actual pro—not because you want to impress anyone (though you will), but because it legitimately makes everything taste better.</p>
+            <p>Ready? Let's go.</p>
+
+            <h3>The Basics: Why Pairing Actually Works</h3>
+            <p>Before we dive into specific pairings, you need to understand two fundamental concepts:</p>
+            <p><strong>1. Complementary Pairing</strong><br>
+            This is when you match similar flavor profiles. Sweet with sweet. Fruity with fruity. The flavors enhance each other and create a harmonious experience. Think of it like wearing matching colors—it just works.</p>
+            <p><strong>2. Contrasting Pairing</strong><br>
+            This is when you use opposite flavors to balance each other out. Cool with hot. Sweet with spicy. Rich with light. The contrast creates excitement and keeps your palate engaged. This is the "opposites attract" approach.</p>
+            <p>Both methods work. It just depends on what you're going for.<br>
+            Got it? Cool. Now let's get into the actual pairings.</p>
+
+            <h3>Mint & Menthol Hookah: The Cool Kids</h3>
+            <p><strong>Hookah Flavors:</strong> Mint, Ice Mint, Gum Mint, Arctic, anything with a cooling effect<br>
+            <strong>The Science:</strong> Mint creates a cooling sensation on your palate. It's refreshing, it cleanses, and it can temporarily numb your taste buds (in a good way).</p>
+            <p><strong>Best Food Pairings:</strong></p>
+            <ul>
+                <li><strong>Chicken 65:</strong> This is the move. Chicken 65 is spicy, tangy, and has that crispy, fried texture. When you pair it with a cool mint hookah, you get this incredible hot-cold contrast. The mint tames the heat just enough to let you actually taste the spices, but doesn't kill the kick entirely. It's like having a built-in palate cleanser between every bite.</li>
+                <li><strong>Wings (Any Spicy Flavor—Buffalo or Honey Chilli):</strong> Same principle as Chicken 65. The cooling mint balances the heat. You can eat more wings without your mouth catching fire. Trust me, your future self will thank you.</li>
+                <li><strong>Paneer Chilli or Chicken Chili:</strong> The mint cuts through the richness of the sauce and highlights the actual flavors of the dish instead of just the spice. Plus, it keeps your palate fresh so you can keep eating.</li>
+            </ul>
+            <p><strong>What NOT to Pair:</strong><br>
+            Desserts. Mint + sweet desserts = toothpaste vibes. Just... don't. Also avoid delicate dishes like plain naan or mild rice dishes—the mint will overpower them completely.</p>
+            <p><strong>Pro Tip:</strong> If you're eating something really spicy and want to go hard, ask for extra mint in your hookah. The stronger the cooling effect, the more heat you can handle.</p>
+
+            <h3>Fruity Hookah: The Sweet Spot</h3>
+            <p><strong>Hookah Flavors:</strong> Watermelon, Strawberry, Peach, Mango, Blueberry, Mixed Berry, Tropical flavors<br>
+            <strong>The Science:</strong> Fruity flavors are generally sweet and light. They don't overpower your food, but they add a subtle sweetness that can complement or contrast depending on what you're eating.</p>
+            <p><strong>Best Food Pairings:</strong></p>
+            <ul>
+                <li><strong>Butter Chicken Masala:</strong> Okay, this might sound weird, but hear me out. Butter Chicken is rich, creamy, and mildly sweet. A fruity hookah (especially peach or mango) creates a complementary pairing that enhances the natural sweetness of the dish without making it cloying. The fruit notes also cut through the heaviness of the cream sauce so you don't feel weighed down.</li>
+                <li><strong>Fried Rice (Any Style):</strong> Fried rice is savory, slightly smoky, and has a lot of umami. A light fruity hookah adds a sweet contrast that makes the savory flavors pop even more. Watermelon or strawberry work especially well here.</li>
+                <li><strong>Cauliflower Bites:</strong> These are savory, crispy, and have that Indo-Chinese sauce vibe. Pair them with a tropical fruit hookah (mango or pineapple if you've got it) and you get this sweet-savory combination that's honestly addictive.</li>
+                <li><strong>Tres Leches Cake:</strong> This is a complementary pairing. The cake is already sweet and milky, and a light fruity hookah (strawberry or blueberry) adds another dimension without overwhelming it. It's like adding fresh fruit to your cake without actually adding fresh fruit.</li>
+            </ul>
+            <p><strong>What NOT to Pair:</strong><br>
+            Super spicy dishes. The sweetness will clash with the heat and make everything taste weird. Also avoid heavily spiced dishes like Egg Pepper Roast—the fruit flavors will get lost.</p>
+            <p><strong>Pro Tip:</strong> If you're eating a full meal (appetizer, entree, dessert), start with a lighter fruit flavor and switch to something more intense later. Your palate will appreciate the progression.</p>
+
+            <h3>Double Apple: The Wild Card</h3>
+            <p><strong>Hookah Flavor:</strong> Double Apple (that anise/licorice/apple combo that tricks everyone)<br>
+            <strong>The Science:</strong> Double Apple is polarizing because of the anise. It's sweet, it's slightly spicy, and it has this herbal quality that can either enhance or clash with food depending on how you use it.</p>
+            <p><strong>Best Food Pairings:</strong></p>
+            <ul>
+                <li><strong>Chicken Pepper or Shrimp Pepper:</strong> The slight licorice notes in Double Apple actually complement the black pepper in these dishes. It sounds insane, but spices and anise have a weird affinity for each other. The sweetness balances the pepper, and the herbal notes enhance the overall flavor profile.</li>
+                <li><strong>Gulab Jamun:</strong> This is a classic pairing in Middle Eastern and South Asian cultures. The rose water in Gulab Jamun and the anise in Double Apple have similar aromatic qualities. They're both floral, both sweet, and they layer beautifully. If you're a Double Apple person, this is the dessert pairing.</li>
+                <li><strong>Paneer Butter Masala with Naan:</strong> The richness of the paneer and the slight sweetness of the sauce work well with Double Apple's complex flavor profile. The naan acts as a neutral base that lets both the food and the hookah shine.</li>
+            </ul>
+            <p><strong>What NOT to Pair:</strong><br>
+            Anything too delicate or mild. Double Apple is a strong flavor, and it will steamroll subtle dishes. Also avoid super tangy or acidic foods—the anise will clash hard.</p>
+            <p><strong>Pro Tip:</strong> If you've never had Double Apple before, start by pairing it with something rich and savory (like Butter Chicken). It'll help you understand the flavor without it being overwhelming.</p>
+
+            <h3>Citrus Hookah: The Bright and Zesty</h3>
+            <p><strong>Hookah Flavors:</strong> Lemon, Orange, Grapefruit, Lemon Mint<br>
+            <strong>The Science:</strong> Citrus is acidic, bright, and refreshing. It cuts through richness, enhances savory flavors, and keeps your palate lively.</p>
+            <p><strong>Best Food Pairings:</strong></p>
+            <ul>
+                <li><strong>Wings (Lemon Pepper or Honey Mustard):</strong> This is almost too perfect. Lemon Pepper wings with a lemon or lemon mint hookah? Chef's kiss. The citrus in the hookah amplifies the citrus in the wings, and the whole experience just becomes this bright, zesty flavor bomb.</li>
+                <li><strong>Shrimp Chili or Shrimp 65:</strong> Citrus and seafood are a classic pairing for a reason. The acidity of the citrus hookah cuts through the richness of the fried shrimp and enhances the natural sweetness of the seafood. Plus, it keeps your palate from getting tired.</li>
+                <li><strong>Crispy Corn:</strong> This is a lighter appetizer with a sweet-savory profile. A citrus hookah adds brightness and makes the whole thing feel lighter and fresher. It's a great pairing if you're just snacking and not going for a full meal.</li>
+            </ul>
+            <p><strong>What NOT to Pair:</strong><br>
+            Desserts. Citrus + sweet = weird. Also avoid super creamy dishes like Paneer Butter Masala unless you're specifically looking for an acidic contrast (which some people like, but most don't).</p>
+            <p><strong>Pro Tip:</strong> Citrus hookah is great if you're eating multiple dishes. It acts as a palate cleanser between bites and keeps everything tasting fresh.</p>
+
+            <h3>Berry & Tropical Hookah: The Party Flavors</h3>
+            <p><strong>Hookah Flavors:</strong> Blueberry, Mixed Berry, Pina Colada, Passion Fruit, Tropical Punch<br>
+            <strong>The Science:</strong> These flavors are sweet, complex, and layered. They have enough personality to stand up to bold dishes but aren't so intense that they overpower everything.</p>
+            <p><strong>Best Food Pairings:</strong></p>
+            <ul>
+                <li><strong>Chicken Tenders with Sauces:</strong> Chicken tenders are intentionally neutral so you can enjoy the sauces. A berry or tropical hookah adds a subtle sweetness that makes the whole experience feel more dynamic. It's like having a fancy mocktail with your meal.</li>
+                <li><strong>Egg Fried Rice or Chicken Fried Rice:</strong> The sweetness of a tropical hookah contrasts beautifully with the savory, umami-heavy fried rice. It keeps your palate from getting bored and makes you want to keep eating.</li>
+                <li><strong>Tiramisu:</strong> This is a complementary pairing if you're smoking a berry flavor (especially blueberry). The coffee in the tiramisu and the fruit in the hookah create this interesting sweet-bitter-fruity combination that's surprisingly sophisticated.</li>
+            </ul>
+            <p><strong>What NOT to Pair:</strong><br>
+            Super spicy dishes. The sweetness will clash. Also avoid heavily sauced dishes with complex spice blends—the berry/tropical flavors will get lost.</p>
+            <p><strong>Pro Tip:</strong> If you're in a group and can't decide on a flavor, berry or tropical flavors are crowd-pleasers that work with most dishes.</p>
+
+            <h3>The Personality Quiz: Which Pairing Are You?</h3>
+            <p>Still overwhelmed? Let me make this easy.</p>
+            <p><strong>The Heat Seeker:</strong><br>
+            You order the spiciest thing on the menu and actually enjoy the pain.<br>
+            → <em>Pair: Mint hookah + Chicken 65 or Buffalo Wings</em></p>
+            <p><strong>The Comfort Food Lover:</strong><br>
+            You're here for rich, creamy, satisfying dishes that feel like a hug.<br>
+            → <em>Pair: Fruity hookah (peach or mango) + Butter Chicken Masala</em></p>
+            <p><strong>The Adventurous Eater:</strong><br>
+            You want to try something you've never had before and you're not scared.<br>
+            → <em>Pair: Double Apple hookah + Gulab Jamun</em></p>
+            <p><strong>The Light & Fresh Type:</strong><br>
+            You prefer lighter dishes and bright flavors over heavy, rich meals.<br>
+            → <em>Pair: Citrus hookah + Shrimp Chili or Lemon Pepper Wings</em></p>
+            <p><strong>The "I Want Everything" Person:</strong><br>
+            You're ordering half the menu and you want a hookah that works with all of it.<br>
+            → <em>Pair: Berry or Tropical hookah—they're versatile enough to work with most dishes</em></p>
+
+            <h3>The Bottom Line</h3>
+            <p>Look, you can absolutely ignore everything in this guide and just order whatever sounds good. You'll still have a great time. The food is delicious, the hookah is top-tier, and the vibes are immaculate.</p>
+            <p>But if you want to take your experience from "great" to "I need to come back here immediately," start paying attention to your pairings.</p>
+            <p>Because when you get it right—when the mint hookah perfectly balances the heat of the Chicken 65, or when the fruity hookah makes your Butter Chicken taste even better, or when the citrus cuts through the richness of the wings in exactly the right way—it's not just good. It's transcendent.</p>
+            <p>And yeah, maybe I'm being dramatic. But also, maybe you should try it and see for yourself.</p>
+
+            <h3>Ready to Become a Pairing Pro?</h3>
+            <p><a href="/contact#reserve">BOOK YOUR TABLE</a> | <a href="/menu">VIEW HOOKAH MENU</a> | <a href="/menu">VIEW FOOD MENU</a></p>
+            <p><em>P.S. If you discover an amazing pairing we didn't mention, let us know. We're always looking for new combinations to try. And if you pair mint hookah with Gulab Jamun after we specifically told you not to? That's on you. 😂🔥</em></p>
+        `,
+        category: ["Hookah", "Food"],
+        date: "Jan 12, 2026",
+        readTime: "8 min read",
+        author: "Hookah Master",
+        image: "/images/hookah-food-pairing.jpg",
+        slug: "ultimate-hookah-food-pairing-guide"
+    },
     // Hookah
     {
         id: "1",
@@ -284,52 +545,173 @@ export const blogPosts: BlogPost[] = [
         title: "Top 5 Indo-American Dishes to Try at Charcoal N Chill",
         excerpt: "Explore the authentic flavors of our kitchen. From the spicy kick of Chicken 65 to the creamy comfort of Butter Chicken Masala.",
         content: `
-            <p>Our kitchen is just as fiery as our coals. If you're visiting for the hookah, stay for the food. Here are the top 5 must-try dishes that our regulars can't get enough of.</p>
+            <p>Let's be real for a second.</p>
+            <p>You came for the hookah. Maybe it's date night, maybe you're celebrating someone's birthday, maybe you just needed an excuse to get out of the house and sit on a Versace couch for a few hours. Whatever brought you here, the hookah was the main event.</p>
+            <p>But then... you smell it.</p>
+            <p>Something incredible is coming out of the kitchen. Someone at the next table just got their Chicken 65, and those crispy, spicy bites look insane. Your stomach growls. You glance at the menu. And suddenly you're thinking, "Wait, should I actually order food?"</p>
+            <p>The answer is YES. Absolutely yes.</p>
+            <p>Here's what nobody tells you about Charcoal N Chill: our kitchen doesn't mess around. We're not serving "hookah lounge food" where the menu is an afterthought and everything tastes like it came from a freezer bag. Nah. We're serving legit Indo-American fusion that hits just as hard as the hookah clouds.</p>
+            <p>I've seen people come in for the vibe and leave talking about the butter chicken. I've watched groups order "just one appetizer to share" and end up ordering three more rounds because they can't stop eating. The food is that good.</p>
+            <p>So if you're visiting for the first time (or the tenth time and you've been sleeping on the food), here are the top 5 dishes our regulars lose their minds over. Consider this your cheat sheet.</p>
 
             <h3>1. Chicken 65</h3>
-            <p>A spicy, deep-fried chicken dish originating from Chennai. It's the perfect bar snack—crispy on the outside, juicy on the inside, and tossed in spicy curry leaves and chilies.</p>
+            <p>Okay, let's start with the MVP. The legend. The dish that people order, post on Instagram, and then immediately order again.</p>
+            <p>Chicken 65 is crispy, spicy, tangy, and completely addictive.</p>
+            <p>Picture this: bite-sized pieces of chicken marinated in a blend of yogurt, red chili, ginger, and garlic, then deep-fried to golden perfection. Each piece has this insanely crispy exterior that gives way to juicy, flavor-packed chicken inside. It's finished with curry leaves, green chilies, and a squeeze of lime that makes everything pop.</p>
+            <p>Here's why it's perfect for a hookah lounge: it's finger food that actually delivers on flavor. You can grab a piece between puffs, you're not committing to a full meal, and it pairs beautifully with literally any hookah flavor (though personally, I love it with a fruity blend to balance the heat).</p>
+            <p>Fun fact: The origin of Chicken 65 is hilariously disputed. Some say it was invented in 1965 (hence the name). Others claim it was the 65th item on a military canteen menu. One story even says it required 65 chilies in the recipe. Nobody actually knows the truth, but honestly? Who cares. It's delicious, and that's all that matters.</p>
+            <p>If you only order one thing from this list, make it this.</p>
 
             <h3>2. Butter Chicken Masala</h3>
-            <p>You can't go wrong with this classic. Tender pieces of tandoori chicken simmered in a rich, creamy tomato gravy. It's best enjoyed with our garlic naan.</p>
+            <p>You can't go wrong with this classic. It's literally impossible.</p>
+            <p>Butter Chicken is that dish you order when you want maximum comfort with zero risk. Tender pieces of tandoori chicken swimming in a rich, creamy tomato gravy that's been perfected over decades of trial and error. It's mildly spiced (so even your friend who "doesn't do spicy food" will be fine), slightly sweet, and so smooth it's basically edible velvet.</p>
+            <p>Best enjoyed with our garlic naan, which you should 100% order because you're going to want to soak up every last drop of that sauce. And when I say every drop, I mean people literally scrape the bowl. I've seen it. No shame in the game.</p>
+            <p>Here's the thing about Butter Chicken: it's the dish that turns people into Indian food fans. Someone comes in skeptical—"I don't really eat Indian food"—and then they try Butter Chicken and suddenly they're planning their next visit before they've even finished eating.</p>
+            <p>Pro tip: If you're smoking a sweeter hookah flavor (think double apple, peach, or mango), the Butter Chicken complements it perfectly. The creaminess of the dish balances the sweetness of the smoke. Trust me on this one.</p>
 
-            <h3>3. Lamb Chops</h3>
-            <p>Marinated for 24 hours in a secret blend of spices and yogurt, then grilled to perfection in our clay tandoor. These chops are smoky, succulent, and melt in your mouth.</p>
+            <h3>3. Cauliflower Bites</h3>
+            <p>Alright, I can already hear the skeptics. "Cauliflower? At a hookah lounge? Really?"</p>
+            <p>YES. REALLY. And before you roll your eyes, just trust me on this one.</p>
+            <p>Look, I get it. Cauliflower has a reputation for being boring, bland, and the vegetable your mom forced you to eat as a kid. But here's the thing: when cauliflower is done right, it's absolutely incredible. And ours? It's done right.</p>
+            <p>Picture this: Crispy florets of cauliflower battered and fried until they're golden and crunchy on the outside, tender on the inside. Then tossed in a spicy, tangy Indo-Chinese sauce that's got just enough kick to keep things interesting. It's savory, it's addictive, and honestly, I've watched dedicated meat-eaters order a second round of these.</p>
+            <p>Why it works: Because it's not trying to be a meat substitute or some sad "healthy option." It's just genuinely delicious food that happens to be vegetarian. The batter gets crispy in all the right ways, the sauce is packed with flavor (garlic, ginger, soy, chili—the works), and the cauliflower itself has this great texture that holds up to the coating.</p>
+            <p>Here's the move if you're skeptical: Order it alongside the Chicken 65. Try one bite. I'm willing to bet you'll be surprised. I've converted so many cauliflower haters with this dish that I've honestly lost count.</p>
+            <p>And for my vegetarian friends: This is your moment. Finally, something on the menu that isn't an afterthought. These cauliflower bites are a main character, not a side quest.</p>
+            <p>Bonus: They're perfect hookah snack food. Bite-sized, not messy, and you can pop them between puffs without any drama. Plus, they're lighter than some of the heavier dishes, so you can keep snacking without feeling weighed down.</p>
+            <p>I know cauliflower doesn't sound sexy. But sometimes the most unexpected things end up being the best part of your night. Give it a shot.</p>
 
-            <h3>4. Pani Puri Shots</h3>
-            <p>An interactive appetizer! Crispy hollow shells filled with chickpeas and potatoes, served with a shot of spicy tamarind water. Pop the whole thing in your mouth for an explosion of flavor.</p>
+            <h3>4. Chicken Tenders</h3>
+            <p>Look, I know what you're thinking. "Chicken tenders? Really? I'm at an Indian restaurant."</p>
+            <p>But hear me out.</p>
+            <p>Sometimes you just want chicken tenders. Maybe you're with a group and someone's being picky. Maybe you've been smoking for an hour and you need something simple and satisfying. Maybe you're just a chicken tender person at heart, and that's okay.</p>
+            <p>Our chicken tenders are better than they have any right to be. Crispy breading, juicy chicken, served with your choice of dipping sauces (and yes, we have the good ranch). They're perfect for sharing, perfect for kids, and perfect for that one friend who claims they "don't like spicy food" even though you keep telling them most Indian food isn't actually that spicy.</p>
+            <p>Here's the move: Order the tenders alongside something more adventurous like Chicken 65 or Butter Chicken. That way, the cautious eaters are happy, and everyone else gets to experience the full menu. Everybody wins.</p>
+            <p>Plus, they're excellent hookah food. Easy to grab, not messy, and you can munch while you're mid-session without any drama.</p>
 
-            <h3>5. Hakka Noodles</h3>
-            <p>A nod to Indo-Chinese fusion cuisine. Stir-fried noodles with crisp vegetables, soy sauce, and your choice of chicken or shrimp. It's the ultimate comfort food.</p>
+            <h3>5. Wings</h3>
+            <p>Okay, controversial opinion incoming: wings might be the most underrated item on our menu.</p>
+            <p>I know, I know. Wings are everywhere. Every sports bar, every dive, every restaurant with a fryer has wings on the menu. So what makes ours special?</p>
+            <p>Five words: Buffalo. Lemon Pepper. BBQ. Honey Chilli. Honey Mustard.</p>
+            <p>Here's the thing about wings—they're only as good as their sauce game. And our sauce game? Elite. We're not talking about those sad, barely-coated wings that taste like regret. We're talking about wings that are crispy, sauced generously, and flavored so well that your table will 100% argue over which flavor is the best.</p>
+            <p>Let me break down the lineup:</p>
+            <ul>
+                <li><strong>Buffalo</strong> – The classic. Tangy, spicy, buttery perfection. If you're a purist, this is your move. Pairs insanely well with a mint hookah to cool down between bites.</li>
+                <li><strong>Lemon Pepper</strong> – For people who like flavor without the heat. Zesty, peppery, with that bright lemon kick. Honestly? This is the sleeper hit. People order it as a "safe option" and end up ordering a second round.</li>
+                <li><strong>BBQ</strong> – Sweet, smoky, sticky goodness. If you grew up on BBQ sauce, you already know what's up. This is comfort food in wing form.</li>
+                <li><strong>Honey Chilli</strong> – This is where things get interesting. Sweet honey meets spicy chili in a way that's somehow both and neither at the same time. If you like a little adventure with your food, go here.</li>
+                <li><strong>Honey Mustard</strong> – The crowd-pleaser. Tangy mustard balanced with sweet honey. Perfect for the person who can't decide between sweet and savory because why choose when you can have both?</li>
+            </ul>
+            <p>Here's the pro move: Order a variety. Get 2-3 flavors and let the table try everything. Wings are made for sharing, and honestly, the flavor debate is half the fun. I've seen full-on arguments break out over whether Lemon Pepper is better than Honey Chilli. (It's Lemon Pepper, by the way. Fight me.)</p>
+            <p>Why wings work at a hookah lounge: Because they're the perfect hand food. You're sitting around, smoking, vibing with friends, and you want something you can grab without interrupting the flow. Wings check every box. Plus, they're substantial enough to keep you satisfied without making you feel too full to enjoy the rest of your night.</p>
+            <p>And let's be honest—there's something deeply satisfying about eating wings while sitting on a Versace couch. It's fancy-casual in the best way possible.</p>
+
+            <h3>The Real Talk</h3>
+            <p>Here's what makes Charcoal N Chill different from other hookah spots: we actually care about the food. Like, really care.</p>
+            <p>Our kitchen isn't an afterthought. It's not frozen appetizers thrown in a fryer. Every dish is made fresh, seasoned properly, and served hot. We're blending traditional Indian flavors with American comfort food in a way that actually works—not just throwing things together and calling it "fusion."</p>
+            <p>So yeah, come for the hookah. Stay for the Versace couches, the belly dancing shows, the Afrobeats nights, whatever brought you here.</p>
+            <p>But don't sleep on the food. You'll regret it.</p>
+
+            <h3>Ready to Experience the Full Vibe?</h3>
+            <p><a href="/contact#reserve">BOOK YOUR TABLE</a> | <a href="/menu">VIEW FULL MENU</a> | <a href="/events">SEE UPCOMING EVENTS</a></p>
+            <p><em>P.S. If you order Chicken 65 and don't post it on Instagram, did it even happen? Asking for a friend. 📸🔥</em></p>
         `,
         category: "Food",
         date: "Dec 28, 2025",
-        readTime: "2 min read",
-        author: "Chef Raj",
-        image: "/images/butter-chicken.jpg",
+        readTime: "6 min read",
+        author: "Master Chef",
+        image: "/images/top5-food.jpg",
         slug: "top-5-indo-american-dishes"
     },
     {
         id: "4",
-        title: "The Art of Tandoor: How We Grill Perfection",
-        excerpt: "A behind-the-scenes look at our traditional clay oven cooking method that gives our kebabs their distinct smoky flavor.",
+        title: "Three Desserts, Three Continents, One Epic Night: The Charcoal N Chill Dessert Theory",
+        excerpt: "Most restaurants pick a lane. We said 'nah' and brought you desserts from Rome, Mexico City, and Delhi. Here's why that actually makes perfect sense.",
         content: `
-            <p>The Tandoor is the heart of any authentic Indo-American kitchen. It's a cylindrical clay oven, heated by charcoal or wood fire, reaching temperatures of up to 900°F (480°C).</p>
-            
-            <h3>Why Tandoori Cooking is Unique</h3>
-            <ul>
-                <li><strong>High Heat:</strong> The intense heat sears the meat instantly, locking in juices while creating a crisp outer layer.</li>
-                <li><strong>Smoky Aroma:</strong> As drippings fall onto the hot coals, they create smoke that infuses the food with that signature BBQ flavor.</li>
-                <li><strong>Healthy & Oil-Free:</strong> Because the heat is so high and omnidirectional, little to no oil is needed to cook the meat.</li>
-            </ul>
+            <p>Okay, let's talk about our dessert menu for a second.</p>
+            <p>You've probably noticed something... unusual. Most Indian restaurants stick to Indian desserts. Most places with a Versace-couch-hookah-lounge vibe might throw a chocolate lava cake on the menu and call it a day. We could've done that. We could've played it safe.</p>
+            <p>Instead, we looked at our dessert menu and said, "What if we just... picked the three greatest desserts from three completely different continents and put them all on the same menu?"</p>
+            <p>And before you ask—no, we weren't high when we made this decision. (We save that for the customers. Kidding.)</p>
+            <p>Here's the thing: our dessert menu might look random at first glance. Italian Tiramisu. Mexican Tres Leches. Indian Gulab Jamun. But stick with me, because there's actually a method to this madness. These three desserts? They have more in common than you'd think. And together, they tell one hell of a story.</p>
+            <p>Let's break it down.</p>
 
-            <p>From our Naan breads slapped against the hot clay walls to our skewered kebabs lowered into the fiery center, every dish coming out of our Tandoor is a labor of love and tradition.</p>
+            <h3>Tiramisu: The Italian "Pick-Me-Up" with a Scandalous Past</h3>
+            <p>We're starting with Italy. Because of course we are.</p>
+            <p>Tiramisu is one of those desserts that everyone knows. Layers of espresso-soaked ladyfingers, mascarpone cream, and a dusting of cocoa powder. It's elegant. It's sophisticated. It's been on every Italian restaurant menu since the 1980s.</p>
+            <p>But here's what most people don't know: Tiramisu is barely older than your parents.</p>
+            <p>Seriously. This dessert that feels like it's been around forever? It was only invented in the late 1960s or early 1970s in Treviso, Italy. There's a restaurant called Le Beccherie that takes credit for creating it in 1969. The name literally means "pick me up" in Italian—which makes sense because the dessert is loaded with espresso and sugar. It's basically an edible energy drink.</p>
+            <p>Now, here's where it gets interesting.</p>
+            <p>There's a whole other origin story that claims Tiramisu was invented in the 1800s... in a brothel. Yep, you read that right. According to legend, a clever madam in Treviso created this rich, caffeinated dessert to "reinvigorate" her customers at the end of the evening so they could go home and, uh, handle their marital duties.</p>
+            <p>Natural Viagra from the 19th century. Served in a brothel. I can't make this stuff up.</p>
+            <p>(Food historians debate whether this story is true, but honestly? It's too good not to share.)</p>
+            <p>The modern version—the one we serve—is the 1960s recipe from Le Beccherie. It didn't even make it to America until the 1980s, when it exploded in popularity and became the go-to Italian dessert at every restaurant from New York to Los Angeles.</p>
+            <p>Why it's perfect for a hookah lounge: Because it's light, it's caffeinated, and it pairs beautifully with a smooth hookah session. The coffee flavor complements mint or fruity blends, and the creamy mascarpone balances everything out. Plus, there's something deeply satisfying about eating an Italian dessert while sitting on a Versace couch. It just feels right.</p>
+
+            <h3>Tres Leches: The Latin American Cake with a British Twist</h3>
+            <p>Alright, let's head across the Atlantic.</p>
+            <p>Tres Leches—literally "three milks"—is one of those desserts that looks deceptively simple but is actually pure genius. It's a sponge cake soaked in a mixture of evaporated milk, condensed milk, and heavy cream (or whole milk), then topped with whipped cream. The result? A cake that's somehow both light and ridiculously rich at the same time.</p>
+            <p>Most people assume Tres Leches is a centuries-old Latin American tradition. It's not.</p>
+            <p>The modern version of this cake didn't even show up in cookbooks until the 1960s or 70s. And here's the kicker: the technique of soaking cake in liquid? That's British.</p>
+            <p>Yeah, you read that right. British.</p>
+            <p>See, back in medieval England, people would soak stale cake in liquid (milk, cream, booze—whatever was around) to repurpose it and avoid waste. This tradition spread across Europe and eventually made its way to Latin America during colonization.</p>
+            <p>Fast forward to the 1800s and early 1900s, when companies like Nestlé and Borden started mass-producing canned milk. They opened factories in Central America—first in Mexico, then in Nicaragua—and started printing recipes on the cans to promote their products. One of those recipes? You guessed it: Tres Leches.</p>
+            <p>By the 1930s and 40s, the cake was everywhere in Mexico and Nicaragua. And by the 1980s, it hit Miami (thanks to Nicaraguan immigration) and spread like wildfire across the US.</p>
+            <p>Fun fact: There's even a version of Tres Leches in Albania and Turkey called "trileçe." Apparently, Mexican soap operas were so popular in Albania that local chefs reverse-engineered the dessert from TV and it became a hit. Food really does bring the world together.</p>
+            <p>Why it works here: Because it's indulgent without being heavy. The sponge cake soaks up all that milky goodness but somehow stays light and airy. It's perfect after a meal or as a late-night treat when you've been vibing with friends for hours. Plus, it's just fun. Nobody orders Tres Leches and regrets it.</p>
+
+            <h3>Gulab Jamun: The Indian Dessert with Persian Roots</h3>
+            <p>Now we're heading east. All the way to India—or, more accurately, to Persia first, then India.</p>
+            <p>Gulab Jamun is the dessert that non-Indian people try for the first time and immediately go, "Wait, why have I never had this before?"</p>
+            <p>Picture this: soft, spongy balls made from milk solids (khoya), fried until golden, and then soaked in a warm sugar syrup flavored with rose water and cardamom. They're served warm, they're insanely sweet, and they basically melt in your mouth.</p>
+            <p>The name "Gulab Jamun" comes from two words: "Gulab" (Persian for "rose water") and "Jamun" (a small Indian fruit that the dessert resembles in size and shape). The Persian influence is no accident—this dessert came to India during the Mughal Empire, when Persian invaders brought their culinary traditions with them.</p>
+            <p>The Persians had a dessert called luqmat al-qadi (literally "the judge's morsel")—fried dough balls soaked in rose water syrup. When the Mughals brought this recipe to India, local cooks adapted it by using khoya (reduced milk solids) instead of plain dough. The result was richer, creamier, and more indulgent than the original.</p>
+            <p>Legend has it that Shah Jahan's royal chef (yes, the guy who built the Taj Mahal) accidentally created Gulab Jamun while experimenting in the kitchen. Whether that's true or not, the dessert became a staple in Mughal courts and eventually spread to sweet shops and homes across India.</p>
+            <p>Here's what makes Gulab Jamun special: It's deceptively simple. Just fried dough balls and syrup. But when it's done right—when the balls are perfectly soft, the syrup is the right temperature, and the rose water is subtle but present—it's transcendent. It's the dessert that turns people into believers.</p>
+            <p>Why it's perfect for us: Because it's warm, it's sweet, and it's a perfect ending to a meal. It also pairs surprisingly well with chai or coffee if you're not ready to call it a night. And honestly? It's a conversation starter. Half our customers have never tried Gulab Jamun before, and watching their faces light up on that first bite never gets old.</p>
+
+            <h3>The Charcoal N Chill Dessert Theory: Why These Three Work Together</h3>
+            <p>Okay, so we've got Tiramisu from Italy, Tres Leches from Latin America, and Gulab Jamun from India (via Persia). On paper, these three desserts have nothing in common. Different continents. Different ingredients. Different techniques.</p>
+            <p>But here's the genius of it:</p>
+            <p><strong>1. They all have fascinating, cross-cultural origins.</strong><br>
+            Tiramisu may be Italian, but it's got espresso from Africa and mascarpone from recent Italian dairy innovation. Tres Leches is Latin American, but the technique is British and the recipe was popularized by an American corporation. Gulab Jamun is Indian, but it's rooted in Persian culinary traditions. These desserts are all fusions in their own right.</p>
+            <p><strong>2. They all involve some form of soaking or saturation.</strong><br>
+            Tiramisu? Espresso-soaked ladyfingers. Tres Leches? Milk-soaked sponge cake. Gulab Jamun? Syrup-soaked fried dough. There's something about letting a dessert absorb liquid that makes it next-level delicious. It's a shared technique across three completely different cuisines.</p>
+            <p><strong>3. They're all celebration desserts.</strong><br>
+            Tiramisu is what you order on a special night out. Tres Leches is the cake at every Latin American birthday party and quinceañera. Gulab Jamun is served at Indian weddings, festivals, and any occasion that calls for something sweet. These aren't everyday desserts—they're occasion desserts. And a night at Charcoal N Chill? That's an occasion.</p>
+            <p><strong>4. They each match a different vibe.</strong></p>
+            <ul>
+                <li><strong>Tiramisu</strong> is for the sophisticated, coffee-loving, "I'm here for the ambiance" crowd.</li>
+                <li><strong>Tres Leches</strong> is for the "I want something sweet and fun" people who aren't afraid of a little indulgence.</li>
+                <li><strong>Gulab Jamun</strong> is for the adventurous eaters who want to try something they've never had before (or for the regulars who know exactly how good it is and order it every single time).</li>
+            </ul>
+            <p>Together, these three desserts cover every possible mood, preference, and personality type that walks through our doors.</p>
+
+            <h3>Which One Are You?</h3>
+            <p>Still not sure which dessert to order? Let me help:</p>
+            <p><strong>Order Tiramisu if:</strong><br>
+            You're a coffee person. You appreciate the finer things. You've been smoking a mint or citrus hookah and want something that complements the vibe without overwhelming your palate.</p>
+            <p><strong>Order Tres Leches if:</strong><br>
+            You're in the mood for something sweet, comforting, and just a little indulgent. You want a dessert that feels like a hug. Bonus points if you're celebrating something tonight.</p>
+            <p><strong>Order Gulab Jamun if:</strong><br>
+            You're feeling adventurous. You want to try something new (or you already know it's amazing and you're here for round two). You like your desserts warm, syrupy, and unapologetically sweet.</p>
+            <p><strong>Can't decide?</strong><br>
+            Get all three and share them with the table. We won't judge. In fact, we encourage it.</p>
+
+            <h3>The Real Talk</h3>
+            <p>Look, we could've gone the easy route and just thrown some baklava or kheer on the menu and called it a day. But where's the fun in that?</p>
+            <p>Our dessert menu is a love letter to three completely different culinary traditions—each with its own wild history, each with its own moment of genius, each with its own reason for existing. And somehow, they all work together.</p>
+            <p>Because at the end of the day, good food is good food. It doesn't matter if it came from Treviso, Managua, or Delhi. If it's delicious, it belongs on the menu.</p>
+            <p>So yeah, we took desserts from three continents and put them on the same menu at a hookah lounge in Alpharetta, Georgia. And you know what? It works.</p>
+
+            <h3>Ready to End Your Night on a Sweet Note?</h3>
+            <p><a href="/contact#reserve">BOOK YOUR TABLE</a> | <a href="/menu">VIEW FULL MENU</a> | <a href="/events">SEE UPCOMING EVENTS</a></p>
+            <p><em>P.S. If you order all three desserts in one night, you're officially a Charcoal N Chill legend. We might even give you a round of applause. 🍰🎂🍩</em></p>
         `,
         category: "Food",
-        date: "Nov 20, 2025",
-        readTime: "1 min read",
-        author: "Chef Raj",
-        image: "/images/chicken-65.jpg",
-        slug: "art-of-tandoor"
+        date: "Jan 10, 2026",
+        readTime: "7 min read",
+        author: "Culinary Master",
+        image: "/images/3desserts-3continents.jpg",
+        slug: "three-desserts-three-continents"
     },
 
     // Mixology

@@ -1,0 +1,112 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { ChevronDown } from "lucide-react";
+import { TextReveal } from "@/components/ui/TextReveal";
+
+export function MenuHero() {
+    const handleScroll = () => {
+        const scrolled = window.scrollY;
+        const parallaxLayer = document.querySelector(".parallax-layer") as HTMLElement;
+        if (parallaxLayer) {
+            parallaxLayer.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+    };
+    const heroRef = useRef<HTMLElement>(null);
+    const [particles, setParticles] = useState<Array<{ left: string; top: string; delay: string; opacity: number }>>([]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (heroRef.current && window.innerWidth > 768) {
+                const scrolled = window.scrollY;
+                const parallaxLayers = heroRef.current.querySelectorAll('.parallax-layer');
+                parallaxLayers.forEach((layer: Element) => {
+                    const speed = 0.5;
+                    (layer as HTMLElement).style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            }
+        };
+
+        // Generate particles only on client
+        setParticles([...Array(20)].map(() => ({
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            delay: `${Math.random() * 5}s`,
+            opacity: 0.6
+        })));
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToMenu = () => {
+        const element = document.getElementById('menu-explorer');
+        element?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    return (
+        <section ref={heroRef} className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-black">
+            {/* Parallax Background */}
+            <div className="absolute inset-0 z-0 parallax-layer will-change-transform">
+                <Image
+                    src="/images/cocktails.jpg"
+                    alt="Premium Cocktails at Charcoal N Chill"
+                    fill
+                    className="object-cover opacity-60"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black" />
+            </div>
+
+            {/* Floating Particles */}
+            <div className="absolute inset-0 z-0 pointer-events-none">
+                {particles.map((p, i) => (
+                    <div
+                        key={i}
+                        className="absolute w-1 h-1 bg-gold-primary rounded-full animate-[particle-float_10s_ease-in-out_infinite]"
+                        style={{
+                            left: p.left,
+                            top: p.top,
+                            animationDelay: p.delay,
+                            opacity: p.opacity
+                        }}
+                    />
+                ))}
+            </div>
+
+            {/* Content */}
+            <div className="container mx-auto px-4 relative z-10 text-center">
+                <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-gold-primary/30 bg-black/30 backdrop-blur-sm animate-fade-in-up">
+                    <span className="text-gold-primary text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+                        Culinary Experience
+                    </span>
+                </div>
+
+                <h1 className="text-6xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter mb-2 drop-shadow-2xl">
+                    <span className="block mb-2">Taste The</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-white to-gold-primary bg-[length:200%_auto] animate-shine">
+                        Vibe
+                    </span>
+                </h1>
+
+                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-light leading-relaxed animate-fade-in-up [animation-delay:0.6s]">
+                    From authentic Indian street food to premium hookah blends,
+                    explore a menu designed to ignite your senses.
+                </p>
+
+                {/* Scroll Indicator */}
+                <button
+                    onClick={scrollToMenu}
+                    className="group flex flex-col items-center gap-3 text-white/50 hover:text-gold-primary transition-colors cursor-pointer animate-fade-in-up [animation-delay:0.8s]"
+                    aria-label="Scroll to Menu"
+                >
+                    <span className="text-xs uppercase tracking-widest font-medium">Explore Menu</span>
+                    <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center p-1">
+                        <div className="w-1 h-2 bg-current rounded-full animate-bounce" />
+                    </div>
+                </button>
+            </div>
+        </section>
+    );
+}

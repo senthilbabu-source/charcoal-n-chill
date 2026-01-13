@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
 
-export function ContactForm() {
+export function ContactForm({ withHeader = true }: { withHeader?: boolean }) {
     const { addToast } = useToast();
     const [isLoading, setIsLoading] = useState(false);
 
@@ -81,10 +81,12 @@ export function ContactForm() {
 
     return (
         <div className="space-y-8" id="reserve">
-            <div className="space-y-2">
-                <h2 className="text-3xl font-heading font-bold text-white">Send a Message</h2>
-                <p className="text-gray-400">Complete the form below and we&apos;ll get back to you shortly.</p>
-            </div>
+            {withHeader && (
+                <div className="space-y-2">
+                    <h2 className="text-3xl font-heading font-bold text-white">Send a Message</h2>
+                    <p className="text-gray-400">Complete the form below and we&apos;ll get back to you shortly.</p>
+                </div>
+            )}
 
             <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                 {/* Honeypot for spam protection */}

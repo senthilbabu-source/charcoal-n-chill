@@ -4,152 +4,93 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Music, UserCheck, Star } from "lucide-react";
+import { EventsHero } from "@/components/events/EventsHero";
+import { EventsShowcase } from "@/components/events/EventsShowcase";
 
 export const metadata = constructMetadata({
-    title: "Events & Entertainment | Belly Dancing, Afrobeats & Bollywood",
-    description: "Weekly live entertainment at Charcoal N Chill Alpharetta! Professional belly dancing, Afrobeats nights, Latino nights, Bollywood parties. Check calendar.",
+    title: "Events | Live Entertainment, Belly Dancing & Hookah Specials",
+    description: "Experience the vibe at Charcoal N Chill. Weekly Belly Dancing (Fri/Sat), Hookah Tuesday Specials, and live DJ nights in Alpharetta.",
     path: "/events",
-    keywords: ["belly dancing Alpharetta", "Afrobeats night Atlanta", "Bollywood night Alpharetta", "best nightlife GA"]
+    keywords: ["belly dancing Alpharetta", "live music Atlanta", "hookah specials", "Afrobeats night", "karaoke night"]
 });
-
-const events = [
-    {
-        day: "Thursday",
-        name: "Belly Dancing Night",
-        time: "9:00 PM - 11:00 PM",
-        desc: "Professional belly dancing performances with Middle Eastern music and special hookah flavors.",
-        icon: <UserCheck className="w-6 h-6 text-gold" />,
-        image: "/images/belly-dancing.jpg"
-    },
-    {
-        day: "Friday",
-        name: "Afrobeats Night",
-        time: "10:00 PM - 2:00 AM",
-        desc: "Live DJ spinning Afrobeats, Dancehall, and Caribbean hits with VIP bottle service specials.",
-        icon: <Music className="w-6 h-6 text-gold" />,
-        image: "/images/afrobeats-night.jpg"
-    },
-    {
-        day: "Saturday",
-        name: "Latino Night",
-        time: "10:00 PM - 2:00 AM",
-        desc: "Reggaeton, Salsa, and Bachata with special Latin-inspired cocktails and performances.",
-        icon: <Star className="w-6 h-6 text-gold" />,
-        image: "/images/latino-night.jpg"
-    },
-    {
-        day: "First Sat. of Month",
-        name: "Bollywood Night",
-        time: "10:00 PM - 2:00 AM",
-        desc: "Bollywood DJ, Indo-American cocktails, and hookah specials with themed decorations.",
-        icon: <Calendar className="w-6 h-6 text-gold" />,
-        image: "/images/bollywood-night.jpg"
-    }
-];
 
 export default function EventsPage() {
     return (
         <>
-            {events.map((event, i) => (
-                <JsonLd
-                    key={i}
-                    data={{
-                        "@context": "https://schema.org",
-                        "@type": "Event",
-                        "name": event.name,
-                        "description": event.desc,
-                        "eventSchedule": {
-                            "@type": "Schedule",
-                            "repeatFrequency": "P1W",
-                            "byDay": event.day.includes("Thursday") ? "Thursday" : event.day.includes("Friday") ? "Friday" : "Saturday",
-                            "startTime": event.time.split(" - ")[0],
-                            "endTime": event.time.split(" - ")[1]
-                        },
-                        "location": {
-                            "@type": "Place",
-                            "name": "Charcoal N Chill",
-                            "address": {
-                                "@type": "PostalAddress",
-                                "streetAddress": "11950 Jones Bridge Rd Ste 103",
-                                "addressLocality": "Alpharetta",
-                                "addressRegion": "GA",
-                                "postalCode": "30005"
-                            }
+            <JsonLd
+                data={{
+                    "@context": "https://schema.org",
+                    "@type": "EventSeries",
+                    "name": "Weekly Entertainment at Charcoal N Chill",
+                    "description": "Recurring weekly events including Belly Dancing and Hookah Specials.",
+                    "location": {
+                        "@type": "Place",
+                        "name": "Charcoal N Chill",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "11950 Jones Bridge Rd Ste 103",
+                            "addressLocality": "Alpharetta",
+                            "addressRegion": "GA",
+                            "postalCode": "30005"
                         }
-                    }}
-                />
-            ))}
+                    },
+                    "subEvent": [
+                        { "@type": "Event", "name": "Belly Dancing", "startDate": "2024-01-01T22:00", "repeatFrequency": "Weekly", "description": "Live belly dancing every Friday and Saturday." },
+                        { "@type": "Event", "name": "Hookah Tuesday", "startDate": "2024-01-02T17:00", "repeatFrequency": "Weekly", "description": "Hookah specials all night." }
+                    ]
+                }}
+                id="events-series-jsonld"
+            />
             <JsonLd data={getBreadcrumbSchema([{ name: "Events", item: "/events" }])} id="breadcrumb-events" />
+
             <Header />
-            <main className="pt-40">
-                <Breadcrumbs items={[{ label: "Events", href: "/events" }]} />
-                <section className="bg-charcoal py-20 border-b border-white/5 mx-auto">
-                    <div className="container px-4 md:px-6 text-center space-y-4">
-                        <h1 className="text-4xl md:text-6xl font-heading font-bold text-white tracking-tight">
-                            Live <span className="text-gold">Entertainment</span>
-                        </h1>
-                        <p className="max-w-2xl mx-auto text-gray-400 text-lg">
-                            Join us for weekly world-class performances, live DJs, and themed nights that bring the energy to Alpharetta.
-                        </p>
+
+            <main className="bg-dark-primary">
+                {/* Hero Section */}
+                <EventsHero />
+
+                <div className="bg-dark-primary relative z-10 border-t border-white/5 -mt-8 rounded-t-[3rem]">
+                    <div className="container mx-auto px-4 pt-8">
+                        <Breadcrumbs items={[{ label: "Events", href: "/events" }]} />
                     </div>
-                </section>
 
-                <Section>
-                    <div className="space-y-24">
-                        {events.map((event, i) => (
-                            <div
-                                key={i}
-                                className={`flex flex-col lg:flex-row gap-12 items-center ${i % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-                            >
-                                <div className="w-full lg:w-1/2 space-y-6">
-                                    <div className="inline-block px-4 py-1 bg-gold/10 text-gold text-sm font-bold rounded-full uppercase tracking-widest">
-                                        {event.day}
-                                    </div>
-                                    <div className="space-y-2">
-                                        <h2 className="text-3xl md:text-5xl font-heading font-bold text-white">{event.name}</h2>
-                                        <p className="text-gold font-medium flex items-center gap-2">
-                                            <Calendar className="w-4 h-4" /> {event.time}
-                                        </p>
-                                    </div>
-                                    <p className="text-gray-400 text-lg leading-relaxed">{event.desc}</p>
-                                    <Button size="lg" asChild>
-                                        <Link href="/contact#reserve">Reserve VIP Table</Link>
-                                    </Button>
-                                </div>
+                    {/* Main Showcase */}
+                    <EventsShowcase />
 
-                                <div className="w-full lg:w-1/2 relative group">
-                                    <div className="absolute inset-0 bg-gold/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                                    <div className="relative aspect-video lg:aspect-[4/3] rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                                        <Image
-                                            src={event.image}
-                                            alt={event.name}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                            width={800}
-                                            height={600}
-                                            priority={i === 0}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                                    </div>
-                                </div>
+                    {/* Private Events Teaser */}
+                    <Section className="pb-24">
+                        <div className="relative rounded-[3rem] overflow-hidden group">
+                            <div className="absolute inset-0 transition-transform duration-1000 group-hover:scale-105">
+                                <Image
+                                    src="/images/private-party.jpg"
+                                    alt="Private Party at CNC"
+                                    fill
+                                    className="object-cover filter brightness-[0.3]"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
                             </div>
-                        ))}
-                    </div>
-                </Section>
-
-                <Section className="bg-black text-center">
-                    <div className="max-w-3xl mx-auto space-y-8">
-                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">Celebrate Your Special Occasions</h2>
-                        <p className="text-gray-400">Planning a birthday, bachelor party, or corporate event? Our venue and entertainment are perfect for any celebration up to 60 guests.</p>
-                        <Button variant="outline" size="lg" className="text-white border-white/10" asChild>
-                            <Link href="/private-events">Learn More About Private Events</Link>
-                        </Button>
-                    </div>
-                </Section>
+                            <div className="relative z-10 py-24 px-6 md:px-20 text-center">
+                                <span className="inline-block py-1 px-3 rounded-full bg-gold-primary/20 backdrop-blur-md border border-gold-primary/30 text-gold-primary text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                                    VIP Experience
+                                </span>
+                                <h2 className="text-4xl md:text-6xl font-heading font-black text-white uppercase tracking-tight mb-6">
+                                    Host Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Moment</span>
+                                </h2>
+                                <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+                                    From bachelor parties to corporate buyouts, elevate your celebration with bespoke visuals, curated menus, and VIP service.
+                                </p>
+                                <Button size="xl" className="bg-white text-black hover:bg-gold-primary hover:text-black font-black uppercase tracking-widest px-12 py-8 text-lg shadow-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all duration-300" asChild>
+                                    <Link href="/parties">
+                                        Start Planning
+                                    </Link>
+                                </Button>
+                            </div>
+                        </div>
+                    </Section>
+                </div>
             </main>
             <Footer />
         </>

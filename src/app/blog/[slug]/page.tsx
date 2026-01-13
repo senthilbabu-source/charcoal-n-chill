@@ -50,8 +50,15 @@ export default async function BlogPostPage({ params }: Props) {
     }
 
     // Find related posts (same category, excluding current)
+    // Find related posts (same category, excluding current)
+    const postCategories = Array.isArray(post.category) ? post.category : [post.category];
     const relatedPosts = blogPosts
-        .filter((p) => p.category === post.category && p.id !== post.id)
+        .filter((p) => {
+            if (p.id === post.id) return false;
+            const pCategories = Array.isArray(p.category) ? p.category : [p.category];
+            // Check intersection
+            return pCategories.some(c => postCategories.includes(c));
+        })
         .slice(0, 3);
 
     return (
@@ -78,7 +85,7 @@ export default async function BlogPostPage({ params }: Props) {
                         <div className="absolute inset-0 z-20 flex items-center justify-center">
                             <div className="container px-4 text-center space-y-6">
                                 <span className="inline-block px-4 py-1 rounded-full bg-gold text-charcoal font-bold text-sm uppercase tracking-wider">
-                                    {post.category}
+                                    {Array.isArray(post.category) ? post.category.join(" & ") : post.category}
                                 </span>
                                 <h1 className="text-4xl md:text-6xl font-heading font-bold text-white max-w-4xl mx-auto leading-tight">
                                     {post.title}
@@ -132,12 +139,28 @@ export default async function BlogPostPage({ params }: Props) {
                             <div className="mt-12 pt-8 border-t border-white/5 flex items-center gap-4">
                                 <Tag className="text-gold" size={20} />
                                 <span className="text-gray-400">Filed under:</span>
-                                <Link
-                                    href={`/blog?category=${post.category}`}
-                                    className="text-white hover:text-gold transition-colors font-bold"
-                                >
-                                    {post.category}
-                                </Link>
+                                {Array.isArray(post.category) ? (
+                                    <span className="flex items-center gap-2">
+                                        {post.category.map((cat, i) => (
+                                            <span key={cat}>
+                                                <Link
+                                                    href={`/blog?category=${cat}`}
+                                                    className="text-white hover:text-gold transition-colors font-bold"
+                                                >
+                                                    {cat}
+                                                </Link>
+                                                {i < post.category.length - 1 && <span className="text-gray-600">, </span>}
+                                            </span>
+                                        ))}
+                                    </span>
+                                ) : (
+                                    <Link
+                                        href={`/blog?category=${post.category}`}
+                                        className="text-white hover:text-gold transition-colors font-bold"
+                                    >
+                                        {post.category}
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </Section>
@@ -148,7 +171,7 @@ export default async function BlogPostPage({ params }: Props) {
                     <Section className="bg-dark-secondary border-t border-white/5">
                         <div className="container px-4">
                             <h2 className="text-3xl font-heading font-bold text-white mb-12 text-center">
-                                More in <span className="text-gold">{post.category}</span>
+                                More in <span className="text-gold">{Array.isArray(post.category) ? post.category.join(" & ") : post.category}</span>
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 {relatedPosts.map((related) => (
