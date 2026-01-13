@@ -51,7 +51,8 @@ export function MagneticButton({
                 className
             )}
             aria-label={ariaLabel}
-            {...props}
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...(props as any)}
         >
             {children}
         </motion.button>
