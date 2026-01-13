@@ -7,7 +7,7 @@ import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HelpCircle, ChevronDown, MapPin, Clock, Calendar } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
-import { GoldenCoal } from "@/components/gamification/GoldenCoal";
+
 import { SecretHunt } from "@/components/gamification/SecretHunt";
 
 export const metadata = constructMetadata({

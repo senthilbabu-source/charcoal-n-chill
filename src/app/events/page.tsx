@@ -9,7 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { EventsHero } from "@/components/events/EventsHero";
 import { EventsShowcase } from "@/components/events/EventsShowcase";
-import { GoldenCoal } from "@/components/gamification/GoldenCoal";
+import { SecretHunt } from "@/components/gamification/SecretHunt";
 
 export const metadata = constructMetadata({
     title: "Events | Live Entertainment, Belly Dancing & Hookah Specials",
@@ -75,7 +75,7 @@ export default function EventsPage() {
                             </div>
                             <div className="relative z-10 py-24 px-6 md:px-20 text-center">
                                 <span className="inline-block py-1 px-3 rounded-full bg-gold-primary/20 backdrop-blur-md border border-gold-primary/30 text-gold-primary text-xs font-bold uppercase tracking-[0.2em] mb-6 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                                    VIP Experience <GoldenCoal id="coal-3" hint="Found 3/3: Party Animal" className="inline-block align-middle ml-2" />
+                                    VIP Experience <SecretHunt id="events_ember" locationName="the Events Page" className="inline-block align-middle ml-2" />
                                 </span>
                                 <h2 className="text-4xl md:text-6xl font-heading font-black text-white uppercase tracking-tight mb-6">
                                     Host Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Moment</span>
