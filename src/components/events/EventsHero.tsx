@@ -24,6 +24,7 @@ export function EventsHero() {
         };
 
         // Generate particles only on client to avoid hydration mismatch
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setParticles([...Array(20)].map(() => ({
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,

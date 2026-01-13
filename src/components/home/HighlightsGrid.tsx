@@ -89,7 +89,7 @@ export function HighlightsGrid() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-gray-400 max-w-2xl mx-auto text-lg font-light"
                     >
-                        More than just a lounge. It's a destination for flavor, rhythm, and relaxation.
+                        More than just a lounge. It&apos;s a destination for flavor, rhythm, and relaxation.
                     </motion.p>
                 </div>
 
@@ -114,8 +114,8 @@ export function HighlightsGrid() {
                                 <div className="w-full h-full bg-dark-tertiary group-hover:scale-110 transition-transform duration-700">
                                     {/* If images exist, uncomment below. For now using pattern/color placeholders to ensure no 404s immediately */}
                                     <div className={`w-full h-full bg-gradient-to-br ${index === 0 ? 'from-orange-900/40' :
-                                            index === 1 ? 'from-purple-900/40' :
-                                                index === 2 ? 'from-blue-900/40' : 'from-gold-900/20'
+                                        index === 1 ? 'from-purple-900/40' :
+                                            index === 2 ? 'from-blue-900/40' : 'from-gold-900/20'
                                         } to-dark-primary`} />
                                 </div>
                             </div>

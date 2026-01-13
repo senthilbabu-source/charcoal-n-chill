@@ -51,7 +51,7 @@ export default function ContactPage() {
                                         <div className="mb-8 text-center">
                                             <h2 className="text-3xl font-heading font-black text-white mb-3 uppercase tracking-wide">Send a Message</h2>
                                             <div className="w-16 h-1 bg-gold-primary mx-auto rounded-full mb-4" />
-                                            <p className="text-gray-400 text-sm">Fill out the form below and we'll get back to you shortly.</p>
+                                            <p className="text-gray-400 text-sm">Fill out the form below and we&apos;ll get back to you shortly.</p>
                                         </div>
                                         <ContactForm withHeader={false} />
                                     </div>

@@ -18,7 +18,7 @@ export function FeaturesGrid() {
                                 What Sets Us <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-white">Apart</span>
                             </h2>
                             <p className="text-gray-400 max-w-2xl mx-auto">
-                                We don't just serve customers; we curate experiences. Here is why CNC stands out.
+                                We don&apos;t just serve customers; we curate experiences. Here is why CNC stands out.
                             </p>
                         </div>
                     </ScrollReveal>

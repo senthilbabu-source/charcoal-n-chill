@@ -81,7 +81,7 @@ export function SecretRevealModal({ onClose }: SecretRevealModalProps) {
                                     Secret Unlocked!
                                 </h2>
                                 <p className="text-gray-400">
-                                    You've discovered a hidden gem.
+                                    You&apos;ve discovered a hidden gem.
                                 </p>
                             </div>
 

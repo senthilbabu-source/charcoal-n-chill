@@ -105,9 +105,9 @@ export default function Home() {
 
                   <div className="near-avalon my-6 p-6 bg-gradient-to-r from-gold-primary/10 to-transparent border-l-4 border-gold-primary rounded-r-xl">
                     <p className="location-highlight text-base leading-relaxed text-gray-300 m-0 italic">
-                      "Conveniently located near Avalon Mall on Jones Bridge Road, Charcoal N Chill
+                      &quot;Conveniently located near Avalon Mall on Jones Bridge Road, Charcoal N Chill
                       is just 5.1 miles from Alpharetta&apos;s premier shopping and entertainment district.
-                      Easy access, ample free parking, and the perfect post-shopping destination."
+                      Easy access, ample free parking, and the perfect post-shopping destination.&quot;
                     </p>
                   </div>
 

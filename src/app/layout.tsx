@@ -10,7 +10,7 @@ import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import { AgeVerificationModal } from "@/components/ui/AgeVerificationModal";
 import { ToastProvider } from "@/components/ui/Toast";
 import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
-import { SecretMenuModal } from "@/components/gamification/SecretMenuModal";
+
 import { ScavengerHuntTracker } from "@/components/gamification/ScavengerHuntTracker";
 
 const raleway = Raleway({
@@ -68,7 +68,7 @@ export default function RootLayout({
             <AgeVerificationModal />
             <GrainOverlay />
             <SmoothScroll />
-            <SecretMenuModal />
+
             <ScavengerHuntTracker />
             <a
               href="#main-content"

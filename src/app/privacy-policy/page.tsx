@@ -35,7 +35,7 @@ export default function PrivacyPolicyPage() {
                             <section>
                                 <h3 className="text-2xl font-heading font-bold text-gold-primary mb-4">1. Introduction</h3>
                                 <p className="leading-relaxed">
-                                    Welcome to Charcoal N Chill ("we," "our," or "us"). We respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website or our physical location in Alpharetta, GA.
+                                    Welcome to Charcoal N Chill (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your data when you visit our website or our physical location in Alpharetta, GA.
                                 </p>
                             </section>
 

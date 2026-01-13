@@ -23,6 +23,7 @@ export function ContactHero() {
         };
 
         // Generate particles only on client
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setParticles([...Array(15)].map(() => ({
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,

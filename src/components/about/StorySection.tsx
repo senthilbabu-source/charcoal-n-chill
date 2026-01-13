@@ -47,7 +47,7 @@ export function StorySection() {
                             <div className="pl-6 border-l-2 border-gold-primary/30 hover:border-gold-primary transition-colors">
                                 <h3 className="text-2xl font-bold text-white mb-4">The Experience</h3>
                                 <p className="text-gray-400 leading-relaxed">
-                                    Since 2015, we've redefined the lounge experience by merging the finest hookah culture with authentic Indo-American cuisine. It's not just about the smoke or the food—it's about the atmosphere. From our luxury Versace seating to our curated playlists, every detail is designed to transport you.
+                                    Since 2015, we&apos;ve redefined the lounge experience by merging the finest hookah culture with authentic Indo-American cuisine. It&apos;s not just about the smoke or the food—it&apos;s about the atmosphere. From our luxury Versace seating to our curated playlists, every detail is designed to transport you.
                                 </p>
                             </div>
                         </ScrollReveal>
@@ -56,7 +56,7 @@ export function StorySection() {
                             <div className="pl-6 border-l-2 border-gold-primary/30 hover:border-gold-primary transition-colors">
                                 <h3 className="text-2xl font-bold text-white mb-4">The Community</h3>
                                 <p className="text-gray-400 leading-relaxed">
-                                    We are more than a business; we are a social hub. Whether you're celebrating a milestone, unwinding after work, or just catching up with old friends, our doors are open. We pride ourselves on creating a safe, inclusive, and electrifying environment for everyone.
+                                    We are more than a business; we are a social hub. Whether you&apos;re celebrating a milestone, unwinding after work, or just catching up with old friends, our doors are open. We pride ourselves on creating a safe, inclusive, and electrifying environment for everyone.
                                 </p>
                             </div>
                         </ScrollReveal>
@@ -64,7 +64,7 @@ export function StorySection() {
                         <ScrollReveal delay={0.6}>
                             <div className="bg-white/5 p-8 rounded-3xl border border-white/5">
                                 <blockquote className="text-lg italic text-gold-primary mb-4">
-                                    "We didn't just want to build a restaurant. We wanted to build a vibe."
+                                    &quot;We didn&apos;t just want to build a restaurant. We wanted to build a vibe.&quot;
                                 </blockquote>
                                 <cite className="text-white font-bold not-italic uppercase tracking-widest text-sm">— The Founders</cite>
                             </div>

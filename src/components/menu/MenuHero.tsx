@@ -3,16 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
-import { TextReveal } from "@/components/ui/TextReveal";
 
 export function MenuHero() {
-    const handleScroll = () => {
-        const scrolled = window.scrollY;
-        const parallaxLayer = document.querySelector(".parallax-layer") as HTMLElement;
-        if (parallaxLayer) {
-            parallaxLayer.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    };
+    // Hidden unused handleScroll function removed
     const heroRef = useRef<HTMLElement>(null);
     const [particles, setParticles] = useState<Array<{ left: string; top: string; delay: string; opacity: number }>>([]);
 
@@ -29,6 +22,7 @@ export function MenuHero() {
         };
 
         // Generate particles only on client
+        // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/set-state-in-effect
         setParticles([...Array(20)].map(() => ({
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,

@@ -86,7 +86,7 @@ export function Hero() {
             <div className="relative z-10 container mx-auto px-4 text-center mt-0 md:-mt-12">
                 <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full glass-bg mb-8 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                     <span className="text-gold-primary animate-pulse">✨</span>
-                    <span className="text-sm font-medium uppercase tracking-widest text-gold-primary">Alpharetta's Premier Destination</span>
+                    <span className="text-sm font-medium uppercase tracking-widest text-gold-primary">Alpharetta&apos;s Premier Destination</span>
                 </div>
 
                 <div className="mb-6">

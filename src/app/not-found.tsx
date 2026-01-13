@@ -28,7 +28,7 @@ export default function NotFound() {
                     </h2>
 
                     <p className="text-gray-400 max-w-md mx-auto text-lg">
-                        The page you're looking for seems to have drifted away. Let's get you back to the vibe.
+                        The page you&apos;re looking for seems to have drifted away. Let&apos;s get you back to the vibe.
                     </p>
                 </div>
 

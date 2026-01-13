@@ -156,7 +156,7 @@ export default function FAQPage() {
                     <div className="max-w-2xl mx-auto mt-20 text-center p-8 rounded-3xl bg-gradient-to-br from-dark-secondary to-black border border-white/10 relative overflow-hidden group">
                         <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <h3 className="text-2xl font-bold text-white mb-4 relative z-10">Still have questions?</h3>
-                        <p className="text-gray-400 mb-8 relative z-10">We're here to help! Give us a call or send us an email.</p>
+                        <p className="text-gray-400 mb-8 relative z-10">We&apos;re here to help! Give us a call or send us an email.</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
                             <Link href="/contact" className="px-8 py-3 bg-gold text-black font-bold uppercase tracking-widest rounded-full hover:bg-white transition-colors">
                                 Contact Us

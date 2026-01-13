@@ -92,7 +92,7 @@ export function FlavorFinder() {
                 {/* Section Header */}
                 <div className="text-center mb-12">
                     <span className="text-gold text-sm font-bold uppercase tracking-widest mb-2 block">
-                        Can't Decide?
+                        Can&apos;t Decide?
                     </span>
                     <h2 className="text-3xl md:text-5xl font-heading font-black text-white uppercase mb-4">
                         Find Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white">Flavor</span>
@@ -139,7 +139,7 @@ export function FlavorFinder() {
                                 exit={{ opacity: 0, x: -50 }}
                                 className="w-full max-w-2xl space-y-8"
                             >
-                                <h3 className="text-2xl font-bold text-white text-center">What's your vibe tonight?</h3>
+                                <h3 className="text-2xl font-bold text-white text-center">What&apos;s your vibe tonight?</h3>
                                 <div className="grid grid-cols-2 gap-4">
                                     {[
                                         { label: "Fruity", icon: Citrus, color: "text-orange-400" },

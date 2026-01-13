@@ -21,6 +21,7 @@ export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         const saved = localStorage.getItem("cnc_scavenger_hunt");
         if (saved) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setFoundEmbers(JSON.parse(saved));
         }
     }, []);

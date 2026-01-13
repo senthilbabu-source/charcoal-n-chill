@@ -6,7 +6,7 @@ import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { Calendar, User, ArrowRight, Clock } from "lucide-react";
-import { blogPosts, categories } from "@/data/blog";
+import { blogPosts, categories, type BlogCategory } from "@/data/blog";
 import Link from "next/link";
 import { Suspense } from "react";
 import { BlogFilter } from "@/components/blog/BlogFilter";
@@ -27,7 +27,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
         ? blogPosts
         : blogPosts.filter(post =>
             Array.isArray(post.category)
-                ? post.category.includes(activeCategory as any)
+                ? post.category.includes(activeCategory as BlogCategory)
                 : post.category === activeCategory
         );
 

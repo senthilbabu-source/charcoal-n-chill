@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -51,7 +51,7 @@ export function MagneticButton({
                 className
             )}
             aria-label={ariaLabel}
-            {...props as any}
+            {...props}
         >
             {children}
         </motion.button>

@@ -130,7 +130,7 @@ export function MenuExplorer() {
                             <Search size={32} />
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">No flavors found</h3>
-                        <p className="text-gray-500">We couldn't find anything matching "{searchQuery}".</p>
+                        <p className="text-gray-500">We couldn&apos;t find anything matching &quot;{searchQuery}&quot;.</p>
                     </motion.div>
                 )}
 
