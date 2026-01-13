@@ -12,6 +12,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { TextReveal } from "@/components/ui/TextReveal";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { TiltCard } from "@/components/ui/TiltCard";
+import { SecretHunt } from "@/components/gamification/SecretHunt";
 
 export const metadata = constructMetadata({
     title: "Private Events & Party Venue | VIP Birthday & Corporate Packages",
@@ -42,21 +43,21 @@ export default function PrivateEventsPage() {
 
                     {/* Animated Smoke Effect */}
                     <div className="absolute inset-0 z-0 pointer-events-none opacity-40">
-                        <div className="absolute bottom-0 left-[10%] w-[300px] h-[300px] bg-gold-primary/10 rounded-full blur-[80px] animate-smoke-rise" />
+                        <div className="absolute bottom-0 left-[10%] w-[300px] h-[300px] bg-gold/10 rounded-full blur-[80px] animate-smoke-rise" />
                         <div className="absolute bottom-0 right-[20%] w-[400px] h-[400px] bg-brand-red/10 rounded-full blur-[100px] animate-smoke-rise delay-1000" />
                     </div>
 
                     <div className="container relative z-10 px-4 md:px-6 text-center">
                         <ScrollReveal animation="fade-up">
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-gold-primary text-sm font-bold uppercase tracking-widest mb-8">
-                                <Star size={16} className="fill-gold-primary" />
+                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-gold text-sm font-bold uppercase tracking-widest mb-8">
+                                <Star size={16} className="fill-gold" />
                                 <span>VIP Experience</span>
                             </div>
                         </ScrollReveal>
 
                         <h1 className="text-6xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter mb-2 drop-shadow-2xl">
                             <span className="block mb-2">Host Your</span>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-white to-gold-primary bg-[length:200%_auto] animate-shine">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold bg-[length:200%_auto] animate-shine">
                                 Special Event
                             </span>
                         </h1>
@@ -69,7 +70,7 @@ export default function PrivateEventsPage() {
 
                         <ScrollReveal animation="fade-up" delay={0.6}>
                             <div className="flex flex-wrap justify-center gap-4">
-                                <Button size="lg" className="bg-gold-primary text-black hover:bg-white hover:text-black font-black uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.3)]" asChild>
+                                <Button size="lg" className="bg-gold text-black hover:bg-white hover:text-black font-black uppercase tracking-widest shadow-[0_0_20px_rgba(212,175,55,0.3)]" asChild>
                                     <a href="#inquiry">Start Planning</a>
                                 </Button>
                                 <Button size="lg" variant="outline" className="border-white/20 hover:border-white text-white font-bold uppercase tracking-widest backdrop-blur-sm" asChild>
@@ -83,6 +84,10 @@ export default function PrivateEventsPage() {
                     <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
                         <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-white to-transparent" />
                         <span className="text-[10px] uppercase tracking-[0.2em] text-white">Scroll</span>
+                    </div>
+
+                    <div className="absolute bottom-10 right-10 z-20">
+                        <SecretHunt id="parties_ember" locationName="the Parties Page" />
                     </div>
                 </section>
 
@@ -105,9 +110,9 @@ export default function PrivateEventsPage() {
                                         "Social Gatherings",
                                         "Theme Parties"
                                     ].map((item, i) => (
-                                        <div key={item} className="group relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-gold-primary/10 hover:border-gold-primary/30 transition-all duration-300 h-full">
+                                        <div key={item} className="group relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-gold/10 hover:border-gold/30 transition-all duration-300 h-full">
                                             <div className="flex items-center gap-3 relative z-10 h-full">
-                                                <CheckCircle2 className="w-5 h-5 text-gold-primary group-hover:scale-110 transition-transform shrink-0" />
+                                                <CheckCircle2 className="w-5 h-5 text-gold group-hover:scale-110 transition-transform shrink-0" />
                                                 <span className="text-sm font-medium text-gray-200 group-hover:text-white transition-colors flex-1 text-wrap break-words">{item}</span>
                                             </div>
                                             {/* Hover Glow */}
@@ -118,7 +123,7 @@ export default function PrivateEventsPage() {
 
                                 <div className="space-y-4 pt-4 border-t border-white/10">
                                     <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                                        <Users className="text-gold-primary" /> Guest Capacity
+                                        <Users className="text-gold" /> Guest Capacity
                                     </h3>
                                     <p className="text-gray-400">Our venue comfortably accommodates groups from 15 to 50 guests in a semi-private or fully exclusive setting.</p>
                                 </div>
@@ -129,18 +134,18 @@ export default function PrivateEventsPage() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-4 pt-8">
                                     <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/vip-section.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width="800" height="600" loading="lazy" alt="VIP Section with Versace seating" />
+                                        <img src="/images/50-birthday-party-1.jpeg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width="800" height="600" loading="lazy" alt="50th Birthday Party Celebration" />
                                     </div>
                                     <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/hookah-prep.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width="800" height="600" loading="lazy" alt="Premium Hookah Preparation" />
+                                        <img src="/images/corporaate-event-company-mixer.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width="800" height="600" loading="lazy" alt="Corporate Event Company Mixer" />
                                     </div>
                                 </div>
                                 <div className="space-y-4">
                                     <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/hero-bg.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Events Hero Background" width="800" height="600" loading="lazy" />
+                                        <img src="/images/private-birthday-party-decor.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Birthday Party Decor" width="800" height="600" loading="lazy" />
                                     </div>
                                     <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/event-gathering.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Events Gathering" width="800" height="600" loading="lazy" />
+                                        <img src="/images/private-party-drinks.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Party Drinks" width="800" height="600" loading="lazy" />
                                     </div>
                                 </div>
                             </div>
@@ -150,12 +155,12 @@ export default function PrivateEventsPage() {
 
                 <Section className="bg-dark-secondary relative overflow-hidden">
                     {/* Background Glow */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold-primary/5 rounded-full blur-[100px] pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
                     <div className="text-center mb-20 flex flex-col items-center gap-6 relative z-10">
                         <ScrollReveal animation="fade-up">
                             <h2 className="text-4xl md:text-6xl font-heading font-black text-white uppercase tracking-tight">
-                                Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-white">Features</span>
+                                Premium <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-white">Features</span>
                             </h2>
                             <div className="w-24 h-1 bg-gradient-to-r from-gold-dark to-gold-light rounded-full mt-6" />
                         </ScrollReveal>
@@ -172,16 +177,16 @@ export default function PrivateEventsPage() {
                         ].map((feature, i) => (
                             <ScrollReveal key={i} animation="fade-up" delay={i * 0.1}>
                                 <TiltCard className="h-full">
-                                    <div className="group h-full p-8 bg-white/5 backdrop-blur-sm rounded-[2rem] border border-white/5 hover:border-gold-primary/30 transition-colors duration-500 overflow-hidden relative">
-                                        <div className="absolute inset-0 bg-gold-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="group h-full p-8 bg-white/5 backdrop-blur-sm rounded-[2rem] border border-white/5 hover:border-gold/30 transition-colors duration-500 overflow-hidden relative">
+                                        <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                         <div className="relative z-10">
-                                            <div className="w-16 h-16 rounded-2xl bg-dark-primary border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-gold-primary/50 transition-all duration-300">
-                                                <div className="text-gold-primary group-hover:text-white transition-colors duration-300">
+                                            <div className="w-16 h-16 rounded-2xl bg-dark-primary border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:border-gold/50 transition-all duration-300">
+                                                <div className="text-gold group-hover:text-white transition-colors duration-300">
                                                     {feature.icon}
                                                 </div>
                                             </div>
-                                            <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-gold-primary transition-colors">{feature.title}</h3>
+                                            <h3 className="text-xl font-bold text-white mb-3 uppercase tracking-wide group-hover:text-gold transition-colors">{feature.title}</h3>
                                             <p className="text-gray-400 leading-relaxed font-light">{feature.desc}</p>
                                         </div>
                                     </div>
@@ -196,7 +201,7 @@ export default function PrivateEventsPage() {
                         <ScrollReveal animation="fade-up">
                             <h2 className="text-4xl md:text-7xl font-heading font-black text-white uppercase tracking-tight">Event Packages</h2>
                             <p className="text-gray-400 text-lg max-w-2xl">Choose the perfect tier for your group. Custom packages also available.</p>
-                            <div className="w-20 h-[1px] bg-gold-primary/30 mt-4" />
+                            <div className="w-20 h-[1px] bg-gold/30 mt-4" />
                         </ScrollReveal>
                     </div>
 
@@ -208,31 +213,31 @@ export default function PrivateEventsPage() {
                         ].map((tier, i) => (
                             <ScrollReveal key={i} animation="fade-up" delay={0.2 + (i * 0.1)}>
                                 <div className={`h-full p-8 md:p-10 rounded-[2.5rem] border transition-all duration-500 group relative overflow-hidden flex flex-col ${i === 1
-                                    ? 'bg-gradient-to-b from-gold-primary/20 to-black/50 border-gold-primary/50 shadow-[0_0_50px_rgba(212,175,55,0.1)]'
-                                    : 'bg-white/5 backdrop-blur-md border-white/10 hover:border-gold-primary/30'
+                                    ? 'bg-gradient-to-b from-gold/20 to-black/50 border-gold/50 shadow-[0_0_50px_rgba(212,175,55,0.1)]'
+                                    : 'bg-white/5 backdrop-blur-md border-white/10 hover:border-gold/30'
                                     }`}>
 
                                     {/* Hover Glow Effect */}
-                                    <div className="absolute inset-0 bg-gold-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                                    <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                                     {i === 1 && (
-                                        <div className="absolute top-0 right-0 bg-gold-primary text-black text-xs font-black uppercase tracking-widest px-6 py-2 rounded-bl-3xl shadow-lg z-20">
+                                        <div className="absolute top-0 right-0 bg-gold text-black text-xs font-black uppercase tracking-widest px-6 py-2 rounded-bl-3xl shadow-lg z-20">
                                             Most Popular
                                         </div>
                                     )}
 
                                     <div className="mb-8 text-left relative z-10">
-                                        <h3 className="text-2xl font-black text-white mb-2 uppercase tracking-wide group-hover:text-gold-primary transition-colors">{tier.name}</h3>
+                                        <h3 className="text-2xl font-black text-white mb-2 uppercase tracking-wide group-hover:text-gold transition-colors">{tier.name}</h3>
                                         <div className="text-3xl md:text-4xl font-heading font-black text-white/70 mb-4 group-hover:text-white transition-colors">{tier.price}</div>
-                                        <div className="inline-block px-4 py-1.5 rounded-full border border-gold-primary/30 bg-gold-primary/10">
-                                            <p className="text-sm text-gold-primary font-bold uppercase tracking-widest">{tier.limit}</p>
+                                        <div className="inline-block px-4 py-1.5 rounded-full border border-gold/30 bg-gold/10">
+                                            <p className="text-sm text-gold font-bold uppercase tracking-widest">{tier.limit}</p>
                                         </div>
                                     </div>
 
                                     <ul className="space-y-5 flex-grow relative z-10 border-t border-white/10 pt-8 mb-8">
                                         {tier.features.map(f => (
                                             <li key={f} className="flex items-start gap-4 text-sm text-gray-300 font-medium group/item">
-                                                <div className="w-1.5 h-1.5 mt-2 rounded-full bg-gold-primary shrink-0 group-hover/item:scale-150 transition-transform shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
+                                                <div className="w-1.5 h-1.5 mt-2 rounded-full bg-gold shrink-0 group-hover/item:scale-150 transition-transform shadow-[0_0_10px_rgba(212,175,55,0.5)]" />
                                                 <span className="leading-relaxed group-hover:text-white transition-colors">{f}</span>
                                             </li>
                                         ))}

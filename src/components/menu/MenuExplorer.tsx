@@ -43,7 +43,7 @@ export function MenuExplorer() {
                 <div className="container mx-auto px-4 py-4">
                     <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
                         {/* Category Tabs */}
-                        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto pb-2 md:pb-0 mask-image-gradient">
+                        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto pb-2 md:pb-0">
                             {categories.map((cat) => (
                                 <button
                                     key={cat.id}

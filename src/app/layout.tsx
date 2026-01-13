@@ -9,6 +9,9 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import { AgeVerificationModal } from "@/components/ui/AgeVerificationModal";
 import { ToastProvider } from "@/components/ui/Toast";
+import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
+import { SecretMenuModal } from "@/components/gamification/SecretMenuModal";
+import { ScavengerHuntTracker } from "@/components/gamification/ScavengerHuntTracker";
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -60,24 +63,28 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ToastProvider>
-          <div id="scroll-sentinel" className="absolute top-0 h-px w-full pointer-events-none" />
-          <AgeVerificationModal />
-          <GrainOverlay />
-          <SmoothScroll />
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-gold text-black px-6 py-3 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl transition-all outline-none focus:ring-2 focus:ring-brand-red"
-          >
-            Skip to Content
-          </a>
-          {/* Organization schema */}
-          <JsonLd data={organizationSchema} id="org-schema" />
-          {/* Restaurant schema */}
-          <JsonLd data={restaurantSchema} id="restaurant-schema" />
-          <Analytics />
-          <div id="main-content" tabIndex={-1} className="outline-none">
-            {children}
-          </div>
+          <ScavengerHuntProvider>
+            <div id="scroll-sentinel" className="absolute top-0 h-px w-full pointer-events-none" />
+            <AgeVerificationModal />
+            <GrainOverlay />
+            <SmoothScroll />
+            <SecretMenuModal />
+            <ScavengerHuntTracker />
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-gold text-black px-6 py-3 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl transition-all outline-none focus:ring-2 focus:ring-brand-red"
+            >
+              Skip to Content
+            </a>
+            {/* Organization schema */}
+            <JsonLd data={organizationSchema} id="org-schema" />
+            {/* Restaurant schema */}
+            <JsonLd data={restaurantSchema} id="restaurant-schema" />
+            <Analytics />
+            <div id="main-content" tabIndex={-1} className="outline-none">
+              {children}
+            </div>
+          </ScavengerHuntProvider>
         </ToastProvider>
       </body>
     </html>

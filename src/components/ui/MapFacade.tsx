@@ -50,7 +50,7 @@ export function MapFacade() {
 
                     <div className="z-10 flex flex-col items-center gap-3">
                         <Loader2 className="w-8 h-8 text-gold-primary animate-spin" />
-                        <p className="text-gold-primary/70 text-sm tracking-widest uppercase">
+                        <p className="text-gold text-sm tracking-widest uppercase">
                             Locating...
                         </p>
                     </div>

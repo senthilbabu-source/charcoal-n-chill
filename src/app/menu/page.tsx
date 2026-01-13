@@ -5,7 +5,9 @@ import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { MenuHero } from "@/components/menu/MenuHero";
 import { MenuExplorer } from "@/components/menu/MenuExplorer";
+import { FlavorFinder } from "@/components/menu/FlavorFinder";
 import { menuItems } from "@/data/menu";
+import { SecretHunt } from "@/components/gamification/SecretHunt";
 
 // ... existing metadata ...
 
@@ -57,6 +59,15 @@ export default function MenuPage() {
             <main className="bg-dark-primary">
                 {/* Hero Section */}
                 <MenuHero />
+
+                <div className="flex justify-center -mt-10 relative z-20 pointer-events-none">
+                    <div className="pointer-events-auto">
+                        <SecretHunt id="menu_ember" locationName="the Menu Page" />
+                    </div>
+                </div>
+
+                {/* Flavor Finder Quiz */}
+                <FlavorFinder />
 
                 {/* Interactive Menu Explorer (Client Component) */}
                 <MenuExplorer />

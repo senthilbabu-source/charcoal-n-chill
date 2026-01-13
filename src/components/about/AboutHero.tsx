@@ -34,13 +34,13 @@ export function AboutHero() {
             {/* Parallax Background */}
             <div className="absolute inset-0 z-0 parallax-layer will-change-transform">
                 <Image
-                    src="/images/cnc-front-night.jpg"
+                    src="/images/about-us-cnc.jpg"
                     alt="Charcoal N Chill Atmosphere"
                     fill
-                    className="object-cover opacity-30 filter scale-105"
+                    className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/80 via-dark-primary/50 to-dark-primary" />
+                <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-dark-primary/40 to-dark-primary" />
                 <div className="absolute inset-0 bg-black/40" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_#050F18_100%)] opacity-90" />
             </div>
