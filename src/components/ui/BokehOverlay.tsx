@@ -17,8 +17,12 @@ export function BokehOverlay({ className, intensity = 15 }: { className?: string
     const [particles, setParticles] = useState<BokehParticle[]>([]);
 
     useEffect(() => {
+        // Reduced intensity for mobile if mounted
+        const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+        const finalIntensity = isMobile ? Math.min(intensity, 5) : intensity;
+
         // Generate static particles on client-side only to avoid hydration mismatch
-        const newParticles = Array.from({ length: intensity }).map((_, i) => ({
+        const newParticles = Array.from({ length: finalIntensity }).map((_, i) => ({
             id: i,
             size: Math.random() * 80 + 20, // 20px - 100px
             left: Math.random() * 100,
@@ -27,7 +31,13 @@ export function BokehOverlay({ className, intensity = 15 }: { className?: string
             delay: Math.random() * 10,
             opacity: Math.random() * 0.15 + 0.05, // 0.05 - 0.2
         }));
-        setParticles(newParticles);
+
+        // Use setTimeout to avoid synchronous setState warning
+        const timer = setTimeout(() => {
+            setParticles(newParticles);
+        }, 0);
+
+        return () => clearTimeout(timer);
     }, [intensity]);
 
     return (

@@ -17,8 +17,15 @@ const categories = [
     { id: "cocktails", label: "Cocktails", icon: GlassWater },
 ];
 
+interface MenuItem {
+    name: string;
+    desc: string;
+    price: string;
+    category?: string;
+}
+
 // Helper to deduce flavor tags
-function getFlavorTags(item: any) {
+function getFlavorTags(item: MenuItem) {
     if (item.category !== "hookah") return [];
 
     const tags = [];

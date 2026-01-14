@@ -56,7 +56,7 @@ export function TiltCard({ children, className, rotationFactor = 12 }: TiltCardP
                 }}
                 className={cn("relative transition-all duration-200 ease-out", className)}
             >
-                <div style={{ transform: "translateZ(0)" }}> {/* Correction: translateZ(0) to serve as base */}
+                <div style={{ transform: "translateZ(0)" }}>
                     {children}
                 </div>
             </motion.div>
@@ -66,18 +66,30 @@ export function TiltCard({ children, className, rotationFactor = 12 }: TiltCardP
 
 export function TiltParallax({ children, className, offset = 20 }: { children: React.ReactNode; className?: string; offset?: number }) {
     const context = useContext(TiltContext);
-    if (!context) return <>{children}</>;
 
-    const { mouseX, mouseY } = context;
-    // Reverse movement for parallax depth effect (objects further away move less or opposite?)
-    // Actually, for "pop out" (closer to user), they should move *more* in the direction of the camera relative to base.
-    // Logic: moving mouse right (positive xPct) rotates card right (positive rotateY).
-    // To make an element appearing "floating above", it should translate in the opposite direction of the rotation?
-    // Let's stick to simple translation based on mouse position.
+    // Hooks cannot be conditional. We must call useTransform regardless of context.
+    // However, context might be null if used outside provider.
+    // Strategy: Provide a fallback motion value if context is null, but since we can't create hooks conditionally...
+    // The previous error was: "React Hook "useTransform" is called conditionally."
+    // This happened because of: if (!context) return <>{children}</>;
 
-    // transform mouse range [-0.5, 0.5] to [-offset, offset]
+    // Correct approach using a fallback hook call:
+    const fallbackX = useMotionValue(0);
+    const fallbackY = useMotionValue(0);
+
+    const mouseX = context?.mouseX || fallbackX;
+    const mouseY = context?.mouseY || fallbackY;
+
     const x = useTransform(mouseX, [-0.5, 0.5], [-offset, offset]);
     const y = useTransform(mouseY, [-0.5, 0.5], [-offset, offset]);
+
+    if (!context) {
+        // Even if not in context, we render usage of x/y which are based on fallback 0
+        // Or just return simple children to avoid unnecessary wrappers, but checking hooks order is paramount.
+        // If we return early here, we skip the `motion.div` render but the hooks ran. That's fine.
+        // Wait, if we return early, we must have run all hooks.
+        return <>{children}</>;
+    }
 
     return (
         <motion.div style={{ x, y, z: offset }} className={className}>

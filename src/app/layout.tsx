@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Head from "next/head";
 import { Raleway } from "next/font/google";
 import "./globals.css";
@@ -19,6 +19,14 @@ const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
 });
+
+export const viewport: Viewport = {
+  themeColor: "#0A0A0A",
+  colorScheme: "dark",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://charcoalnchill.com"),

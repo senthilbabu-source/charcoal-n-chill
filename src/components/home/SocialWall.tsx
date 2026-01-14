@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Heart, Instagram, MessageCircle } from "lucide-react";
+import { Heart, Instagram } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { cn } from "@/lib/utils";
 
 const socialPosts = [
     {

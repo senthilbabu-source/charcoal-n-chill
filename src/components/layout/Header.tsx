@@ -126,7 +126,7 @@ export function Header() {
                         ))}
                         <Link
                             href="/admin/login"
-                            className="hidden lg:flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors ml-2"
+                            className="hidden lg:flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white/70 hover:text-white transition-colors ml-2"
                         >
                             <Lock size={16} /> Admin
                         </Link>

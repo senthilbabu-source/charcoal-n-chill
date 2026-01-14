@@ -28,7 +28,7 @@ export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
             if (saved) {
                 setFoundEmbers(JSON.parse(saved));
             }
-            if (claimed) {
+            if (claimed === "true") { // Changed condition to `claimed === "true"`
                 setIsClaimed(true);
             }
         };
@@ -40,13 +40,6 @@ export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
                 syncState();
             }
         };
-
-        // Add safety check for hydration mismatch or persistence failure
-        const claimed = localStorage.getItem("cnc_scavenger_claimed");
-        if (claimed === "true" && !isClaimed) {
-            console.log("Syncing claimed state from storage");
-            setIsClaimed(true);
-        }
 
         window.addEventListener("storage", handleStorageChange);
         return () => window.removeEventListener("storage", handleStorageChange);

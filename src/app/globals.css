@@ -454,7 +454,7 @@ body {
 
 /* ==== Global Anchor Styles ==== */
 a {
-  @apply text-white hover:text-gold transition-colors no-underline cursor-pointer;
+  @apply text-white hover:text-gold transition-colors no-underline cursor-pointer min-h-[44px] min-w-[44px] inline-flex items-center justify-center;
   pointer-events: auto;
 }
 
