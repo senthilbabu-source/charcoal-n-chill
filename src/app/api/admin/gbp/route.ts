@@ -76,7 +76,8 @@ export async function GET() {
 
         const performanceRes = await businessprofileperformance.locations.getDailyMetricsTimeSeries({
             name: location.name,
-            dailyMetric: ['BUSINESS_IMPRESSIONS_DESKTOP_MAPS', 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH', 'BUSINESS_IMPRESSIONS_MOBILE_MAPS', 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH', 'CALL_CLICKS', 'WEBSITE_CLICKS', 'QUOTES_REQUESTED', 'BUSINESS_DIRECTION_REQUESTS'],
+            // @ts-ignore: Library definition mismatch for repeated field
+            dailyMetric: ['BUSINESS_IMPRESSIONS_DESKTOP_MAPS', 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH', 'BUSINESS_IMPRESSIONS_MOBILE_MAPS', 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH', 'CALL_CLICKS', 'WEBSITE_CLICKS', 'QUOTES_REQUESTED', 'BUSINESS_DIRECTION_REQUESTS'] as string[],
             dailyRange: {
                 startDate: formatGoogleDate(startDate),
                 endDate: formatGoogleDate(endDate)
@@ -89,10 +90,10 @@ export async function GET() {
         let totalDirections = 0;
         let totalWebsiteClicks = 0;
 
-        const timeSeries = performanceRes.data.timeSeries || [];
+        const timeSeries = (performanceRes.data as any).timeSeries || [];
 
-        timeSeries.forEach(metric => {
-            const total = metric.datedValues?.reduce((acc, val) => acc + (parseInt(val.value || "0")), 0) || 0;
+        timeSeries.forEach((metric: any) => {
+            const total = metric.datedValues?.reduce((acc: number, val: any) => acc + (parseInt(val.value || "0")), 0) || 0;
 
             if (metric.dailyMetric?.includes('IMPRESSIONS')) {
                 totalViews += total;
