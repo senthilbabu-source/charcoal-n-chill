@@ -77,7 +77,7 @@ export async function GET() {
         const performanceRes = await businessprofileperformance.locations.getDailyMetricsTimeSeries({
             name: location.name,
             // @ts-ignore: Library definition mismatch for repeated field
-            dailyMetric: ['BUSINESS_IMPRESSIONS_DESKTOP_MAPS', 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH', 'BUSINESS_IMPRESSIONS_MOBILE_MAPS', 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH', 'CALL_CLICKS', 'WEBSITE_CLICKS', 'QUOTES_REQUESTED', 'BUSINESS_DIRECTION_REQUESTS'] as string[],
+            dailyMetric: ['BUSINESS_IMPRESSIONS_DESKTOP_MAPS', 'BUSINESS_IMPRESSIONS_DESKTOP_SEARCH', 'BUSINESS_IMPRESSIONS_MOBILE_MAPS', 'BUSINESS_IMPRESSIONS_MOBILE_SEARCH', 'CALL_CLICKS', 'WEBSITE_CLICKS', 'QUOTES_REQUESTED', 'BUSINESS_DIRECTION_REQUESTS'] as any,
             dailyRange: {
                 startDate: formatGoogleDate(startDate),
                 endDate: formatGoogleDate(endDate)
