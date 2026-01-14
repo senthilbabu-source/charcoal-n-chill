@@ -1,6 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
 import Link from "next/link";
 import { Utensils, Music, Wine, Clock, ArrowRight } from "lucide-react";
 import ScrollReveal from "@/components/ui/ScrollReveal";

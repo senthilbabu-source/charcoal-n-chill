@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowRight, ArrowDown } from "lucide-react";
-import { cn } from "@/lib/utils";
+
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { BokehOverlay } from "@/components/ui/BokehOverlay";
 
 import Image from "next/image";
 
@@ -65,20 +66,15 @@ export function Hero() {
                 </div>
 
                 {/* Animated Smoke/Ambiance Effect - Keeping CSS only, it is efficient enough */}
-                {/* Animated Smoke/Ambiance Effect - Hidden on mobile for performance */}
+                {/* Animated Smoke/Ambiance Effect */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block" aria-hidden="true">
                     <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[100px] animate-[smoke-rise_8s_ease-in-out_infinite]" />
-                    <div className="absolute bottom-0 left-[50%] w-[400px] h-[400px] bg-brand-red/10 rounded-full blur-[80px] animate-[smoke-rise_8s_ease-in-out_infinite_2s]" />
-                    <div className="absolute bottom-0 right-[10%] w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-[120px] animate-[smoke-rise_8s_ease-in-out_infinite_4s]" />
+                    <div className="absolute bottom-0 left-[50%] w-[400px] h-[400px] bg-brand-red/10 rounded-full blur-[80px] animate-[smoke-rise_12s_ease-in-out_infinite_2s]" />
+                    <div className="absolute bottom-0 right-[10%] w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-[120px] animate-[smoke-rise_10s_ease-in-out_infinite_4s]" />
                 </div>
 
-                {/* CSS-Only Particles (No React State) */}
-                <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-                    <div className="absolute left-[10%] top-[40%] w-1 h-1 bg-gold-primary rounded-full animate-[particle-float_15s_infinite] opacity-30" />
-                    <div className="absolute left-[30%] top-[60%] w-1.5 h-1.5 bg-gold-primary rounded-full animate-[particle-float_20s_infinite_2s] opacity-20" />
-                    <div className="absolute left-[70%] top-[30%] w-1 h-1 bg-gold-primary rounded-full animate-[particle-float_12s_infinite_4s] opacity-40" />
-                    <div className="absolute left-[90%] top-[70%] w-2 h-2 bg-gold-primary rounded-full animate-[particle-float_18s_infinite_1s] opacity-10" />
-                </div>
+                {/* Bokeh Overlay */}
+                <BokehOverlay intensity={20} className="z-1" />
             </div>
 
 

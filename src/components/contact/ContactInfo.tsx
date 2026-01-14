@@ -2,7 +2,7 @@
 
 import { TiltCard } from "@/components/ui/TiltCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { MapPin, Phone, Mail, Clock, ParkingCircle, Instagram, Facebook } from "lucide-react";
+import { MapPin, Phone, Clock, ParkingCircle, Instagram, Facebook } from "lucide-react";
 
 export function ContactInfo() {
     return (

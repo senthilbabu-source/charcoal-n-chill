@@ -1,11 +1,12 @@
-import { constructMetadata } from "@/lib/metadata";
+
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import { Section } from "@/components/ui/Section";
+
 import { MenuHero } from "@/components/menu/MenuHero";
 import { MenuExplorer } from "@/components/menu/MenuExplorer";
-import { FlavorFinder } from "@/components/menu/FlavorFinder";
+import { AlchemistFlow } from "@/components/gamification/AlchemistFlow";
 import { menuItems } from "@/data/menu";
 import { SecretHunt } from "@/components/gamification/SecretHunt";
 
@@ -66,8 +67,9 @@ export default function MenuPage() {
                     </div>
                 </div>
 
-                {/* Flavor Finder Quiz */}
-                <FlavorFinder />
+                <Section id="finder">
+                    <AlchemistFlow />
+                </Section>
 
                 {/* Interactive Menu Explorer (Client Component) */}
                 <MenuExplorer />

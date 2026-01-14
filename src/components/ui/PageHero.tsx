@@ -9,7 +9,7 @@ interface PageHeroProps {
     className?: string;
 }
 
-export function PageHero({ title, subtitle, description, className }: PageHeroProps) {
+export function PageHero({ title, description, className }: PageHeroProps) {
     return (
         <section className={cn("bg-[#031322] py-24 md:py-32 border-b border-white/5 relative overflow-hidden", className)}>
             {/* Ambient Background Gradient */}

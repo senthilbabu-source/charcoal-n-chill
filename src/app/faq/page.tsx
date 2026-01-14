@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { HelpCircle, ChevronDown, MapPin, Clock, Calendar } from "lucide-react";
+import { HelpCircle, ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import Link from "next/link";
 

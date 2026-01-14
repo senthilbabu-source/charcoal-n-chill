@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blog";
+import Image from "next/image";
 import { constructMetadata } from "@/lib/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -77,10 +78,12 @@ export default async function BlogPostPage({ params }: Props) {
                     {/* Hero Section */}
                     <div className="relative h-[60vh] w-full overflow-hidden">
                         <div className="absolute inset-0 bg-black/50 z-10" />
-                        <img
+                        <Image
                             src={post.image}
                             alt={post.title}
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
+                            priority
                         />
                         <div className="absolute inset-0 z-20 flex items-center justify-center">
                             <div className="container px-4 text-center space-y-6">
@@ -177,10 +180,12 @@ export default async function BlogPostPage({ params }: Props) {
                                 {relatedPosts.map((related) => (
                                     <Link key={related.id} href={`/blog/${related.slug}`} className="group block space-y-4">
                                         <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5">
-                                            <img
+                                            <Image
                                                 src={related.image}
                                                 alt={related.title}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                fill
+                                                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         </div>
                                         <h3 className="text-xl font-bold text-white group-hover:text-gold transition-colors line-clamp-2">

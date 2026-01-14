@@ -1,4 +1,4 @@
-import { Wind, UserCheck, Dice5, Mic, Music, Sparkles, Flame } from "lucide-react";
+import { Wind, UserCheck, Dice5, Mic, Music, Sparkles } from "lucide-react";
 import React from "react";
 
 export type EventItem = {

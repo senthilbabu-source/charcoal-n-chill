@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { X, Gift, Check, Mail, Lock, Sparkles } from "lucide-react";
+import { X, Gift, Lock, Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { useScavengerHunt } from "@/context/ScavengerHuntContext";
 
 interface SecretRevealModalProps {
     onClose: () => void;
@@ -21,8 +22,14 @@ export function SecretRevealModal({ onClose }: SecretRevealModalProps) {
     const prizeName = "The Midnight Mist";
     const prizeDesc = "Blackberry • Mint • Vanilla • Mystery";
 
+    const { claimReward, isClaimed } = useScavengerHunt();
+
     const handleClaim = (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Mark as claimed in persistent storage
+        // Mark as claimed in persistent storage
+        if (!isClaimed) claimReward();
 
         // Construct email body
         const subject = encodeURIComponent(`SECRET MENU WINNER: ${secretCode}`);
@@ -100,7 +107,10 @@ export function SecretRevealModal({ onClose }: SecretRevealModalProps) {
                                 variant="primary"
                                 size="lg"
                                 className="w-full bg-gold text-black hover:bg-white"
-                                onClick={() => setStep("form")}
+                                onClick={() => {
+                                    claimReward();
+                                    setStep("form");
+                                }}
                             >
                                 Claim Reward
                             </Button>

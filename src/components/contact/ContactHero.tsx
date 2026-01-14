@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Button } from "@/components/ui/Button";
-import { Mail, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 
 export function ContactHero() {
     const heroRef = useRef<HTMLElement>(null);

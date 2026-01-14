@@ -8,6 +8,8 @@ interface ScavengerHuntContextType {
     findEmber: (id: string, locationName: string) => void;
     totalEmbers: number;
     isComplete: boolean;
+    isClaimed: boolean;
+    claimReward: () => void;
     resetHunt: () => void;
 }
 
@@ -15,15 +17,39 @@ const ScavengerHuntContext = createContext<ScavengerHuntContextType | undefined>
 
 export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
     const [foundEmbers, setFoundEmbers] = useState<string[]>([]);
+    const [isClaimed, setIsClaimed] = useState(false);
     const { addToast } = useToast();
     const TOTAL_EMBERS = 3;
 
     useEffect(() => {
-        const saved = localStorage.getItem("cnc_scavenger_hunt");
-        if (saved) {
-            // eslint-disable-next-line react-hooks/set-state-in-effect
-            setFoundEmbers(JSON.parse(saved));
+        const syncState = () => {
+            const saved = localStorage.getItem("cnc_scavenger_hunt");
+            const claimed = localStorage.getItem("cnc_scavenger_claimed");
+            if (saved) {
+                setFoundEmbers(JSON.parse(saved));
+            }
+            if (claimed) {
+                setIsClaimed(true);
+            }
+        };
+
+        syncState(); // Initial load
+
+        const handleStorageChange = (e: StorageEvent) => {
+            if (e.key === "cnc_scavenger_hunt" || e.key === "cnc_scavenger_claimed") {
+                syncState();
+            }
+        };
+
+        // Add safety check for hydration mismatch or persistence failure
+        const claimed = localStorage.getItem("cnc_scavenger_claimed");
+        if (claimed === "true" && !isClaimed) {
+            console.log("Syncing claimed state from storage");
+            setIsClaimed(true);
         }
+
+        window.addEventListener("storage", handleStorageChange);
+        return () => window.removeEventListener("storage", handleStorageChange);
     }, []);
 
     const findEmber = (id: string, locationName: string) => {
@@ -43,9 +69,16 @@ export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
         }
     };
 
+    const claimReward = () => {
+        setIsClaimed(true);
+        localStorage.setItem("cnc_scavenger_claimed", "true");
+    };
+
     const resetHunt = () => {
         setFoundEmbers([]);
+        setIsClaimed(false);
         localStorage.removeItem("cnc_scavenger_hunt");
+        localStorage.removeItem("cnc_scavenger_claimed");
         window.location.reload();
     };
 
@@ -55,7 +88,9 @@ export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
             findEmber,
             totalEmbers: TOTAL_EMBERS,
             isComplete: foundEmbers.length === TOTAL_EMBERS,
-            resetHunt
+            resetHunt,
+            isClaimed,
+            claimReward
         }}>
             {children}
         </ScavengerHuntContext.Provider>

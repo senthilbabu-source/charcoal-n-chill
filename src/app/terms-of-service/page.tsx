@@ -1,7 +1,7 @@
 import { constructMetadata } from "@/lib/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Section } from "@/components/ui/Section";
+
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata = constructMetadata({

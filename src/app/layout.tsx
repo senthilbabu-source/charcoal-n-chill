@@ -13,6 +13,7 @@ import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
 
 import { ScavengerHuntTracker } from "@/components/gamification/ScavengerHuntTracker";
 
+
 const raleway = Raleway({
   variable: "--font-raleway",
   subsets: ["latin"],
@@ -81,6 +82,7 @@ export default function RootLayout({
             {/* Restaurant schema */}
             <JsonLd data={restaurantSchema} id="restaurant-schema" />
             <Analytics />
+
             <div id="main-content" tabIndex={-1} className="outline-none">
               {children}
             </div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
+
 
 export function MenuHero() {
     // Hidden unused handleScroll function removed
@@ -22,7 +22,7 @@ export function MenuHero() {
         };
 
         // Generate particles only on client
-        // eslint-disable-next-line react-hooks/exhaustive-deps, react-hooks/set-state-in-effect
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setParticles([...Array(20)].map(() => ({
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,

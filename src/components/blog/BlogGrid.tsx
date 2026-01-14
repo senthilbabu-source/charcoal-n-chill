@@ -10,6 +10,10 @@ interface BlogGridProps {
     posts: BlogPost[];
 }
 
+import Image from "next/image";
+
+// ... (imports remain)
+
 export function BlogGrid({ posts }: BlogGridProps) {
     const [visibleCount, setVisibleCount] = useState(12);
     const visiblePosts = posts.slice(0, visibleCount);
@@ -19,20 +23,10 @@ export function BlogGrid({ posts }: BlogGridProps) {
     };
 
     // Helper to determine span classes based on index
-    // Pattern loop (every 10 items):
-    // 0: Large (2x2)
-    // 6: Wide (2x1)
-    // All others: Standard (1x1)
     const getSpanClasses = (index: number) => {
-        // Reset pattern every 10 items
         const patternIndex = index % 10;
-
-        if (patternIndex === 0) {
-            return "md:col-span-2 md:row-span-2";
-        }
-        if (patternIndex === 6) {
-            return "md:col-span-2";
-        }
+        if (patternIndex === 0) return "md:col-span-2 md:row-span-2";
+        if (patternIndex === 6) return "md:col-span-2";
         return "col-span-1";
     };
 
@@ -42,7 +36,6 @@ export function BlogGrid({ posts }: BlogGridProps) {
                 <AnimatePresence>
                     {visiblePosts.map((post, index) => {
                         const isLarge = (index % 10 === 0);
-                        const isWide = (index % 10 === 6);
 
                         return (
                             <motion.article
@@ -72,11 +65,12 @@ export function BlogGrid({ posts }: BlogGridProps) {
                                             </span>
                                         )}
                                     </div>
-                                    <img
+                                    <Image
                                         src={post.image}
                                         alt={post.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                        loading="lazy"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
                                 </Link>

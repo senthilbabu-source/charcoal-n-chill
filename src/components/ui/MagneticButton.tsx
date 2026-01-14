@@ -7,12 +7,14 @@ import { cn } from "@/lib/utils";
 interface MagneticButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     strength?: number; // How strong the magnetic pull is (default: 0.5)
+    glow?: boolean; // Enable glow effect
 }
 
 export function MagneticButton({
     children,
     className,
     strength = 0.5,
+    glow = false,
     "aria-label": ariaLabel,
     ...props
 }: MagneticButtonProps) {
@@ -47,14 +49,17 @@ export function MagneticButton({
             onMouseLeave={handleMouseLeave}
             style={{ x: mouseX, y: mouseY }}
             className={cn(
-                "relative rounded-full font-bold uppercase tracking-widest transition-colors",
+                "relative rounded-full font-bold uppercase tracking-widest transition-all group overflow-hidden", // Added overflow-hidden and group
                 className
             )}
             aria-label={ariaLabel}
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             {...(props as any)}
         >
-            {children}
+            <span className="relative z-10">{children}</span>
+            {glow && (
+                <span className="absolute inset-0 -z-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />
+            )}
         </motion.button>
     );
 }

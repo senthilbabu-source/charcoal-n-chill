@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Gift, Lock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-
+import { VelvetRopeModal } from "@/components/gamification/VelvetRopeModal";
 
 const navLeft = [
     { name: "Home", href: "/" },
@@ -27,6 +27,7 @@ const allNavItems = [...navLeft, ...navRight];
 export function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [showRewards, setShowRewards] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -79,10 +80,16 @@ export function Header() {
                                 )} />
                             </Link>
                         ))}
-                        <div className="w-24" aria-hidden="true"></div>
+                        <button
+                            onClick={() => setShowRewards(true)}
+                            className="hidden lg:flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-gold hover:text-white transition-colors animate-pulse-slow ml-2"
+                        >
+                            <Gift size={16} /> Rewards
+                        </button>
                     </nav>
+
                     {/* Centered Logo */}
-                    <Link href="/" className="relative z-10 flex-shrink-0 group mx-auto">
+                    <Link href="/" className="relative z-10 flex-shrink-0 group mx-auto px-4">
                         <div className="absolute inset-0 bg-gold-primary/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className={cn(
                             "relative z-10 transition-all duration-500 filter drop-shadow-2xl",
@@ -90,7 +97,7 @@ export function Header() {
                         )}>
                             <Image
                                 src="/logo.png"
-                                alt="Charcoal N Chill - Premium Hookah & Indo-American Lounge"
+                                alt="Charcoal N Chill"
                                 width={800}
                                 height={212}
                                 className="h-full w-auto object-contain"
@@ -98,6 +105,7 @@ export function Header() {
                             />
                         </div>
                     </Link>
+
                     {/* Right Nav (Desktop) */}
                     <nav className="hidden md:flex flex-1 items-center gap-8 lg:gap-12 justify-end">
                         {navRight.map((item) => (
@@ -116,22 +124,25 @@ export function Header() {
                                 )} />
                             </Link>
                         ))}
-
+                        <Link
+                            href="/admin/login"
+                            className="hidden lg:flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-white/50 hover:text-white transition-colors ml-2"
+                        >
+                            <Lock size={16} /> Admin
+                        </Link>
                     </nav>
+                    <button
+                        className="md:hidden text-white hover:text-gold-primary transition-colors relative z-20"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
+                    >
+                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
                 </div>
-                <button
-                    className="md:hidden text-white hover:text-gold-primary transition-colors relative z-20"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label={isOpen ? "Close menu" : "Open menu"}
-                    aria-expanded={isOpen}
-                    aria-controls="mobile-menu"
-                >
-                    {isOpen ? <X size={28} /> : <Menu size={28} />}
-                </button>
             </div>
 
-
-            {/* Mobile Menu */}
             {/* Mobile Menu Backdrop */}
             <AnimatePresence>
                 {isOpen && (
@@ -174,7 +185,16 @@ export function Header() {
                                 ))}
                             </nav>
 
-                            <div className="mt-6 pt-6 border-t border-white/10">
+                            <div className="mt-6 pt-6 border-t border-white/10 space-y-4">
+                                <Button
+                                    className="w-full py-6 text-base font-bold bg-white/10 border border-gold/30 text-gold hover:bg-gold/20"
+                                    onClick={() => {
+                                        setIsOpen(false);
+                                        setShowRewards(true);
+                                    }}
+                                >
+                                    <Gift size={20} className="mr-2" /> Spin to Win
+                                </Button>
                                 <Button className="w-full py-6 text-base font-bold bg-gold text-charcoal hover:bg-gold-light" asChild>
                                     <Link href="/contact#reserve" onClick={() => setIsOpen(false)}>
                                         Reserve A Table
@@ -185,6 +205,8 @@ export function Header() {
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            <VelvetRopeModal isOpen={showRewards} onClose={() => setShowRewards(false)} />
         </header>
     );
 }

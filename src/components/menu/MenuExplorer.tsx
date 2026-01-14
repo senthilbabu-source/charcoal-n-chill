@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, Flame, Utensils, GlassWater, Wind, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { menuItems } from "@/data/menu";
-import { TiltCard } from "@/components/ui/TiltCard";
+import { TiltCard, TiltParallax } from "@/components/ui/TiltCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 
 const categories = [
@@ -16,6 +16,23 @@ const categories = [
     { id: "desserts", label: "Desserts", icon: Utensils },
     { id: "cocktails", label: "Cocktails", icon: GlassWater },
 ];
+
+// Helper to deduce flavor tags
+function getFlavorTags(item: any) {
+    if (item.category !== "hookah") return [];
+
+    const tags = [];
+    const desc = item.desc.toLowerCase();
+
+    if (desc.includes("mint") || desc.includes("ice") || desc.includes("cool")) tags.push("Mint / Ice");
+    if (desc.includes("fruit") || desc.includes("berry") || desc.includes("melon") || desc.includes("mango")) tags.push("Fruity");
+    if (desc.includes("sweet") || desc.includes("vanilla") || desc.includes("chocolate") || desc.includes("candy")) tags.push("Sweet");
+    if (desc.includes("spice") || desc.includes("paan") || desc.includes("cardamom")) tags.push("Spiced");
+    if (desc.includes("citrus") || desc.includes("lemon") || desc.includes("orange")) tags.push("Citrus");
+    if (desc.includes("floral") || desc.includes("rose")) tags.push("Floral");
+
+    return tags.slice(0, 3); // Max 3 tags
+}
 
 export function MenuExplorer() {
     const [activeCategory, setActiveCategory] = useState("all");
@@ -81,41 +98,63 @@ export function MenuExplorer() {
             <div className="container mx-auto px-4 py-12 md:py-20 relative z-10">
                 <AnimatePresence mode="popLayout">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {filteredItems.map((item, index) => (
-                            <ScrollReveal key={`${item.name}-${index}`} animation="fade-up" delay={index * 0.05}>
-                                <TiltCard className="h-full">
-                                    <div className="group h-full bg-dark-secondary/40 backdrop-blur-md rounded-3xl border border-white/5 p-8 relative overflow-hidden transition-all duration-500 hover:bg-dark-secondary/60 hover:border-gold-primary/30">
-                                        {/* Hover Gradient */}
-                                        <div className="absolute inset-0 bg-gradient-to-br from-gold-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        {filteredItems.map((item, index) => {
+                            const flavorTags = getFlavorTags(item);
+                            return (
+                                <ScrollReveal key={`${item.name}-${index}`} animation="fade-up" delay={index * 0.05}>
+                                    <TiltCard className="h-full" rotationFactor={8}>
+                                        <div className="group h-full bg-dark-secondary/40 backdrop-blur-md rounded-3xl border border-white/5 p-8 relative overflow-hidden transition-all duration-500 hover:bg-dark-secondary/60 hover:border-gold-primary/30">
+                                            {/* Hover Gradient */}
+                                            <div className="absolute inset-0 bg-gradient-to-br from-gold-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                        {/* Card Content */}
-                                        <div className="relative z-10 flex flex-col h-full">
-                                            <div className="flex justify-between items-start mb-4 gap-4">
-                                                <h3 className="text-xl font-bold text-white group-hover:text-gold-primary transition-colors leading-tight">
-                                                    {item.name}
-                                                </h3>
-                                                <span className="text-gold-primary font-bold text-lg whitespace-nowrap bg-gold-primary/10 px-3 py-1 rounded-full border border-gold-primary/20">
-                                                    {item.price}
-                                                </span>
-                                            </div>
+                                            {/* Card Content */}
+                                            <div className="relative z-10 flex flex-col h-full">
+                                                <TiltParallax offset={15}>
+                                                    <div className="flex justify-between items-start mb-4 gap-4">
+                                                        <h3 className="text-xl font-bold text-white group-hover:text-gold-primary transition-colors leading-tight">
+                                                            {item.name}
+                                                        </h3>
+                                                        <span className="text-gold-primary font-bold text-lg whitespace-nowrap bg-gold-primary/10 px-3 py-1 rounded-full border border-gold-primary/20">
+                                                            {item.price}
+                                                        </span>
+                                                    </div>
+                                                </TiltParallax>
 
-                                            <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light flex-grow">
-                                                {item.desc}
-                                            </p>
+                                                <TiltParallax offset={10}>
+                                                    <p className="text-gray-400 text-sm leading-relaxed mb-6 font-light">
+                                                        {item.desc}
+                                                    </p>
+                                                </TiltParallax>
 
-                                            <div className="flex items-center justify-between mt-auto">
-                                                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-white/5 px-3 py-1.5 rounded-full group-hover:text-white transition-colors">
-                                                    {item.category}
-                                                </span>
-                                                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:bg-gold-primary group-hover:text-black transition-all duration-300 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0">
-                                                    <ArrowRight size={14} />
+                                                <div className="mt-auto space-y-4">
+                                                    {/* Flavor Tags */}
+                                                    {flavorTags.length > 0 && (
+                                                        <TiltParallax offset={20}>
+                                                            <div className="flex flex-wrap gap-2 mb-4">
+                                                                {flavorTags.map(tag => (
+                                                                    <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-gold-light/80 bg-gold-primary/5 border border-gold-primary/10 px-2 py-1 rounded-md">
+                                                                        {tag}
+                                                                    </span>
+                                                                ))}
+                                                            </div>
+                                                        </TiltParallax>
+                                                    )}
+
+                                                    <div className="flex items-center justify-between border-t border-white/5 pt-4">
+                                                        <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-white/5 px-3 py-1.5 rounded-full group-hover:text-white transition-colors">
+                                                            {item.category}
+                                                        </span>
+                                                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 group-hover:bg-gold-primary group-hover:text-black transition-all duration-300 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0">
+                                                            <ArrowRight size={14} />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </TiltCard>
-                            </ScrollReveal>
-                        ))}
+                                    </TiltCard>
+                                </ScrollReveal>
+                            );
+                        })}
                     </div>
                 </AnimatePresence>
 

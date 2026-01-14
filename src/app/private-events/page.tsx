@@ -1,15 +1,13 @@
 import { constructMetadata } from "@/lib/metadata";
+import Image from "next/image";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import Link from "next/link";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { CheckCircle2, Star, Users, GlassWater, Clock, Camera, Flame } from "lucide-react";
 import { EventInquiryForm } from "@/components/home/EventInquiryForm";
-import { PageHero } from "@/components/ui/PageHero";
-import { TextReveal } from "@/components/ui/TextReveal";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { SecretHunt } from "@/components/gamification/SecretHunt";
@@ -32,10 +30,12 @@ export default function PrivateEventsPage() {
                 <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-dark-primary">
                     {/* Parallax Background Layer */}
                     <div className="absolute inset-0 z-0 h-full w-full">
-                        <img
-                            src="/images/private-party.jpg?v=2"
+                        <Image
+                            src="/images/private-party.jpg"
                             alt="Luxury VIP Section"
-                            className="w-full h-full object-cover opacity-50 filter saturate-150 animate-pulse-slow"
+                            fill
+                            className="object-cover opacity-50 filter saturate-150 animate-pulse-slow"
+                            priority
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-dark-primary/70 to-dark-primary" />
                         <div className="absolute inset-0 bg-black/40" />
@@ -109,7 +109,7 @@ export default function PrivateEventsPage() {
                                         "Team Building",
                                         "Social Gatherings",
                                         "Theme Parties"
-                                    ].map((item, i) => (
+                                    ].map((item) => (
                                         <div key={item} className="group relative overflow-hidden rounded-xl bg-white/5 border border-white/10 p-4 hover:bg-gold/10 hover:border-gold/30 transition-all duration-300 h-full">
                                             <div className="flex items-center gap-3 relative z-10 h-full">
                                                 <CheckCircle2 className="w-5 h-5 text-gold group-hover:scale-110 transition-transform shrink-0" />
@@ -133,19 +133,19 @@ export default function PrivateEventsPage() {
                         <ScrollReveal animation="fade-left">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-4 pt-8">
-                                    <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/50-birthday-party-1.jpeg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width="800" height="600" loading="lazy" alt="50th Birthday Party Celebration" />
+                                    <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 group relative">
+                                        <Image src="/images/50-birthday-party-1.jpeg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="50th Birthday Party Celebration" fill sizes="(max-width: 768px) 100vw, 300px" />
                                     </div>
-                                    <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/corporaate-event-company-mixer.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" width="800" height="600" loading="lazy" alt="Corporate Event Company Mixer" />
+                                    <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group relative">
+                                        <Image src="/images/corporaate-event-company-mixer.jpg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="Corporate Event Company Mixer" fill sizes="(max-width: 768px) 100vw, 300px" />
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/private-birthday-party-decor.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Birthday Party Decor" width="800" height="600" loading="lazy" />
+                                    <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group relative">
+                                        <Image src="/images/private-birthday-party-decor.jpg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Birthday Party Decor" fill sizes="(max-width: 768px) 100vw, 300px" />
                                     </div>
-                                    <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 group">
-                                        <img src="/images/private-party-drinks.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Party Drinks" width="800" height="600" loading="lazy" />
+                                    <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 group relative">
+                                        <Image src="/images/private-party-drinks.jpg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="Private Party Drinks" fill sizes="(max-width: 768px) 100vw, 300px" />
                                     </div>
                                 </div>
                             </div>

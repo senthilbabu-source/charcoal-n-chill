@@ -1,12 +1,11 @@
 import dynamic from "next/dynamic";
 import { constructMetadata } from "@/lib/metadata";
-import { JsonLd } from "@/components/layout/JsonLd";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { HighlightsGrid } from "@/components/home/HighlightsGrid";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { MapPin, Phone, Mail, Star } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 
 // Lazy load below-the-fold components
 // Lazy load below-the-fold components
@@ -14,6 +13,7 @@ import { MapPin, Phone, Mail, Star } from "lucide-react";
 const ProductShowcase = dynamic(() => import("@/components/home/ProductShowcase").then(mod => mod.ProductShowcase), {
   loading: () => <div className="min-h-[50vh] bg-dark-primary" />,
 });
+const SocialWall = dynamic(() => import("@/components/home/SocialWall").then(mod => mod.SocialWall));
 const ReviewCarousel = dynamic(() => import("@/components/home/ReviewCarousel").then(mod => mod.ReviewCarousel));
 
 export const metadata = constructMetadata({
@@ -26,51 +26,12 @@ export const metadata = constructMetadata({
 export default function Home() {
   return (
     <>
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Charcoal N Chill",
-        "image": "https://www.charcoalnchill.com/images/final-cnc-hero.jpg",
-        "description": "Premium Hookah Lounge & Indo-American Fusion Grill in Alpharetta. Experiential dining, live DJs, and belly dancing weekends.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "11950 Jones Bridge Rd Ste 103",
-          "addressLocality": "Alpharetta",
-          "addressRegion": "GA",
-          "postalCode": "30005",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 34.0718846,
-          "longitude": -84.2067133
-        },
-        "url": "https://www.charcoalnchill.com",
-        "telephone": "+14705464866",
-        "servesCuisine": ["Indian", "American", "Fusion"],
-        "priceRange": "$$",
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Wednesday", "Thursday", "Sunday"],
-            "opens": "17:00",
-            "closes": "00:00"
-          },
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Friday", "Saturday"],
-            "opens": "17:00",
-            "closes": "02:00"
-          }
-        ],
-        "menu": "https://www.charcoalnchill.com/menu",
-        "acceptsReservations": "true"
-      }} id="restaurant-jsonld" />
       <Header />
       <main className="bg-dark-primary">
         <Hero />
         <HighlightsGrid />
         <ProductShowcase />
+        <SocialWall />
 
         {/* Social Proof & Location */}
         <section className="relative py-24 bg-dark-secondary overflow-hidden content-section">

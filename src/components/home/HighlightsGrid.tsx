@@ -23,7 +23,7 @@ const highlights: HighlightItem[] = [
         id: "menu",
         title: "The Flavor Experience",
         description: "From our signature Butter Chicken to Tandoori Wings, explore a fusion of Indo-American tastes.",
-        image: "/images/food-spread.jpg", // Need to ensure this exists or use a placeholder
+        image: "/images/butter-chicken.jpg",
         link: "/menu",
         cta: "View Full Menu",
         icon: Utensils,
@@ -34,7 +34,7 @@ const highlights: HighlightItem[] = [
         id: "events",
         title: "Live Events",
         description: "Belly dancing, Bollywood nights, and live DJs every weekend.",
-        image: "/images/belly-dancer.jpg", // Need to ensure this exists
+        image: "/images/belly-dance-cnc.jpg",
         link: "/events",
         cta: "See Schedule",
         icon: Music,
@@ -45,7 +45,7 @@ const highlights: HighlightItem[] = [
         id: "hookah",
         title: "Premium Hookah",
         description: "50+ exotic flavors with ice hose upgrades.",
-        image: "/images/hookah-smoke.jpg", // Need to ensure this exists
+        image: "/images/hookah-cnc.jpg",
         link: "/menu",
         cta: "Explore Flavors",
         icon: Star,
@@ -56,7 +56,7 @@ const highlights: HighlightItem[] = [
         id: "private",
         title: "Private Parties",
         description: "Book the VIP lounge for your next celebration.",
-        image: "/images/vip-section.jpg", // Need to ensure this exists
+        image: "/images/vip-section.jpg",
         link: "/contact",
         cta: "Book VIP",
         icon: Calendar,
@@ -109,14 +109,14 @@ export function HighlightsGrid() {
                             {/* Background Image with Zoom Effect */}
                             <div className="absolute inset-0 z-0">
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
-                                {/* Note: Using a fallback colored div for now until images are confirmed, 
-                                    but implementing Image component structure for readiness */}
-                                <div className="w-full h-full bg-dark-tertiary group-hover:scale-110 transition-transform duration-700">
-                                    {/* If images exist, uncomment below. For now using pattern/color placeholders to ensure no 404s immediately */}
-                                    <div className={`w-full h-full bg-gradient-to-br ${index === 0 ? 'from-orange-900/40' :
-                                        index === 1 ? 'from-purple-900/40' :
-                                            index === 2 ? 'from-blue-900/40' : 'from-gold-900/20'
-                                        } to-dark-primary`} />
+                                <div className="absolute inset-0 w-full h-full group-hover:scale-110 transition-transform duration-700">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                                    />
                                 </div>
                             </div>
 
