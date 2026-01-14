@@ -402,7 +402,7 @@ function SeoDashboardContent() {
                                         </ul>
                                         <div className="mt-4 pt-4 border-t border-white/10">
                                             <p className="text-sm font-bold text-white">Access:</p>
-                                            <p className="text-xs text-gray-500 mt-1">Add <code>sec-reader@...</code> as Manager in GBP.</p>
+                                            <p className="text-xs text-gray-500 mt-1">Add <code>admin-connector@charcoalnchill-website.iam.gserviceaccount.com</code> as Manager in GBP.</p>
                                         </div>
                                     </div>
                                     <button
