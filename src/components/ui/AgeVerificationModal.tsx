@@ -12,9 +12,7 @@ export function AgeVerificationModal() {
         // Check local storage on mount
         const verified = localStorage.getItem("cnc-age-verified");
         if (!verified) {
-            // Small delay to prevent flashing
-            const timer = setTimeout(() => setIsVisible(true), 100);
-            return () => clearTimeout(timer);
+            setIsVisible(true);
         }
     }, []);
 

@@ -374,6 +374,14 @@ body {
   animation: slide-up 1s var(--ease-smooth) both;
 }
 
+@media (max-width: 768px) {
+  .animate-fade-in-up {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
 

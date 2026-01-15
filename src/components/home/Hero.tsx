@@ -60,7 +60,7 @@ export function Hero() {
                         fetchPriority="high"
                         className="object-cover filter brightness-[0.4]"
                         sizes="(max-width: 768px) 100vw, 100vw"
-                        quality={80}
+                        quality={70}
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-dark-primary/40 to-dark-primary/90" />
                 </div>
