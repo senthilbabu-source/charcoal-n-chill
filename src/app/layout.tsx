@@ -7,7 +7,12 @@ import { JsonLd, organizationSchema, restaurantSchema } from "@/components/layou
 import { Analytics } from "@/components/layout/Analytics";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
-import { AgeVerificationModal } from "@/components/ui/AgeVerificationModal";
+import dynamic from "next/dynamic";
+
+const AgeVerificationModal = dynamic(
+  () => import("@/components/ui/AgeVerificationModal").then((mod) => mod.AgeVerificationModal),
+  { ssr: false }
+);
 import { ToastProvider } from "@/components/ui/Toast";
 import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
 

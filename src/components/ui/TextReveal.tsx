@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 
 interface TextRevealProps {
@@ -14,10 +14,11 @@ interface TextRevealProps {
 export function TextReveal({ text, className, delay = 0, mode = "word" }: TextRevealProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });
+    const [isMobile, setIsMobile] = useState(false);
 
-    // CSS-only fallback for mobile to prevent JS thread blocking
-    // We use a simple data attribute to style it if needed, but avoid Framer Motion
-    const isMobile = typeof window !== 'undefined' && window.matchMedia("(max-width: 768px)").matches;
+    useEffect(() => {
+        setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+    }, []);
 
     if (isMobile) {
         return <span className={className}>{text}</span>;
