@@ -14,9 +14,12 @@ interface TextRevealProps {
 export function TextReveal({ text, className, delay = 0, mode = "word" }: TextRevealProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });
-    const [isMobile, setIsMobile] = useState(false);
+    // Default to true (mobile) to serve lightweight version first (Mobile-First approach)
+    // This prevents hydration mismatch where mobile loads heavy Framer motion tree then destroys it.
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
+        // Switch to desktop if screen is wide enough
         setIsMobile(window.matchMedia("(max-width: 768px)").matches);
     }, []);
 
