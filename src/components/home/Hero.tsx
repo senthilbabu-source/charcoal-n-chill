@@ -68,13 +68,13 @@ export function Hero() {
                 {/* Animated Smoke/Ambiance Effect - Keeping CSS only, it is efficient enough */}
                 {/* Animated Smoke/Ambiance Effect */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block" aria-hidden="true">
-                    <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[100px] animate-[smoke-rise_8s_ease-in-out_infinite]" />
-                    <div className="absolute bottom-0 left-[50%] w-[400px] h-[400px] bg-brand-red/10 rounded-full blur-[80px] animate-[smoke-rise_12s_ease-in-out_infinite_2s]" />
-                    <div className="absolute bottom-0 right-[10%] w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-[120px] animate-[smoke-rise_10s_ease-in-out_infinite_4s]" />
+                    <div className="absolute bottom-0 left-[10%] w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[60px] animate-[smoke-rise_8s_ease-in-out_infinite]" style={{ willChange: 'transform, opacity' }} />
+                    <div className="absolute bottom-0 left-[50%] w-[400px] h-[400px] bg-brand-red/10 rounded-full blur-[40px] animate-[smoke-rise_12s_ease-in-out_infinite_2s]" style={{ willChange: 'transform, opacity' }} />
+                    <div className="absolute bottom-0 right-[10%] w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-[70px] animate-[smoke-rise_10s_ease-in-out_infinite_4s]" style={{ willChange: 'transform, opacity' }} />
                 </div>
 
                 {/* Bokeh Overlay */}
-                <BokehOverlay intensity={20} className="z-1" />
+                <BokehOverlay className="z-1" />
             </div>
 
 

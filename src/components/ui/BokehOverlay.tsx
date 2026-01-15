@@ -13,7 +13,7 @@ interface BokehParticle {
     opacity: number;
 }
 
-export function BokehOverlay({ className, intensity = 15 }: { className?: string, intensity?: number }) {
+export function BokehOverlay({ className, intensity = 12 }: { className?: string, intensity?: number }) {
     const [particles, setParticles] = useState<BokehParticle[]>([]);
 
     useEffect(() => {
