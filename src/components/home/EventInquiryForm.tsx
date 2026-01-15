@@ -91,21 +91,21 @@ export function EventInquiryForm() {
                 <input type="hidden" name="_captcha" value="false" />
 
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Full Name <span className="text-red-500">*</span></label>
-                    <input name="name" type="text" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="John Doe" required />
+                    <label htmlFor="inquiry-name" className="text-sm font-medium text-gray-300">Full Name <span className="text-red-500">*</span></label>
+                    <input id="inquiry-name" name="name" type="text" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="John Doe" required />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Email Address <span className="text-red-500">*</span></label>
-                    <input name="email" type="email" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="john@example.com" required />
+                    <label htmlFor="inquiry-email" className="text-sm font-medium text-gray-300">Email Address <span className="text-red-500">*</span></label>
+                    <input id="inquiry-email" name="email" type="email" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="john@example.com" required />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Phone Number <span className="text-red-500">*</span></label>
-                    <input name="phone" type="tel" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="(470) 546-4866" required />
+                    <label htmlFor="inquiry-phone" className="text-sm font-medium text-gray-300">Phone Number <span className="text-red-500">*</span></label>
+                    <input id="inquiry-phone" name="phone" type="tel" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="(470) 546-4866" required />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Event Type</label>
+                    <label htmlFor="inquiry-type" className="text-sm font-medium text-gray-300">Event Type</label>
                     <div className="relative">
-                        <select name="eventType" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors appearance-none cursor-pointer">
+                        <select id="inquiry-type" name="eventType" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors appearance-none cursor-pointer">
                             <option>Birthday Party</option>
                             <option>Corporate Event</option>
                             <option>Bachelor/Bachelorette</option>
@@ -115,16 +115,16 @@ export function EventInquiryForm() {
                     </div>
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Preferred Date <span className="text-red-500">*</span></label>
-                    <input name="date" type="date" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" required />
+                    <label htmlFor="inquiry-date" className="text-sm font-medium text-gray-300">Preferred Date <span className="text-red-500">*</span></label>
+                    <input id="inquiry-date" name="date" type="date" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" required />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Estimated Guest Count <span className="text-red-500">*</span></label>
-                    <input name="guests" type="number" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="20" required min="1" />
+                    <label htmlFor="inquiry-guests" className="text-sm font-medium text-gray-300">Estimated Guest Count <span className="text-red-500">*</span></label>
+                    <input id="inquiry-guests" name="guests" type="number" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="20" required min="1" />
                 </div>
                 <div className="md:col-span-2 space-y-2">
-                    <label className="text-sm font-medium text-gray-300">Special Requests / Message</label>
-                    <textarea name="message" rows={4} className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="Tell us more about your vision..." />
+                    <label htmlFor="inquiry-message" className="text-sm font-medium text-gray-300">Special Requests / Message</label>
+                    <textarea id="inquiry-message" name="message" rows={4} className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="Tell us more about your vision..." />
                 </div>
                 <div className="md:col-span-2">
                     <Button className="w-full py-6 text-lg" isLoading={isLoading} disabled={isLoading}>
