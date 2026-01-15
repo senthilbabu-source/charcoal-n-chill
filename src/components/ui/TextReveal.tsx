@@ -15,6 +15,14 @@ export function TextReveal({ text, className, delay = 0, mode = "word" }: TextRe
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-10%" });
 
+    // CSS-only fallback for mobile to prevent JS thread blocking
+    // We use a simple data attribute to style it if needed, but avoid Framer Motion
+    const isMobile = typeof window !== 'undefined' && window.matchMedia("(max-width: 768px)").matches;
+
+    if (isMobile) {
+        return <span className={className}>{text}</span>;
+    }
+
     const items = mode === "word" ? text.split(" ") : text.split("");
 
     const container = {
