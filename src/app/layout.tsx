@@ -20,6 +20,7 @@ const raleway = Raleway({
   variable: "--font-raleway",
   subsets: ["latin"],
   weight: ["400", "700", "900"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
