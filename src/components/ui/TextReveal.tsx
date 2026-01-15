@@ -12,21 +12,6 @@ interface TextRevealProps {
 }
 
 export function TextReveal({ text, className, delay = 0, mode = "word" }: TextRevealProps) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-10%" });
-    // Default to true (mobile) to serve lightweight version first (Mobile-First approach)
-    // This prevents hydration mismatch where mobile loads heavy Framer motion tree then destroys it.
-    const [isMobile, setIsMobile] = useState(true);
-
-    useEffect(() => {
-        // Switch to desktop if screen is wide enough
-        setIsMobile(window.matchMedia("(max-width: 768px)").matches);
-    }, []);
-
-    if (isMobile) {
-        return <span className={className}>{text}</span>;
-    }
-
     const items = mode === "word" ? text.split(" ") : text.split("");
 
     const container = {
@@ -59,13 +44,18 @@ export function TextReveal({ text, className, delay = 0, mode = "word" }: TextRe
     return (
         <span className={className}>
             <span className="sr-only">{text}</span>
+
+            {/* Mobile Version - Simple Text (No JS overhead) */}
+            <span className="md:hidden inline-block">{text}</span>
+
+            {/* Desktop Version - Animated (Hidden on Mobile) */}
             <motion.span
                 ref={ref}
                 style={{ display: "inline-block" }}
                 variants={container}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="whitespace-pre-wrap"
+                className="whitespace-pre-wrap hidden md:inline-block"
                 aria-hidden="true"
             >
                 {items.map((item, index) => (
