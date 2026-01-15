@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import Script from "next/script";
 import { useState, useEffect } from "react";
 
