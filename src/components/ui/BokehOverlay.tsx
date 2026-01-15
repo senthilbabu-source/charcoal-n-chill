@@ -15,16 +15,10 @@ interface BokehParticle {
 
 export function BokehOverlay({ className, intensity = 15 }: { className?: string, intensity?: number }) {
     const [particles, setParticles] = useState<BokehParticle[]>([]);
-    const [isMobile, setIsMobile] = useState(true); // Default to true (safe) until mounted
 
     useEffect(() => {
-        const checkMobile = () => {
-            const mobile = window.innerWidth < 768;
-            setIsMobile(mobile);
-            return mobile;
-        };
-
-        if (checkMobile()) return;
+        // Optimization: Don't generate particles on mobile
+        if (typeof window !== 'undefined' && window.innerWidth < 768) return;
 
         // Generate static particles on client-side only
         const newParticles = Array.from({ length: intensity }).map((_, i) => ({
@@ -40,7 +34,7 @@ export function BokehOverlay({ className, intensity = 15 }: { className?: string
         setParticles(newParticles);
     }, [intensity]);
 
-    if (isMobile) return null;
+    if (particles.length === 0) return null;
 
     return (
         <div className={cn("absolute inset-0 pointer-events-none overflow-hidden", className)} aria-hidden="true">
