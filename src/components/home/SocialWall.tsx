@@ -125,6 +125,7 @@ export function SocialWall() {
                         href="https://www.instagram.com/charcoal_n_chill/"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Follow us on Instagram (opens in a new tab)"
                         className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-white font-bold uppercase tracking-widest shadow-lg hover:shadow-purple-500/50 transition-all hover:-translate-y-1"
                     >
                         <Instagram size={20} />

@@ -186,6 +186,13 @@ body {
   animation: gradient-flow 3s ease infinite;
 }
 
+@media (max-width: 768px) {
+  .gradient-text {
+    animation: none;
+    background-size: 100%;
+  }
+}
+
 /* Animations */
 @keyframes fade-in-up {
   from {

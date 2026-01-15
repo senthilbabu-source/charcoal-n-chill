@@ -136,11 +136,11 @@ export function HighlightsGrid() {
                                         {item.description}
                                     </p>
 
-                                    <Link href={item.link}>
-                                        <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gold-primary hover:text-white transition-colors group/btn">
+                                    <Link href={item.link} className="inline-block">
+                                        <span className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gold-primary hover:text-white transition-colors group/btn cursor-pointer">
                                             {item.cta}
                                             <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-                                        </button>
+                                        </span>
                                     </Link>
                                 </div>
                             </div>
