@@ -11,14 +11,21 @@ export function ContactHero() {
     const [particles, setParticles] = useState<Array<{ left: string; top: string; delay: string; opacity: number }>>([]);
 
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            if (heroRef.current && window.innerWidth > 768) {
-                const scrolled = window.scrollY;
-                const parallaxLayers = heroRef.current.querySelectorAll('.parallax-layer');
-                parallaxLayers.forEach((layer: Element) => {
-                    const speed = 0.5;
-                    (layer as HTMLElement).style.transform = `translateY(${scrolled * speed}px)`;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (heroRef.current && window.innerWidth > 768) {
+                        const scrolled = window.scrollY;
+                        const parallaxLayers = heroRef.current.querySelectorAll('.parallax-layer');
+                        parallaxLayers.forEach((layer: Element) => {
+                            const speed = 0.5;
+                            (layer as HTMLElement).style.transform = `translateY(${scrolled * speed}px)`;
+                        });
+                    }
+                    ticking = false;
                 });
+                ticking = true;
             }
         };
 

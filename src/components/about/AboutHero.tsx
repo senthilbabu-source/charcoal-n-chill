@@ -9,14 +9,21 @@ export function AboutHero() {
     const heroRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        let ticking = false;
         const handleScroll = () => {
-            if (heroRef.current && window.innerWidth > 768) {
-                const scrolled = window.scrollY;
-                const parallaxLayers = heroRef.current.querySelectorAll('.parallax-layer');
-                parallaxLayers.forEach((layer: Element) => {
-                    const speed = 0.4;
-                    (layer as HTMLElement).style.transform = `translateY(${scrolled * speed}px)`;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    if (heroRef.current && window.innerWidth > 768) {
+                        const scrolled = window.scrollY;
+                        const parallaxLayers = heroRef.current.querySelectorAll('.parallax-layer');
+                        parallaxLayers.forEach((layer: Element) => {
+                            const speed = 0.4;
+                            (layer as HTMLElement).style.transform = `translateY(${scrolled * speed}px)`;
+                        });
+                    }
+                    ticking = false;
                 });
+                ticking = true;
             }
         };
 
