@@ -9,10 +9,7 @@ import SmoothScroll from "@/components/layout/SmoothScroll";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import dynamic from "next/dynamic";
 
-const AgeVerificationModal = dynamic(
-  () => import("@/components/ui/AgeVerificationModal").then((mod) => mod.AgeVerificationModal),
-  { ssr: false }
-);
+import { AgeVerificationWrapper } from "@/components/ui/AgeVerificationWrapper";
 import { ToastProvider } from "@/components/ui/Toast";
 import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
 
@@ -79,7 +76,7 @@ export default function RootLayout({
         <ToastProvider>
           <ScavengerHuntProvider>
             <div id="scroll-sentinel" className="absolute top-0 h-px w-full pointer-events-none" />
-            <AgeVerificationModal />
+            <AgeVerificationWrapper />
             <GrainOverlay />
             <SmoothScroll />
 
