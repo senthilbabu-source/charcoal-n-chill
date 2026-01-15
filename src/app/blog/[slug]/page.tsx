@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { blogPosts } from "@/data/blog";
+import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog-utils";
+import { RelatedEvents } from "@/components/blog/RelatedEvents";
 import Image from "next/image";
 import { constructMetadata } from "@/lib/metadata";
 import { Header } from "@/components/layout/Header";
@@ -19,7 +20,7 @@ interface Props {
 // Generate dynamic metadata for each post
 export async function generateMetadata({ params }: Props) {
     const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
+    const post = await getBlogPostBySlug(slug);
 
     if (!post) {
         return {
@@ -37,23 +38,25 @@ export async function generateMetadata({ params }: Props) {
 
 // Generate static params for all known posts at build time
 export async function generateStaticParams() {
-    return blogPosts.map((post) => ({
+    const posts = await getAllBlogPosts();
+    return posts.map((post) => ({
         slug: post.slug,
     }));
 }
 
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params;
-    const post = blogPosts.find((p) => p.slug === slug);
+    const post = await getBlogPostBySlug(slug);
 
     if (!post) {
         notFound();
     }
 
-    // Find related posts (same category, excluding current)
+    const allPosts = await getAllBlogPosts();
+
     // Find related posts (same category, excluding current)
     const postCategories = Array.isArray(post.category) ? post.category : [post.category];
-    const relatedPosts = blogPosts
+    const relatedPosts = allPosts
         .filter((p) => {
             if (p.id === post.id) return false;
             const pCategories = Array.isArray(p.category) ? p.category : [p.category];
@@ -198,6 +201,9 @@ export default async function BlogPostPage({ params }: Props) {
                         </div>
                     </Section>
                 )}
+
+                {/* Related Events Cross-Link */}
+                <RelatedEvents />
 
                 {/* Navigation Footer */}
                 <div className="bg-charcoal py-12 border-t border-white/5 text-center">

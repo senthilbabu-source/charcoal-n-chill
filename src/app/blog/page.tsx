@@ -5,11 +5,12 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { blogPosts, categories, type BlogCategory } from "@/data/blog";
+import { categories, type BlogCategory } from "@/data/blog";
 import { Suspense } from "react";
 import { BlogFilter } from "@/components/blog/BlogFilter";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 import { PageHero } from "@/components/ui/PageHero";
+import { getAllBlogPosts } from "@/lib/blog-utils";
 
 export const metadata = constructMetadata({
     title: "Blog & News | Charcoal N Chill",
@@ -21,9 +22,12 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
     const { category } = await searchParams;
     const activeCategory = category || "All";
 
+    // Fetch all posts via utility
+    const allPosts = await getAllBlogPosts();
+
     const filteredPosts = activeCategory === "All"
-        ? blogPosts
-        : blogPosts.filter(post =>
+        ? allPosts
+        : allPosts.filter(post =>
             Array.isArray(post.category)
                 ? post.category.includes(activeCategory as BlogCategory)
                 : post.category === activeCategory
@@ -37,7 +41,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
                 <Breadcrumbs items={[{ label: "Blog", href: "/blog" }]} />
 
                 <PageHero
-                    title={<>Blog & <span className="text-gold text-glow">News</span></>}
+                    title={<>Blog & <span className="text-gold-primary text-glow">News</span></>}
                     description="Insights into Indo-American Cuisine, Hookah Culture, Craft Cocktails & Nightlife Trends"
                 />
 

@@ -25,7 +25,7 @@ export default function AdminLogin() {
 
             // Small delay to ensure storage persistence before navigation
             setTimeout(() => {
-                router.push("/admin/seo");
+                router.push("/admin");
             }, 100);
         } else {
             console.error("Invalid credentials");
