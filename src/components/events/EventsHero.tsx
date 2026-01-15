@@ -85,7 +85,7 @@ export function EventsHero() {
                     <span className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-gold-primary text-sm font-bold uppercase tracking-[0.2em] mb-4">
                         Nightlife Reimagined
                     </span>
-                    <h1 className="text-6xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter mb-2 drop-shadow-2xl">
+                    <h1 className="text-5xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter mb-2 drop-shadow-2xl">
                         Experience <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-white to-gold-primary bg-[length:200%_auto] animate-shine">
                             The Ritual

@@ -58,7 +58,7 @@ export function AboutHero() {
                     <span className="inline-block py-1 px-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-gold-primary text-xs font-bold uppercase tracking-[0.3em] mb-6 animate-fade-in-up">
                         Est. 2015
                     </span>
-                    <h1 className="text-5xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter leading-none mb-6 drop-shadow-2xl">
+                    <h1 className="text-4xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter leading-none mb-6 drop-shadow-2xl">
                         Where Culture <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-white to-gold-primary animate-shine bg-[length:200%_auto]">
                             & Cuisine Unite

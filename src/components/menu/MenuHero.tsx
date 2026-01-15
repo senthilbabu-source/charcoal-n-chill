@@ -84,7 +84,7 @@ export function MenuHero() {
                     </span>
                 </div>
 
-                <h1 className="text-6xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter mb-2 drop-shadow-2xl">
+                <h1 className="text-5xl md:text-8xl font-heading font-black text-white uppercase tracking-tighter mb-2 drop-shadow-2xl">
                     <span className="block mb-2">Taste The</span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-white to-gold-primary bg-[length:200%_auto] animate-shine">
                         Vibe
