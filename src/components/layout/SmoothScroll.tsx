@@ -6,7 +6,7 @@ import Lenis from "lenis";
 export default function SmoothScroll() {
     useEffect(() => {
         // Disable explicit smooth scroll on mobile for native feel and performance
-        if (window.matchMedia("(max-width: 768px)").matches) return;
+        if (typeof window !== 'undefined' && window.innerWidth < 768) return;
 
         const lenis = new Lenis({
             duration: 1.2,

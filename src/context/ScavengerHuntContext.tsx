@@ -23,17 +23,22 @@ export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
 
     useEffect(() => {
         const syncState = () => {
-            const saved = localStorage.getItem("cnc_scavenger_hunt");
-            const claimed = localStorage.getItem("cnc_scavenger_claimed");
-            if (saved) {
-                setFoundEmbers(JSON.parse(saved));
-            }
-            if (claimed === "true") { // Changed condition to `claimed === "true"`
-                setIsClaimed(true);
+            try {
+                const saved = localStorage.getItem("cnc_scavenger_hunt");
+                const claimed = localStorage.getItem("cnc_scavenger_claimed");
+                if (saved) {
+                    setFoundEmbers(JSON.parse(saved));
+                }
+                if (claimed === "true") {
+                    setIsClaimed(true);
+                }
+            } catch (e) {
+                console.error("Failed to sync scavenger hunt state:", e);
             }
         };
 
-        syncState(); // Initial load
+        // Defer storage check to avoid blocking main thread during LCP
+        const timer = setTimeout(syncState, 1000);
 
         const handleStorageChange = (e: StorageEvent) => {
             if (e.key === "cnc_scavenger_hunt" || e.key === "cnc_scavenger_claimed") {
@@ -42,7 +47,10 @@ export function ScavengerHuntProvider({ children }: { children: ReactNode }) {
         };
 
         window.addEventListener("storage", handleStorageChange);
-        return () => window.removeEventListener("storage", handleStorageChange);
+        return () => {
+            window.removeEventListener("storage", handleStorageChange);
+            clearTimeout(timer);
+        };
     }, []);
 
     const findEmber = (id: string, locationName: string) => {
