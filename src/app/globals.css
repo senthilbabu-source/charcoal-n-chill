@@ -689,3 +689,54 @@ a:focus {
   outline: 2px solid var(--primary-500);
   outline-offset: 2px;
 }
+
+/* ==== Scroll Reveal Utilities ==== */
+.reveal-base {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+.reveal-hidden {
+  opacity: 0;
+}
+
+/* Mobile Optimizations (Simpler transforms) */
+@media (max-width: 768px) {
+  .reveal-hidden {
+    transform: translateY(10px);
+    /* Default simple slide up for mobile */
+  }
+}
+
+/* Desktop Animations */
+@media (min-width: 769px) {
+  .reveal-hidden.fade-up {
+    transform: translateY(50px);
+  }
+
+  .reveal-hidden.fade-down {
+    transform: translateY(-50px);
+  }
+
+  .reveal-hidden.fade-left {
+    transform: translateX(50px);
+  }
+
+  .reveal-hidden.fade-right {
+    transform: translateX(-50px);
+  }
+
+  .reveal-hidden.zoom-in {
+    transform: scale(0.8);
+  }
+
+  .reveal-hidden.zoom-out {
+    transform: scale(1.2);
+  }
+}

@@ -106,7 +106,7 @@ export function Footer() {
                             </li>
                             <li className="flex justify-between">
                                 <span>Monday</span>
-                                <span className="text-brand-red font-bold">Closed</span>
+                                <span className="text-gold-primary font-bold">Closed</span>
                             </li>
                         </ul>
                     </div >

@@ -29,12 +29,9 @@ export default function ScrollReveal({
 }: ScrollRevealProps) {
     const ref = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        // Check if mobile on mount
-        const checkMobile = () => setIsMobile(window.matchMedia("(max-width: 768px)").matches);
-        checkMobile();
+        const isMobile = typeof window !== 'undefined' && window.matchMedia("(max-width: 768px)").matches;
 
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -44,8 +41,8 @@ export default function ScrollReveal({
                 }
             },
             {
-                threshold: isMobile ? 0.1 : threshold, // Lower threshold for mobile
-                rootMargin: "0px 0px -50px 0px"
+                threshold: isMobile ? 0.05 : threshold, // Lower threshold for mobile
+                rootMargin: isMobile ? "0px 0px -20px 0px" : "0px 0px -50px 0px"
             }
         );
 
@@ -60,42 +57,18 @@ export default function ScrollReveal({
                 observer.unobserve(currentRef);
             }
         };
-    }, [threshold, isMobile]);
+    }, [threshold]);
 
-    const getInitialStyle = () => {
-        if (isVisible) return { opacity: 1, transform: "translate(0, 0) scale(1)" };
-
-        // Simplified animations for mobile to prevent jank
-        if (isMobile) {
-            return { opacity: 0, transform: "translateY(10px)" };
-        }
-
-        switch (animation) {
-            case "fade-up":
-                return { opacity: 0, transform: "translateY(50px)" };
-            case "fade-down":
-                return { opacity: 0, transform: "translateY(-50px)" };
-            case "fade-left":
-                return { opacity: 0, transform: "translateX(50px)" };
-            case "fade-right":
-                return { opacity: 0, transform: "translateX(-50px)" };
-            case "zoom-in":
-                return { opacity: 0, transform: "scale(0.8)" };
-            case "zoom-out":
-                return { opacity: 0, transform: "scale(1.2)" };
-            default:
-                return { opacity: 0, transform: "translateY(50px)" };
-        }
-    };
+    // Construct class names
+    const revealClasses = `reveal-base ${isVisible ? "reveal-visible" : `reveal-hidden ${animation}`}`;
 
     return (
         <div
             ref={ref}
-            className={className}
+            className={`${revealClasses} ${className}`}
             style={{
-                transition: `all ${duration}s cubic-bezier(0.4, 0, 0.2, 1)`,
+                transitionDuration: `${duration}s`,
                 transitionDelay: `${delay}s`,
-                ...getInitialStyle()
             }}
         >
             {children}

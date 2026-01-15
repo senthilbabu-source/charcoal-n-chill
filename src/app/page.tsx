@@ -48,14 +48,14 @@ export default function Home() {
                     <div className="bg-glass-bg border border-glass-border p-6 rounded-2xl hover:border-gold-primary/30 transition-colors duration-300">
                       <div className="flex items-center gap-3 mb-3">
                         <MapPin className="text-gold-primary" size={20} />
-                        <h4 className="text-white font-bold">Location</h4>
+                        <h3 className="text-white font-bold">Location</h3>
                       </div>
                       <p className="text-sm text-gray-400 leading-relaxed">11950 Jones Bridge Rd Ste 103<br />Alpharetta, GA 30005</p>
                     </div>
                     <div className="bg-glass-bg border border-glass-border p-6 rounded-2xl hover:border-gold-primary/30 transition-colors duration-300">
                       <div className="flex items-center gap-3 mb-3">
                         <Phone className="text-gold-primary" size={20} />
-                        <h4 className="text-white font-bold">Contact</h4>
+                        <h3 className="text-white font-bold">Contact</h3>
                       </div>
                       <p className="text-sm text-gray-400 leading-relaxed">(470) 546-4866<br />charcoalnchill@gmail.com</p>
                     </div>
