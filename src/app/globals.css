@@ -101,6 +101,12 @@
   --color-gold-dark: var(--gold-dark);
   --color-brand-red: var(--brand-red);
 
+  --color-dark-primary: var(--dark-primary);
+  --color-dark-secondary: var(--dark-secondary);
+  --color-dark-tertiary: var(--dark-tertiary);
+  --color-platinum: #E5E4E2;
+  --color-charcoal: #36454F;
+
   --font-sans: var(--font-raleway);
   --font-heading: var(--font-raleway);
 
