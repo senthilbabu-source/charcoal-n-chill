@@ -13,7 +13,7 @@ export function AgeVerificationModal() {
         const verified = localStorage.getItem("cnc-age-verified");
         if (!verified) {
             // Defer modal to prioritize LCP (Hero Image) paint
-            const timer = setTimeout(() => setIsVisible(true), 2000);
+            const timer = setTimeout(() => setIsVisible(true), 800);
             return () => clearTimeout(timer);
         }
     }, []);
