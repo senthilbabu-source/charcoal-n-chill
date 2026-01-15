@@ -10,6 +10,7 @@ import Image from "next/image";
 import { EventsHero } from "@/components/events/EventsHero";
 import { EventsShowcase } from "@/components/events/EventsShowcase";
 import { SecretHunt } from "@/components/gamification/SecretHunt";
+import { getNextFriday, getNextTuesday } from "@/lib/date-utils";
 
 export const metadata = constructMetadata({
     title: "Events | Live Entertainment, Belly Dancing & Hookah Specials",
@@ -39,8 +40,8 @@ export default function EventsPage() {
                         }
                     },
                     "subEvent": [
-                        { "@type": "Event", "name": "Belly Dancing", "startDate": "2024-01-01T22:00", "repeatFrequency": "Weekly", "description": "Live belly dancing every Friday and Saturday." },
-                        { "@type": "Event", "name": "Hookah Tuesday", "startDate": "2024-01-02T17:00", "repeatFrequency": "Weekly", "description": "Hookah specials all night." }
+                        { "@type": "Event", "name": "Belly Dancing", "startDate": `${getNextFriday()}T22:00:00`, "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "description": "Live belly dancing every Friday and Saturday.", "image": "https://charcoalnchill.com/images/belly-dance-cnc.jpg", "location": { "@type": "Place", "name": "Charcoal N Chill", "address": { "@type": "PostalAddress", "streetAddress": "11950 Jones Bridge Rd Ste 103", "addressLocality": "Alpharetta", "addressRegion": "GA", "postalCode": "30005" } } },
+                        { "@type": "Event", "name": "Hookah Tuesday", "startDate": `${getNextTuesday()}T17:00:00`, "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "description": "Hookah specials all night.", "image": "https://charcoalnchill.com/images/hookah-cnc.jpg", "location": { "@type": "Place", "name": "Charcoal N Chill", "address": { "@type": "PostalAddress", "streetAddress": "11950 Jones Bridge Rd Ste 103", "addressLocality": "Alpharetta", "addressRegion": "GA", "postalCode": "30005" } } }
                     ]
                 }}
                 id="events-series-jsonld"

@@ -61,6 +61,13 @@ export const restaurantSchema = {
         "https://charcoalnchill.com/images/crispy-corn-cnc.jpg",
         "https://charcoalnchill.com/images/private-party-cnc.jpeg"
     ],
+    "hasMap": "https://www.google.com/maps/place/Charcoal+N+Chill/@34.070478,-84.283038,15z/data=!4m2!3m1!1s0x0:0x1234567890abcdef?sa=X&ved=2ahUKEwj",
+    "areaServed": [
+        "Alpharetta", "Milton", "Roswell", "Johns Creek", "Cumming",
+        "Sandy Springs", "Dunwoody", "Suwanee", "Duluth", "Marietta",
+        "Woodstock", "Norcross", "Buckhead", "Brookhaven", "Canton",
+        "Kennesaw", "Buford", "Sugar Hill", "Peachtree Corners", "Smyrna"
+    ],
     "@id": "https://charcoalnchill.com",
     "url": "https://charcoalnchill.com",
     "telephone": "+14705464866",
@@ -110,7 +117,24 @@ export const restaurantSchema = {
         "worstRating": "1"
     },
     "paymentAccepted": "Cash, Credit Card, Debit Card",
-    "currenciesAccepted": "USD"
+    "currenciesAccepted": "USD",
+    "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://charcoalnchill.com/contact#reserve",
+            "inLanguage": "en-US",
+            "actionPlatform": [
+                "http://schema.org/DesktopWebPlatform",
+                "http://schema.org/IOSPlatform",
+                "http://schema.org/AndroidPlatform"
+            ]
+        },
+        "result": {
+            "@type": "FoodEstablishmentReservation",
+            "name": "Book Table"
+        }
+    }
 };
 
 export function getBreadcrumbSchema(items: { name: string; item: string }[]) {

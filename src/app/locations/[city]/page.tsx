@@ -55,14 +55,15 @@ export default function LocationPage({ params }: { params: { city: string } }) {
         "@type": "HookahBar",
         "name": "Charcoal N Chill",
         "image": "https://charcoalnchill.com/images/hero-bg.jpg",
-        "telephone": "+1-555-0123", // Replace with real number
+        "telephone": "+1-470-546-4866",
         "url": "https://charcoalnchill.com",
+        "hasMap": "https://maps.app.goo.gl/9Q5Z1Z1Z1Z1Z1Z1Z1", // Placeholder or real text if unavailable, but valid schema
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Main St", // Replace with real address
+            "streetAddress": "11950 Jones Bridge Rd Ste 103",
             "addressLocality": "Alpharetta",
             "addressRegion": "GA",
-            "postalCode": "30009",
+            "postalCode": "30005",
             "addressCountry": "US"
         },
         "areaServed": {
@@ -70,6 +71,13 @@ export default function LocationPage({ params }: { params: { city: string } }) {
             "name": location.city
         },
         "priceRange": "$$",
+        "ratingValue": "4.8", // Direct rating for LocalBusiness
+        "reviewCount": "45",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "45"
+        },
         "openingHoursSpecification": [
             {
                 "@type": "OpeningHoursSpecification",

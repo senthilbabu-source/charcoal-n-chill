@@ -31,6 +31,7 @@ export function BokehOverlay({ className, intensity = 12 }: { className?: string
             opacity: Math.random() * 0.15 + 0.05, // 0.05 - 0.2
         }));
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         setParticles(newParticles);
     }, [intensity]);
 

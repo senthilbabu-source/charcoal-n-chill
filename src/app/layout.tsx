@@ -8,6 +8,7 @@ import { Analytics } from "@/components/layout/Analytics";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
 import dynamic from "next/dynamic";
+import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 
 import { AgeVerificationWrapper } from "@/components/ui/AgeVerificationWrapper";
 import { ToastProvider } from "@/components/ui/Toast";
@@ -82,6 +83,7 @@ export default function RootLayout({
             <SmoothScroll />
 
             <ScavengerHuntTracker />
+            <WhatsAppFloat />
             <a
               href="#main-content"
               className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-gold text-black px-6 py-3 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl transition-all outline-none focus:ring-2 focus:ring-brand-red"

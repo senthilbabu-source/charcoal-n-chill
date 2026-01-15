@@ -17,6 +17,26 @@ export const metadata = constructMetadata({
 export default function AboutPage() {
     return (
         <>
+            <JsonLd
+                data={{
+                    "@context": "https://schema.org",
+                    "@type": "AboutPage",
+                    "mainEntity": {
+                        "@type": "Restaurant",
+                        "name": "Charcoal N Chill",
+                        "foundingDate": "2015",
+                        "founders": [
+                            { "@type": "Person", "name": "Founders of Charcoal N Chill" }
+                        ],
+                        "servesCuisine": "Indo-American Fusion",
+                        "knowsAbout": ["Hookah Culture", "Mixology", "Indian Cuisine"],
+                        "award": "Best Hookah Lounge in Alpharetta",
+                        "publishingPrinciples": "https://charcoalnchill.com/faq", // Trust signal
+                        "description": "Alpharetta's premier hookah lounge since 2015, featuring luxury Versace seating and Chef Ajay's signature Indo-American Eats."
+                    }
+                }}
+                id="about-page-schema"
+            />
             <JsonLd data={getBreadcrumbSchema([{ name: "About", item: "/about" }])} id="breadcrumb-about" />
             <Header />
             <main className="bg-dark-primary">

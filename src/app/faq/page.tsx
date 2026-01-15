@@ -57,6 +57,18 @@ const faqs = [
             {
                 q: "Do you allow walk-ins or are reservations required?",
                 a: "We welcome walk-ins! However, for Friday and Saturday nights, we **highly recommend** making a reservation to secure your table. You can book directly on our [Contact Page](/contact)."
+            },
+            {
+                q: "Is there a cover charge to get in?",
+                a: "Entry is generally **free on weeknights**. On Friday and Saturday nights, especially during special events or DJ nights, a cover charge may apply for gentlemen. Ladies are often free until a certain time. Check our Instagram for tonight's specifics."
+            },
+            {
+                q: "What kind of music do you play?",
+                a: "We curate a high-energy vibe! Our DJs spin a mix of **Hip Hop, Afrobeats, Top 40, Bollywood, and Latin** hits depending on the night. Check our [Events Page](/events) to see the theme for this weekend."
+            },
+            {
+                q: "Is this a good spot for a date night?",
+                a: "Absolutely. On weeknights (Tue-Thu), the vibe is **chill, intimate, and perfect for conversation** over hookah and cocktails. Weekends turn up the energy for a fun, lively date experience."
             }
         ]
     },
