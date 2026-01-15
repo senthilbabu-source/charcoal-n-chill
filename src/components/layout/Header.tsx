@@ -8,7 +8,12 @@ import { Menu, X, Gift, Lock } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
-import { VelvetRopeModal } from "@/components/gamification/VelvetRopeModal";
+import dynamic from "next/dynamic";
+
+const VelvetRopeModal = dynamic(() => import("@/components/gamification/VelvetRopeModal").then(mod => mod.VelvetRopeModal), {
+    ssr: false,
+    loading: () => null
+});
 
 const navLeft = [
     { name: "Home", href: "/" },
