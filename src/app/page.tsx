@@ -3,13 +3,10 @@ import { constructMetadata } from "@/lib/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
-import { HighlightsGrid } from "@/components/home/HighlightsGrid";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { MapPin, Phone } from "lucide-react";
 
-// Lazy load below-the-fold components
-// Lazy load below-the-fold components
-// Removed Features in favor of HighlightsGrid, but keeping Reviews and ProductShowcase
+const HighlightsGrid = dynamic(() => import("@/components/home/HighlightsGrid").then(mod => mod.HighlightsGrid));
 const ProductShowcase = dynamic(() => import("@/components/home/ProductShowcase").then(mod => mod.ProductShowcase), {
   loading: () => <div className="min-h-[50vh] bg-dark-primary" />,
 });

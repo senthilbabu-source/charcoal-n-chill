@@ -32,6 +32,14 @@ const faqs = [
             {
                 q: "Is there free parking available at the lounge?",
                 a: "Yes, we offer **plenty of free parking** directly in front of the lounge. Our lot is well-lit and handicap accessible for your convenience."
+            },
+            {
+                q: "Is there a hookah lounge near me open late?",
+                a: "Yes! Charcoal N Chill is the best late-night hookah lounge near you in Alpharetta. We are open until **2 AM on weekends** and 1 AM on weeknights, serving food and hookah all night."
+            },
+            {
+                q: "Where can I find the best Indian food near me?",
+                a: "Charcoal N Chill offers top-rated Indo-American fusion food. If you are looking for **Butter Chicken**, **Chicken 65**, or **Biryani** near Alpharetta or Johns Creek, our kitchen is open late to satisfy your cravings."
             }
         ]
     },

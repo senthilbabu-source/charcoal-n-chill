@@ -81,6 +81,7 @@ export async function GET() {
                 startDate: formatGoogleDate(startDate),
                 endDate: formatGoogleDate(endDate)
             }
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any);
 
         // Aggregating Metrics
@@ -89,9 +90,12 @@ export async function GET() {
         let totalDirections = 0;
         let totalWebsiteClicks = 0;
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const timeSeries = (performanceRes.data as any).timeSeries || [];
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         timeSeries.forEach((metric: any) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const total = metric.datedValues?.reduce((acc: number, val: any) => acc + (parseInt(val.value || "0")), 0) || 0;
 
             if (metric.dailyMetric?.includes('IMPRESSIONS')) {
@@ -122,11 +126,12 @@ export async function GET() {
             locationName: location.name // Resource name needed for other calls
         });
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("GBP API Error:", error);
         return NextResponse.json({
-            error: error.message || "Failed to fetch GBP data",
-            details: error.response?.data
+            error: error instanceof Error ? error.message : "Failed to fetch GBP data",
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            details: (error as any).response?.data
         }, { status: 500 });
     }
 }

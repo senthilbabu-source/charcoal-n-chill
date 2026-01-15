@@ -1,27 +1,47 @@
 "use client";
 
-import { CheckCircle2, Search, Globe, Zap, Shield, RefreshCw, Code2, Smartphone, LogOut, TrendingUp, Users, MapPin, MessageSquare, Star, Key, RefreshCcw, Phone, Navigation, MousePointerClick } from "lucide-react";
+import { CheckCircle2, Search, Globe, Shield, RefreshCw, LogOut, TrendingUp, MapPin, Key, RefreshCcw, Phone, Navigation, Zap } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import AdminAuthCheck from "@/components/admin/AdminAuthCheck";
 
+interface GscData {
+    siteUrl?: string;
+    metrics?: {
+        clicks: string | number;
+        impressions: string | number;
+        ctr: string | number;
+        position: string | number;
+    };
+    topKeywords?: Array<{ term: string; position: number; clicks: number }>;
+}
+
+interface GbpData {
+    businessName?: string;
+    metrics?: {
+        views: string | number;
+        calls: string | number;
+        directions: string | number;
+        websiteClicks: string | number;
+        rating: string | number;
+    };
+}
+
 function SeoDashboardContent() {
     const router = useRouter();
     const hasFetched = useRef(false);
-    const [score, setScore] = useState(0);
     const [isScanning, setIsScanning] = useState(false);
     const [scanProgress, setScanProgress] = useState(0);
-    const [lastScan, setLastScan] = useState<string | null>(null);
     const [activeTab, setActiveTab] = useState<'overview' | 'gsc' | 'gbp' | 'health'>('overview');
 
     // GSC State
     const [gscLoading, setGscLoading] = useState(false);
-    const [gscData, setGscData] = useState<any>(null);
+    const [gscData, setGscData] = useState<GscData | null>(null);
     const [gscError, setGscError] = useState<string | null>(null);
 
     // GBP State
     const [gbpLoading, setGbpLoading] = useState(false);
-    const [gbpData, setGbpData] = useState<any>(null);
+    const [gbpData, setGbpData] = useState<GbpData | null>(null);
     const [gbpError, setGbpError] = useState<string | null>(null);
 
     const healthChecks = [
@@ -44,9 +64,9 @@ function SeoDashboardContent() {
             }
 
             setGscData(json);
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error(err);
-            setGscError(err.message);
+            setGscError(err instanceof Error ? err.message : "An unknown error occurred");
         } finally {
             setGscLoading(false);
         }
@@ -65,9 +85,9 @@ function SeoDashboardContent() {
             }
 
             setGbpData(json);
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error(err);
-            setGbpError(err.message);
+            setGbpError(err instanceof Error ? err.message : "An unknown error occurred");
         } finally {
             setGbpLoading(false);
         }
@@ -86,7 +106,6 @@ function SeoDashboardContent() {
                 if (prev >= 100) {
                     clearInterval(interval);
                     setIsScanning(false);
-                    setLastScan(new Date().toLocaleTimeString());
                     return 100;
                 }
                 return prev + 5;
@@ -98,15 +117,12 @@ function SeoDashboardContent() {
         if (hasFetched.current) return;
         hasFetched.current = true;
 
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setScore(92);
-        setLastScan(new Date().toLocaleTimeString());
-
         // Attempt fetch on mount to check connection
         fetchGscData();
         fetchGbpData();
     }, []);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const TabButton = ({ id, label, icon: Icon }: { id: typeof activeTab, label: string, icon: any }) => (
         <button
             onClick={() => setActiveTab(id)}
@@ -276,7 +292,7 @@ function SeoDashboardContent() {
                                         </div>
                                     ) : (
                                         <div className="space-y-3">
-                                            {displayKeywords.slice(0, 5).map((kw: any, i: number) => (
+                                            {displayKeywords.slice(0, 5).map((kw, i) => (
                                                 <div key={i} className="flex items-center justify-between p-3 bg-black/40 rounded-lg border border-white/5">
                                                     <span className="text-sm text-gray-300 font-medium truncate max-w-[200px]">{kw.term}</span>
                                                     <div className="flex items-center gap-3">
@@ -330,7 +346,7 @@ function SeoDashboardContent() {
                                         <h4 className="text-white font-bold mb-4">Setup Instructions:</h4>
                                         <ol className="list-decimal list-inside text-sm text-gray-400 space-y-2">
                                             <li>Create project in Google Cloud Console</li>
-                                            <li>Enable "Search Console API"</li>
+                                            <li>Enable &quot;Search Console API&quot;</li>
                                             <li>Create Service Account & Download JSON Key</li>
                                             <li>Add Service Account Email to GSC Users</li>
                                             <li>Add JSON Key to <code>.env.local</code> as <code>GOOGLE_PRIVATE_KEY</code> etc.</li>

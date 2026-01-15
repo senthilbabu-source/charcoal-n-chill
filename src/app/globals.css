@@ -406,6 +406,16 @@ body {
   background: var(--brand-red);
 }
 
+/* Utility to hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* ==== Dropdown Styles ==== */
 .dropdown {
   @apply relative inline-block;

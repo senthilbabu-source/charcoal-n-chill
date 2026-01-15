@@ -29,8 +29,13 @@ export default function ScrollReveal({
 }: ScrollRevealProps) {
     const ref = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
+        // Check if mobile on mount
+        const checkMobile = () => setIsMobile(window.matchMedia("(max-width: 768px)").matches);
+        checkMobile();
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -39,7 +44,7 @@ export default function ScrollReveal({
                 }
             },
             {
-                threshold,
+                threshold: isMobile ? 0.1 : threshold, // Lower threshold for mobile
                 rootMargin: "0px 0px -50px 0px"
             }
         );
@@ -55,10 +60,15 @@ export default function ScrollReveal({
                 observer.unobserve(currentRef);
             }
         };
-    }, [threshold]);
+    }, [threshold, isMobile]);
 
     const getInitialStyle = () => {
         if (isVisible) return { opacity: 1, transform: "translate(0, 0) scale(1)" };
+
+        // Simplified animations for mobile to prevent jank
+        if (isMobile) {
+            return { opacity: 0, transform: "translateY(10px)" };
+        }
 
         switch (animation) {
             case "fade-up":

@@ -89,11 +89,12 @@ export async function GET() {
             })) || []
         });
 
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("GSC API Error:", error);
         return NextResponse.json({
-            error: error.message || "Failed to fetch GSC data",
-            details: error.response?.data
+            error: error instanceof Error ? error.message : "Failed to fetch GSC data",
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            details: (error as any).response?.data
         }, { status: 500 });
     }
 }
