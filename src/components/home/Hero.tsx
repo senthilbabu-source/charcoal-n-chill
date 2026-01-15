@@ -86,20 +86,21 @@ export function Hero() {
                 </div>
 
                 <div className="mb-6">
-                    <span className="block text-xl md:text-2xl font-medium text-gold-light uppercase tracking-[0.3em] mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                    <span className="block text-xl md:text-2xl font-medium text-gold-light uppercase tracking-[0.3em] mb-4 md:animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                         Experience The
                     </span>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight mb-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                    {/* LCP Element: Render instantly on mobile, animate on desktop */}
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight mb-4 md:animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
                         <span className="block gradient-text pb-2">
                             Vibe & Flavor
                         </span>
                     </h1>
-                    <span className="block text-2xl md:text-3xl font-light text-white/90 mt-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                    <span className="block text-2xl md:text-3xl font-light text-white/90 mt-4 md:animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                         Hookah Lounge & Indo-American Grill
                     </span>
                 </div>
 
-                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light md:animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
                     Immerse yourself in luxury with 50+ premium hookah flavors, Indo-American Eats,
                     and electrifying live entertainment. The perfect night out starts here.
                 </p>
