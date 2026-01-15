@@ -30,6 +30,9 @@ export function MagneticButton({
     const mouseY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
 
     function handleMouseMove(e: React.MouseEvent<HTMLElement, MouseEvent>) {
+        // Disable on mobile/tablet
+        if (typeof window !== 'undefined' && window.innerWidth < 1024) return;
+
         const { clientX, clientY } = e;
         const rect = ref.current?.getBoundingClientRect();
         if (!rect) return;
