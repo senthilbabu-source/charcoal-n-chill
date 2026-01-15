@@ -58,8 +58,8 @@
   --border-primary: rgba(255, 255, 255, 0.1);
   --border-secondary: rgba(255, 255, 255, 0.2);
   --text-primary: var(--foreground);
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --text-tertiary: rgba(255, 255, 255, 0.4);
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-tertiary: rgba(255, 255, 255, 0.6);
   --primary-500: var(--gold-primary);
   --error-500: var(--brand-red);
 
@@ -184,6 +184,13 @@ body {
   background-clip: text;
   background-size: 200% 200%;
   animation: gradient-flow 3s ease infinite;
+}
+
+@media (max-width: 768px) {
+  .gradient-text {
+    animation: none;
+    background-size: 100%;
+  }
 }
 
 /* Animations */

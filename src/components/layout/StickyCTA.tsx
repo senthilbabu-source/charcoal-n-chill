@@ -29,7 +29,10 @@ export function StickyCTA() {
                     className="fixed bottom-6 right-6 z-50"
                 >
                     <Link href="/contact#reserve">
-                        <button className="group relative flex items-center gap-2 pl-4 pr-5 py-3 bg-gold-primary text-black font-black uppercase tracking-widest text-sm rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300">
+                        <button
+                            className="group relative flex items-center gap-2 pl-4 pr-5 py-3 bg-gold-primary text-black font-black uppercase tracking-widest text-sm rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300"
+                            aria-label="Book a table now"
+                        >
                             <span className="bg-black/10 rounded-full p-1.5 group-hover:bg-black/20 transition-colors">
                                 <UtensilsCrossed size={16} />
                             </span>

@@ -15,14 +15,19 @@ interface BokehParticle {
 
 export function BokehOverlay({ className, intensity = 15 }: { className?: string, intensity?: number }) {
     const [particles, setParticles] = useState<BokehParticle[]>([]);
+    const [isMobile, setIsMobile] = useState(true); // Default to true (safe) until mounted
 
     useEffect(() => {
-        // Reduced intensity for mobile if mounted
-        const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
-        const finalIntensity = isMobile ? Math.min(intensity, 5) : intensity;
+        const checkMobile = () => {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            return mobile;
+        };
 
-        // Generate static particles on client-side only to avoid hydration mismatch
-        const newParticles = Array.from({ length: finalIntensity }).map((_, i) => ({
+        if (checkMobile()) return;
+
+        // Generate static particles on client-side only
+        const newParticles = Array.from({ length: intensity }).map((_, i) => ({
             id: i,
             size: Math.random() * 80 + 20, // 20px - 100px
             left: Math.random() * 100,
@@ -32,13 +37,10 @@ export function BokehOverlay({ className, intensity = 15 }: { className?: string
             opacity: Math.random() * 0.15 + 0.05, // 0.05 - 0.2
         }));
 
-        // Use setTimeout to avoid synchronous setState warning
-        const timer = setTimeout(() => {
-            setParticles(newParticles);
-        }, 0);
-
-        return () => clearTimeout(timer);
+        setParticles(newParticles);
     }, [intensity]);
+
+    if (isMobile) return null;
 
     return (
         <div className={cn("absolute inset-0 pointer-events-none overflow-hidden", className)} aria-hidden="true">
