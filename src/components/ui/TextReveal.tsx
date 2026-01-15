@@ -12,6 +12,9 @@ interface TextRevealProps {
 }
 
 export function TextReveal({ text, className, delay = 0, mode = "word" }: TextRevealProps) {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-10%" });
+
     const items = mode === "word" ? text.split(" ") : text.split("");
 
     const container = {
