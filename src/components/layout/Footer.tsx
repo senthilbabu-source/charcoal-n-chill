@@ -37,7 +37,7 @@ export function Footer() {
 
                     {/* Quick Links */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-brand-red relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-brand-red">Quick Links</h4>
+                        <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Quick Links</h4>
                         <ul className="space-y-1">
                             {[
                                 { name: "Home", href: "/" },
@@ -64,7 +64,7 @@ export function Footer() {
 
                     {/* Contact Info */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-brand-red relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-brand-red">Contact Us</h4>
+                        <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Contact Us</h4>
                         <ul className="space-y-2 text-sm text-gray-400">
                             <li className="flex items-start gap-3 group">
                                 <MapPin size={18} className="text-brand-red shrink-0 mt-0.5 group-hover:text-red-400 transition-colors" />
@@ -90,7 +90,7 @@ export function Footer() {
 
                     {/* Hours */}
                     <div className="space-y-4">
-                        <h4 className="text-lg font-semibold text-brand-red relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-brand-red">Hours</h4>
+                        <h4 className="text-lg font-semibold text-gold-primary relative pb-3 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-10 after:h-0.5 after:bg-gold-primary">Hours</h4>
                         <ul className="space-y-1 text-sm text-gray-400">
                             <li className="flex justify-between border-b border-white/5 pb-2">
                                 <span>Tu - Th</span>
