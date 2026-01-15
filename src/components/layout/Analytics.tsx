@@ -1,19 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Script from "next/script";
+import { useState, useEffect } from "react";
 
 export function Analytics() {
     const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
     const fbPixelId = process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID || "XXXXXXXXXXXXXXX";
 
+    const [shouldLoad, setShouldLoad] = useState(false);
+
+    useEffect(() => {
+        // Delay analytics by 5 seconds to prioritize Core Web Vitals (LCP/TBT)
+        const timer = setTimeout(() => setShouldLoad(true), 5000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (!shouldLoad) return null;
+
     return (
         <>
             {/* Google Analytics 4 */}
-            {/* Google Analytics 4 - Delayed */}
             <Script
                 src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-                strategy="lazyOnload"
+                strategy="afterInteractive"
             />
-            <Script id="google-analytics" strategy="lazyOnload">
+            <Script id="google-analytics" strategy="afterInteractive">
                 {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
@@ -26,8 +36,8 @@ export function Analytics() {
                 `}
             </Script>
 
-            {/* Facebook Pixel - Delayed */}
-            <Script id="facebook-pixel" strategy="lazyOnload">
+            {/* Facebook Pixel */}
+            <Script id="facebook-pixel" strategy="afterInteractive">
                 {`
                     !function(f,b,e,v,n,t,s)
                     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
