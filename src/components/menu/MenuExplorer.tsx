@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Flame, Utensils, GlassWater, Wind, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -44,6 +44,21 @@ function getFlavorTags(item: MenuItem) {
 export function MenuExplorer() {
     const [activeCategory, setActiveCategory] = useState("all");
     const [searchQuery, setSearchQuery] = useState("");
+
+    // Handle deep linking on mount
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '').toLowerCase();
+        if (hash && categories.some(cat => cat.id === hash)) {
+            setActiveCategory(hash);
+            // Optional: Scroll offset adjustment if needed
+            const element = document.getElementById('menu-explorer');
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }, []);
 
     // Flatten items for search if needed, or filter by category
     const filteredItems = Object.entries(menuItems).flatMap(([catKey, items]) => {
