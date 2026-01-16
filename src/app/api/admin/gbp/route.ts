@@ -34,60 +34,101 @@ export async function GET() {
         const mybusinessbusinessinformation = google.mybusinessbusinessinformation({ version: 'v1', auth });
         const businessprofileperformance = google.businessprofileperformance({ version: 'v1', auth });
 
+        // Initialize debug logs
+        const debugLogs: string[] = [];
+        const log = (msg: string) => {
+            console.log(msg);
+            debugLogs.push(msg);
+        };
+
         // 3. Find the Account
         const accountsRes = await mybusinessaccountmanagement.accounts.list();
-        const account = accountsRes.data.accounts?.[0];
+        const accounts = accountsRes.data.accounts;
 
-        if (!account || !account.name) {
+        log(`Found ${accounts?.length || 0} accessible accounts.`);
+
+        if (!accounts || accounts.length === 0) {
             return NextResponse.json({
                 error: "No Google Business Profile account found. Ensure you invited the Service Account as a Manager.",
-                data: null
+                data: null,
+                debugLogs
             }, { status: 404 });
         }
 
-        // 3.5 Auto-Accept Invitations (Fix for "Invited" status)
-        try {
-            console.log(`Checking invitations for ${account.name}...`);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const invitationsRes = await (mybusinessaccountmanagement as any).invitations.list({
-                parent: account.name
-            });
+        // Search for the first account that contains locations
+        let validAccount = null;
+        let validLocation = null;
 
-            const invitations = invitationsRes.data.invitations;
-            if (invitations && invitations.length > 0) {
-                console.log(`Found ${invitations.length} pending invitations.`);
+        log(`Checking ${accounts.length} accessible accounts...`);
+
+        for (const account of accounts) {
+            if (!account.name) continue;
+            log(`Checking account: ${account.name} (${account.accountName})`);
+
+            // 3.5 Auto-Accept Invitations for this account
+            try {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                for (const invite of invitations as any) {
-                    if (invite.name) {
-                        console.log(`Accepting invitation: ${invite.name}`);
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                        await (mybusinessaccountmanagement as any).invitations.accept({
-                            name: invite.name
-                        });
+                const invitationsRes = await (mybusinessaccountmanagement as any).accounts.invitations.list({
+                    parent: account.name
+                });
+                const invitations = invitationsRes.data.invitations;
+                if (invitations && invitations.length > 0) {
+                    log(`Found ${invitations.length} pending invitations in ${account.name}.`);
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    for (const invite of invitations as any) {
+                        if (invite.name) {
+                            try {
+                                log(`Found invite: ${invite.name} | Role: ${invite.role} | Target: ${invite.targetAccount?.accountName || invite.targetLocation?.locationName || 'Unknown'}`);
+                                log(`Accepting invitation...`);
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                                await (mybusinessaccountmanagement as any).accounts.invitations.accept({
+                                    name: invite.name
+                                });
+                                log(`Successfully accepted invitation!`);
+                            } catch (acceptError) {
+                                log(`Failed to accept invitation ${invite.name}: ${acceptError}`);
+                            }
+                        }
                     }
+                    // Wait briefly if we accepted something
+                    await new Promise(r => setTimeout(r, 1500));
+                } else {
+                    log(`No pending invitations for ${account.name}.`);
                 }
-                // Wait briefly for propagation
-                await new Promise(r => setTimeout(r, 2000));
+            } catch (invError) {
+                log(`Invitation check failed for ${account.name}: ${invError}`);
             }
-        } catch (invError) {
-            console.warn("Invitation auto-accept failed (non-critical):", invError);
+
+            // 4. Try to find locations in this account
+            try {
+                const locationsRes = await mybusinessbusinessinformation.accounts.locations.list({
+                    parent: account.name,
+                    readMask: 'name,title,metadata,storeCode,languageCode,phoneNumbers,categories,regularHours,specialHours,serviceArea,labels,adWordsLocationExtensions,latlng,openInfo,profile,relationshipData,moreHours,serviceItems,profile.description'
+                });
+
+                if (locationsRes.data.locations && locationsRes.data.locations.length > 0) {
+                    log(`Found valid location in account: ${account.name}`);
+                    validAccount = account;
+                    validLocation = locationsRes.data.locations[0];
+                    break; // Stop once we find a location
+                } else {
+                    log(`No locations found in account: ${account.name}`);
+                }
+            } catch (locError) {
+                log(`Failed to list locations for account ${account.name}: ${locError}`);
+            }
         }
 
-        // 4. Find the Location (The Business Instance)
-        // accounts/{accountId}/locations
-        const locationsRes = await mybusinessbusinessinformation.accounts.locations.list({
-            parent: account.name,
-            readMask: 'name,title,metadata,storeCode,languageCode,phoneNumbers,categories,regularHours,specialHours,serviceArea,labels,adWordsLocationExtensions,latlng,openInfo,profile,relationshipData,moreHours,serviceItems,profile.description'
-        });
-
-        const location = locationsRes.data.locations?.[0];
-
-        if (!location || !location.name) {
+        if (!validLocation || !validLocation.name) {
             return NextResponse.json({
-                error: `No locations found for account ${account.name}.`,
-                data: null
+                error: `No locations found in any of the ${accounts.length} accessible accounts.`,
+                data: null,
+                debugLogs
             }, { status: 404 });
         }
+
+        // Use the found location for metrics
+        const location = validLocation;
 
         // 5. Fetch Performance Metrics (Last 28 Days)
         // locations/{locationId}:fetchMultiDailyMetricsTimeSeries
@@ -151,7 +192,8 @@ export async function GET() {
                 reviews: "Check App", // Review API is complex/separate, keeping scope manageable
                 rating: "4.8"
             },
-            locationName: location.name // Resource name needed for other calls
+            locationName: location.name, // Resource name needed for other calls
+            debugLogs
         });
 
     } catch (error: unknown) {
