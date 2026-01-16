@@ -24,7 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${baseUrl}/menu`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
-            priority: 0.8,
+            priority: 0.9,
         },
         {
             url: `${baseUrl}/about`,
@@ -42,13 +42,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: `${baseUrl}/private-events`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
-            priority: 0.7,
+            priority: 0.8,
         },
         {
             url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
-            priority: 0.7,
+            priority: 0.8,
         },
         {
             url: `${baseUrl}/faq`,
@@ -68,7 +68,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${baseUrl}/locations/${loc.slug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly',
-        priority: 0.7,
+        priority: 0.8,
     }))
 
     return [...staticRoutes, ...blogEntries, ...locationEntries]

@@ -50,6 +50,7 @@ export const restaurantSchema = {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "Charcoal N Chill",
+    "alternateName": "Charcoal and Chill",
     "image": [
         "https://charcoalnchill.com/images/final-cnc-hero.jpg",
         "https://charcoalnchill.com/logo.png",
@@ -109,6 +110,12 @@ export const restaurantSchema = {
     "servesCuisine": ["Indo-American", "American", "Fusion", "Hookah Lounge"],
     "acceptsReservations": "True",
     "menu": "https://charcoalnchill.com/menu",
+    "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Hookah Lounge", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Live Entertainment", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "VIP Lounge", "value": true }
+    ],
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
@@ -165,9 +172,8 @@ export function getFaqSchema(faqs: { q: string; a: string }[]) {
     };
 }
 
-export function getArticleSchema(post: { id: string; title: string; image: string; date: string; author: string; excerpt: string }) {
-    return {
-        "@context": "https://schema.org",
+export function getArticleSchema(post: { id: string; title: string; image: string; date: string; author: string; excerpt: string }, faqs?: { q: string; a: string }[]) {
+    const article = {
         "@type": "BlogPosting",
         "headline": post.title,
         "image": [post.image],
@@ -185,5 +191,30 @@ export function getArticleSchema(post: { id: string; title: string; image: strin
                 "url": "https://charcoalnchill.com/logo.png"
             }
         }
+    };
+
+    if (faqs && faqs.length > 0) {
+        return {
+            "@context": "https://schema.org",
+            "@graph": [
+                article,
+                {
+                    "@type": "FAQPage",
+                    "mainEntity": faqs.map(faq => ({
+                        "@type": "Question",
+                        "name": faq.q,
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": faq.a
+                        }
+                    }))
+                }
+            ]
+        };
+    }
+
+    return {
+        "@context": "https://schema.org",
+        ...article
     };
 }

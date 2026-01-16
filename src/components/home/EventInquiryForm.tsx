@@ -91,16 +91,17 @@ export function EventInquiryForm() {
                 <input type="hidden" name="_captcha" value="false" />
 
                 <div className="space-y-2">
-                    <label htmlFor="inquiry-name" className="text-sm font-medium text-gray-300">Full Name <span className="text-red-500">*</span></label>
-                    <input id="inquiry-name" name="name" type="text" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="John Doe" required />
+                    <label htmlFor="inquiry-name" className="text-sm font-medium text-gray-300">Full Name <span className="text-red-500" aria-label="required">*</span></label>
+                    <input id="inquiry-name" name="name" type="text" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="John Doe" required aria-required="true" />
                 </div>
                 <div className="space-y-2">
-                    <label htmlFor="inquiry-email" className="text-sm font-medium text-gray-300">Email Address <span className="text-red-500">*</span></label>
-                    <input id="inquiry-email" name="email" type="email" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="john@example.com" required />
+                    <label htmlFor="inquiry-email" className="text-sm font-medium text-gray-300">Email Address <span className="text-red-500" aria-label="required">*</span></label>
+                    <input id="inquiry-email" name="email" type="email" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="john@example.com" required aria-required="true" />
                 </div>
                 <div className="space-y-2">
-                    <label htmlFor="inquiry-phone" className="text-sm font-medium text-gray-300">Phone Number <span className="text-red-500">*</span></label>
-                    <input id="inquiry-phone" name="phone" type="tel" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="(470) 546-4866" required />
+                    <label htmlFor="inquiry-phone" className="text-sm font-medium text-gray-300">Phone Number <span className="text-red-500" aria-label="required">*</span></label>
+                    <input id="inquiry-phone" name="phone" type="tel" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="(470) 546-4866" required aria-required="true" aria-describedby="phone-hint-event" />
+                    <p id="phone-hint-event" className="text-xs text-gray-400 mt-1">Format: (XXX) XXX-XXXX</p>
                 </div>
                 <div className="space-y-2">
                     <label htmlFor="inquiry-type" className="text-sm font-medium text-gray-300">Event Type</label>
@@ -115,12 +116,12 @@ export function EventInquiryForm() {
                     </div>
                 </div>
                 <div className="space-y-2">
-                    <label htmlFor="inquiry-date" className="text-sm font-medium text-gray-300">Preferred Date <span className="text-red-500">*</span></label>
-                    <input id="inquiry-date" name="date" type="date" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" required />
+                    <label htmlFor="inquiry-date" className="text-sm font-medium text-gray-300">Preferred Date <span className="text-red-500" aria-label="required">*</span></label>
+                    <input id="inquiry-date" name="date" type="date" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" required aria-required="true" />
                 </div>
                 <div className="space-y-2">
-                    <label htmlFor="inquiry-guests" className="text-sm font-medium text-gray-300">Estimated Guest Count <span className="text-red-500">*</span></label>
-                    <input id="inquiry-guests" name="guests" type="number" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="20" required min="1" />
+                    <label htmlFor="inquiry-guests" className="text-sm font-medium text-gray-300">Estimated Guest Count <span className="text-red-500" aria-label="required">*</span></label>
+                    <input id="inquiry-guests" name="guests" type="number" className="w-full px-4 py-3 bg-charcoal border border-white/10 rounded-xl focus:border-gold outline-none text-white transition-colors" placeholder="20" required min="1" aria-required="true" />
                 </div>
                 <div className="md:col-span-2 space-y-2">
                     <label htmlFor="inquiry-message" className="text-sm font-medium text-gray-300">Special Requests / Message</label>

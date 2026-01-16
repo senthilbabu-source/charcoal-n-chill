@@ -95,23 +95,24 @@ export function ContactForm({ withHeader = true }: { withHeader?: boolean }) {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="input-group">
-                        <label className="input-label">Your Name <span className="text-red-500">*</span></label>
+                        <label className="input-label">Your Name <span className="text-red-500" aria-label="required">*</span></label>
                         <div className="input-wrapper">
-                            <input name="name" type="text" className="input" placeholder="John Doe" required />
+                            <input name="name" type="text" className="input" placeholder="John Doe" required aria-required="true" />
                         </div>
                     </div>
                     <div className="input-group">
-                        <label className="input-label">Email Address <span className="text-red-500">*</span></label>
+                        <label className="input-label">Email Address <span className="text-red-500" aria-label="required">*</span></label>
                         <div className="input-wrapper">
-                            <input name="email" type="email" className="input" placeholder="john@example.com" required />
+                            <input name="email" type="email" className="input" placeholder="john@example.com" required aria-required="true" />
                         </div>
                     </div>
                 </div>
                 <div className="input-group">
-                    <label className="input-label">Phone Number <span className="text-red-500">*</span></label>
+                    <label className="input-label">Phone Number <span className="text-red-500" aria-label="required">*</span></label>
                     <div className="input-wrapper">
-                        <input name="phone" type="tel" className="input" placeholder="(470) 555-0123" required />
+                        <input name="phone" id="contact-phone" type="tel" className="input" placeholder="(470) 555-0123" required aria-required="true" aria-describedby="phone-hint-contact" />
                     </div>
+                    <p id="phone-hint-contact" className="text-xs text-gray-400 mt-1">Format: (XXX) XXX-XXXX</p>
                 </div>
                 <div className="input-group">
                     <label className="input-label">Subject</label>
@@ -125,8 +126,8 @@ export function ContactForm({ withHeader = true }: { withHeader?: boolean }) {
                     </div>
                 </div>
                 <div className="input-group">
-                    <label className="input-label">Your Message <span className="text-red-500">*</span></label>
-                    <textarea name="message" rows={5} className="input input-textarea" placeholder="How can we help you?" required />
+                    <label className="input-label">Your Message <span className="text-red-500" aria-label="required">*</span></label>
+                    <textarea name="message" rows={5} className="input input-textarea" placeholder="How can we help you?" required aria-required="true" />
                 </div>
                 <Button className="w-full py-6 text-lg" isLoading={isLoading} disabled={isLoading}>
                     {isLoading ? "Sending..." : "Send Message"}

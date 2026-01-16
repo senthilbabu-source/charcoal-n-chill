@@ -2,7 +2,7 @@
 
 import { TiltCard } from "@/components/ui/TiltCard";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { MapPin, Phone, Clock, ParkingCircle, Instagram, Facebook } from "lucide-react";
+import { MapPin, Phone, Clock, ParkingCircle, Instagram, Facebook, Navigation } from "lucide-react";
 
 export function ContactInfo() {
     return (
@@ -19,10 +19,27 @@ export function ContactInfo() {
                                     </div>
                                     <h3 className="text-xl font-bold text-white uppercase tracking-wide">Visit Us</h3>
                                 </div>
-                                <p className="text-gray-400 leading-relaxed pl-12">
+                                <a
+                                    href="https://www.google.com/maps/dir/?api=1&destination=11950+Jones+Bridge+Rd+Ste+103,Alpharetta,GA+30005"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block text-gray-400 leading-relaxed pl-12 hover:text-gold-primary transition-colors"
+                                >
                                     11950 Jones Bridge Rd<br />
                                     Ste 103<br />
                                     Alpharetta, GA 30005
+                                </a>
+                            </div>
+
+                            <div>
+                                <div className="flex items-center gap-3 mb-4">
+                                    <div className="bg-gold-primary/10 p-2 rounded-lg">
+                                        <Navigation className="text-gold-primary w-5 h-5" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-white uppercase tracking-wide">Getting Here</h3>
+                                </div>
+                                <p className="text-gray-400 leading-relaxed pl-12 text-sm">
+                                    Just 5 mins from <strong className="text-white">Avalon</strong>. Take <strong className="text-white">GA-400 Exit 10</strong> (Old Milton Pkwy) East, then turn right onto Jones Bridge Rd.
                                 </p>
                             </div>
 

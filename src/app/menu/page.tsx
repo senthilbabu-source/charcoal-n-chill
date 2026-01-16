@@ -14,8 +14,8 @@ import { SecretHunt } from "@/components/gamification/SecretHunt";
 import { constructMetadata } from "@/lib/metadata";
 
 export const metadata = constructMetadata({
-    title: "Our Menu | Charcoal N Chill",
-    description: "Explore our diverse menu featuring Indo-American fusion, premium hookah flavors, and craft cocktails.",
+    title: "Menu - Premium Hookah & Indo-American Food | Charcoal N Chill Alpharetta",
+    description: "Explore 50+ hookah flavors, signature butter chicken, tandoori wings, craft cocktails & more. Indo-American fusion menu at Alpharetta's premier hookah lounge.",
     path: "/menu"
 });
 

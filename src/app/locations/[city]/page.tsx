@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: { city: string } })
     const location = locations.find((l) => l.slug === params.city);
     if (!location) return {};
 
-    const title = `Best Hookah Lounge Near ${location.city} | Charcoal N Chill`;
+    const title = `Best Hookah Lounge & Indian Restaurant Near ${location.city} | Charcoal N Chill`;
 
     return {
         title,
@@ -120,7 +120,7 @@ export default function LocationPage({ params }: { params: { city: string } }) {
                         </span>
                     </div>
                     <h1 className="text-4xl md:text-7xl font-black text-white mb-6 uppercase tracking-tight animate-fade-in-up delay-100">
-                        The Best Hookah Lounge Near <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-300">{location.city}</span>
+                        The Best Hookah Lounge & Indian Restaurant Near <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-300">{location.city}</span>
                     </h1>
                     <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto animate-fade-in-up delay-200">
                         Worth the short drive from {location.city}. Experience premium coconut coals, exotic flavors, and late-night Indo-American fusion.

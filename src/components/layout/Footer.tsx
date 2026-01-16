@@ -20,6 +20,7 @@ export function Footer() {
                                 width={120}
                                 height={80}
                                 className="h-16 md:h-20 w-auto object-contain relative z-10"
+                                role="img"
                             />
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm">
@@ -69,8 +70,15 @@ export function Footer() {
                             <li className="flex items-start gap-3 group">
                                 <MapPin size={18} className="text-brand-red shrink-0 mt-0.5 group-hover:text-red-400 transition-colors" />
                                 <span>
-                                    11950 Jones Bridge Rd Ste 103<br />
-                                    Alpharetta, GA 30005
+                                    <a
+                                        href="https://www.google.com/maps/dir/?api=1&destination=11950+Jones+Bridge+Rd+Ste+103,Alpharetta,GA+30005"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="hover:text-white transition-colors"
+                                    >
+                                        11950 Jones Bridge Rd Ste 103<br />
+                                        Alpharetta, GA 30005
+                                    </a>
                                 </span>
                             </li>
                             <li className="flex items-center gap-3 group">

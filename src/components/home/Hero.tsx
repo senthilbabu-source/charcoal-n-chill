@@ -54,13 +54,13 @@ export function Hero() {
                 >
                     <Image
                         src="/images/final-cnc-hero.jpg"
-                        alt="Charcoal N Chill Lounge Interior - Premium Hookah & Dining"
+                        alt="Luxury Hookah Lounge Interior at Charcoal N Chill Alpharetta - Versace Seating & Ambient Lighting"
                         fill
                         priority={true}
                         fetchPriority="high"
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 100vw"
-                        quality={60}
+                        quality={75}
                     />
                     <div className="absolute inset-0 bg-black/60" />
                     <div className="absolute inset-0 bg-gradient-to-b from-dark-primary/60 via-dark-primary/40 to-dark-primary/90" />
@@ -91,12 +91,12 @@ export function Hero() {
                         Experience The
                     </span>
                     {/* LCP Element: Render instantly on mobile, animate on desktop */}
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight mb-4 md:animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight mb-4 md:animate-fade-in-up drop-shadow-lg" style={{ animationDelay: '0.3s' }}>
                         <span className="block gradient-text pb-2">
                             Vibe & Flavor
                         </span>
                     </h1>
-                    <span className="block text-2xl md:text-3xl font-light text-white/90 mt-4 md:animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                    <span className="block text-2xl md:text-3xl font-light text-white/90 mt-4 md:animate-fade-in-up drop-shadow-lg" style={{ animationDelay: '0.4s' }}>
                         Hookah Lounge & Indo-American Grill
                     </span>
                 </div>

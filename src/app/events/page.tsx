@@ -13,8 +13,8 @@ import { SecretHunt } from "@/components/gamification/SecretHunt";
 import { getNextFriday, getNextTuesday } from "@/lib/date-utils";
 
 export const metadata = constructMetadata({
-    title: "Events | Live Entertainment, Belly Dancing & Hookah Specials",
-    description: "Experience the vibe at Charcoal N Chill. Weekly Belly Dancing (Fri/Sat), Hookah Tuesday Specials, and live DJ nights in Alpharetta.",
+    title: "Live Events - Belly Dancing, DJ Nights & Hookah | Charcoal N Chill Alpharetta",
+    description: "Weekly belly dancing shows, Bollywood nights, Afrobeats Fridays, Latino Saturdays. Live entertainment every weekend at Alpharetta's top hookah lounge.",
     path: "/events",
     keywords: ["belly dancing Alpharetta", "live music Atlanta", "hookah specials", "Afrobeats night", "karaoke night"]
 });

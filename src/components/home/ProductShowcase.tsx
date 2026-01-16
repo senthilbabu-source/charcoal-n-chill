@@ -68,19 +68,19 @@ export function ProductShowcase() {
 
                     <ScrollReveal animation="fade-left">
                         <Link href="/menu" className="group flex items-center gap-2 text-white hover:text-gold-primary transition-colors">
-                            <span className="text-sm font-bold uppercase tracking-widest">View Full Menu</span>
+                            <span className="text-sm font-bold uppercase tracking-widest">View All 50+ Hookah Flavors</span>
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </ScrollReveal>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+                <div className="flex md:grid md:grid-cols-4 md:grid-rows-2 gap-6 h-[450px] md:h-[600px] overflow-x-auto snap-x snap-mandatory pb-8 md:pb-0 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                     {showcaseItems.map((item, index) => (
                         <ScrollReveal
                             key={item.id}
                             animation="zoom-in"
                             delay={index * 0.1}
-                            className={`${item.colSpan} ${item.rowSpan} h-[300px] md:h-full group relative rounded-3xl overflow-hidden cursor-pointer bg-dark-secondary border border-white/5 hover:border-gold-primary/30 transition-colors duration-500`}
+                            className={`${item.colSpan} ${item.rowSpan} h-full group relative rounded-3xl overflow-hidden cursor-pointer bg-dark-secondary border border-white/5 hover:border-gold-primary/30 transition-colors duration-500 min-w-[85vw] md:min-w-0 snap-center`}
                         >
                             <Link href="/menu" className="block w-full h-full">
                                 {/* Image */}

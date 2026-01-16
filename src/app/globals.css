@@ -493,12 +493,32 @@ body {
 
 /* ==== Global Anchor Styles ==== */
 a {
-  @apply text-white hover:text-gold transition-colors no-underline cursor-pointer min-h-[44px] min-w-[44px] inline-flex items-center justify-center;
+  @apply text-white hover:text-gold transition-colors no-underline cursor-pointer min-h-[48px] min-w-[48px] inline-flex items-center justify-center;
   pointer-events: auto;
 }
 
-a:focus {
-  @apply outline-none ring-2 ring-brand-red;
+/* ==== Global Focus System (Accessibility) ==== */
+:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ensure links and buttons adhere to the system */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+}
+
+/* Remove default constrained focus rings if present */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* ==== Input System ==== */

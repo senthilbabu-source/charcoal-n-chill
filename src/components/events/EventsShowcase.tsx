@@ -42,7 +42,7 @@ export function EventsShowcase() {
                                             {event.image && (
                                                 <Image
                                                     src={event.image}
-                                                    alt={event.title}
+                                                    alt={`${event.title} - Live Entertainment at Charcoal N Chill Alpharetta`}
                                                     fill
                                                     className="object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-[0.9]"
                                                 />

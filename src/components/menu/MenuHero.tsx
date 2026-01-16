@@ -52,7 +52,7 @@ export function MenuHero() {
             <div className="absolute inset-0 z-0 parallax-layer will-change-transform">
                 <Image
                     src="/images/cocktails.jpg"
-                    alt="Premium Cocktails at Charcoal N Chill"
+                    alt="Authentic Indo-American Fusion Cuisine at Charcoal N Chill - Butter Chicken & Premium Hookah"
                     fill
                     className="object-cover opacity-60"
                     priority

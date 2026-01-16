@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Head from "next/head";
-import { Raleway } from "next/font/google";
+import { Raleway, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { JsonLd, organizationSchema, restaurantSchema } from "@/components/layout/JsonLd";
@@ -13,12 +13,20 @@ import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { AgeVerificationWrapper } from "@/components/ui/AgeVerificationWrapper";
 import { ToastProvider } from "@/components/ui/Toast";
 import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
+import { StickyReservation } from "@/components/layout/StickyReservation";
 
 import { ScavengerHuntTracker } from "@/components/gamification/ScavengerHuntTracker";
 
 
 const raleway = Raleway({
   variable: "--font-raleway",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   display: "swap",
@@ -34,7 +42,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://charcoalnchill.com"),
-  title: "Charcoal N Chill | Premium Hookah & Indo-American Fusion Grill in Alpharetta",
+  title: "Charcoal N Chill | Premium Hookah Lounge & Indian Restaurant Alpharetta GA",
   description: "Alpharetta's #1 destination for premium hookah, Indo-American Eats, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
   openGraph: {
     title: "Charcoal N Chill | Premium Hookah & Indo-American Fusion Grill",
@@ -71,6 +79,7 @@ export default function RootLayout({
       <body
         className={cn(
           raleway.variable,
+          playfair.variable,
           "antialiased bg-background text-foreground font-sans min-h-screen"
         )}
         suppressHydrationWarning
@@ -84,6 +93,7 @@ export default function RootLayout({
 
             <ScavengerHuntTracker />
             <WhatsAppFloat />
+            <StickyReservation />
             <a
               href="#main-content"
               className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-gold text-black px-6 py-3 rounded-full font-black uppercase tracking-widest text-sm shadow-2xl transition-all outline-none focus:ring-2 focus:ring-brand-red"

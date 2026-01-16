@@ -10,8 +10,8 @@ import { ContactInfo } from "@/components/contact/ContactInfo";
 import { MapPin } from "lucide-react";
 
 export const metadata = constructMetadata({
-    title: "Contact & Reservations | Book Your Table at Charcoal N Chill",
-    description: "Visit Charcoal N Chill at 11950 Jones Bridge Rd, Alpharetta near Avalon. Call (470) 546-4866 to reserve your table. Open til 2 AM on weekends!",
+    title: "Reservations & Contact - Charcoal N Chill Alpharetta | Book Table Now",
+    description: "Reserve your table at Charcoal N Chill. Located at 11950 Jones Bridge Rd, Alpharetta GA. Call (470) 546-4866 or book online. Near Avalon Mall.",
     path: "/contact",
     keywords: ["hookah lounge reservations", "book table Alpharetta", "Charcoal N Chill contact", "group bookings lounge"]
 });

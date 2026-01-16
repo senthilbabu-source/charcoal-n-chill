@@ -112,12 +112,17 @@ export function EventsHero() {
             </div>
 
             {/* Scroll Indicator */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer z-20" onClick={scrollToEvents}>
+            <button
+                type="button"
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer z-20"
+                onClick={scrollToEvents}
+                aria-label="Scroll down"
+            >
                 <div className="flex flex-col items-center gap-2">
                     <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">Explore</span>
                     <ArrowDown className="text-gold-primary w-6 h-6" />
                 </div>
-            </div>
+            </button>
         </section>
     );
 }

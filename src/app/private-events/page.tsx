@@ -13,8 +13,8 @@ import { TiltCard } from "@/components/ui/TiltCard";
 import { SecretHunt } from "@/components/gamification/SecretHunt";
 
 export const metadata = constructMetadata({
-    title: "Private Events & Party Venue | VIP Birthday & Corporate Packages",
-    description: "Book your private event at Charcoal N Chill. Luxury VIP spaces for up to 60 guests. Perfect for birthdays, corporate events, celebrations. Reserve today!",
+    title: "Private Party Venue - VIP Hookah Lounge Rental | Alpharetta GA",
+    description: "Book our luxury VIP lounge for birthdays, corporate events & celebrations. Premium hookah, Indian catering, bottle service. Versace seating. Alpharetta, GA.",
     path: "/private-events",
     keywords: ["private party venue Alpharetta", "birthday party ideas Atlanta", "corporate event lounge", "exclusive venue hire GA"]
 });
@@ -134,10 +134,10 @@ export default function PrivateEventsPage() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-4 pt-8">
                                     <div className="aspect-square rounded-2xl overflow-hidden border border-white/10 group relative">
-                                        <Image src="/images/50-birthday-party-1.jpeg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="50th Birthday Party Celebration" fill sizes="(max-width: 768px) 100vw, 300px" />
+                                        <Image src="/images/50-birthday-party-1.jpeg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="VIP Private Party Section - Luxury Birthday Celebration at Charcoal N Chill Alpharetta" fill sizes="(max-width: 768px) 100vw, 300px" />
                                     </div>
                                     <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/10 group relative">
-                                        <Image src="/images/corporaate-event-company-mixer.jpg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="Corporate Event Company Mixer" fill sizes="(max-width: 768px) 100vw, 300px" />
+                                        <Image src="/images/corporaate-event-company-mixer.jpg" className="object-cover group-hover:scale-110 transition-transform duration-700" alt="Corporate Company Event Venue Rental Alpharetta - Team Building at Charcoal N Chill" fill sizes="(max-width: 768px) 100vw, 300px" />
                                     </div>
                                 </div>
                                 <div className="space-y-4">

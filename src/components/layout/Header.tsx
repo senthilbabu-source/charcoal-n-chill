@@ -143,71 +143,86 @@ export function Header() {
                         aria-expanded={isOpen}
                         aria-controls="mobile-menu"
                     >
-                        {isOpen ? <X size={28} /> : <Menu size={28} />}
+                        {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu Backdrop */}
+            {/* Mobile Menu Slide-in Drawer */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
-                        onClick={() => setIsOpen(false)}
-                        aria-hidden="true"
-                    />
-                )}
-            </AnimatePresence>
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+                            onClick={() => setIsOpen(false)}
+                        />
+                        {/* Drawer */}
+                        <motion.nav
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="fixed inset-y-0 right-0 z-50 w-full max-w-xs bg-dark-secondary border-l border-white/10 shadow-2xl md:hidden flex flex-col"
+                            id="mobile-menu"
+                        >
+                            <div className="p-6 flex flex-col h-full">
+                                <div className="flex justify-end mb-8">
+                                    <button
+                                        onClick={() => setIsOpen(false)}
+                                        className="p-2 text-white hover:text-gold-primary transition-colors"
+                                        aria-label="Close menu"
+                                    >
+                                        <X size={24} />
+                                    </button>
+                                </div>
 
-            {/* Mobile Menu Dropdown */}
-            <AnimatePresence>
-                {isOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute top-full left-0 right-0 z-50 bg-black border-b border-white/10 shadow-2xl md:hidden overflow-hidden"
-                        id="mobile-menu"
-                    >
-                        <div className="container mx-auto px-4 py-6">
-                            <nav className="grid grid-cols-2 gap-4">
-                                {allNavItems.map((item) => (
+                                <div className="flex flex-col gap-6 flex-1">
+                                    {allNavItems.map((item) => (
+                                        <Link
+                                            key={item.name}
+                                            href={item.href}
+                                            className={cn(
+                                                "text-2xl font-heading font-bold uppercase tracking-wider transition-colors border-b border-white/5 pb-4",
+                                                pathname === item.href ? "text-gold-primary border-gold-primary/30" : "text-white hover:text-gold-primary hover:pl-2"
+                                            )}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+
                                     <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        className={cn(
-                                            "flex items-center justify-center py-3 px-4 rounded-xl bg-white/5 border border-white/5 text-sm font-bold uppercase tracking-wider transition-all hover:bg-white/10 hover:border-gold/30 hover:text-gold",
-                                            pathname === item.href ? "bg-white/10 border-gold/50 text-gold" : "text-white/80"
-                                        )}
+                                        href="/admin/login"
+                                        className="text-lg font-bold uppercase tracking-wider text-white/50 hover:text-white transition-colors flex items-center gap-2 mt-4"
                                         onClick={() => setIsOpen(false)}
                                     >
-                                        {item.name}
+                                        <Lock size={16} /> Admin Access
                                     </Link>
-                                ))}
-                            </nav>
+                                </div>
 
-                            <div className="mt-6 pt-6 border-t border-white/10 space-y-4">
-                                <Button
-                                    className="w-full py-6 text-base font-bold bg-white/10 border border-gold/30 text-gold hover:bg-gold/20"
-                                    onClick={() => {
-                                        setIsOpen(false);
-                                        setShowRewards(true);
-                                    }}
-                                >
-                                    <Gift size={20} className="mr-2" /> Spin to Win
-                                </Button>
-                                <Button className="w-full py-6 text-base font-bold bg-gold text-charcoal hover:bg-gold-light" asChild>
-                                    <Link href="/contact#reserve" onClick={() => setIsOpen(false)}>
-                                        Reserve A Table
-                                    </Link>
-                                </Button>
+                                <div className="mt-auto space-y-4">
+                                    <Button
+                                        className="w-full py-4 font-bold bg-white/5 border border-gold/30 text-gold hover:bg-gold/10"
+                                        onClick={() => {
+                                            setIsOpen(false);
+                                            setShowRewards(true);
+                                        }}
+                                    >
+                                        <Gift size={20} className="mr-2" /> Rewards
+                                    </Button>
+                                    <Button className="w-full py-4 font-bold bg-gold text-charcoal hover:bg-gold-light" asChild>
+                                        <Link href="/contact#reserve" onClick={() => setIsOpen(false)}>
+                                            Reserve A Table
+                                        </Link>
+                                    </Button>
+                                </div>
                             </div>
-                        </div>
-                    </motion.div>
+                        </motion.nav>
+                    </>
                 )}
             </AnimatePresence>
 

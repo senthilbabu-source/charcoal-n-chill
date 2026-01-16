@@ -25,7 +25,7 @@ const highlights: HighlightItem[] = [
         description: "From our signature Butter Chicken to Tandoori Wings, explore a fusion of Indo-American tastes.",
         image: "/images/butter-chicken.jpg",
         link: "/menu",
-        cta: "View Full Menu",
+        cta: "Explore Our Full Menu",
         icon: Utensils,
         size: "large",
         className: "md:col-span-2 md:row-span-2"
@@ -36,7 +36,7 @@ const highlights: HighlightItem[] = [
         description: "Belly dancing, Bollywood nights, and live DJs every weekend.",
         image: "/images/belly-dance-cnc.jpg",
         link: "/events",
-        cta: "See Schedule",
+        cta: "View Weekly Events",
         icon: Music,
         size: "tall",
         className: "md:col-span-1 md:row-span-2"
@@ -47,7 +47,7 @@ const highlights: HighlightItem[] = [
         description: "50+ exotic flavors with ice hose upgrades.",
         image: "/images/hookah-cnc.jpg",
         link: "/menu",
-        cta: "Explore Flavors",
+        cta: "Browse 50+ Flavors",
         icon: Star,
         size: "standard",
         className: ""
@@ -58,7 +58,7 @@ const highlights: HighlightItem[] = [
         description: "Book the VIP lounge for your next celebration.",
         image: "/images/vip-section.jpg",
         link: "/contact",
-        cta: "Book VIP",
+        cta: "Reserve VIP Section",
         icon: Calendar,
         size: "standard",
         className: ""

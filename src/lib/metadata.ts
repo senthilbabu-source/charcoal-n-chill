@@ -8,14 +8,16 @@ interface MetadataProps {
     path: string;
     image?: string;
     keywords?: string[];
+    type?: "website" | "article"; // standard types
 }
 
 export function constructMetadata({
     title,
     description,
     path,
-    image = "/images/hero-bg.jpg",
+    image = "/og-image.jpg",
     keywords = [],
+    type = "website",
 }: MetadataProps): Metadata {
     const url = `${BASE_URL}${path}`;
 
@@ -46,13 +48,13 @@ export function constructMetadata({
                 },
             ],
             locale: "en_US",
-            type: "website",
+            type: type, // No cast needed if restricted to valid types
         },
         twitter: {
             card: "summary_large_image",
             title,
             description,
-            images: [image],
+            images: [image === "/og-image.jpg" ? "/twitter-image.jpg" : image],
         },
         other: {
             "geo.region": "US-GA",
