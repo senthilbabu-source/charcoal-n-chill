@@ -9,7 +9,8 @@ export type BlogCategory =
     | "Private Party"
     | "Mixology"
     | "Cocktails"
-    | "Mocktails";
+    | "Mocktails"
+    | "Expert Tips";
 
 export interface BlogPost {
     id: string;
@@ -31,7 +32,8 @@ export const categories: BlogCategory[] = [
     "Mixology",
     "Live Entertainment",
     "DJ Nights",
-    "Private Party"
+    "Private Party",
+    "Expert Tips"
 ];
 
 export const blogPosts: BlogPost[] = [
@@ -4084,5 +4086,148 @@ export const blogPosts: BlogPost[] = [
         author: "Events Team",
         image: "/images/team-building-cnc.jpg",
         slug: "real-team-building-hookah"
+    },
+    // Bollywood Night Recap
+    {
+        id: "28",
+        title: "Bollywood Night Hits: A Playlist for the Soul",
+        excerpt: "Highlights from our most electrifying weekend yet. If you missed the impromptu bhangra battle, here's what went down.",
+        content: `
+            <p>Let me set the scene: It's 10:47 PM on a random Thursday. The DJ drops "Kaala Chashma," and I watch a table of six people—who've clearly never heard this song before in their lives—attempt Bollywood dance moves with the confidence of people who've had exactly two and a half cocktails.</p>
+            <p><strong>They're terrible.</strong> Arms flailing. Zero rhythm. Completely out of sync with each other.</p>
+            <p><strong>They're also having the time of their lives.</strong></p>
+            <p>That's what Bollywood night does to people. It doesn't matter if you grew up watching Shah Rukh Khan movies or if you think Bollywood is a place in California (it's not, by the way). When those beats drop and the energy hits, something primal takes over. You move. You smile. You forget you have responsibilities in the morning.</p>
+            <p><strong>Welcome to our Bollywood-themed nights</strong>, where the music makes zero logical sense to half the room and perfect sense to everyone's bodies.</p>
+
+            <h3>What Even Is a Bollywood Night?</h3>
+            <p>Good question. Let me clarify what you're walking into.</p>
+            <p><strong>It's not:</strong> A traditional Bollywood party where everyone knows all the songs and choreography. (Though if you do, we love you and please teach us your ways.)</p>
+            <p><strong>It is:</strong> An evening where Bollywood hits are the main character, mixed with enough crossover appeal that everyone finds something to love. Think Bollywood classics, Punjabi bangers, some Sufi fusion, maybe a reggaeton track when we need to switch gears, and always—ALWAYS—ending with "Munni Badnaam Hui."</p>
+            <p><strong>The vibe:</strong> Celebratory. High-energy. Unpretentious. You don't need to know Hindi. You don't need to know the dance moves. You just need to be willing to have fun.</p>
+
+            <h3>The Playlist That Hits Different</h3>
+            <p>Let me give you a sample of what a typical Bollywood night rotation looks like:</p>
+            <p><strong>The Openers (Getting You Comfortable):</strong></p>
+            <ul>
+                <li>"Tum Hi Ho" – Because we ease you in with something melodic</li>
+                <li>"Dil Chahta Hai" – The friend-group anthem</li>
+                <li>"Badtameez Dil" – Where the energy starts building</li>
+            </ul>
+            <p><strong>The Middle (Where We Get You Moving):</strong></p>
+            <ul>
+                <li>"Kaala Chashma" – The universally loved crowd-pleaser</li>
+                <li>"Nachde Ne Saare" – Peak bhangra energy</li>
+                <li>"Gallan Goodiyaan" – Impossible not to move to</li>
+                <li>"Lungi Dance" – Yes, we play this. Yes, everyone loves it.</li>
+            </ul>
+            <p><strong>The Peak (Full Dance Mode):</strong></p>
+            <ul>
+                <li>"Chammak Challo" – Akon meets Bollywood, everyone wins</li>
+                <li>"Desi Girl" – The anthem</li>
+                <li>"Sheila Ki Jawani" – This is when people start standing on couches (please don't)</li>
+            </ul>
+            <p><strong>The Closer:</strong></p>
+            <ul>
+                <li>"Munni Badnaam Hui" – The only way to end the night</li>
+            </ul>
+
+            <h3>Why This Works (Even If You've Never Seen a Bollywood Movie)</h3>
+            <p>Here's what I've learned watching hundreds of people experience their first Bollywood night:</p>
+            <p><strong>The music is designed to make you move.</strong> Bollywood songs aren't background noise. They're celebrations packed into 4-minute packages. The beats are infectious. The energy is undeniable. Your body responds before your brain has time to overthink it.</p>
+            <p><strong>You don't need to know the words.</strong> Half our crowd doesn't speak Hindi. Doesn't matter. When "Kaala Chashma" drops, everyone's singing "Kaala Chashma" even if they're just making sounds that approximate the lyrics. It's about the vibe, not linguistic accuracy.</p>
+            <p><strong>It's communal.</strong> Bollywood music was made for weddings, celebrations, and big groups. It invites you to participate, not just observe. You're not watching other people have fun—you're in it together.</p>
+
+            <h3>What to Expect: First-Timer Edition</h3>
+            <ul>
+                <li><strong>You'll feel awkward for exactly seven minutes.</strong> That's how long it takes for the music and the energy to override your self-consciousness.</li>
+                <li><strong>Someone will try to teach you Bollywood dance moves.</strong> Let them. Will you be good at it? No. Will it be fun? Absolutely.</li>
+                <li><strong>You'll discover muscles you didn't know existed.</strong> Bollywood dancing is a workout disguised as a party. Your core will remind you of this the next morning.</li>
+            </ul>
+
+            <h3>The Moment It Clicks</h3>
+            <p>I've seen it happen dozens of times. Someone shows up skeptical—"Bollywood night? Really?"—arms crossed, giving off "I'm only here because my friends dragged me" energy.</p>
+            <p><strong>Twenty minutes later</strong>, they're attempting shoulder shimmies they saw in the music video playing on the screen. They're laughing. They're sweating. They're asking when the next Bollywood night is.</p>
+            <p>That's the transformation. It's like watching someone discover a language they didn't know they could speak. The music just... unlocks something.</p>
+
+            <h3>The Hookah Factor</h3>
+            <p>Yes, you can (and should) order hookah. Something about pacing yourself with pulls of mint or double apple between dance sessions creates the perfect rhythm. Trust the process.</p>
+
+            <h3>Final Thoughts: Just Try It</h3>
+            <p>Look, I get it. "Bollywood night" might not be the first thing you think of when planning your Thursday evening.</p>
+            <p>But the people who have the most fun are the ones who show up with zero expectations and open minds. The ones who are willing to look slightly ridiculous while attempting dance moves from a culture that's not theirs.</p>
+            <p>So here's my invitation: Come to Bollywood night. Bring friends. Bring an open mind. Leave your self-consciousness at the door.</p>
+            <p>The playlist is ready. The hookah is waiting. Your soul needs this.</p>
+            <p>See you on the checkered floor. 🎵💃</p>
+
+            <p><a href="/events">VIEW UPCOMING EVENTS</a> | <a href="/contact#reserve">BOOK A TABLE</a></p>
+        `,
+        category: ["Live Entertainment", "DJ Nights"],
+        date: "Jan 25, 2026",
+        readTime: "4 min read",
+        author: "Events Team",
+        image: "/images/bollywood-night-recap.jpg",
+        slug: "bollywood-night-recap"
+    },
+    // Top 5 Hookah Flavors
+    {
+        id: "29",
+        title: "Top 5 Hookah Flavors for Beginners",
+        excerpt: "New to hookah? Don't stress. Start with these crowd-pleasing blends curated by our experts for a smooth, flavorful first session.",
+        content: `
+            <p>Walking into a hookah lounge for the first time is a vibe... until you get the menu.</p>
+            <p>Suddenly you're staring at 50 different names like "Code 69," "Blue Mist," "Safari Melon Dew," and "Pirate's Cave." You have no idea what any of them taste like. Your server is waiting. Your friends are looking at you. Panic sets in.</p>
+            <p>Relax. We've got you.</p>
+            <p>The truth is, while there are hundreds of flavors out there, there are only a handful that are universally loved by pretty much everyone. These are the "safe bets"—the flavors that are smooth, delicious, and guaranteed to give you a great session even if you've never smoked before.</p>
+            <p>Here are the top 5 flavors we recommend to every beginner (and why they work).</p>
+
+            <h3>1. Blue Mist (Blueberry Mint)</h3>
+            <p><strong>The G.O.A.T. (Greatest of All Time)</strong></p>
+            <p>If you ask 100 hookah smokers what their first flavor was, 90 of them will say Blue Mist. It's legendary for a reason.</p>
+            <p><strong>The Taste:</strong> Sweet, candy-like blueberry with a refreshing cool mint finish. It's not "toothpaste mint"—it's more like a cool breeze on a hot day.</p>
+            <p><strong>Why Beginners Love It:</strong> It's incredibly smooth. The mint cools down the smoke so it's not harsh on your throat, and the berry sweetness is super pleasant without being sickly sweet. It's impossible to hate.</p>
+
+            <h3>2. Watermelon Mint</h3>
+            <p><strong>The Summer Classic</strong></p>
+            <p>Imagine drinking a cold glass of fresh watermelon juice with a sprig of mint in it. That's exactly what this tastes like.</p>
+            <p><strong>The Taste:</strong> Juicy, sweet, authentic watermelon flavor balanced by fresh mint.</p>
+            <p><strong>Why Beginners Love It:</strong> It's familiar. Everyone knows what watermelon tastes like. It's refreshing, light, and produces thick, white clouds that make you look like a pro. It's the perfect "I just want to chill" flavor.</p>
+
+            <h3>3. Love 66</h3>
+            <p><strong>The Tropical Vacay</strong></p>
+            <p>Don't let the name confuse you. This is one of the most popular modern flavors in the world right now.</p>
+            <p><strong>The Taste:</strong> A complex mix of melon, passion fruit, flowers, and mint. It tastes like a tropical cocktail.</p>
+            <p><strong>Why Beginners Love It:</strong> It's sweet and exotic. If you like fruity drinks or candy, you'll love this. It's very flavorful and smells amazing, so the people around you will enjoy it too.</p>
+
+            <h3>4. Peach Mint</h3>
+            <p><strong>The Southern Belle</strong></p>
+            <p>Simple, elegant, and delicious. This is for people who want something sweet but not "candy" sweet.</p>
+            <p><strong>The Taste:</strong> Ripe, fuzzy peaches with a cooling mint undertone.</p>
+            <p><strong>Why Beginners Love It:</strong> It's widely appealing. The peach flavor is distinct and natural-tasting. It pairs amazingly well with iced tea or lemonade, making it a great daytime or early evening smoke.</p>
+
+            <h3>5. Lemon Mint</h3>
+            <p><strong>The Palate Cleanser</strong></p>
+            <p>If you don't have a huge sweet tooth, this is your winner. It's zesty and bright.</p>
+            <p><strong>The Taste:</strong> Like a fresh lemonade. Tart citrus notes balanced by cooling mint.</p>
+            <p><strong>Why Beginners Love It:</strong> It's not cloying. Sometimes sweet flavors can get overwhelming after 30 minutes. Lemon Mint stays fresh and crisp the entire session. It wakes up your taste buds.</p>
+
+            <h3>Bonus: The "Mix It Up" Strategy</h3>
+            <p>Can't decide? You don't have to. The best part of hookah is mixing.</p>
+            <p><strong>Beginner Combo:</strong> Ask for 50% Watermelon and 50% Blue Mist. It creates a "Blue Melon" mix that brings out the best of both worlds.</p>
+
+            <h3>Final Advice for Your First Time</h3>
+            <ul>
+                <li><strong>Don't skip the mint.</strong> Even if you "don't like mint," trust us. In hookah, mint is a cooling agent. It makes the smoke smoother and less harsh. A pure fruit bowl can get scratchy quickly. A fruit + mint bowl stays smooth.</li>
+                <li><strong>Take it slow.</strong> You don't need to inhale like you're trying to win a competition. Long, slow, gentle pulls are the secret to big clouds and no coughing.</li>
+                <li><strong>Hydrate.</strong> Drink water or tea while you smoke. It keeps the flavor fresh and prevents any headaches.</li>
+            </ul>
+            <p>Ready to try your first session? We've got the coals hot and the hoses ready.</p>
+            <p><a href="/menu">VIEW FULL FLAVOR MENU</a> | <a href="/contact#reserve">BOOK A TABLE</a></p>
+        `,
+        category: ["Hookah", "Expert Tips"],
+        date: "Jan 28, 2026",
+        readTime: "5 min read",
+        author: "Hookah Master",
+        image: "/images/top-5-flavors.jpg",
+        slug: "top-5-hookah-flavors"
     }
 ];
