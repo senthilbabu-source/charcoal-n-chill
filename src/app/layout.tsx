@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import Head from "next/head";
+
 import { Raleway, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -44,6 +44,19 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://charcoalnchill.com"),
   title: "Charcoal N Chill | Premium Hookah Lounge & Indian Restaurant Alpharetta GA",
   description: "Alpharetta's #1 destination for premium hookah, Indo-American Eats, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ],
+  },
+  manifest: "/site.webmanifest",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Charcoal N Chill | Premium Hookah & Indo-American Fusion Grill",
     description: "Alpharetta's #1 destination for premium hookah, Indo-American Eats, and American classics like wings & burgers. Live entertainment, VIP lounge, and late-night fusion dining.",
@@ -70,12 +83,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
-      <Head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-      </Head>
+      {/* Head removed: handled by metadata API */}
       <body
         className={cn(
           raleway.variable,
