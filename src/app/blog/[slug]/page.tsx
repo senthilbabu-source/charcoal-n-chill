@@ -1,3 +1,4 @@
+import { CommentSection } from "@/components/blog/CommentSection";
 import { notFound } from "next/navigation";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog-utils";
 import { RelatedEvents } from "@/components/blog/RelatedEvents";
@@ -168,6 +169,13 @@ export default async function BlogPostPage({ params }: Props) {
                                     </Link>
                                 )}
                             </div>
+
+                            {/* Comment Section */}
+                            <CommentSection
+                                slug={post.slug}
+                                title={post.title}
+                                id={post.id}
+                            />
                         </div>
                     </Section>
                 </article>

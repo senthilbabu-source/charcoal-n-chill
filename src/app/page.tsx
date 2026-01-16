@@ -73,7 +73,7 @@ export default function Home() {
                 </a>
               </ScrollReveal>
               <ScrollReveal animation="fade-up" delay={0.2}>
-                <a href="/blog/top-5-hookah-flavors" className="block group bg-dark-secondary rounded-2xl p-8 border border-white/5 hover:border-gold-primary/30 transition-colors">
+                <a href="/blog/ultimate-guide-hookah-flavors" className="block group bg-dark-secondary rounded-2xl p-8 border border-white/5 hover:border-gold-primary/30 transition-colors">
                   <span className="text-gold-primary text-xs font-bold uppercase tracking-widest mb-3 block">Expert Tips</span>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold-primary transition-colors">Top 5 Hookah Flavors for Beginners</h3>
                   <p className="text-gray-400 text-sm">New to hookah? Start with these crowd-pleasing blends curated by our experts.</p>

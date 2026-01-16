@@ -37,6 +37,95 @@ export const categories: BlogCategory[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
+    // Bollywood Night Recap
+    {
+        id: "20",
+        title: "Bollywood Night Hits: A Playlist for the Soul",
+        excerpt: "It's 10:47 PM. The DJ drops 'Kaala Chashma,' and the room explodes. Here's why our Bollywood nights are the most electric party in Alpharetta.",
+        content: `
+            <p>Let me set the scene: It's 10:47 PM on a random Thursday. The DJ drops "Kaala Chashma," and I watch a table of six people—who've clearly never heard this song before in their lives—attempt Bollywood dance moves with the confidence of people who've had exactly two and a half cocktails.</p>
+            <p><strong>They're terrible.</strong> Arms flailing. Zero rhythm. Completely out of sync with each other.</p>
+            <p><strong>They're also having the time of their lives.</strong></p>
+            <p>That's what Bollywood night does to people. It doesn't matter if you grew up watching Shah Rukh Khan movies or if you think Bollywood is a place in California (it's not, by the way). When those beats drop and the energy hits, something primal takes over. You move. You smile. You forget you have responsibilities in the morning.</p>
+            <p><strong>Welcome to our Bollywood-themed nights</strong>, where the music makes zero logical sense to half the room and perfect sense to everyone's bodies.</p>
+
+            <h3>What Even Is a Bollywood Night?</h3>
+            <p>Good question. Let me clarify what you're walking into.</p>
+            <p><strong>It's not:</strong> A traditional Bollywood party where everyone knows all the songs and choreography. (Though if you do, we love you and please teach us your ways.)</p>
+            <p><strong>It is:</strong> An evening where Bollywood hits are the main character, mixed with enough crossover appeal that everyone finds something to love. Think Bollywood classics, Punjabi bangers, some Sufi fusion, maybe a reggaeton track when we need to switch gears, and always—ALWAYS—ending with "Munni Badnaam Hui."</p>
+            <p><strong>The vibe:</strong> Celebratory. High-energy. Unpretentious. You don't need to know Hindi. You don't need to know the dance moves. You just need to be willing to have fun.</p>
+
+            <h3>The Playlist That Hits Different</h3>
+            <p>Let me give you a sample of what a typical Bollywood night rotation looks like:</p>
+            <p><strong>The Openers (Getting You Comfortable):</strong></p>
+            <ul>
+                <li>"Tum Hi Ho" – Because we ease you in with something melodic</li>
+                <li>"Dil Chahta Hai" – The friend-group anthem</li>
+                <li>"Badtameez Dil" – Where the energy starts building</li>
+            </ul>
+            <p><strong>The Middle (Where We Get You Moving):</strong></p>
+            <ul>
+                <li>"Kaala Chashma" – The universally loved crowd-pleaser</li>
+                <li>"Nachde Ne Saare" – Peak bhangra energy</li>
+                <li>"Gallan Goodiyaan" – Impossible not to move to</li>
+                <li>"Lungi Dance" – Yes, we play this. Yes, everyone loves it.</li>
+            </ul>
+            <p><strong>The Peak (Full Dance Mode):</strong></p>
+            <ul>
+                <li>"Chammak Challo" – Akon meets Bollywood, everyone wins</li>
+                <li>"Desi Girl" – The anthem</li>
+                <li>"Sheila Ki Jawani" – This is when people start standing on couches (please don't)</li>
+            </ul>
+            <p><strong>The Closer:</strong></p>
+            <ul>
+                <li>"Munni Badnaam Hui" – The only way to end the night</li>
+            </ul>
+            <p><strong>And yes</strong>, we throw in some Latin hits and Hip-Hop when we need to give people a breather. Because four straight hours of bhangra is how you create injuries.</p>
+
+            <h3>Why This Works (Even If You've Never Seen a Bollywood Movie)</h3>
+            <p>Here's what I've learned watching hundreds of people experience their first Bollywood night:</p>
+            <p><strong>The music is designed to make you move.</strong> Bollywood songs aren't background noise. They're celebrations packed into 4-minute packages. The beats are infectious. The energy is undeniable. Your body responds before your brain has time to overthink it.</p>
+            <p><strong>You don't need to know the words.</strong> Half our crowd doesn't speak Hindi. Doesn't matter. When "Kaala Chashma" drops, everyone's singing "Kaala Chashma" even if they're just making sounds that approximate the lyrics. It's about the vibe, not linguistic accuracy.</p>
+            <p><strong>It's communal.</strong> Bollywood music was made for weddings, celebrations, and big groups. It invites you to participate, not just observe. You're not watching other people have fun—you're in it together.</p>
+            <p><strong>And honestly?</strong> After a long week of work stress, family drama, and existential dread, there's something healing about dancing to music that's just pure, unfiltered joy.</p>
+
+            <h3>What to Expect: First-Timer Edition</h3>
+            <ul>
+                <li><strong>You'll feel awkward for exactly seven minutes.</strong> That's how long it takes for the music and the energy to override your self-consciousness. By minute eight, you're attempting hand gestures you've never made before in your life.</li>
+                <li><strong>Someone will try to teach you Bollywood dance moves.</strong> Let them. Will you be good at it? No. Will it be fun? Absolutely.</li>
+                <li><strong>You'll discover muscles you didn't know existed.</strong> Bollywood dancing is a workout disguised as a party. Your core will remind you of this the next morning.</li>
+                <li><strong>You'll request songs you can't pronounce.</strong> "Can you play that one song... with the... you know... the beats?" The DJ will know exactly what you mean.</li>
+                <li><strong>You'll leave with at least three new songs in your Spotify liked list.</strong> And you'll have no idea what they're about, but that bass line? <em>Chef's kiss.</em></li>
+            </ul>
+
+            <h3>The Moment It Clicks</h3>
+            <p>I've seen it happen dozens of times. Someone shows up skeptical—"Bollywood night? Really?"—arms crossed, giving off "I'm only here because my friends dragged me" energy.</p>
+            <p><strong>Twenty minutes later</strong>, they're attempting shoulder shimmies they saw in the music video playing on the screen. They're laughing. They're sweating. They're asking when the next Bollywood night is.</p>
+            <p><strong>That's the transformation.</strong> It's like watching someone discover a language they didn't know they could speak. The music just... unlocks something.</p>
+
+            <h3>Practical Info</h3>
+            <p><strong>When:</strong> Check our events calendar—Bollywood nights happen monthly, usually on a Thursday or special weekends.</p>
+            <p><strong>What to Wear:</strong> Comfortable. You're going to move. Maybe not "I'm going to Zumba" comfortable, but definitely not "these shoes cost $300 and I can't bend my knees" territory.</p>
+            <p><strong>Who Should Come:</strong> Bollywood fans, people who like dancing but are tired of the same club music, friend groups looking for something different, and anyone who needs a serotonin boost.</p>
+            <p><strong>The Hookah Factor:</strong> Yes, you can (and should) order hookah. Something about pacing yourself with pulls of mint or double apple between dance sessions creates the perfect rhythm. Trust the process.</p>
+
+            <h3>Final Thoughts: Just Try It</h3>
+            <p>Look, I get it. "Bollywood night" might not be the first thing you think of when planning your Thursday evening.</p>
+            <p>The people who have the most fun are the ones who show up with zero expectations and open minds. The ones who are willing to look slightly ridiculous while attempting dance moves from a culture that's not theirs. The ones who understand that music is a universal language, even when the lyrics aren't.</p>
+            <p><strong>So here's my invitation:</strong> Come to Bollywood night. Bring friends. Bring an open mind. Leave your self-consciousness at the door.</p>
+            <p>The playlist is ready. The hookah is waiting. Your soul needs this.</p>
+            <p><strong>See you on the checkered floor.</strong> 🎵💃</p>
+
+            <p><a href="/contact#reserve">BOOK YOUR TABLE</a> | <a href="/events">VIEW EVENTS CALENDAR</a></p>
+        `,
+        category: ["Live Entertainment", "DJ Nights"],
+        date: "Jan 15, 2026",
+        readTime: "4 min read",
+        author: "Events Team",
+        image: "/images/belly-dance-cnc.jpg", // Using existing image as placeholder
+        slug: "bollywood-night-recap"
+    },
+
     // Late Night Guide
     {
         id: "19",
@@ -1298,7 +1387,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>P.S. Yes, you can bring your skeptical friend who doesn't think they'll like it. Watching skeptics become believers is one of our favorite parts of the night. Just make sure they bring cash for tipping because they're definitely going to want to tip. Trust us on this. 💃✨</em></p>
         `,
         category: "Live Entertainment",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "12 min read",
         author: "Events Team",
         image: "/images/belly-dance-cnc-blog.jpg",
@@ -1464,7 +1553,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>P.S. If you're the type who thinks music should stay in neat little genre boxes, Saturday night at Charcoal N Chill will either convert you or confuse you. Either way, it'll be entertaining. And yes, we will play "Gasolina." We always play "Gasolina." It's basically the law at this point. See you on the checkered floor. 🎵🔥</em></p>
         `,
         category: "DJ Nights",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "8 min read",
         author: "Events Team",
         image: "/images/dj-cnc.jpg",
@@ -1563,7 +1652,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Bollywood Meets Everyone Else | Creating Cultural Moments Since 2023</em></p>
         `,
         category: "DJ Nights",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "4 min read",
         author: "Events Team",
         image: "/images/bollywood-dj-cnc.jpg",
@@ -1875,7 +1964,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Birthdays Become Events | Creating Memorable Celebrations Since 2023</em></p>
         `,
         category: "Private Party",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "5 min read",
         author: "Events Team",
         image: "/images/birthday-party-bash-cnc.jpg",
@@ -3158,7 +3247,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>P.S. If you've been making margaritas with bottled lime juice and margarita mix your whole life, we're not judging. We're just here to show you what you've been missing. 🍋🥃</em></p>
         `,
         category: "Mixology",
-        date: "Jan 18, 2026",
+        date: "Jan 15, 2026",
         readTime: "10 min read",
         author: "Bar Manager",
         image: "/images/house-margarita-cnc.jpg",
@@ -3271,7 +3360,7 @@ export const blogPosts: BlogPost[] = [
             <p><strong>Ready to Watch the Sunrise?</strong> <a href="/contact#reserve">Book Your Table</a> | <a href="/menu">View Full Drink Menu</a></p>
         `,
         category: "Mixology",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "9 min read",
         author: "Bar Team",
         image: "/images/sunriser-cnc.jpg",
@@ -3337,7 +3426,7 @@ export const blogPosts: BlogPost[] = [
             <p><strong>Ready for Liquid Decadence?</strong> <a href="/contact#reserve">Book Your Table</a> | <a href="/menu">View Full Cocktail Menu</a></p>
         `,
         category: "Mixology",
-        date: "Jan 22, 2026",
+        date: "Jan 15, 2026",
         readTime: "8 min read",
         author: "Lead Mixologist",
         image: "/images/choco-lava-delight-cnc.jpg",
@@ -3434,7 +3523,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Latino Beats Meet Everyone | Creating Cultural Moments Since 2023</em></p>
         `,
         category: "DJ Nights",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "4 min read",
         author: "Events Team",
         image: "/images/latin-night-cnc.jpg",
@@ -3541,7 +3630,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where 90s Hip Hop Lives Forever | Creating Cultural Moments Since 2023</em></p>
         `,
         category: "DJ Nights",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "4 min read",
         author: "Events Team",
         image: "/images/hiphop-night-cnc.jpg",
@@ -3662,7 +3751,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Afrobeats Culture Lives | Creating Cultural Moments Since 2023</em></p>
         `,
         category: "DJ Nights",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "4 min read",
         author: "Events Team",
         image: "/images/afro-night-cnc.jpg",
@@ -3782,7 +3871,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Punjabi Energy Lives | Creating Cultural Moments Since 2023</em></p>
         `,
         category: "DJ Nights",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "4 min read",
         author: "Events Team",
         image: "/images/punjabi-night-cnc.jpg",
@@ -3896,7 +3985,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Corporate Events Get Interesting | Creating Memorable Business Moments Since 2023</em></p>
         `,
         category: "Private Party",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "5 min read",
         author: "Events Team",
         image: "/images/corporate-event-cnc.jpg",
@@ -3992,7 +4081,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Friend Groups Actually Hang Out | Creating Social Moments Since 2023</em></p>
         `,
         category: "Private Party",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "4 min read",
         author: "Events Team",
         image: "/images/social-gathering-cnc.jpg",
@@ -4081,7 +4170,7 @@ export const blogPosts: BlogPost[] = [
             <p><em>Charcoal N Chill | Alpharetta's Premier Hookah Lounge & Restaurant | Where Teams Actually Bond | Creating Real Connection Since 2023</em></p>
         `,
         category: "Private Party",
-        date: "Jan 20, 2026",
+        date: "Jan 15, 2026",
         readTime: "5 min read",
         author: "Events Team",
         image: "/images/team-building-cnc.jpg",
@@ -4162,7 +4251,7 @@ export const blogPosts: BlogPost[] = [
             <p><a href="/events">VIEW UPCOMING EVENTS</a> | <a href="/contact#reserve">BOOK A TABLE</a></p>
         `,
         category: ["Live Entertainment", "DJ Nights"],
-        date: "Jan 25, 2026",
+        date: "Jan 15, 2026",
         readTime: "4 min read",
         author: "Events Team",
         image: "/images/bollywood-night-recap.jpg",
@@ -4224,7 +4313,7 @@ export const blogPosts: BlogPost[] = [
             <p><a href="/menu">VIEW FULL FLAVOR MENU</a> | <a href="/contact#reserve">BOOK A TABLE</a></p>
         `,
         category: ["Hookah", "Expert Tips"],
-        date: "Jan 28, 2026",
+        date: "Jan 15, 2026",
         readTime: "5 min read",
         author: "Hookah Master",
         image: "/images/top-5-flavors.jpg",
