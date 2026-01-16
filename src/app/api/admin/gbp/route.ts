@@ -45,6 +45,34 @@ export async function GET() {
             }, { status: 404 });
         }
 
+        // 3.5 Auto-Accept Invitations (Fix for "Invited" status)
+        try {
+            console.log(`Checking invitations for ${account.name}...`);
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const invitationsRes = await (mybusinessaccountmanagement as any).invitations.list({
+                parent: account.name
+            });
+
+            const invitations = invitationsRes.data.invitations;
+            if (invitations && invitations.length > 0) {
+                console.log(`Found ${invitations.length} pending invitations.`);
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                for (const invite of invitations as any) {
+                    if (invite.name) {
+                        console.log(`Accepting invitation: ${invite.name}`);
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        await (mybusinessaccountmanagement as any).invitations.accept({
+                            name: invite.name
+                        });
+                    }
+                }
+                // Wait briefly for propagation
+                await new Promise(r => setTimeout(r, 2000));
+            }
+        } catch (invError) {
+            console.warn("Invitation auto-accept failed (non-critical):", invError);
+        }
+
         // 4. Find the Location (The Business Instance)
         // accounts/{accountId}/locations
         const locationsRes = await mybusinessbusinessinformation.accounts.locations.list({

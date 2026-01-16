@@ -57,6 +57,25 @@ export default function AdminDashboard() {
                                 </span>
                             </div>
                         </Link>
+
+                        {/* SEO Task Tracker Card */}
+                        <Link href="/admin/seo-tracker" className="group relative overflow-hidden rounded-3xl border border-white/10 bg-dark-secondary p-8 hover:border-gold-primary/50 transition-all duration-300 md:col-span-2 lg:col-span-1">
+                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <PenTool size={100} className="text-green-500" />
+                            </div>
+                            <div className="relative z-10 font-bold">
+                                <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                    <PenTool className="text-green-500" size={24} />
+                                </div>
+                                <h3 className="text-2xl font-bold text-white mb-2">SEO Task Tracker</h3>
+                                <p className="text-gray-400 text-sm mb-6">
+                                    Manage your 100+ point SEO checklist, track progress, and organize local citations.
+                                </p>
+                                <span className="inline-flex items-center text-sm font-bold text-green-500 group-hover:translate-x-1 transition-transform">
+                                    Track Progress →
+                                </span>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </main>
