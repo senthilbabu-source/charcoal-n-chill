@@ -170,12 +170,8 @@ export default async function BlogPostPage({ params }: Props) {
                                 )}
                             </div>
 
-                            {/* Comment Section */}
-                            <CommentSection
-                                slug={post.slug}
-                                title={post.title}
-                                id={post.id}
-                            />
+
+
                         </div>
                     </Section>
                 </article>

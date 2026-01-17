@@ -81,6 +81,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { Suspense } from "react";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -100,7 +102,9 @@ export default function RootLayout({
             <div id="scroll-sentinel" className="absolute top-0 h-px w-full pointer-events-none" />
             <AgeVerificationWrapper />
             <GrainOverlay />
-            <SmoothScroll />
+            <Suspense fallback={null}>
+              <SmoothScroll />
+            </Suspense>
 
             <ScavengerHuntTracker />
             <WhatsAppFloat />
