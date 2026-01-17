@@ -14,13 +14,12 @@ export function CommentSection({ slug, title, id }: CommentSectionProps) {
     // TODO: Replace with your actual Disqus shortname
     const disqusShortname = "charcoalnchill-atlanta";
 
-    // Use the production URL as the canonical identifier for Disqus
-    // This ensures comments sync between dev/prod and prevents splitting threads
-    const url = `https://charcoalnchill.com/blog/${slug}`;
+    // Dynamic URL for development/staging flexibility
+    const url = typeof window !== 'undefined' ? window.location.href : `https://charcoalnchill.com/blog/${slug}`;
 
     const disqusConfig = {
         url: url,
-        identifier: id, // unique identifier for the post
+        identifier: `post-${id}`, // uniquely identify post separate from integer IDs
         title: title,
     };
 

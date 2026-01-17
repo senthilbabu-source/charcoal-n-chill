@@ -10,6 +10,8 @@ export async function GET() {
         const clientEmail = process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL;
         const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n'); // Handle newline escape sequences
 
+
+
         if (!clientEmail || !privateKey) {
             return NextResponse.json({
                 error: "Credentials missing. Please check .env.local",
