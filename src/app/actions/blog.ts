@@ -3,6 +3,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { BlogPost } from "@/data/blog";
+import { revalidatePath } from "next/cache";
 
 const POSTS_FILE = path.join(process.cwd(), "src/data/posts.json");
 
@@ -75,6 +76,7 @@ export async function createBlogPost(prevState: any, formData: FormData) {
         // Save back to file
         await fs.writeFile(POSTS_FILE, JSON.stringify(posts, null, 4));
 
+        revalidatePath("/blog");
         return { success: true, message: "Blog post created successfully!" };
     } catch (error) {
         console.error("Failed to create blog post:", error);

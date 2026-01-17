@@ -1,4 +1,4 @@
-import { CommentSection } from "@/components/blog/CommentSection";
+import { CommentWrapper } from "@/components/blog/CommentWrapper";
 import { notFound } from "next/navigation";
 import { getAllBlogPosts, getBlogPostBySlug } from "@/lib/blog-utils";
 import { RelatedEvents } from "@/components/blog/RelatedEvents";
@@ -179,6 +179,11 @@ export default async function BlogPostPage({ params }: Props) {
                         </div>
                     </Section>
                 </article>
+
+                {/* Comment Section */}
+                <div className="mt-16 pt-16 border-t border-white/10">
+                    <CommentWrapper id={post.id} title={post.title} slug={slug} />
+                </div>
 
                 {/* Related Posts */}
                 {relatedPosts.length > 0 && (

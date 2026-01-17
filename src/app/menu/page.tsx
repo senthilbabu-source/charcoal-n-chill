@@ -1,7 +1,8 @@
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
+import { JsonLd } from "@/components/layout/JsonLd";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { getMenuRecipeSchema } from "@/lib/seo-utils";
 import { Section } from "@/components/ui/Section";
 
@@ -62,7 +63,7 @@ export default function MenuPage() {
     return (
         <>
             <JsonLd data={menuSchema} />
-            <JsonLd data={getBreadcrumbSchema([{ name: "Menu", item: "/menu" }])} id="breadcrumb-menu" />
+            {/* Breadcrumb schema is now auto-injected by the Breadcrumbs component layout or page-level if included */}
 
             {/* Rich Snippet Recipe Schemas (Auto-generated from Menu Data) */}
             <JsonLd data={getMenuRecipeSchema("Butter Chicken", {
@@ -96,6 +97,7 @@ export default function MenuPage() {
             <main className="bg-dark-primary">
                 {/* Hero Section */}
                 <MenuHero />
+                <Breadcrumbs className="-mt-8 relative z-20 mb-8" />
 
                 <div className="flex justify-center -mt-10 relative z-20 pointer-events-none">
                     <div className="pointer-events-auto">

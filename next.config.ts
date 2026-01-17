@@ -11,6 +11,44 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
     dangerouslyAllowSVG: false,
+    qualities: [60, 75, 85, 90],
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'camera=(), microphone=(), geolocation=(self)'
+          }
+        ],
+      },
+    ]
   },
   skipTrailingSlashRedirect: true,
   async redirects() {
@@ -416,4 +454,29 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-export default withBundleAnalyzer(nextConfig);
+import { withSentryConfig } from "@sentry/nextjs";
+
+export default withSentryConfig(withBundleAnalyzer(nextConfig), {
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options
+
+  // Suppresses source map uploading logs during build
+  silent: true,
+  org: "charcoal-n-chill",
+  project: "charcoal-n-chill-web",
+
+  // Upload a larger set of source maps for prettier stack traces (increases build time)
+  widenClientFileUpload: true,
+
+  // Transpiles SDK to be compatible with IE11 (increases bundle size)
+  transpileClientSDK: true,
+
+  // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
+  tunnelRoute: "/monitoring",
+
+  // Hides source maps from generated client bundles
+  hideSourceMaps: true,
+
+  // Automatically tree-shake Sentry logger statements to reduce bundle size
+  disableLogger: true,
+});

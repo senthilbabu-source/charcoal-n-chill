@@ -14,6 +14,7 @@ import { AgeVerificationWrapper } from "@/components/ui/AgeVerificationWrapper";
 import { ToastProvider } from "@/components/ui/Toast";
 import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
 import { StickyReservation } from "@/components/layout/StickyReservation";
+import { WebVitals } from "@/components/layout/WebVitals";
 
 import { ScavengerHuntTracker } from "@/components/gamification/ScavengerHuntTracker";
 
@@ -23,6 +24,7 @@ const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   display: "swap",
+  preload: true,
 });
 
 const playfair = Playfair_Display({
@@ -30,6 +32,7 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
   display: "swap",
+  preload: true,
 });
 
 export const viewport: Viewport = {
@@ -113,6 +116,7 @@ export default function RootLayout({
             {/* Restaurant schema */}
             <JsonLd data={restaurantSchema} id="restaurant-schema" />
             <Analytics />
+            <WebVitals />
 
             <div id="main-content" tabIndex={-1} className="outline-none">
               {children}

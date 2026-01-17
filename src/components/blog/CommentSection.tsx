@@ -3,24 +3,25 @@
 import { DiscussionEmbed } from "disqus-react";
 import { usePathname } from "next/navigation";
 
-interface CommentSectionProps {
-    slug: string;
-    title: string;
+export interface CommentSectionProps {
     id: string;
+    title: string;
+    slug: string;
 }
 
-export function CommentSection({ slug, title, id }: CommentSectionProps) {
+export function CommentSection({ id, title, slug }: CommentSectionProps) {
     const pathname = usePathname();
     // TODO: Replace with your actual Disqus shortname
     const disqusShortname = "charcoalnchill-atlanta";
 
-    // Dynamic URL for development/staging flexibility
-    const url = typeof window !== 'undefined' ? window.location.href : `https://charcoalnchill.com/blog/${slug}`;
+    // Use strict production URL to ensure threads match across devices/browsers
+    const url = `https://charcoalnchill.com/blog/${slug}`;
 
     const disqusConfig = {
         url: url,
-        identifier: `post-${id}`, // uniquely identify post separate from integer IDs
+        identifier: slug, // Using slug is often more robust than IDs for migration
         title: title,
+        language: 'en_US'
     };
 
     return (

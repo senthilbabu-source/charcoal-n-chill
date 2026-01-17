@@ -121,13 +121,13 @@ export default function FAQPage() {
     return (
         <>
             <JsonLd data={faqSchema} />
-            <JsonLd data={getBreadcrumbSchema([{ name: "FAQ", item: "/faq" }])} id="breadcrumb-faq" />
+            <JsonLd data={faqSchema} />
             <Header />
             <main className="pt-32 pb-20 bg-dark-primary min-h-screen relative overflow-hidden">
                 {/* Background Ambient Glow */}
                 <div className="absolute top-0 left-0 right-0 h-[500px] bg-[radial-gradient(ellipse_at_top,_var(--gold-glow)_0%,_transparent_70%)] pointer-events-none" />
 
-                <Breadcrumbs items={[{ label: "FAQ", href: "/faq" }]} />
+                <Breadcrumbs />
 
                 <PageHero
                     title={<>Common <span className="text-gold text-glow">Questions</span></>}

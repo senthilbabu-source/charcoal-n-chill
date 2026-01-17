@@ -10,7 +10,7 @@ import Image from "next/image";
 import { EventsHero } from "@/components/events/EventsHero";
 import { EventsShowcase } from "@/components/events/EventsShowcase";
 import { SecretHunt } from "@/components/gamification/SecretHunt";
-import { getNextFriday, getNextTuesday } from "@/lib/date-utils";
+import { getNextFriday, getNextTuesday, generateWeekendEvents } from "@/lib/date-utils";
 
 export const metadata = constructMetadata({
     title: "Live Events - Belly Dancing, DJ Nights & Hookah | Charcoal N Chill Alpharetta",
@@ -19,7 +19,14 @@ export const metadata = constructMetadata({
     keywords: ["belly dancing Alpharetta", "live music Atlanta", "hookah specials", "Afrobeats night", "karaoke night"]
 });
 
+// Refresh this page every 24 hours to ensure "Next 8 Weeks" schema stays fresh
+export const revalidate = 86400;
+
 export default function EventsPage() {
+    const eventsList = generateWeekendEvents();
+    const startDate = eventsList[0]?.startDate;
+    const endDate = eventsList[eventsList.length - 1]?.endDate;
+
     return (
         <>
             <JsonLd
@@ -28,6 +35,8 @@ export default function EventsPage() {
                     "@type": "EventSeries",
                     "name": "Weekly Entertainment at Charcoal N Chill",
                     "description": "Recurring weekly events including Belly Dancing and Hookah Specials.",
+                    "startDate": startDate,
+                    "endDate": endDate,
                     "location": {
                         "@type": "Place",
                         "name": "Charcoal N Chill",
@@ -39,9 +48,49 @@ export default function EventsPage() {
                             "postalCode": "30005"
                         }
                     },
+                    "image": "https://charcoalnchill.com/images/events-hero.jpg",
                     "subEvent": [
-                        { "@type": "Event", "name": "Belly Dancing", "startDate": `${getNextFriday()}T22:00:00`, "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "description": "Live belly dancing every Friday and Saturday.", "image": "https://charcoalnchill.com/images/belly-dance-cnc.jpg", "location": { "@type": "Place", "name": "Charcoal N Chill", "address": { "@type": "PostalAddress", "streetAddress": "11950 Jones Bridge Rd Ste 103", "addressLocality": "Alpharetta", "addressRegion": "GA", "postalCode": "30005" } } },
-                        { "@type": "Event", "name": "Hookah Tuesday", "startDate": `${getNextTuesday()}T17:00:00`, "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "description": "Hookah specials all night.", "image": "https://charcoalnchill.com/images/hookah-cnc.jpg", "location": { "@type": "Place", "name": "Charcoal N Chill", "address": { "@type": "PostalAddress", "streetAddress": "11950 Jones Bridge Rd Ste 103", "addressLocality": "Alpharetta", "addressRegion": "GA", "postalCode": "30005" } } }
+                        // Next 8 weeks of Friday/Saturday Events
+                        ...eventsList,
+
+                        // Keep next Hookah Tuesday
+                        {
+                            "@type": "Event",
+                            "name": "Hookah Tuesday Specials",
+                            "startDate": `${getNextTuesday()}T17:00:00`,
+                            "endDate": `${getNextTuesday()}T01:00:00`,
+                            "eventStatus": "https://schema.org/EventScheduled",
+                            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                            "description": "Discounted hookah pricing all night.",
+                            "image": "https://charcoalnchill.com/images/hookah-cnc.jpg",
+                            "location": {
+                                "@type": "Place",
+                                "name": "Charcoal N Chill",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "11950 Jones Bridge Rd Ste 103",
+                                    "addressLocality": "Alpharetta",
+                                    "addressRegion": "GA",
+                                    "postalCode": "30005"
+                                }
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "url": "https://charcoalnchill.com/menu",
+                                "price": "0",
+                                "priceCurrency": "USD",
+                                "availability": "https://schema.org/InStock"
+                            },
+                            "performer": {
+                                "@type": "Organization",
+                                "name": "Charcoal N Chill"
+                            },
+                            "organizer": {
+                                "@type": "Organization",
+                                "name": "Charcoal N Chill",
+                                "url": "https://charcoalnchill.com"
+                            }
+                        }
                     ]
                 }}
                 id="events-series-jsonld"

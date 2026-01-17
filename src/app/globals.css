@@ -750,8 +750,10 @@ button:focus:not(:focus-visible) {
 /* Mobile Optimizations (Simpler transforms) */
 @media (max-width: 768px) {
   .reveal-hidden {
-    transform: translateY(10px);
-    /* Default simple slide up for mobile */
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    visibility: visible !important;
   }
 }
 

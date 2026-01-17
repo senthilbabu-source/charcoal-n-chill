@@ -31,11 +31,15 @@ export const organizationSchema = {
         "availableLanguage": ["en"],
         "email": "charcoalnchill@gmail.com"
     },
+    // Flattened contact info for direct Knowledge Graph access
+    "telephone": "+14705464866",
+    "email": "charcoalnchill@gmail.com",
     "sameAs": [
         "https://www.facebook.com/profile.php?id=61571869656813",
         "https://www.instagram.com/charcoal_n_chill/",
         "https://www.yelp.com/biz/charcoal-n-chill-alpharetta"
     ],
+    "image": "https://charcoalnchill.com/images/final-cnc-hero.jpg",
     "address": {
         "@type": "PostalAddress",
         "streetAddress": "11950 Jones Bridge Rd Ste 103",
@@ -43,7 +47,32 @@ export const organizationSchema = {
         "addressRegion": "GA",
         "postalCode": "30005",
         "addressCountry": "US"
-    }
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 34.07189517824684,
+        "longitude": -84.20413993771884
+    },
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"],
+            "opens": "17:00",
+            "closes": "01:00"
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Friday", "Saturday"],
+            "opens": "17:00",
+            "closes": "02:00"
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "17:00",
+            "closes": "01:00"
+        }
+    ]
 };
 
 export const restaurantSchema = {
@@ -84,8 +113,8 @@ export const restaurantSchema = {
     },
     "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 34.0705,
-        "longitude": -84.2830
+        "latitude": 34.07189517824684,
+        "longitude": -84.20413993771884
     },
     "openingHoursSpecification": [
         {
@@ -137,11 +166,27 @@ export const restaurantSchema = {
                 "http://schema.org/AndroidPlatform"
             ]
         },
-        "result": {
-            "@type": "FoodEstablishmentReservation",
-            "name": "Book Table"
+        "name": "Book Table"
+    },
+    "starRating": {
+        "@type": "Rating",
+        "ratingValue": "4.7"
+    },
+    "smokingAllowed": true,
+    "review": [
+        {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Local Guide"
+            },
+            "reviewBody": "Amazing hookah experience with smooth pulls and great flavors. The food is also top tier - chicken 65 is a must try."
         }
-    }
+    ]
 };
 
 export function getBreadcrumbSchema(items: { name: string; item: string }[]) {

@@ -76,7 +76,7 @@ export function Header() {
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="flex items-center justify-between relative">
                         {/* Left Nav (Desktop) */}
-                        <nav className="hidden md:flex flex-1 items-center gap-8 lg:gap-12 justify-start">
+                        <nav aria-label="Main navigation left" className="hidden md:flex flex-1 items-center gap-8 lg:gap-12 justify-start">
                             {navLeft.map((item) => (
                                 <Link
                                     key={item.name}
@@ -120,7 +120,7 @@ export function Header() {
                         </Link>
 
                         {/* Right Nav (Desktop) */}
-                        <nav className="hidden md:flex flex-1 items-center gap-8 lg:gap-12 justify-end">
+                        <nav aria-label="Main navigation right" className="hidden md:flex flex-1 items-center gap-8 lg:gap-12 justify-end">
                             {navRight.map((item) => (
                                 <Link
                                     key={item.name}
