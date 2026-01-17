@@ -25,7 +25,7 @@ export default function PrivateEventsPage() {
             <JsonLd data={getBreadcrumbSchema([{ name: "Private Events", item: "/private-events" }])} id="breadcrumb-private" />
             <Header />
             <main>
-                <Breadcrumbs items={[{ label: "Private Events", href: "/private-events" }]} />
+                <Breadcrumbs className="text-gray-400" />
 
                 <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-dark-primary">
                     {/* Parallax Background Layer */}

@@ -19,7 +19,7 @@ export default function TermsPage() {
                 <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-gold-primary/10 to-transparent pointer-events-none" />
 
                 <div className="container px-4 md:px-6 relative z-10">
-                    <Breadcrumbs items={[{ label: "Terms of Service", href: "/terms-of-service" }]} />
+                    <Breadcrumbs className="text-gray-400" />
 
                     <div className="mt-8 mb-12 text-center space-y-4">
                         <h1 className="text-4xl md:text-6xl font-heading font-black text-white tracking-tight uppercase">

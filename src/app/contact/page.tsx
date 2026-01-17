@@ -26,7 +26,7 @@ export default function ContactPage() {
 
                 <div className="relative z-10 border-t border-white/5 -mt-8 rounded-t-[3rem] bg-dark-primary" id="contact-content">
                     <div className="container mx-auto px-4 pt-8">
-                        <Breadcrumbs items={[{ label: "Contact", href: "/contact" }]} />
+                        <Breadcrumbs className="text-gray-400" />
 
                         <div className="py-12 lg:py-20">
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">

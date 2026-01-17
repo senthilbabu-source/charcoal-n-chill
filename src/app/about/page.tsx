@@ -45,7 +45,7 @@ export default function AboutPage() {
 
                 <div className="bg-dark-primary relative z-10 border-t border-white/5 -mt-8 rounded-t-[3rem]">
                     <div className="container mx-auto px-4 pt-8">
-                        <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
+                        <Breadcrumbs className="text-gray-400" />
                     </div>
 
                     {/* Story Section */}

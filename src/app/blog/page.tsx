@@ -38,7 +38,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Promise
             <JsonLd data={getBreadcrumbSchema([{ name: "Blog", item: "/blog" }])} id="breadcrumb-blog" />
             <Header />
             <main className="pt-40">
-                <Breadcrumbs items={[{ label: "Blog", href: "/blog" }]} />
+                <Breadcrumbs className="text-gray-400" />
 
                 <PageHero
                     title={<>Blog & <span className="text-gold-primary text-glow">News</span></>}

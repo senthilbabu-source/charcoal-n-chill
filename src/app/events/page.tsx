@@ -105,7 +105,7 @@ export default function EventsPage() {
 
                 <div className="bg-dark-primary relative z-10 border-t border-white/5 -mt-8 rounded-t-[3rem]">
                     <div className="container mx-auto px-4 pt-8">
-                        <Breadcrumbs items={[{ label: "Events", href: "/events" }]} />
+                        <Breadcrumbs className="text-gray-400" />
                     </div>
 
                     {/* Main Showcase */}
