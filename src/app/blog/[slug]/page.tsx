@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: Props) {
             <Header />
             <main className="pt-40">
                 <Breadcrumbs
-                    items={[
+                    customItems={[
                         { label: "Blog", href: "/blog" },
                         { label: post.title, href: `/blog/${post.slug}` },
                     ]}
