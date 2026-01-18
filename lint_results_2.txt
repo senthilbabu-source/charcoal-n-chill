@@ -1,0 +1,85 @@
+
+> app@0.1.0 lint
+> eslint
+
+
+/Users/senthilbabu/Downloads/new_cnc/scripts/verify-service-account.js
+  1:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/actions/blog.ts
+  70:18  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/api/admin/gbp/route.ts
+  111:21  warning  'validAccount' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/events/page.tsx
+  13:10  warning  'getNextFriday' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/faq/page.tsx
+  5:18  warning  'getBreadcrumbSchema' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/layout.tsx
+  10:8  warning  'dynamic' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/page.tsx
+   60:17  error  Do not use an `<a>` element to navigate to `/blog/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages                                @next/next/no-html-link-for-pages
+   69:17  error  Do not use an `<a>` element to navigate to `/blog/bollywood-night-recap/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages          @next/next/no-html-link-for-pages
+   76:17  error  Do not use an `<a>` element to navigate to `/blog/ultimate-guide-hookah-flavors/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  121:23  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                           react/no-unescaped-entities
+  122:73  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                           react/no-unescaped-entities
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/about/AboutHero.tsx
+   6:10  warning  'ArrowDown' is defined but never used               @typescript-eslint/no-unused-vars
+  35:11  warning  'scrollToStory' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/BlogForm.tsx
+  115:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/GSCMetrics.tsx
+  5:10  warning  'PerformanceChart' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/PerformanceChart.tsx
+  18:11  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:52  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/SEOTaskTracker.tsx
+    6:17  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  531:78  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  538:91  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   @typescript-eslint/no-explicit-any
+  556:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/SEOTaskTracker.tsx:556:17
+  554 |                 });
+  555 |
+> 556 |                 setTasks(mergedTasks);
+      |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  557 |             } catch (error) {
+  558 |                 console.error('Failed to parse saved SEO tasks:', error);
+  559 |                 // Fallback to initial state if parse fails  react-hooks/set-state-in-effect
+  563:8   warning  React Hook useEffect has a missing dependency: 'INITIAL_TASKS'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/blog/CommentSection.tsx
+  12:34  warning  'id' is defined but never used                 @typescript-eslint/no-unused-vars
+  13:11  warning  'pathname' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/events/EventsHero.tsx
+  6:10  warning  'ArrowDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/home/HeroClient.tsx
+   6:10  warning  'ScrollIndicator' is defined but never used       @typescript-eslint/no-unused-vars
+  10:11  warning  'parallaxRef' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/layout/Header.tsx
+  172:89  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  211:57  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 31 problems (16 errors, 15 warnings)
+

@@ -30,6 +30,8 @@ export function getNextDayOfWeek(dayName: 'Sunday' | 'Monday' | 'Tuesday' | 'Wed
     return nextDate.toISOString().split('T')[0];
 }
 
+
+
 export function getNextTuesday() {
     return getNextDayOfWeek('Tuesday');
 }
@@ -75,7 +77,7 @@ const eventTemplates: EventTemplate[] = [
  * Includes all required Google fields: eventStatus, location, offers, etc.
  */
 export function generateWeekendEvents(weeksToCheck = 8) {
-    const events: any[] = []; // Using any for flexibility with Schema definitions
+    const events: any[] = []; // eslint-disable-line @typescript-eslint/no-explicit-any
     const today = new Date();
 
     for (let i = 0; i < weeksToCheck; i++) {

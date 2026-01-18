@@ -11,6 +11,7 @@ import { EventInquiryForm } from "@/components/home/EventInquiryForm";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { SecretHunt } from "@/components/gamification/SecretHunt";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export const metadata = constructMetadata({
     title: "Private Party Venue - VIP Hookah Lounge Rental | Alpharetta GA",
@@ -22,12 +23,10 @@ export const metadata = constructMetadata({
 export default function PrivateEventsPage() {
     return (
         <>
-            <JsonLd data={getBreadcrumbSchema([{ name: "Private Events", item: "/private-events" }])} id="breadcrumb-private" />
+            <JsonLd data={getBreadcrumbSchema([{ name: "Parties", item: "/private-events" }])} id="breadcrumb-private" />
             <Header />
             <main>
-                <Breadcrumbs className="text-gray-400" />
-
-                <section className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-dark-primary">
+                <section className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-dark-primary pb-20">
                     {/* Parallax Background Layer */}
                     <div className="absolute inset-0 z-0 h-full w-full">
                         <Image
@@ -47,7 +46,7 @@ export default function PrivateEventsPage() {
                         <div className="absolute bottom-0 right-[20%] w-[400px] h-[400px] bg-brand-red/10 rounded-full blur-[100px] animate-smoke-rise delay-1000" />
                     </div>
 
-                    <div className="container relative z-10 px-4 md:px-6 text-center">
+                    <div className="container relative z-10 px-4 md:px-6 text-center pt-24">
                         <ScrollReveal animation="fade-up">
                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-gold text-sm font-bold uppercase tracking-widest mb-8">
                                 <Star size={16} className="fill-gold" />
@@ -81,15 +80,17 @@ export default function PrivateEventsPage() {
                     </div>
 
                     {/* Scroll Indicator */}
-                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
-                        <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-white to-transparent" />
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-white">Scroll</span>
-                    </div>
+                    {/* Scroll Indicator */}
+                    <ScrollIndicator targetId="pricing" label="View Packages" className="bottom-8" />
 
                     <div className="absolute bottom-10 right-10 z-20">
                         <SecretHunt id="parties_ember" locationName="the Parties Page" />
                     </div>
                 </section>
+
+                <div className="container mx-auto px-4 relative z-20 -mt-8 mb-8 pointer-events-none">
+                    <Breadcrumbs customItems={[{ label: "Parties", href: "/private-events" }]} className="pointer-events-auto" />
+                </div>
 
                 <Section>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">

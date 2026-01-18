@@ -39,6 +39,7 @@ export function Header() {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -168,7 +169,15 @@ export function Header() {
 }
 
 // Separate component for Portal to ensure clean rendering context
-function MobileMenuPortal({ isOpen, setIsOpen, setShowRewards, allNavItems, pathname }: any) {
+interface MobileMenuPortalProps {
+    isOpen: boolean;
+    setIsOpen: (open: boolean) => void;
+    setShowRewards: (show: boolean) => void;
+    allNavItems: { name: string; href: string }[];
+    pathname: string;
+}
+
+function MobileMenuPortal({ isOpen, setIsOpen, setShowRewards, allNavItems, pathname }: MobileMenuPortalProps) {
     if (typeof document === "undefined") return null;
 
     return createPortal(
@@ -207,7 +216,7 @@ function MobileMenuPortal({ isOpen, setIsOpen, setShowRewards, allNavItems, path
                             </div>
 
                             <div className="flex flex-col gap-6 flex-1">
-                                {allNavItems.map((item: any) => (
+                                {allNavItems.map((item) => (
                                     <Link
                                         key={item.name}
                                         href={item.href}

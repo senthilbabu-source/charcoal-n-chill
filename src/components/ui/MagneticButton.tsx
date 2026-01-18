@@ -65,7 +65,7 @@ export function MagneticButton({
                 className
             )}
             aria-label={ariaLabel}
-            {...props as any}
+            {...props as any} // eslint-disable-line @typescript-eslint/no-explicit-any
         >
             <span className="relative z-10">{children}</span>
             {glow && (

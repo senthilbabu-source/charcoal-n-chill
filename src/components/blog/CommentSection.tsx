@@ -1,16 +1,14 @@
 "use client";
 
 import { DiscussionEmbed } from "disqus-react";
-import { usePathname } from "next/navigation";
+
 
 export interface CommentSectionProps {
-    id: string;
     title: string;
     slug: string;
 }
 
-export function CommentSection({ id, title, slug }: CommentSectionProps) {
-    const pathname = usePathname();
+export function CommentSection({ title, slug }: CommentSectionProps) {
     // TODO: Replace with your actual Disqus shortname
     const disqusShortname = "charcoalnchill-atlanta";
 

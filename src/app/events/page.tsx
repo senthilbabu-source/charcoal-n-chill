@@ -10,7 +10,7 @@ import Image from "next/image";
 import { EventsHero } from "@/components/events/EventsHero";
 import { EventsShowcase } from "@/components/events/EventsShowcase";
 import { SecretHunt } from "@/components/gamification/SecretHunt";
-import { getNextFriday, getNextTuesday, generateWeekendEvents } from "@/lib/date-utils";
+import { getNextTuesday, generateWeekendEvents } from "@/lib/date-utils";
 
 export const metadata = constructMetadata({
     title: "Live Events - Belly Dancing, DJ Nights & Hookah | Charcoal N Chill Alpharetta",

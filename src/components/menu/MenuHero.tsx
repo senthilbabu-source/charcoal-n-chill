@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 
 export function MenuHero() {
@@ -41,13 +42,10 @@ export function MenuHero() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToMenu = () => {
-        const element = document.getElementById('menu-explorer');
-        element?.scrollIntoView({ behavior: 'smooth' });
-    };
+
 
     return (
-        <section ref={heroRef} className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-black">
+        <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-black pb-20">
             {/* Parallax Background */}
             <div className="absolute inset-0 z-0 parallax-layer will-change-transform">
                 <Image
@@ -96,18 +94,12 @@ export function MenuHero() {
                     explore a menu designed to ignite your senses.
                 </p>
 
-                {/* Scroll Indicator */}
-                <button
-                    onClick={scrollToMenu}
-                    className="group flex flex-col items-center gap-3 text-white/50 hover:text-gold-primary transition-colors cursor-pointer animate-fade-in-up [animation-delay:0.8s]"
-                    aria-label="Scroll to Menu"
-                >
-                    <span className="text-xs uppercase tracking-widest font-medium">Explore Menu</span>
-                    <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center p-1">
-                        <div className="w-1 h-2 bg-current rounded-full animate-bounce" />
-                    </div>
-                </button>
+
+
             </div>
+
+            {/* Scroll Indicator */}
+            <ScrollIndicator targetId="menu-explorer" />
         </section>
     );
 }

@@ -2,7 +2,6 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { PerformanceChart } from "./PerformanceChart"
 
 type GSCData = {
     keys: string[]

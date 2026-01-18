@@ -56,7 +56,6 @@ export async function GET() {
         }
 
         // Search for the first account that contains locations
-        let validAccount = null;
         let validLocation = null;
 
         log(`Checking ${accounts.length} accessible accounts...`);
@@ -108,7 +107,6 @@ export async function GET() {
 
                 if (locationsRes.data.locations && locationsRes.data.locations.length > 0) {
                     log(`Found valid location in account: ${account.name}`);
-                    validAccount = account;
                     validLocation = locationsRes.data.locations[0];
                     break; // Stop once we find a location
                 } else {

@@ -7,7 +7,7 @@ import { JsonLd, organizationSchema, restaurantSchema } from "@/components/layou
 import { Analytics } from "@/components/layout/Analytics";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
-import dynamic from "next/dynamic";
+
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 
 import { AgeVerificationWrapper } from "@/components/ui/AgeVerificationWrapper";
@@ -15,6 +15,7 @@ import { ToastProvider } from "@/components/ui/Toast";
 import { ScavengerHuntProvider } from "@/context/ScavengerHuntContext";
 import { StickyReservation } from "@/components/layout/StickyReservation";
 import { WebVitals } from "@/components/layout/WebVitals";
+import { WeekendCountdown } from "@/components/layout/WeekendCountdown";
 
 import { ScavengerHuntTracker } from "@/components/gamification/ScavengerHuntTracker";
 
@@ -100,6 +101,7 @@ export default function RootLayout({
         <ToastProvider>
           <ScavengerHuntProvider>
             <div id="scroll-sentinel" className="absolute top-0 h-px w-full pointer-events-none" />
+            <WeekendCountdown />
             <AgeVerificationWrapper />
             <GrainOverlay />
             <Suspense fallback={null}>

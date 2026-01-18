@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { ArrowDown } from "lucide-react";
 import { TextReveal } from "@/components/ui/TextReveal";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function EventsHero() {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -49,7 +49,7 @@ export function EventsHero() {
     };
 
     return (
-        <section ref={heroRef} className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-dark-primary">
+        <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-dark-primary pb-20">
             {/* Parallax Background */}
             <div className="absolute inset-0 z-0 parallax-layer will-change-transform">
                 <Image
@@ -111,18 +111,10 @@ export function EventsHero() {
                 </div>
             </div>
 
+
+
             {/* Scroll Indicator */}
-            <button
-                type="button"
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer z-20"
-                onClick={scrollToEvents}
-                aria-label="Scroll down"
-            >
-                <div className="flex flex-col items-center gap-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500">Explore</span>
-                    <ArrowDown className="text-gold-primary w-6 h-6" />
-                </div>
-            </button>
+            <ScrollIndicator targetId="events-showcase" label="Explore" />
         </section>
     );
 }

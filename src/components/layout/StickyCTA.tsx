@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { UtensilsCrossed } from "lucide-react";
+import { UtensilsCrossed, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export function StickyCTA() {
@@ -33,8 +33,18 @@ export function StickyCTA() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                    className="fixed bottom-6 right-6 z-50"
+                    className="fixed bottom-6 right-6 z-50 flex items-center gap-3"
                 >
+                    {/* Mobile Call Button */}
+                    <a href="tel:+14702773539" className="md:hidden">
+                        <button
+                            className="w-12 h-12 flex items-center justify-center bg-white text-black rounded-full shadow-[0_0_20px_rgba(255,255,255,0.4)] active:scale-95 transition-transform"
+                            aria-label="Call Us Now"
+                        >
+                            <Phone size={20} className="fill-black" />
+                        </button>
+                    </a>
+
                     <Link href="/contact#reserve">
                         <button
                             className="group relative flex items-center gap-2 pl-4 pr-5 py-3 bg-gold-primary text-black font-black uppercase tracking-widest text-sm rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:scale-105 transition-all duration-300"

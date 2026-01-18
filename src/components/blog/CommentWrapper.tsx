@@ -7,6 +7,6 @@ const CommentSection = dynamic(() => import("./CommentSection").then(mod => mod.
     loading: () => <div className="h-64 bg-white/5 rounded-2xl animate-pulse mt-16" />
 });
 
-export function CommentWrapper({ id, title, slug }: { id: string; title: string, slug: string }) {
-    return <CommentSection id={id} title={title} slug={slug} />;
+export function CommentWrapper({ title, slug }: { title: string, slug: string }) {
+    return <CommentSection title={title} slug={slug} />;
 }

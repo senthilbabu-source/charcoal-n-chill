@@ -4,6 +4,7 @@ import { useActionState, useState } from "react";
 import { createBlogPost } from "@/app/actions/blog";
 import { Button } from "@/components/ui/Button";
 import { Loader2 } from "lucide-react";
+import Image from "next/image";
 import { categories } from "@/data/blog";
 
 const initialState = {
@@ -112,7 +113,7 @@ export function BlogForm() {
                         <label htmlFor="image-upload" className="cursor-pointer flex flex-col items-center justify-center gap-2">
                             {preview ? (
                                 <div className="relative w-full max-w-md h-48 rounded-lg overflow-hidden border border-white/10">
-                                    <img src={preview} alt="Preview" className="w-full h-full object-cover" />
+                                    <Image src={preview} alt="Preview" width={128} height={128} className="w-full h-32 object-cover rounded-md" />
                                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                                         <span className="text-white bg-black/50 px-3 py-1 rounded-full text-sm">Change Image</span>
                                     </div>

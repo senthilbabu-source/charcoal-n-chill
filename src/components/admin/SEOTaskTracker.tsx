@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, Circle, ChevronDown, ChevronRight, Calendar, TrendingUp, Target, AlertCircle, Star, FileText, Users, MapPin } from 'lucide-react';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const ICON_MAP: any = {
     MapPin,
     Users,
@@ -474,7 +475,37 @@ const SEOTaskTracker = () => {
         }
     };
 
-    const [tasks, setTasks] = useState<any>(INITIAL_TASKS);
+    interface SubTask {
+        id: string;
+        title: string;
+        completed: boolean;
+        notes: string;
+        ongoing?: boolean;
+        url?: string;
+        targetDate?: string;
+    }
+
+    interface Task {
+        id: string;
+        title: string;
+        completed: boolean;
+        subtasks: SubTask[];
+        ongoing?: boolean;
+        frequency?: string;
+    }
+
+    interface Category {
+        name: string;
+        priority: string;
+        icon: string;
+        color: string;
+        expanded: boolean;
+        tasks: Task[];
+    }
+
+    type TaskState = Record<string, Category>;
+
+    const [tasks, setTasks] = useState<TaskState>(INITIAL_TASKS);
 
     const [filter, setFilter] = useState('all'); // all, completed, pending, ongoing
     const [searchTerm, setSearchTerm] = useState('');
@@ -487,7 +518,8 @@ const SEOTaskTracker = () => {
             try {
                 const parsed = JSON.parse(savedTasks);
                 // Merge saved progress with INITIAL_TASKS to preserve structure (icons, etc.)
-                const mergedTasks: any = { ...INITIAL_TASKS };
+                // Merge saved progress with INITIAL_TASKS to preserve structure (icons, etc.)
+                const mergedTasks: TaskState = JSON.parse(JSON.stringify(INITIAL_TASKS)); // Deep copy
 
                 Object.keys(mergedTasks).forEach(key => {
                     if (parsed[key]) {
@@ -496,14 +528,16 @@ const SEOTaskTracker = () => {
 
                         // Merge tasks
                         if (Array.isArray(parsed[key].tasks)) {
-                            mergedTasks[key].tasks = mergedTasks[key].tasks.map((task: any) => {
+                            mergedTasks[key].tasks = mergedTasks[key].tasks.map((task) => {
+                                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                 const savedTask = parsed[key].tasks.find((t: any) => t.id === task.id);
                                 if (savedTask) {
                                     return {
                                         ...task,
                                         completed: savedTask.completed ?? task.completed,
                                         ongoing: savedTask.ongoing ?? task.ongoing,
-                                        subtasks: task.subtasks.map((st: any) => {
+                                        subtasks: task.subtasks.map((st) => {
+                                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                             const savedSub = savedTask.subtasks?.find((s: any) => s.id === st.id);
                                             if (savedSub) {
                                                 return {
@@ -522,6 +556,7 @@ const SEOTaskTracker = () => {
                     }
                 });
 
+
                 setTasks(mergedTasks);
             } catch (error) {
                 console.error('Failed to parse saved SEO tasks:', error);
@@ -529,6 +564,7 @@ const SEOTaskTracker = () => {
                 setTasks(INITIAL_TASKS);
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // Save to localStorage whenever tasks change
@@ -537,7 +573,7 @@ const SEOTaskTracker = () => {
     }, [tasks]);
 
     const toggleTaskExpansion = (categoryKey: string) => {
-        setTasks((prev: any) => ({
+        setTasks((prev) => ({
             ...prev,
             [categoryKey]: {
                 ...prev[categoryKey],
@@ -547,17 +583,17 @@ const SEOTaskTracker = () => {
     };
 
     const toggleSubtask = (categoryKey: string, taskId: string, subtaskId: string) => {
-        setTasks((prev: any) => {
+        setTasks((prev) => {
             const category = { ...prev[categoryKey] };
             // Create a deep copy of tasks array to avoid mutation
             category.tasks = [...category.tasks];
 
-            const taskIndex = category.tasks.findIndex((t: any) => t.id === taskId);
+            const taskIndex = category.tasks.findIndex((t) => t.id === taskId);
             const task = { ...category.tasks[taskIndex] };
             // Create a deep copy of subtasks array to avoid mutation
             task.subtasks = [...task.subtasks];
 
-            const subtaskIndex = task.subtasks.findIndex((st: any) => st.id === subtaskId);
+            const subtaskIndex = task.subtasks.findIndex((st) => st.id === subtaskId);
 
             task.subtasks[subtaskIndex] = {
                 ...task.subtasks[subtaskIndex],
@@ -565,7 +601,7 @@ const SEOTaskTracker = () => {
             };
 
             // Update task completion based on subtasks
-            task.completed = task.subtasks.every((st: any) => st.completed);
+            task.completed = task.subtasks.every((st) => st.completed);
 
             category.tasks[taskIndex] = task;
 
@@ -577,17 +613,17 @@ const SEOTaskTracker = () => {
     };
 
     const updateSubtaskNotes = (categoryKey: string, taskId: string, subtaskId: string, notes: string) => {
-        setTasks((prev: any) => {
+        setTasks((prev) => {
             const category = { ...prev[categoryKey] };
             // Create a deep copy of tasks array to avoid mutation
             category.tasks = [...category.tasks];
 
-            const taskIndex = category.tasks.findIndex((t: any) => t.id === taskId);
+            const taskIndex = category.tasks.findIndex((t) => t.id === taskId);
             const task = { ...category.tasks[taskIndex] };
             // Create a deep copy of subtasks array to avoid mutation
             task.subtasks = [...task.subtasks];
 
-            const subtaskIndex = task.subtasks.findIndex((st: any) => st.id === subtaskId);
+            const subtaskIndex = task.subtasks.findIndex((st) => st.id === subtaskId);
 
             task.subtasks[subtaskIndex] = {
                 ...task.subtasks[subtaskIndex],
@@ -603,19 +639,19 @@ const SEOTaskTracker = () => {
         });
     };
 
-    const calculateProgress = (category: any) => {
-        const allSubtasks = category.tasks.flatMap((t: any) => t.subtasks);
-        const completed = allSubtasks.filter((st: any) => st.completed).length;
+    const calculateProgress = (category: Category) => {
+        const allSubtasks = category.tasks.flatMap((t) => t.subtasks);
+        const completed = allSubtasks.filter((st) => st.completed).length;
         return Math.round((completed / allSubtasks.length) * 100);
     };
 
     const getOverallProgress = () => {
-        const categories: any[] = Object.values(tasks);
+        const categories: Category[] = Object.values(tasks);
         const totalSubtasks = categories.reduce((acc, cat) =>
-            acc + cat.tasks.flatMap((t: any) => t.subtasks).length, 0
+            acc + cat.tasks.flatMap((t) => t.subtasks).length, 0
         );
         const completedSubtasks = categories.reduce((acc, cat) =>
-            acc + cat.tasks.flatMap((t: any) => t.subtasks).filter((st: any) => st.completed).length, 0
+            acc + cat.tasks.flatMap((t) => t.subtasks).filter((st) => st.completed).length, 0
         );
         return Math.round((completedSubtasks / totalSubtasks) * 100);
     };
@@ -677,9 +713,10 @@ const SEOTaskTracker = () => {
 
                 {/* Task Categories */}
                 <div className="space-y-4">
-                    {Object.entries(tasks).map(([key, category]: [string, any]) => {
+                    {Object.entries(tasks).map(([key, category]) => {
                         const progress = calculateProgress(category);
-                        const Icon = ICON_MAP[category.icon] || Circle;
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        const Icon = (ICON_MAP as any)[category.icon] || Circle;
 
                         return (
                             <div key={key} className="bg-gray-800/50 rounded-lg border border-gray-700 overflow-hidden">
@@ -703,7 +740,7 @@ const SEOTaskTracker = () => {
                                                         {category.priority}
                                                     </span>
                                                     <span className="text-sm text-gray-400">
-                                                        {category.tasks.flatMap((t: any) => t.subtasks).filter((st: any) => st.completed).length} / {category.tasks.flatMap((t: any) => t.subtasks).length} tasks
+                                                        {category.tasks.flatMap((t) => t.subtasks).filter((st) => st.completed).length} / {category.tasks.flatMap((t) => t.subtasks).length} tasks
                                                     </span>
                                                 </div>
                                             </div>
@@ -727,7 +764,7 @@ const SEOTaskTracker = () => {
                                 {/* Tasks */}
                                 {category.expanded && (
                                     <div className="p-6 pt-0 space-y-6">
-                                        {category.tasks.map((task: any) => (
+                                        {category.tasks.map((task) => (
                                             <div key={task.id} className="bg-gray-700/30 rounded-lg p-4 border border-gray-600">
                                                 <div className="flex items-center justify-between mb-3">
                                                     <h4 className="font-semibold text-lg">{task.title}</h4>
@@ -742,7 +779,7 @@ const SEOTaskTracker = () => {
                                                 </div>
 
                                                 <div className="space-y-2">
-                                                    {task.subtasks.map((subtask: any) => (
+                                                    {task.subtasks.map((subtask) => (
                                                         <div key={subtask.id} className="bg-gray-800/30 rounded-lg p-3 hover:bg-gray-800/50 transition-colors">
                                                             <div className="flex items-start gap-3">
                                                                 <button

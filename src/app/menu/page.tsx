@@ -15,16 +15,17 @@ import { SecretHunt } from "@/components/gamification/SecretHunt";
 import { constructMetadata } from "@/lib/metadata";
 
 export const metadata = constructMetadata({
-    title: "Menu - Premium Hookah & Indo-American Food | Charcoal N Chill Alpharetta",
-    description: "Explore 50+ hookah flavors, signature butter chicken, tandoori wings, craft cocktails & more. Indo-American fusion menu at Alpharetta's premier hookah lounge.",
-    path: "/menu"
+    title: "Menu - Halal, Vegan & Indian Fusion Food | Charcoal N Chill Alpharetta",
+    description: "Explore our diverse menu featuring 100% Halal meats, broad Vegan & Gluten-Free options, and signature Indo-American fusion dishes. Best Hookah and Dinner in Alpharetta.",
+    path: "/menu",
+    keywords: ["Halal food Alpharetta", "Vegan options", "Gluten-free menu", "Indian fusion", "Hookah lounge menu"]
 });
 
 const menuSchema = {
     "@context": "https://schema.org",
     "@type": "Menu",
     "name": "Charcoal N Chill Menu",
-    "description": "Indo-American Eats, American Classics, 50+ hookah flavors, craft cocktails",
+    "description": "Indo-American Eats, American Classics, 50+ hookah flavors. 100% Zabiha Halal Meat, Vegan & Gluten-Free Options Available.",
     "hasMenuSection": [
         {
             "@type": "MenuSection",

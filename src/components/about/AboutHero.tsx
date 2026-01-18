@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { TextReveal } from "@/components/ui/TextReveal";
-import { ArrowDown } from "lucide-react";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function AboutHero() {
     const heroRef = useRef<HTMLDivElement>(null);
@@ -31,13 +31,8 @@ export function AboutHero() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const scrollToStory = () => {
-        const element = document.getElementById('our-story');
-        element?.scrollIntoView({ behavior: 'smooth' });
-    };
-
     return (
-        <section ref={heroRef} className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-dark-primary">
+        <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-dark-primary pb-20">
             {/* Parallax Background */}
             <div className="absolute inset-0 z-0 parallax-layer will-change-transform">
                 <Image
@@ -75,20 +70,10 @@ export function AboutHero() {
                 </div>
             </div>
 
+
+
             {/* Scroll Indicator */}
-            <button
-                type="button"
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer z-20 group"
-                onClick={scrollToStory}
-                aria-label="Scroll down"
-            >
-                <div className="flex flex-col items-center gap-3">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-gray-500 group-hover:text-gold-primary transition-colors">Our Story</span>
-                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-black/30 backdrop-blur-sm group-hover:border-gold-primary/50 transition-colors">
-                        <ArrowDown className="text-white w-4 h-4 group-hover:text-gold-primary" />
-                    </div>
-                </div>
-            </button>
+            <ScrollIndicator targetId="our-story" label="Our Story" />
         </section>
     );
 }

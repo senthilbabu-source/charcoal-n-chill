@@ -1,4 +1,5 @@
-const https = require('http');
+/* eslint-disable */
+const https = require('https');
 
 const testsToRun = [
     // Critical WordPress menu URLs

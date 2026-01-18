@@ -44,11 +44,13 @@ function getFlavorTags(item: MenuItem) {
 export function MenuExplorer() {
     const [activeCategory, setActiveCategory] = useState("all");
     const [searchQuery, setSearchQuery] = useState("");
+    const [activeFilters, setActiveFilters] = useState<('veg' | 'halal' | 'gf')[]>([]);
 
     // Handle deep linking on mount
     useEffect(() => {
         const hash = window.location.hash.replace('#', '').toLowerCase();
         if (hash && categories.some(cat => cat.id === hash)) {
+            // eslint-disable-next-line
             setActiveCategory(hash);
             // Optional: Scroll offset adjustment if needed
             const element = document.getElementById('menu-explorer');
@@ -60,6 +62,14 @@ export function MenuExplorer() {
         }
     }, []);
 
+    const toggleFilter = (filter: 'veg' | 'halal' | 'gf') => {
+        setActiveFilters(prev =>
+            prev.includes(filter)
+                ? prev.filter(f => f !== filter)
+                : [...prev, filter]
+        );
+    };
+
     // Flatten items for search if needed, or filter by category
     const filteredItems = Object.entries(menuItems).flatMap(([catKey, items]) => {
         // First filter by category
@@ -67,10 +77,15 @@ export function MenuExplorer() {
             return [];
         }
         return items.map(item => ({ ...item, category: catKey }));
-    }).filter(item =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.desc.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    }).filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            item.desc.toLowerCase().includes(searchQuery.toLowerCase());
+
+        const matchesDietary = activeFilters.length === 0 ||
+            activeFilters.every(filter => item.dietary?.includes(filter));
+
+        return matchesSearch && matchesDietary;
+    });
 
     return (
         <div className="min-h-screen bg-dark-primary relative" id="menu-explorer">
@@ -80,37 +95,64 @@ export function MenuExplorer() {
             {/* Sticky Navigation / Filter Bar */}
             <div className="sticky top-16 md:top-[72px] z-40 bg-dark-primary/80 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all duration-300">
                 <div className="container mx-auto px-4 py-4">
-                    <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
-                        {/* Category Tabs */}
-                        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto pb-2 md:pb-0">
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat.id}
-                                    onClick={() => setActiveCategory(cat.id)}
-                                    className={cn(
-                                        "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all whitespace-nowrap border border-transparent magnetic",
-                                        activeCategory === cat.id
-                                            ? "bg-gradient-to-r from-gold-dark to-gold-light text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] transform scale-105"
-                                            : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white hover:border-gold-primary/30"
-                                    )}
-                                >
-                                    <cat.icon size={16} />
-                                    {cat.label}
-                                </button>
-                            ))}
+                    <div className="flex flex-col gap-4">
+                        <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
+                            {/* Category Tabs */}
+                            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto pb-2 md:pb-0">
+                                {categories.map((cat) => (
+                                    <button
+                                        key={cat.id}
+                                        onClick={() => setActiveCategory(cat.id)}
+                                        className={cn(
+                                            "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all whitespace-nowrap border border-transparent magnetic",
+                                            activeCategory === cat.id
+                                                ? "bg-gradient-to-r from-gold-dark to-gold-light text-black shadow-[0_0_20px_rgba(212,175,55,0.4)] transform scale-105"
+                                                : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white hover:border-gold-primary/30"
+                                        )}
+                                    >
+                                        <cat.icon size={16} />
+                                        {cat.label}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Search Bar */}
+                            <div className="relative w-full md:w-96 group">
+                                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors duration-300" size={18} />
+                                <input
+                                    type="text"
+                                    placeholder="Search our menu..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="w-full bg-dark-secondary/50 border border-white/10 rounded-full py-3 pl-12 pr-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/50 transition-all font-light shadow-inner"
+                                />
+                                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gold-primary/20 to-transparent opacity-0 group-focus-within:opacity-100 -z-10 blur-md transition-opacity duration-300" />
+                            </div>
                         </div>
 
-                        {/* Search Bar */}
-                        <div className="relative w-full md:w-96 group">
-                            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors duration-300" size={18} />
-                            <input
-                                type="text"
-                                placeholder="Search our menu..."
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full bg-dark-secondary/50 border border-white/10 rounded-full py-3 pl-12 pr-6 text-white placeholder:text-gray-600 focus:outline-none focus:border-gold-primary focus:ring-1 focus:ring-gold-primary/50 transition-all font-light shadow-inner"
-                            />
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gold-primary/20 to-transparent opacity-0 group-focus-within:opacity-100 -z-10 blur-md transition-opacity duration-300" />
+                        {/* Smart Filters (Dietary) */}
+                        <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2 md:pt-0 border-t md:border-t-0 border-white/5">
+                            <span className="text-xs font-bold uppercase tracking-widest text-gray-500 mr-2">Dietary:</span>
+                            {(
+                                [
+                                    { id: 'veg', label: 'Vegetarian', color: 'text-green-400', border: 'border-green-400/30', bg: 'bg-green-400/10' },
+                                    { id: 'halal', label: 'Halal', color: 'text-yellow-400', border: 'border-yellow-400/30', bg: 'bg-yellow-400/10' },
+                                    { id: 'gf', label: 'Gluten Free', color: 'text-orange-400', border: 'border-orange-400/30', bg: 'bg-orange-400/10' }
+                                ] as const
+                            ).map((filter) => (
+                                <button
+                                    key={filter.id}
+                                    onClick={() => toggleFilter(filter.id)}
+                                    className={cn(
+                                        "px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border transition-all duration-300",
+                                        activeFilters.includes(filter.id)
+                                            ? `${filter.bg} ${filter.border} ${filter.color} shadow-[0_0_10px_rgba(0,0,0,0.3)]`
+                                            : "bg-white/5 border-transparent text-gray-500 hover:bg-white/10 hover:text-gray-300"
+                                    )}
+                                >
+                                    {filter.label}
+                                </button>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -128,6 +170,16 @@ export function MenuExplorer() {
                                         <div className="group h-full bg-dark-secondary/40 backdrop-blur-md rounded-3xl border border-white/5 p-8 relative overflow-hidden transition-all duration-500 hover:bg-dark-secondary/60 hover:border-gold-primary/30">
                                             {/* Hover Gradient */}
                                             <div className="absolute inset-0 bg-gradient-to-br from-gold-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                                            {/* Pairing Mode Overlay (Chef's Match) */}
+                                            {item.pairsWith && (
+                                                <div className="absolute top-0 right-0 z-20 translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out">
+                                                    <div className="bg-gold-primary text-black px-4 py-1.5 rounded-bl-2xl font-bold text-xs uppercase tracking-wider shadow-lg flex items-center gap-2">
+                                                        <span>Chef&apos;s Match: {item.pairsWith.name}</span>
+                                                        {item.pairsWith.type === 'drink' ? <GlassWater size={12} /> : <Utensils size={12} />}
+                                                    </div>
+                                                </div>
+                                            )}
 
                                             {/* Card Content */}
                                             <div className="relative z-10 flex flex-col h-full">
@@ -162,6 +214,22 @@ export function MenuExplorer() {
                                                         </TiltParallax>
                                                     )}
 
+                                                    {/* Dietary Tags (Visible if filtered or always? Always good for info) */}
+                                                    {item.dietary && item.dietary.length > 0 && (
+                                                        <div className="flex flex-wrap gap-2 mb-2">
+                                                            {item.dietary.map(tag => (
+                                                                <span key={tag} className={cn(
+                                                                    "text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full border opacity-80",
+                                                                    tag === 'veg' ? "text-green-400 border-green-400/30 bg-green-400/5" :
+                                                                        tag === 'halal' ? "text-yellow-400 border-yellow-400/30 bg-yellow-400/5" :
+                                                                            "text-orange-400 border-orange-400/30 bg-orange-400/5"
+                                                                )}>
+                                                                    {tag}
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                    )}
+
                                                     <div className="flex items-center justify-between border-t border-white/5 pt-4">
                                                         <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 bg-white/5 px-3 py-1.5 rounded-full group-hover:text-white transition-colors">
                                                             {item.category}
@@ -190,8 +258,14 @@ export function MenuExplorer() {
                         <div className="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-600">
                             <Search size={32} />
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-2">No flavors found</h3>
-                        <p className="text-gray-500">We couldn&apos;t find anything matching &quot;{searchQuery}&quot;.</p>
+                        <h3 className="text-xl font-bold text-white mb-2">No matching items found</h3>
+                        <p className="text-gray-500">Try adjusting your filters or search terms.</p>
+                        <button
+                            onClick={() => { setActiveFilters([]); setSearchQuery(""); }}
+                            className="mt-4 text-gold-primary hover:underline text-sm font-bold uppercase tracking-widest"
+                        >
+                            Clear All Filters
+                        </button>
                     </motion.div>
                 )}
 

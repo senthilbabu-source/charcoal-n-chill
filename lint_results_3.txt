@@ -1,0 +1,66 @@
+
+> app@0.1.0 lint
+> eslint
+
+
+/Users/senthilbabu/Downloads/new_cnc/scripts/verify-service-account.js
+  1:20  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:12  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  3:14  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/actions/blog.ts
+  70:18  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/api/admin/gbp/route.ts
+  111:21  warning  'validAccount' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/events/page.tsx
+  13:10  warning  'getNextFriday' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/faq/page.tsx
+  5:18  warning  'getBreadcrumbSchema' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/layout.tsx
+  10:8  warning  'dynamic' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/app/page.tsx
+    8:37  warning  'Clock' is defined but never used                                                                                                                           @typescript-eslint/no-unused-vars
+    8:44  warning  'Star' is defined but never used                                                                                                                            @typescript-eslint/no-unused-vars
+    8:50  warning  'Menu' is defined but never used                                                                                                                            @typescript-eslint/no-unused-vars
+    8:56  warning  'X' is defined but never used                                                                                                                               @typescript-eslint/no-unused-vars
+    8:59  warning  'Instagram' is defined but never used                                                                                                                       @typescript-eslint/no-unused-vars
+    8:70  warning  'Facebook' is defined but never used                                                                                                                        @typescript-eslint/no-unused-vars
+   61:17  error    Do not use an `<a>` element to navigate to `/blog/`. Use `<Link />` from `next/link` instead. See: https://nextjs.org/docs/messages/no-html-link-for-pages  @next/next/no-html-link-for-pages
+  122:23  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                             react/no-unescaped-entities
+  123:73  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                             react/no-unescaped-entities
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/about/AboutHero.tsx
+   6:10  warning  'ArrowDown' is defined but never used               @typescript-eslint/no-unused-vars
+  35:11  warning  'scrollToStory' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/BlogForm.tsx
+  115:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/GSCMetrics.tsx
+  5:10  warning  'PerformanceChart' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/PerformanceChart.tsx
+  26:82  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/admin/SEOTaskTracker.tsx
+    6:17  error    Unexpected any. Specify a different type                                                                          @typescript-eslint/no-explicit-any
+  566:8   warning  React Hook useEffect has a missing dependency: 'INITIAL_TASKS'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/blog/CommentSection.tsx
+  12:34  warning  'id' is defined but never used                 @typescript-eslint/no-unused-vars
+  13:11  warning  'pathname' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/events/EventsHero.tsx
+  6:10  warning  'ArrowDown' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/senthilbabu/Downloads/new_cnc/src/components/home/HeroClient.tsx
+   6:10  warning  'ScrollIndicator' is defined but never used       @typescript-eslint/no-unused-vars
+  10:11  warning  'parallaxRef' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+✖ 29 problems (8 errors, 21 warnings)
+

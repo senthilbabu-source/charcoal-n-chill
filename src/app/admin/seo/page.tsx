@@ -1,8 +1,8 @@
 
 "use client";
 
-import { CheckCircle2, Search, Globe, Shield, RefreshCw, LogOut, TrendingUp, MapPin, Key } from "lucide-react";
-import { useState, useRef } from "react";
+import { CheckCircle2, Search, Globe, Shield, RefreshCw, LogOut, TrendingUp } from "lucide-react";
+import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { GSCMetrics } from "@/components/admin/GSCMetrics";
 // import { GBPMetrics } from "@/components/admin/GBPMetrics";
@@ -41,16 +41,7 @@ function SeoDashboardContent() {
         }, 80);
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const TabButton = ({ id, label, icon: Icon }: { id: typeof activeTab, label: string, icon: any }) => (
-        <button
-            onClick={() => setActiveTab(id)}
-            className={`flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold transition-all ${activeTab === id ? 'bg-white/10 text-white shadow-glow' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}
-        >
-            <Icon size={14} />
-            {label}
-        </button>
-    );
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-black via-charcoal to-black p-8">
@@ -76,10 +67,18 @@ function SeoDashboardContent() {
 
                 {/* Tabs */}
                 <div className="flex flex-wrap gap-2 bg-black/40 p-1.5 rounded-full border border-white/5 w-fit">
-                    <TabButton id="overview" label="Overview" icon={Globe} />
-                    <TabButton id="gsc" label="Search Performance" icon={TrendingUp} />
-                    {/* <TabButton id="gbp" label="Google Business" icon={MapPin} /> */}
-                    <TabButton id="health" label="Site Health" icon={Shield} />
+                    {(['overview', 'gsc', 'health'] as const).map((id) => (
+                        <button
+                            key={id}
+                            onClick={() => setActiveTab(id)}
+                            className={`flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold transition-all ${activeTab === id ? 'bg-white/10 text-white shadow-glow' : 'text-gray-500 hover:text-white hover:bg-white/5'}`}
+                        >
+                            {id === 'overview' && <Globe size={14} />}
+                            {id === 'gsc' && <TrendingUp size={14} />}
+                            {id === 'health' && <Shield size={14} />}
+                            {id === 'overview' ? 'Overview' : id === 'gsc' ? 'Search Performance' : 'Site Health'}
+                        </button>
+                    ))}
                 </div>
 
                 {/* Content Area */}

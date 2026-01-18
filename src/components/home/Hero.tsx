@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { BokehOverlay } from "@/components/ui/BokehOverlay";
 import { HeroInteractive, HeroParallaxBackground } from "./HeroClient";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function Hero() {
     return (
@@ -54,6 +55,9 @@ export function Hero() {
                 {/* Interactive Buttons & Scroll Indicator (Client Component) */}
                 <HeroInteractive />
             </div>
+
+            {/* Scroll Indicator (Positioned Relative to Section, Above Stats Bar) */}
+            <ScrollIndicator targetId="menu-preview" className="bottom-8 md:bottom-44 z-20" />
 
             {/* Floating Stats Bar (Static HTML) */}
             <div className="absolute bottom-0 inset-x-0 mx-auto w-[95%] max-w-7xl glass-bg border-b-0 rounded-t-3xl p-6 hidden md:flex justify-center gap-8 lg:gap-12 items-center animate-fade-in-up" style={{ animationDelay: '0.8s' }}>

@@ -178,7 +178,7 @@ export default async function BlogPostPage({ params }: Props) {
 
                 {/* Comment Section */}
                 <div className="mt-16 pt-16 border-t border-white/10">
-                    <CommentWrapper id={post.id} title={post.title} slug={slug} />
+                    <CommentWrapper title={post.title} slug={slug} />
                 </div>
 
                 {/* Related Posts */}

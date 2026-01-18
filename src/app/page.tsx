@@ -4,7 +4,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import ScrollReveal from "@/components/ui/ScrollReveal";
-import { MapPin, Phone, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, MapPin, Phone } from "lucide-react";
 import { MapFacade } from "@/components/ui/MapFacade";
 
 const HighlightsGrid = dynamic(() => import("@/components/home/HighlightsGrid").then(mod => mod.HighlightsGrid));
@@ -12,7 +13,7 @@ const ProductShowcase = dynamic(() => import("@/components/home/ProductShowcase"
   loading: () => <div className="min-h-[50vh] bg-dark-primary" />,
 });
 const SocialWall = dynamic(() => import("@/components/home/SocialWall").then(mod => mod.SocialWall));
-const ReviewCarousel = dynamic(() => import("@/components/home/ReviewCarousel").then(mod => mod.ReviewCarousel));
+const ReviewTicker = dynamic(() => import("@/components/home/ReviewTicker").then(mod => mod.ReviewTicker));
 
 export const metadata = constructMetadata({
   title: "Charcoal N Chill | #1 Hookah & Indo-American Fusion in Alpharetta",
@@ -57,27 +58,27 @@ export default function Home() {
                 </div>
               </ScrollReveal>
               <ScrollReveal animation="fade-left">
-                <a href="/blog" className="group flex items-center gap-2 text-white hover:text-gold-primary transition-colors">
+                <Link href="/blog" className="group flex items-center gap-2 text-white hover:text-gold-primary transition-colors">
                   <span className="text-sm font-bold uppercase tracking-widest">Read More Articles</span>
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </ScrollReveal>
             </div>
             {/* Simple Blog Cards Placeholder - Ideally strictly linking to /blog */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <ScrollReveal animation="fade-up" delay={0.1}>
-                <a href="/blog/bollywood-night-recap" className="block group bg-dark-secondary rounded-2xl p-8 border border-white/5 hover:border-gold-primary/30 transition-colors">
+                <Link href="/blog/bollywood-night-recap" className="block group bg-dark-secondary rounded-2xl p-8 border border-white/5 hover:border-gold-primary/30 transition-colors">
                   <span className="text-gold-primary text-xs font-bold uppercase tracking-widest mb-3 block">Event Recap</span>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold-primary transition-colors">Bollywood Night: A Night to Remember</h3>
                   <p className="text-gray-400 text-sm">Highlights from our most electrifying weekend yet. See what you missed!</p>
-                </a>
+                </Link>
               </ScrollReveal>
               <ScrollReveal animation="fade-up" delay={0.2}>
-                <a href="/blog/ultimate-guide-hookah-flavors" className="block group bg-dark-secondary rounded-2xl p-8 border border-white/5 hover:border-gold-primary/30 transition-colors">
+                <Link href="/blog/ultimate-guide-hookah-flavors" className="block group bg-dark-secondary rounded-2xl p-8 border border-white/5 hover:border-gold-primary/30 transition-colors">
                   <span className="text-gold-primary text-xs font-bold uppercase tracking-widest mb-3 block">Expert Tips</span>
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-gold-primary transition-colors">Top 5 Hookah Flavors for Beginners</h3>
                   <p className="text-gray-400 text-sm">New to hookah? Start with these crowd-pleasing blends curated by our experts.</p>
-                </a>
+                </Link>
               </ScrollReveal>
             </div>
           </div>
@@ -118,12 +119,12 @@ export default function Home() {
 
                   <div className="near-avalon my-6 p-6 bg-gradient-to-r from-gold-primary/10 to-transparent border-l-4 border-gold-primary rounded-r-xl">
                     <p className="location-highlight text-base leading-relaxed text-gray-300 m-0 italic">
-                      "Conveniently serving North Atlanta: Alpharetta, Johns Creek, Roswell, Milton, and Cumming.
-                      The perfect post-shopping destination near Avalon."
+                      &quot;Conveniently serving North Atlanta: Alpharetta, Johns Creek, Roswell, Milton, and Cumming.
+                      The perfect post-shopping destination near Avalon.&quot;
                     </p>
                   </div>
 
-                  <ReviewCarousel />
+                  <ReviewTicker />
                 </div>
               </ScrollReveal>
 
@@ -145,3 +146,4 @@ export default function Home() {
     </>
   );
 }
+

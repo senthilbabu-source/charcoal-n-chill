@@ -7,7 +7,7 @@ export const GBPMetrics = () => {
     // Placeholder until we confirm data shape or fix GBP invitation
     // But since we are doing OAuth, GBP should work!
     const [loading, setLoading] = useState(true)
-    const [data, setData] = useState<any>(null)
+    const [data, setData] = useState<unknown[] | null>(null)
     const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
@@ -21,8 +21,12 @@ export const GBPMetrics = () => {
                 }
                 const json = await res.json()
                 setData(json)
-            } catch (err: any) {
-                setError(err.message)
+            } catch (err: unknown) {
+                if (err instanceof Error) {
+                    setError(err.message)
+                } else {
+                    setError("An unknown error occurred")
+                }
             } finally {
                 setLoading(false)
             }

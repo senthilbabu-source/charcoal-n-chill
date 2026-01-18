@@ -136,7 +136,7 @@ export const restaurantSchema = {
             "closes": "01:00"
         }
     ],
-    "servesCuisine": ["Indo-American", "American", "Fusion", "Hookah Lounge"],
+    "servesCuisine": ["Indian", "American", "Fusion", "Hookah Lounge", "Halal", "Vegetarian", "Vegan", "Gluten-Free"],
     "acceptsReservations": "True",
     "menu": "https://charcoalnchill.com/menu",
     "amenityFeature": [

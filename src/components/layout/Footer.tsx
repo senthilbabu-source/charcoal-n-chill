@@ -45,7 +45,7 @@ export function Footer() {
                                 { name: "Menu", href: "/menu" },
                                 { name: "About", href: "/about" },
                                 { name: "Events", href: "/events" },
-                                { name: "Private Events", href: "/private-events" },
+                                { name: "Parties", href: "/private-events" },
                                 { name: "FAQ", href: "/faq" },
                                 { name: "Blog", href: "/blog" },
                                 { name: "Contact", href: "/contact" }

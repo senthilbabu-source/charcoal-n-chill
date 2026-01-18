@@ -2,7 +2,7 @@ import { constructMetadata } from "@/lib/metadata";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
-import { JsonLd, getBreadcrumbSchema } from "@/components/layout/JsonLd";
+import { JsonLd } from "@/components/layout/JsonLd";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 import { HelpCircle, ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";

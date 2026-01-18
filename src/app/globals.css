@@ -141,7 +141,6 @@ body {
 }
 
 
-
 /* Optimization for large sections below the fold */
 .content-section {
   content-visibility: auto;
@@ -781,5 +780,27 @@ button:focus:not(:focus-visible) {
 
   .reveal-hidden.zoom-out {
     transform: scale(1.2);
+  }
+}
+
+/* ==== Marquee Animation ==== */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 20s;
   }
 }

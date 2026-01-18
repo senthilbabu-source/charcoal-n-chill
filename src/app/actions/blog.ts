@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 
 const POSTS_FILE = path.join(process.cwd(), "src/data/posts.json");
 
-export async function createBlogPost(prevState: any, formData: FormData) {
+export async function createBlogPost(prevState: unknown, formData: FormData) {
     try {
         const title = formData.get("title") as string;
         const excerpt = formData.get("excerpt") as string;
@@ -42,8 +42,8 @@ export async function createBlogPost(prevState: any, formData: FormData) {
                 // Write file
                 await fs.writeFile(path.join(uploadDir, filename), buffer);
                 imagePath = `/images/blog/${filename}`;
-            } catch (error) {
-                console.error("Image upload failed:", error);
+            } catch (_error) {
+                console.error("Image upload failed:", _error);
                 // Fallback to placeholder or handle error
             }
         }
@@ -53,7 +53,8 @@ export async function createBlogPost(prevState: any, formData: FormData) {
             title,
             excerpt,
             content,
-            category: category as any, // Type assertion for simplicity
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            category: category as any,
             date,
             readTime,
             author,
@@ -66,7 +67,7 @@ export async function createBlogPost(prevState: any, formData: FormData) {
         try {
             const data = await fs.readFile(POSTS_FILE, "utf-8");
             posts = JSON.parse(data);
-        } catch (error) {
+        } catch {
             // File might not exist yet, which is fine
         }
 
@@ -78,8 +79,8 @@ export async function createBlogPost(prevState: any, formData: FormData) {
 
         revalidatePath("/blog");
         return { success: true, message: "Blog post created successfully!" };
-    } catch (error) {
-        console.error("Failed to create blog post:", error);
+    } catch (_error) {
+        console.error("Failed to create blog post:", _error);
         return { success: false, message: "Failed to save blog post." };
     }
 }

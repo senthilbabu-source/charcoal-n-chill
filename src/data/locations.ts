@@ -12,7 +12,7 @@ export const locations: LocationData[] = [
         slug: "alpharetta",
         distance: "0 mins",
         direction: "Central",
-        metaDescription: "The premier hookah lounge in Alpharetta. Top-rated shisha, late-night food, and VIP bottle service right in your neighborhood."
+        metaDescription: "Best Hookah in Alpharetta. Top-rated shisha lounge with late-night food, cocktails, and VIP bottle service. Open until 2 AM."
     },
     {
         city: "Milton",
@@ -26,21 +26,21 @@ export const locations: LocationData[] = [
         slug: "roswell",
         distance: "12 mins",
         direction: "South",
-        metaDescription: "Roswell's favorite late-night spot is Charcoal N Chill. Experience luxury hookah, craft cocktails, and live DJ sets just minutes away."
+        metaDescription: "Best Hookah in Roswell area. Experience luxury shisha, craft cocktails, and live DJ sets just minutes away at Charcoal N Chill."
     },
     {
         city: "Johns Creek",
         slug: "johns-creek",
         distance: "15 mins",
         direction: "East",
-        metaDescription: "The best hookah bar near Johns Creek. upscale ambiance, diverse flavors, and a menu that stays open until 2 AM."
+        metaDescription: "Best Hookah in Johns Creek area. Upscale ambiance, diverse flavors, and a late-night menu that stays open until 2 AM."
     },
     {
         city: "Cumming",
         slug: "cumming",
         distance: "18 mins",
         direction: "North",
-        metaDescription: "Worth the drive from Cumming. Charcoal N Chill offers an unmatched hookah experience with premium coals and expert service."
+        metaDescription: "Best Hookah near Cumming, GA. Charcoal N Chill offers an unmatched premium hookah experience with 100% coconut coals."
     },
     {
         city: "Sandy Springs",
@@ -61,7 +61,7 @@ export const locations: LocationData[] = [
         slug: "suwanee",
         distance: "25 mins",
         direction: "East",
-        metaDescription: "Searching for hookah near Suwanee? Charcoal N Chill is your destination for premium flavors, great music, and vibrant atmosphere."
+        metaDescription: "Best Hookah near Suwanee. Charcoal N Chill is your destination for premium flavors, great music, and vibrant atmosphere."
     },
     {
         city: "Duluth",

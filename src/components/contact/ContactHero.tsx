@@ -5,6 +5,7 @@ import Image from "next/image";
 import { TextReveal } from "@/components/ui/TextReveal";
 import { Button } from "@/components/ui/Button";
 import { Phone } from "lucide-react";
+import { ScrollIndicator } from "@/components/ui/ScrollIndicator";
 
 export function ContactHero() {
     const heroRef = useRef<HTMLElement>(null);
@@ -48,7 +49,7 @@ export function ContactHero() {
     };
 
     return (
-        <section ref={heroRef} className="relative h-[70vh] flex items-center justify-center overflow-hidden bg-black">
+        <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden bg-black pb-20">
             {/* Parallax Background */}
             <div className="absolute inset-0 z-0 parallax-layer will-change-transform">
                 <Image
@@ -119,6 +120,8 @@ export function ContactHero() {
                     </a>
                 </div>
             </div>
+            {/* Scroll Indicator */}
+            <ScrollIndicator targetId="contact-content" />
         </section>
     );
 }
